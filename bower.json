@@ -1,0 +1,28 @@
+{
+  "name": "coco",
+  "version": "0.1.0",
+  "homepage": "https://cococss.com",
+  "authors": [
+    "jgthms <bbxdesign@gmail.com>",
+    "raisty"
+  ],
+  "description": "Modern CSS framework based on Flexbox",
+  "main": "coco.sass",
+  "keywords": [
+    "css",
+    "sass",
+    "flexbox",
+    "responsive",
+    "framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "docs",
+    "images"
+  ]
+}

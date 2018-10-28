@@ -1,0 +1,9 @@
+$saturate-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200, 300, 400, 500
+
+=saturate
+  @each $breakpoint in $saturate-breakpoints
+    &.saturate-#{$breakpoint}
+      filter: unquote("saturate(#{$breakpoint}%)")
+
+.filter
+  +saturate

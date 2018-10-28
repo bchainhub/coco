@@ -1,0 +1,9 @@
+$blur-breakpoints: '1px', '2px', '3px', '4px', '5px', '6px', '7px', '8px', '9px', '10px'
+
+=blur
+  @each $breakpoint in $blur-breakpoints
+    &.blur-#{$breakpoint}
+      filter: blur($breakpoint)
+
+.filter
+  +blur

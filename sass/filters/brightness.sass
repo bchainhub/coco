@@ -1,0 +1,9 @@
+$brightness-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200
+
+=brightness
+  @each $breakpoint in $brightness-breakpoints
+    &.brightness-#{$breakpoint}
+      filter: unquote("brightness(#{$breakpoint}%)")
+
+.filter
+  +brightness

@@ -1,0 +1,17 @@
+.filter
+  &.aden
+    position: relative
+    filter: contrast(90%) brightness(120%) saturate(85%) hue-rotate(20deg)
+    -webkit-filter: contrast(90%) brightness(120%) saturate(85%) hue-rotate(20deg)
+    &::before
+      content: ""
+      display: block
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+      position: absolute
+      pointer-events: none
+      mix-blend-mode: darken
+      background: linear-gradient(to right, rgba(66, 10, 14, 0.2), rgba(66, 10, 14, 0))
+      background: -webkit-linear-gradient(to right, rgba(66, 10, 14, 0.2), rgba(66, 10, 14, 0))
