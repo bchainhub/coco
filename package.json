@@ -27,7 +27,6 @@
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "clean-css-cli": "^4.1.11",
-    "docpress": "0.7.1",
     "node-sass": "^4.8.3",
     "postcss-cli": "^5.0.0",
     "rimraf": "^2.6.2"
