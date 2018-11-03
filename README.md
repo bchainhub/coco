@@ -79,7 +79,7 @@ $input-border-color: transparent
 $input-shadow: none
 
 // Import the rest of COCO
-@import "styles/coco.sass";
+@import "styles/coco.sass"
 ```
 
 ## Get started
