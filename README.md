@@ -43,38 +43,43 @@ import 'coco/styles/coco.css'
 import 'coco/styles/coco.min.css'
 ```
 
+#### SASS version
+```sh
+import 'coco/styles/coco.sass'
+```
+
 ## Customize distribution
 
-COCO is a **CSS** framework. Output is a single CSS file: [coco.css](https://github.com/CryptoHub-place/coco/blob/master/styles/coco.css)
+COCO is a **CSS** framework. Output is a single CSS file [coco.css](https://github.com/CryptoHub-place/coco/blob/master/styles/coco.css) or SASS distribution.
 
 You can either use that file, "out of the box", or download the Sass source files to customize the variables.
 
 ```html
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700')
 
 // Set your brand colors
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
+$purple: #8A4D76
+$pink: #FA7C91
+$brown: #757763
+$beige-light: #D0D1CD
+$beige-lighter: #EFF0EB
 
 // Update COCO's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
+$family-sans-serif: "Nunito", sans-serif
+$grey-dark: $brown
+$grey-light: $beige-light
+$primary: $purple
+$link: $pink
 
 // Update some of COCO's component variables
-$control-border-width: 2px;
-$input-background-color: $beige-lighter;
-$input-border-color: transparent;
-$input-shadow: none;
+$control-border-width: 2px
+$input-background-color: $beige-lighter
+$input-border-color: transparent
+$input-shadow: none
 
 // Import the rest of COCO
-@import "../styles/coco.css";
+@import "styles/coco.sass";
 ```
 
 ## Get started
