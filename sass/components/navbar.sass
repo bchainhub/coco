@@ -122,6 +122,7 @@ $navbar-breakpoint: $desktop !default
     display: none
     & + .navbar-burger
       margin-top: -3.25em
+    &:checked + .navbar-burger
       span
         &:nth-child(1)
           transform: translateY(5px) rotate(45deg)
@@ -129,9 +130,8 @@ $navbar-breakpoint: $desktop !default
           opacity: 0
         &:nth-child(3)
           transform: translateY(-5px) rotate(-45deg)
-    &:checked
-      & ~ .navbar-menu
-        display: block
+    &:checked ~ .navbar-menu
+      display: block
 
 html,
 body

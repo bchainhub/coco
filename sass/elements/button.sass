@@ -73,6 +73,18 @@ $button-static-border-color: $grey-lighter !default
     &:first-child:last-child
       margin-left: calc(-0.375em - #{$button-border-width})
       margin-right: calc(-0.375em - #{$button-border-width})
+  .em.oji
+    &,
+    &.is-small,
+    &.is-medium,
+    &.is-large
+      font-size: 1em
+    &:first-child:not(:last-child)
+      margin-left: calc(-0.375em - #{$button-border-width})
+      margin-right: 0.1875em
+    &:last-child:not(:first-child)
+      margin-left: 0.1875em
+      margin-right: calc(-0.375em - #{$button-border-width})
   // States
   &:hover,
   &.is-hovered
