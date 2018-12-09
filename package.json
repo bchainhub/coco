@@ -1,6 +1,6 @@
 {
   "name": "coco",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://cococss.com",
   "author": {
     "name": "Raisty"
@@ -28,17 +28,19 @@
     "autoprefixer": "^8.2.0",
     "clean-css-cli": "^4.1.11",
     "copyfiles": "^2.1.0",
+    "less-plugin-sass2less": "^1.2.0",
     "node-sass": "^4.8.3",
     "postcss-cli": "^5.0.0",
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "build": "npm run build-clean && npm run build-css && npm run build-autoprefix && npm run build-cleancss",
-    "build-autoprefix": "postcss --use autoprefixer --map false --output styles/coco.css styles/coco.css",
-    "build-cleancss": "cleancss -o styles/coco.min.css styles/coco.css",
+    "build": "npm run build-clean && npm run build-css && npm run build-autoprefix && npm run build-cleancss && npm run build-less",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output dist/coco.css dist/coco.css",
+    "build-cleancss": "cleancss -o dist/coco.min.css dist/coco.css",
     "build-clean": "rimraf css",
-    "build-css": "node-sass --output-style expanded --source-map true coco.sass styles/coco.css",
-    "build-sass": "copyfiles coco.sass 'sass/**/*.sass' styles",
+    "build-css": "node-sass --output-style expanded --source-map true style/coco.sass dist/coco.css",
+    "build-sass": "copyfiles 'style/**/*.sass' 'dist/sass'",
+    "build-less": "sass2less 'style/**/*.sass' 'dist/less/{dir}/{name}.less'",
     "deploy": "npm run build",
     "start": "npm run build-css -- --watch"
   },

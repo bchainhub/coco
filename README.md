@@ -35,22 +35,22 @@ After installation, you can import the CSS file into your project using this sni
 
 #### Normal CSS version
 ```sh
-import 'coco/styles/coco.css'
+import 'coco/dist/coco.css'
 ```
 
 #### Minified CSS version
 ```sh
-import 'coco/styles/coco.min.css'
+import 'coco/dist/coco.min.css'
 ```
 
 #### SASS version
 ```sh
-import 'coco/styles/coco.sass'
+import 'coco/dist/coco.sass'
 ```
 
 ## Customize distribution
 
-COCO is a **CSS** framework. Output is a single CSS file [coco.css](https://github.com/CryptoHub-place/coco/blob/master/styles/coco.css) or SASS distribution.
+COCO is a **CSS** framework. Output is a single CSS file [coco.css](https://github.com/CryptoHub-place/coco/blob/master/dist/coco.css) or SASS distribution.
 
 You can either use that file, "out of the box", or download the Sass source files to customize the variables.
 
@@ -79,7 +79,7 @@ $input-border-color: transparent
 $input-shadow: none
 
 // Import the rest of COCO
-@import "styles/coco.sass"
+@import "style/coco.sass"
 ```
 
 ## Get started

@@ -1,0 +1,11 @@
+@grayscale-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100
+
+=grayscale
+  @each @breakpoint in @grayscale-breakpoints
+    &.grayscale-@{breakpoint}
+      filter: ~"grayscale(@{breakpoint}%)"
+
+.filter
+  +grayscale
+  &.grayscale
+    filter: ~"grayscale(100%)"

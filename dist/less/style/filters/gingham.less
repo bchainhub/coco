@@ -1,0 +1,17 @@
+.filter
+  &.gingham
+    position: relative
+    filter: brightness(105%) hue-rotate(350deg)
+    -webkit-filter: brightness(105%) hue-rotate(350deg)
+    &::before
+      content: ""
+      display: block
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+      position: absolute
+      pointer-events: none
+      mix-blend-mode: darken
+      background: -webkit-linear-gradient(to right, rgba(66, 10, 14, 0.2), rgba(0, 0, 0, 0))
+      background: linear-gradient(to right, rgba(66, 10, 14, 0.2), rgba(0, 0, 0, 0))
