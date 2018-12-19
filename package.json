@@ -1,6 +1,6 @@
 {
   "name": "coco",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://cococss.com",
   "author": {
     "name": "Raisty"
@@ -45,10 +45,9 @@
     "start": "npm run build-css -- --watch"
   },
   "files": [
-    "coco.sass",
+    "dist",
     "LICENSE",
     "README.md",
-    "sass",
-    "styles"
+    "style"
   ]
 }

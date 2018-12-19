@@ -9,7 +9,7 @@
 run_it()
 {
 	
-	local _src="${1-coco.sass}"
+	local _src="${1-$(dirname "${BASH_SOURCE[0]}")/style/coco.sass}"
 	local _dest="${2-$(dirname "${BASH_SOURCE[0]}")/output/$(basename ${_src}).css}"
 	local _options="${3---sourcemap=none}"
 

@@ -1,5 +1,11 @@
 # COCO css Changelog
 
+## 0.1.2
+
+### Improvements
+
+* "are-medium" for div classes "tags" and "buttons"
+
 ## 0.1.1
 
 ### New features
