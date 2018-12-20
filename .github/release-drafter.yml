@@ -1,6 +1,6 @@
 template: |
-  ## 🥥 What's Changed
+  ## 🥥 Release changes
 
   $CHANGES
 
-  🦸‍♂️ Thanks to: $CONTRIBUTORS
+  🌟 Our stars: $CONTRIBUTORS
