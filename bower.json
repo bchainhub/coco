@@ -1,6 +1,6 @@
 {
   "name": "coco",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://cococss.com",
   "authors": [
     "jgthms <bbxdesign@gmail.com>",
@@ -22,7 +22,6 @@
     "bower_components",
     "test",
     "tests",
-    "docs",
-    "images"
+    "docs"
   ]
 }

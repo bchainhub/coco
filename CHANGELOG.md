@@ -1,5 +1,18 @@
 # COCO css Changelog
 
+## 1.0.0
+
+### New features
+
+* Gulp file for exporting
+* Automated documentation
+* Proper export of Less
+
+### Improvements
+
+* Change the paths
+* Added SCSS export using (SASS2SCSS)[https://github.com/mgreter/sass2scss]
+
 ## 0.1.2
 
 ### Improvements

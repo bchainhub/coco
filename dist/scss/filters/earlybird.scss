@@ -1,0 +1,18 @@
+.filter {
+  &.earlybird {
+    position: relative;
+    filter: contrast(90%) sepia(20%);
+    -webkit-filter: contrast(90%) sepia(20%);
+    &::before {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      background: -webkit-radial-gradient(circle closest-corner, rgba(208, 186, 142, 1), rgba(29, 2, 16, 0.2));
+      background: radial-gradient(circle closest-corner, rgba(208, 186, 142, 1), rgba(29, 2, 16, 0.2)); } } }
+

@@ -1,0 +1,12 @@
+$grayscale-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100;
+
+@mixin grayscale {
+  @each $breakpoint in $grayscale-breakpoints {
+    &.grayscale-#{$breakpoint} {
+      filter: unquote("grayscale(#{$breakpoint}%)"); } } }
+
+.filter {
+  @include grayscale;
+  &.grayscale {
+    filter: unquote("grayscale(100%)"); } }
+

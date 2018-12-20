@@ -1,0 +1,21 @@
+/// Clarendon filter will brighten the highlights found in your photos, while also making the shadows a bit bolder.
+/// @name .filter.clarendon
+/// @group filters
+/// @since 1.0.0
+/// @link https://github.com/CryptoHub-place/coco/wiki/effects-filters#clarendon
+.filter
+  &.clarendon
+    position: relative
+    filter: contrast(120%) saturate(125%)
+    -webkit-filter: contrast(120%) saturate(125%)
+    &::before
+      content: ""
+      display: block
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+      position: absolute
+      pointer-events: none
+      mix-blend-mode: overlay
+      background: rgba(127, 187, 227, 0.2)

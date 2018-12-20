@@ -5,5 +5,10 @@ $contrast-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200
     &.contrast-#{$breakpoint}
       filter: unquote("contrast(#{$breakpoint}%)")
 
+/// Contrast filter adjusts the contrast of an image.
+/// @name .filter.contrast
+/// @group filters
+/// @since 1.0.0
+/// @link https://github.com/CryptoHub-place/coco/wiki/effects-filters#contrast
 .filter
   +contrast
