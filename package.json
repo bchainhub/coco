@@ -47,9 +47,10 @@
     "build-sass": "copyfiles 'style/**/*.sass' 'dist/sass'",
     "build-scss": "gulp scss",
     "build-less": "gulp less",
+    "compress": "cp -R dist coco && zip -r coco-v.zip coco && rm -rf coco",
     "deploy": "npm run build",
     "start": "npm run build-css -- --watch",
-    "release": "npm run build && npm run build-docs"
+    "release": "npm run build && npm run build-docs && npm run compress"
   },
   "files": [
     "dist",

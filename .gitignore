@@ -3,6 +3,8 @@
 .ruby-version
 test.sass
 npm-debug.log
+*.tar.gz
+*.zip
 
 # Folders
 .idea/
@@ -11,5 +13,4 @@ _gh_pages
 _site
 node_modules
 test/output/
-styles/coco.sass
-styles/sass/
+coco/
