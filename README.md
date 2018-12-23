@@ -45,7 +45,7 @@ import 'coco/dist/coco.min.css'
 
 #### SASS version
 ```sh
-import 'coco/dist/coco.sass'
+import 'coco/style/coco.sass'
 ```
 
 ## Customize distribution
