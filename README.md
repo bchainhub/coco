@@ -35,12 +35,12 @@ After installation, you can import the CSS file into your project using this sni
 
 #### Normal CSS version
 ```sh
-import 'coco/dist/coco.css'
+import 'coco/dist/css/coco.css'
 ```
 
 #### Minified CSS version
 ```sh
-import 'coco/dist/coco.min.css'
+import 'coco/dist/css/coco.min.css'
 ```
 
 #### SASS version
@@ -128,7 +128,7 @@ Internet Explorer (10+) is only partially supported.
 
 ## Documentation
 
-Browse the online documentation in [WIKI page](https://github.com/CryptoHub-place/coco/wiki).
+Browse the online documentation in [WIKI page](https://github.com/CryptoHub-place/coco/wiki) or [cococss.com](https://cococss.com).
 
 ## Copyright and license
 
