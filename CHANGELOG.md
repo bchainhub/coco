@@ -1,5 +1,11 @@
 # COCO css Changelog
 
+## 1.0.2
+
+### Improvements
+
+* Excluded Less from distribution due to converting issues
+
 ## 1.0.1
 
 ### Improvements
