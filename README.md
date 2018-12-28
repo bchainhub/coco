@@ -60,7 +60,7 @@ Note: install meteor plug-in first [fourseven:scss](https://atmospherejs.com/fou
 ```sh
 meteor add fourseven:scss
 meteor npm install CryptoHub-place/coco#master --save
-ls -s ../node_modules/coco/dist/scss imports/coco
+ls -s -f ../node_modules/@cryptohub/coco/dist/scss imports/coco
 ```
 > client/styles/main.scss
 ```css
@@ -70,7 +70,7 @@ ls -s ../node_modules/coco/dist/scss imports/coco
 #### Jekyll aka Github pages :octocat:
 ```sh
 npm install CryptoHub-place/coco#master --save
-ls -s ../node_modules/coco/dist/sass _sass/coco
+ls -s -f ../node_modules/@cryptohub/coco/dist/sass _sass/coco
 ```
 > css/styles.sass
 ```css
@@ -79,7 +79,7 @@ ls -s ../node_modules/coco/dist/sass _sass/coco
 > \_config.yml
 ```yaml
 include:
-  - node_modules/coco/dist/sass
+  - node_modules/@cryptohub/coco/dist/sass
 ```
 
 ## Customize distribution
@@ -113,7 +113,7 @@ $input-border-color: transparent
 $input-shadow: none
 
 // Import the rest of COCO
-@import "style/coco.sass"
+@import "coco/sass/coco.sass"
 ```
 
 You can found default variables in [dist/default/vars.scss](https://github.com/CryptoHub-place/coco/blob/master/dist/default/vars.scss)
