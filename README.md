@@ -74,7 +74,12 @@ ls -s ../node_modules/coco/dist/sass _sass/coco
 ```
 > css/styles.sass
 ```css
-@import "coco/coco.scss"
+@import "coco/coco.sass"
+```
+> \_config.yml
+```yaml
+include:
+  - node_modules/coco/dist/sass
 ```
 
 ## Customize distribution
