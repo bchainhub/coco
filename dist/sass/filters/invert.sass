@@ -1,0 +1,9 @@
+$invert-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100
+
+=invert
+	@each $breakpoint in $invert-breakpoints
+		&.invert-#{$breakpoint}
+			filter: unquote("invert(#{$breakpoint}%)")
+
+.filter
+	+invert

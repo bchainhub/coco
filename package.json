@@ -1,6 +1,6 @@
 {
   "name": "coco",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://cococss.com",
   "author": {
     "name": "Raisty"
@@ -27,24 +27,30 @@
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "clean-css-cli": "^4.1.11",
-    "copyfiles": "^2.1.0",
     "gulp": "latest",
+    "gulp-concat": "^2.6.1",
+    "gulp-css-purge": "^3.0.9",
+    "gulp-delete-lines": "0.0.7",
     "gulp-ext-replace": "^0.3.0",
+    "gulp-sass-extractvars": "^1.0.1",
     "gulp-spawn": "^0.4.4",
+    "gulp-streamify": "^1.0.2",
+    "gulp-tabify": "0.0.2",
     "node-sass": "^4.8.3",
     "postcss-cli": "^5.0.0",
     "rimraf": "^2.6.2",
     "sassdoc": "latest"
   },
   "scripts": {
-    "build": "npm run build-clean && npm run build-css && npm run build-autoprefix && npm run build-cleancss && npm run build-scss",
+    "build": "npm run build-clean && npm run build-css && npm run build-autoprefix && npm run build-cleancss && npm run build-scss && npm run build-sass && npm run build-default-vars",
     "build-autoprefix": "postcss --use autoprefixer --map false --output dist/css/coco.css dist/css/coco.css",
     "build-cleancss": "cleancss -o dist/css/coco.min.css dist/css/coco.css",
     "build-clean": "rimraf css",
     "build-css": "node-sass --output-style expanded --source-map true style/coco.sass dist/css/coco.css",
     "build-docs": "gulp scss-docs && gulp docs && rm -rf dist/docs",
-    "build-sass": "copyfiles 'style/**/*.sass' 'dist/sass'",
+    "build-sass": "gulp sass",
     "build-scss": "gulp scss",
+    "build-default-vars": "gulp scss-vars",
     "compress": "VER=$(echo $npm_package_version | sed s/[.]/-/g) && mv dist coco-v$npm_package_version && zip -r coco-v$VER.zip coco-v$npm_package_version && mv coco-v$npm_package_version dist",
     "deploy": "npm run build",
     "start": "npm run build-css -- --watch",
@@ -55,5 +61,6 @@
     "LICENSE",
     "README.md",
     "style"
-  ]
+  ],
+  "dependencies": {}
 }

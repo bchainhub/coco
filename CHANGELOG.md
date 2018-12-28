@@ -1,5 +1,16 @@
 # COCO css Changelog
 
+## 1.0.3
+
+### New features
+
+* Export default variables into distribution
+* SASS distribution
+
+### Improvements
+
+* Replace modules in gulpfile
+
 ## 1.0.2
 
 ### Improvements

@@ -1,0 +1,17 @@
+=kao-moji
+	@each $kaomoji in $kaomojis
+		$kao-icon: nth($kaomoji, 1)
+		$kao-unicode: nth($kaomoji, 2)
+		&.#{$kao-icon}::before
+			content: $kao-unicode
+
+em.kaomoji
+	font-style: normal
+	font-size: $kaomoji-dimensions
+	&.is-small
+		font-size: $emoji-dimensions-small
+	&.is-medium
+		font-size: $emoji-dimensions-medium
+	&.is-large
+		font-size: $emoji-dimensions-large
+	+kao-moji

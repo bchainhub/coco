@@ -1,0 +1,17 @@
+.filter
+	&.hudson
+		position: relative
+		filter: contrast(90%) brightness(120%) saturate(110%)
+		-webkit-filter: contrast(90%) brightness(120%) saturate(110%)
+		&::before
+			content: ""
+			display: block
+			height: 100%
+			width: 100%
+			top: 0
+			left: 0
+			position: absolute
+			pointer-events: none
+			mix-blend-mode: darken
+			background: -webkit-radial-gradient(circle closest-corner, rgba(255, 177, 166, 1), rgba(52, 33, 52, 1))
+			background: radial-gradient(circle closest-corner, rgba(255, 177, 166, 1), rgba(52, 33, 52, 1))
