@@ -45,12 +45,17 @@ import 'coco/dist/css/coco.min.css'
 
 #### SASS version
 ```sh
-import 'coco/style/coco.sass'
+import 'coco/dist/sass/coco.sass'
+```
+
+#### SCSS version
+```sh
+import 'coco/dist/scss/coco.scss'
 ```
 
 ## Customize distribution
 
-COCO is a **CSS** framework. Output is a single CSS file [coco.css](https://github.com/CryptoHub-place/coco/blob/master/dist/coco.css) or SASS distribution.
+COCO is a **CSS** framework. Output is a single CSS file [coco.css](https://github.com/CryptoHub-place/coco/blob/master/dist/css/coco.css) or SASS distribution.
 
 You can either use that file, "out of the box", or download the Sass source files to customize the variables.
 
@@ -81,6 +86,8 @@ $input-shadow: none
 // Import the rest of COCO
 @import "style/coco.sass"
 ```
+
+You can found default variables in [dist/default/vars.scss](https://github.com/CryptoHub-place/coco/blob/master/dist/default/vars.scss)
 
 ## Get started
 
