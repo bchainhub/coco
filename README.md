@@ -11,7 +11,7 @@
 #### NPM
 
 ```sh
-npm install CryptoHub-place/coco#master
+npm install CryptoHub-place/coco#master --save
 ```
 
 ---
@@ -27,30 +27,54 @@ yarn add https://github.com/CryptoHub-place/coco
 #### Bower
 
 ```sh
-bower install https://github.com/CryptoHub-place/coco#master
+bower install https://github.com/CryptoHub-place/coco#master --save
 ```
 
 ### Import
 After installation, you can import the CSS file into your project using this snippet:
 
 #### Normal CSS version
-```sh
-import 'coco/dist/css/coco.css'
+```css
+@import 'coco/dist/css/coco.css'
 ```
 
 #### Minified CSS version
-```sh
-import 'coco/dist/css/coco.min.css'
+```css
+@import 'coco/dist/css/coco.min.css'
 ```
 
 #### SASS version
-```sh
-import 'coco/dist/sass/coco.sass'
+```css
+@import 'coco/dist/sass/coco.sass'
 ```
 
 #### SCSS version
+```css
+@import 'coco/dist/scss/coco.scss'
+```
+### Linking
+You can install and connect node_modules distribution with symbolic link for various platforms. Such as:
+
+#### Meteor
+Note: install meteor plug-in first [fourseven:scss](https://atmospherejs.com/fourseven/scss)
 ```sh
-import 'coco/dist/scss/coco.scss'
+meteor add fourseven:scss
+meteor npm install CryptoHub-place/coco#master --save
+ls -s ../node_modules/coco/dist/scss imports/coco
+```
+> client/styles/main.scss
+```css
+@import "{}/imports/coco/coco.scss";
+```
+
+#### Jekyll aka Github pages :octocat:
+```sh
+npm install CryptoHub-place/coco#master --save
+ls -s ../node_modules/coco/dist/sass _sass/coco
+```
+> css/styles.sass
+```css
+@import "coco/coco.scss"
 ```
 
 ## Customize distribution
