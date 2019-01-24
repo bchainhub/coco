@@ -41,6 +41,11 @@ $label-weight: $weight-bold !default
 
 $help-size: $size-small !default
 
+/// Input
+/// @name .input
+/// @group form
+/// @since 1.0.0
+/// @link https://github.com/CryptoHub-place/coco/wiki/form-input
 =input
   @extend %control
   background-color: $input-background-color
@@ -110,6 +115,11 @@ $help-size: $size-small !default
     padding-left: 0
     padding-right: 0
 
+/// Textarea
+/// @name .textarea
+/// @group form
+/// @since 1.0.0
+/// @link https://github.com/CryptoHub-place/coco/wiki/form-textarea
 .textarea
   display: block
   max-width: 100%
@@ -125,6 +135,11 @@ $help-size: $size-small !default
   &.has-fixed-size
     resize: none
 
+/// Checkbox, Radio
+/// @name .checkbox, .radio
+/// @group form
+/// @since 1.0.0
+/// @link https://github.com/CryptoHub-place/coco/wiki/form-checkbox
 .checkbox,
 .radio
   cursor: pointer
@@ -139,10 +154,20 @@ $help-size: $size-small !default
     color: $input-disabled-color
     cursor: not-allowed
 
+/// Radio
+/// @name .radio
+/// @group form
+/// @since 1.0.0
+/// @link https://github.com/CryptoHub-place/coco/wiki/form-radio
 .radio
   & + .radio
     margin-left: 0.5em
 
+/// Select
+/// @name .select
+/// @group form
+/// @since 1.0.0
+/// @link https://github.com/CryptoHub-place/coco/wiki/form-select
 .select
   display: inline-block
   max-width: 100%
@@ -228,6 +253,11 @@ $help-size: $size-small !default
     &.is-large:after
       font-size: $size-large
 
+/// File
+/// @name .file
+/// @group form
+/// @since 1.0.0
+/// @link https://github.com/CryptoHub-place/coco/wiki/form-file
 .file
   @extend %unselectable
   align-items: stretch

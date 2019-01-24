@@ -2695,52 +2695,6 @@ a.box:active {
   justify-content: flex-end;
 }
 
-.container {
-  margin: 0 auto;
-  position: relative;
-}
-
-@media screen and (min-width: 1088px) {
-  .container {
-    max-width: 960px;
-    width: 960px;
-  }
-  .container.is-fluid {
-    margin-left: 64px;
-    margin-right: 64px;
-    max-width: none;
-    width: auto;
-  }
-}
-
-@media screen and (max-width: 1279px) {
-  .container.is-widescreen {
-    max-width: 1152px;
-    width: auto;
-  }
-}
-
-@media screen and (max-width: 1471px) {
-  .container.is-fullhd {
-    max-width: 1344px;
-    width: auto;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .container {
-    max-width: 1152px;
-    width: 1152px;
-  }
-}
-
-@media screen and (min-width: 1472px) {
-  .container {
-    max-width: 1344px;
-    width: 1344px;
-  }
-}
-
 .content li + li {
   margin-top: 0.25em;
 }
@@ -5272,248 +5226,6 @@ a.tag:hover {
 
 .subtitle.is-7 {
   font-size: 0.75rem;
-}
-
-em.oji {
-  font-style: normal;
-  font-size: 1rem;
-}
-
-em.oji.is-small {
-  font-size: 0.75rem;
-}
-
-em.oji.is-medium {
-  font-size: 1.5rem;
-}
-
-em.oji.is-large {
-  font-size: 2rem;
-}
-
-em.oji.black {
-  color: transparent;
-  text-shadow: 0 0 #0a0a0a;
-}
-
-em.oji.black-bis {
-  color: transparent;
-  text-shadow: 0 0 #121212;
-}
-
-em.oji.black-ter {
-  color: transparent;
-  text-shadow: 0 0 #242424;
-}
-
-em.oji.grey-darker {
-  color: transparent;
-  text-shadow: 0 0 #363636;
-}
-
-em.oji.grey-dark {
-  color: transparent;
-  text-shadow: 0 0 #4a4a4a;
-}
-
-em.oji.grey {
-  color: transparent;
-  text-shadow: 0 0 #7a7a7a;
-}
-
-em.oji.grey-light {
-  color: transparent;
-  text-shadow: 0 0 #b5b5b5;
-}
-
-em.oji.grey-lighter {
-  color: transparent;
-  text-shadow: 0 0 #dbdbdb;
-}
-
-em.oji.white-ter {
-  color: transparent;
-  text-shadow: 0 0 whitesmoke;
-}
-
-em.oji.white-bis {
-  color: transparent;
-  text-shadow: 0 0 #fafafa;
-}
-
-em.oji.white {
-  color: transparent;
-  text-shadow: 0 0 white;
-}
-
-em.oji.orange {
-  color: transparent;
-  text-shadow: 0 0 #ff470f;
-}
-
-em.oji.yellow {
-  color: transparent;
-  text-shadow: 0 0 #ffdd57;
-}
-
-em.oji.green {
-  color: transparent;
-  text-shadow: 0 0 #23d160;
-}
-
-em.oji.turquoise {
-  color: transparent;
-  text-shadow: 0 0 #00d1b2;
-}
-
-em.oji.cyan {
-  color: transparent;
-  text-shadow: 0 0 #209cee;
-}
-
-em.oji.blue {
-  color: transparent;
-  text-shadow: 0 0 #3273dc;
-}
-
-em.oji.purple {
-  color: transparent;
-  text-shadow: 0 0 #b86bff;
-}
-
-em.oji.red {
-  color: transparent;
-  text-shadow: 0 0 #ff3860;
-}
-
-em.oji.primary {
-  color: transparent;
-  text-shadow: 0 0 #00d1b2;
-}
-
-em.oji.info {
-  color: transparent;
-  text-shadow: 0 0 #209cee;
-}
-
-em.oji.success {
-  color: transparent;
-  text-shadow: 0 0 #23d160;
-}
-
-em.oji.warning {
-  color: transparent;
-  text-shadow: 0 0 #ffdd57;
-}
-
-em.oji.danger {
-  color: transparent;
-  text-shadow: 0 0 #ff3860;
-}
-
-em.oji.light {
-  color: transparent;
-  text-shadow: 0 0 whitesmoke;
-}
-
-em.oji.dark {
-  color: transparent;
-  text-shadow: 0 0 #363636;
-}
-
-em.oji.grayscale {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
-em.oji.flat {
-  -webkit-filter: contrast(130%) brightness(130%) saturate(130%) grayscale(0.5);
-          filter: contrast(130%) brightness(130%) saturate(130%) grayscale(0.5);
-}
-
-em.kaomoji {
-  font-style: normal;
-  font-size: 1rem;
-}
-
-em.kaomoji.is-small {
-  font-size: 0.75rem;
-}
-
-em.kaomoji.is-medium {
-  font-size: 1.5rem;
-}
-
-em.kaomoji.is-large {
-  font-size: 2rem;
-}
-
-em.kaomoji.coco::before {
-  content: "c⌾c⌾";
-}
-
-em.kaomoji.star0-of-5::before {
-  content: "☆☆☆☆☆";
-}
-
-em.kaomoji.star1-of-5::before {
-  content: "★☆☆☆☆";
-}
-
-em.kaomoji.star2-of-5::before {
-  content: "★★☆☆☆";
-}
-
-em.kaomoji.star3-of-5::before {
-  content: "★★★☆☆";
-}
-
-em.kaomoji.star4-of-5::before {
-  content: "★★★★☆";
-}
-
-em.kaomoji.star5-of-5::before {
-  content: "★★★★★";
-}
-
-em.kaomoji.lenny::before {
-  content: "( ͡° ͜ʖ ͡°)";
-}
-
-em.kaomoji.shrug::before {
-  content: "¯_(ツ)_/¯";
-}
-
-em.kaomoji.disapproval::before {
-  content: "ಠ_ಠ";
-}
-
-em.kaomoji.dunno::before {
-  content: "¯(°_o)/¯";
-}
-
-em.kaomoji.donger::before {
-  content: "༼ ºلº ༽";
-}
-
-em.kaomoji.donger-raise::before {
-  content: "ヽ༼ຈل͜ຈ༽ﾉ";
-}
-
-em.kaomoji.happy::before {
-  content: "ʘ‿ʘ";
-}
-
-em.kaomoji.happy-square::before {
-  content: "【ツ】";
-}
-
-em.kaomoji.nyancat::before {
-  content: "≋≋≋≋≋̯̫⌧̯̫(ˆ•̮ ̮•ˆ)";
-}
-
-em.kaomoji.bear::before {
-  content: "ʕ•ᴥ•ʔ";
 }
 
 .heading {
@@ -10623,6 +10335,52 @@ label.panel-block:hover {
   padding: 3rem 1.5rem 6rem;
 }
 
+.container {
+  margin: 0 auto;
+  position: relative;
+}
+
+@media screen and (min-width: 1088px) {
+  .container {
+    max-width: 960px;
+    width: 960px;
+  }
+  .container.is-fluid {
+    margin-left: 64px;
+    margin-right: 64px;
+    max-width: none;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .container.is-widescreen {
+    max-width: 1152px;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 1471px) {
+  .container.is-fullhd {
+    max-width: 1344px;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1152px;
+    width: 1152px;
+  }
+}
+
+@media screen and (min-width: 1472px) {
+  .container {
+    max-width: 1344px;
+    width: 1344px;
+  }
+}
+
 .filter.blur-1px {
   -webkit-filter: blur("1px");
           filter: blur("1px");
@@ -11275,6 +11033,248 @@ label.panel-block:hover {
   position: relative;
   filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
   -webkit-filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
+}
+
+em.oji {
+  font-style: normal;
+  font-size: 1rem;
+}
+
+em.oji.is-small {
+  font-size: 0.75rem;
+}
+
+em.oji.is-medium {
+  font-size: 1.5rem;
+}
+
+em.oji.is-large {
+  font-size: 2rem;
+}
+
+em.oji.black {
+  color: transparent;
+  text-shadow: 0 0 #0a0a0a;
+}
+
+em.oji.black-bis {
+  color: transparent;
+  text-shadow: 0 0 #121212;
+}
+
+em.oji.black-ter {
+  color: transparent;
+  text-shadow: 0 0 #242424;
+}
+
+em.oji.grey-darker {
+  color: transparent;
+  text-shadow: 0 0 #363636;
+}
+
+em.oji.grey-dark {
+  color: transparent;
+  text-shadow: 0 0 #4a4a4a;
+}
+
+em.oji.grey {
+  color: transparent;
+  text-shadow: 0 0 #7a7a7a;
+}
+
+em.oji.grey-light {
+  color: transparent;
+  text-shadow: 0 0 #b5b5b5;
+}
+
+em.oji.grey-lighter {
+  color: transparent;
+  text-shadow: 0 0 #dbdbdb;
+}
+
+em.oji.white-ter {
+  color: transparent;
+  text-shadow: 0 0 whitesmoke;
+}
+
+em.oji.white-bis {
+  color: transparent;
+  text-shadow: 0 0 #fafafa;
+}
+
+em.oji.white {
+  color: transparent;
+  text-shadow: 0 0 white;
+}
+
+em.oji.orange {
+  color: transparent;
+  text-shadow: 0 0 #ff470f;
+}
+
+em.oji.yellow {
+  color: transparent;
+  text-shadow: 0 0 #ffdd57;
+}
+
+em.oji.green {
+  color: transparent;
+  text-shadow: 0 0 #23d160;
+}
+
+em.oji.turquoise {
+  color: transparent;
+  text-shadow: 0 0 #00d1b2;
+}
+
+em.oji.cyan {
+  color: transparent;
+  text-shadow: 0 0 #209cee;
+}
+
+em.oji.blue {
+  color: transparent;
+  text-shadow: 0 0 #3273dc;
+}
+
+em.oji.purple {
+  color: transparent;
+  text-shadow: 0 0 #b86bff;
+}
+
+em.oji.red {
+  color: transparent;
+  text-shadow: 0 0 #ff3860;
+}
+
+em.oji.primary {
+  color: transparent;
+  text-shadow: 0 0 #00d1b2;
+}
+
+em.oji.info {
+  color: transparent;
+  text-shadow: 0 0 #209cee;
+}
+
+em.oji.success {
+  color: transparent;
+  text-shadow: 0 0 #23d160;
+}
+
+em.oji.warning {
+  color: transparent;
+  text-shadow: 0 0 #ffdd57;
+}
+
+em.oji.danger {
+  color: transparent;
+  text-shadow: 0 0 #ff3860;
+}
+
+em.oji.light {
+  color: transparent;
+  text-shadow: 0 0 whitesmoke;
+}
+
+em.oji.dark {
+  color: transparent;
+  text-shadow: 0 0 #363636;
+}
+
+em.oji.grayscale {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+em.oji.flat {
+  -webkit-filter: contrast(130%) brightness(130%) saturate(130%) grayscale(0.5);
+          filter: contrast(130%) brightness(130%) saturate(130%) grayscale(0.5);
+}
+
+em.kaomoji {
+  font-style: normal;
+  font-size: 1rem;
+}
+
+em.kaomoji.is-small {
+  font-size: 0.75rem;
+}
+
+em.kaomoji.is-medium {
+  font-size: 1.5rem;
+}
+
+em.kaomoji.is-large {
+  font-size: 2rem;
+}
+
+em.kaomoji.coco::before {
+  content: "c⌾c⌾";
+}
+
+em.kaomoji.star0-of-5::before {
+  content: "☆☆☆☆☆";
+}
+
+em.kaomoji.star1-of-5::before {
+  content: "★☆☆☆☆";
+}
+
+em.kaomoji.star2-of-5::before {
+  content: "★★☆☆☆";
+}
+
+em.kaomoji.star3-of-5::before {
+  content: "★★★☆☆";
+}
+
+em.kaomoji.star4-of-5::before {
+  content: "★★★★☆";
+}
+
+em.kaomoji.star5-of-5::before {
+  content: "★★★★★";
+}
+
+em.kaomoji.lenny::before {
+  content: "( ͡° ͜ʖ ͡°)";
+}
+
+em.kaomoji.shrug::before {
+  content: "¯_(ツ)_/¯";
+}
+
+em.kaomoji.disapproval::before {
+  content: "ಠ_ಠ";
+}
+
+em.kaomoji.dunno::before {
+  content: "¯(°_o)/¯";
+}
+
+em.kaomoji.donger::before {
+  content: "༼ ºلº ༽";
+}
+
+em.kaomoji.donger-raise::before {
+  content: "ヽ༼ຈل͜ຈ༽ﾉ";
+}
+
+em.kaomoji.happy::before {
+  content: "ʘ‿ʘ";
+}
+
+em.kaomoji.happy-square::before {
+  content: "【ツ】";
+}
+
+em.kaomoji.nyancat::before {
+  content: "≋≋≋≋≋̯̫⌧̯̫(ˆ•̮ ̮•ˆ)";
+}
+
+em.kaomoji.bear::before {
+  content: "ʕ•ᴥ•ʔ";
 }
 
 .effect.rotate-30 {

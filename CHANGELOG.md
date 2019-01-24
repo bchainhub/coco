@@ -1,5 +1,12 @@
 # COCO css Changelog
 
+## 1.0.4
+
+### Improvements
+
+* Rearrange modules
+* Update documentation
+
 ## 1.0.3
 
 ### New features
