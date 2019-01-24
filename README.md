@@ -60,7 +60,7 @@ Note: install meteor plug-in first [fourseven:scss](https://atmospherejs.com/fou
 ```sh
 meteor add fourseven:scss
 meteor npm install CryptoHub-place/coco#master --save
-ls -s -f ../node_modules/@cryptohub/coco/dist/scss imports/coco
+ln -sf ../node_modules/@cryptohub/coco/dist/scss imports/coco
 ```
 > client/styles/main.scss
 ```css
@@ -70,7 +70,7 @@ ls -s -f ../node_modules/@cryptohub/coco/dist/scss imports/coco
 #### Jekyll aka Github pages :octocat:
 ```sh
 npm install CryptoHub-place/coco#master --save
-ls -s -f ../node_modules/@cryptohub/coco/dist/sass _sass/coco
+ln -sf ../node_modules/@cryptohub/coco/dist/sass _sass/coco
 ```
 > css/styles.sass
 ```css
