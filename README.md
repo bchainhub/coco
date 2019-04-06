@@ -11,7 +11,7 @@
 #### NPM
 
 ```sh
-npm install CryptoHub-place/coco#master --save
+npm install cryptohub-digital/coco#master --save
 ```
 
 ---
@@ -19,7 +19,7 @@ npm install CryptoHub-place/coco#master --save
 #### Yarn
 
 ```sh
-yarn add https://github.com/CryptoHub-place/coco
+yarn add https://github.com/cryptohub-digital/coco
 ```
 
 ---
@@ -27,7 +27,7 @@ yarn add https://github.com/CryptoHub-place/coco
 #### Bower
 
 ```sh
-bower install https://github.com/CryptoHub-place/coco#master --save
+bower install https://github.com/cryptohub-digital/coco#master --save
 ```
 
 ### Import
@@ -69,7 +69,7 @@ ln -sf ../node_modules/@cryptohub/coco/dist/scss imports/coco
 
 #### Jekyll aka Github pages :octocat:
 ```sh
-npm install CryptoHub-place/coco#master --save
+npm install cryptohub-digital/coco#master --save
 ln -sf ../node_modules/@cryptohub/coco/dist/sass _sass/coco
 ```
 > css/styles.sass
@@ -84,7 +84,7 @@ include:
 
 ## Customize distribution
 
-COCO is a **CSS** framework. Output is a single CSS file [coco.css](https://github.com/CryptoHub-place/coco/blob/master/dist/css/coco.css) or SASS distribution.
+COCO is a **CSS** framework. Output is a single CSS file [coco.css](https://github.com/cryptohub-digital/coco/blob/master/dist/css/coco.css) or SASS distribution.
 
 You can either use that file, "out of the box", or download the Sass source files to customize the variables.
 
@@ -116,7 +116,7 @@ $input-shadow: none
 @import "coco/sass/coco.sass"
 ```
 
-You can found default variables in [dist/default/vars.scss](https://github.com/CryptoHub-place/coco/blob/master/dist/default/vars.scss)
+You can found default variables in [dist/default/vars.scss](https://github.com/cryptohub-digital/coco/blob/master/dist/default/vars.scss)
 
 ## Get started
 
@@ -164,8 +164,8 @@ Internet Explorer (10+) is only partially supported.
 
 ## Documentation
 
-Browse the online documentation in [WIKI page](https://github.com/CryptoHub-place/coco/wiki) or [cococss.com](https://cococss.com).
+Browse the online documentation in [WIKI page](https://github.com/cryptohub-digital/coco/wiki) or [cococss.com](https://cococss.com).
 
 ## Copyright and license
 
-Code copyright 2018 Crypto ▪ Hub, Rastislav; Jeremy Thomas. Code released under [the MIT license](https://github.com/CryptoHub-place/coco/blob/master/LICENSE).
+Code copyright 2018 Crypto ▪ Hub, Rastislav; Jeremy Thomas. Code released under [the MIT license](https://github.com/cryptohub-digital/coco/blob/master/LICENSE).
