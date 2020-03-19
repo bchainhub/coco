@@ -6,6 +6,23 @@
 --- | --- | --- | ---
 *Designed for multi device support* | *Import what you need* | *Built with flexbox* | *Open Source*
 
+## CDN
+
+Latest version
+```html
+<script src="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco/dist/css/coco.min.css"></script>
+```
+
+Minor updates and patch fixes within a major version
+```html
+<script src="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1/dist/css/coco.min.css"></script>
+```
+
+Patch fixes within a minor version
+```html
+<script src="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.0/dist/css/coco.min.css"></script>
+```
+
 ## Install
 
 #### NPM
@@ -73,6 +90,7 @@ npm install cryptohub-digital/coco#master --save
 ln -sf ../node_modules/@cryptohub/coco/dist/sass _sass/coco
 ```
 > css/styles.sass
+
 ```css
 @import "coco/coco.sass"
 ```
@@ -168,4 +186,4 @@ Browse the online documentation in [WIKI page](https://github.com/cryptohub-digi
 
 ## Copyright and license
 
-Code copyright 2018 Crypto ▪ Hub, Rastislav; Jeremy Thomas. Code released under [the MIT license](https://github.com/cryptohub-digital/coco/blob/master/LICENSE).
+Code copyright 2018 [Crypto ▪ Hub®](https://github.com/cryptohub-digital), [Raisty](https://github.com/raisty); [Jeremy Thomas](https://github.com/jgthms). Code released under the [MIT license](https://github.com/cryptohub-digital/coco/blob/master/LICENSE).
