@@ -67,6 +67,12 @@ body
 	font-size: $body-font-size
 	font-weight: $body-weight
 	line-height: $body-line-height
+	&.has-sticky-footer
+		display: flex
+		min-height: 100vh
+		flex-direction: column
+		> main
+			flex: 1
 
 // Inline
 

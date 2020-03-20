@@ -366,6 +366,16 @@ body {
   line-height: 1.5;
 }
 
+body.has-sticky-footer {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+body.has-sticky-footer > main {
+  flex: 1;
+}
+
 a {
   color: #3273dc;
   cursor: pointer;
@@ -382,7 +392,7 @@ a:hover {
 
 code {
   background-color: whitesmoke;
-  color: #f14668;
+  color: #48c774;
   font-size: 0.875em;
   font-weight: normal;
   padding: 0.25em 0.5em 0.25em;
@@ -3080,6 +3090,10 @@ fieldset[disabled] .button {
   list-style-type: square;
 }
 
+.content dt {
+  font-style: oblique;
+}
+
 .content dd {
   margin-left: 2em;
 }
@@ -3117,6 +3131,15 @@ fieldset[disabled] .button {
 .content sup,
 .content sub {
   font-size: 75%;
+}
+
+.content summary {
+  cursor: pointer;
+  font-weight: medium;
+}
+
+.content summary::marker {
+  color: #121212;
 }
 
 .content table {

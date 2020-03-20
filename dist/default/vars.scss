@@ -480,6 +480,75 @@ $i: index($sizes, $size) !default;
 $i: index($sizes, $size) !default;
 
 
+// 1977.sass at /Users/rasty/projects/coco/style/filters/1977.sass
+
+
+// _all.sass at /Users/rasty/projects/coco/style/filters/_all.sass
+
+
+// aden.sass at /Users/rasty/projects/coco/style/filters/aden.sass
+
+
+// amaro.sass at /Users/rasty/projects/coco/style/filters/amaro.sass
+
+
+// blur.sass at /Users/rasty/projects/coco/style/filters/blur.sass
+$blur-breakpoints: '1px', '2px', '3px', '4px', '5px', '6px', '7px', '8px', '9px', '10px' !default;
+
+
+// brannan.sass at /Users/rasty/projects/coco/style/filters/brannan.sass
+
+
+// brightness.sass at /Users/rasty/projects/coco/style/filters/brightness.sass
+$brightness-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200 !default;
+
+
+// brooklyn.sass at /Users/rasty/projects/coco/style/filters/brooklyn.sass
+
+
+// clarendon.sass at /Users/rasty/projects/coco/style/filters/clarendon.sass
+
+
+// contrast.sass at /Users/rasty/projects/coco/style/filters/contrast.sass
+$contrast-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200 !default;
+
+
+// earlybird.sass at /Users/rasty/projects/coco/style/filters/earlybird.sass
+
+
+// gingham.sass at /Users/rasty/projects/coco/style/filters/gingham.sass
+
+
+// grayscale.sass at /Users/rasty/projects/coco/style/filters/grayscale.sass
+$grayscale-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
+
+
+// hudson.sass at /Users/rasty/projects/coco/style/filters/hudson.sass
+
+
+// hue-rotate.sass at /Users/rasty/projects/coco/style/filters/hue-rotate.sass
+$hue-rotate-breakpoints: 0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 !default;
+
+
+// inkwell.sass at /Users/rasty/projects/coco/style/filters/inkwell.sass
+
+
+// invert.sass at /Users/rasty/projects/coco/style/filters/invert.sass
+$invert-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
+
+
+// opacity.sass at /Users/rasty/projects/coco/style/filters/opacity.sass
+$opacity-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
+
+
+// saturate.sass at /Users/rasty/projects/coco/style/filters/saturate.sass
+$saturate-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200, 300, 400, 500 !default;
+
+
+// sepia.sass at /Users/rasty/projects/coco/style/filters/sepia.sass
+$sepia-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
+
+
 // _all.sass at /Users/rasty/projects/coco/style/form/_all.sass
 
 
@@ -551,75 +620,6 @@ $column-gap: 0.75rem !default;
 
 // tiles.sass at /Users/rasty/projects/coco/style/grid/tiles.sass
 $tile-spacing: 0.75rem !default;
-
-
-// 1977.sass at /Users/rasty/projects/coco/style/filters/1977.sass
-
-
-// _all.sass at /Users/rasty/projects/coco/style/filters/_all.sass
-
-
-// aden.sass at /Users/rasty/projects/coco/style/filters/aden.sass
-
-
-// amaro.sass at /Users/rasty/projects/coco/style/filters/amaro.sass
-
-
-// blur.sass at /Users/rasty/projects/coco/style/filters/blur.sass
-$blur-breakpoints: '1px', '2px', '3px', '4px', '5px', '6px', '7px', '8px', '9px', '10px' !default;
-
-
-// brannan.sass at /Users/rasty/projects/coco/style/filters/brannan.sass
-
-
-// brightness.sass at /Users/rasty/projects/coco/style/filters/brightness.sass
-$brightness-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200 !default;
-
-
-// brooklyn.sass at /Users/rasty/projects/coco/style/filters/brooklyn.sass
-
-
-// clarendon.sass at /Users/rasty/projects/coco/style/filters/clarendon.sass
-
-
-// contrast.sass at /Users/rasty/projects/coco/style/filters/contrast.sass
-$contrast-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200 !default;
-
-
-// earlybird.sass at /Users/rasty/projects/coco/style/filters/earlybird.sass
-
-
-// gingham.sass at /Users/rasty/projects/coco/style/filters/gingham.sass
-
-
-// grayscale.sass at /Users/rasty/projects/coco/style/filters/grayscale.sass
-$grayscale-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
-
-
-// hudson.sass at /Users/rasty/projects/coco/style/filters/hudson.sass
-
-
-// hue-rotate.sass at /Users/rasty/projects/coco/style/filters/hue-rotate.sass
-$hue-rotate-breakpoints: 0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 !default;
-
-
-// inkwell.sass at /Users/rasty/projects/coco/style/filters/inkwell.sass
-
-
-// invert.sass at /Users/rasty/projects/coco/style/filters/invert.sass
-$invert-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
-
-
-// opacity.sass at /Users/rasty/projects/coco/style/filters/opacity.sass
-$opacity-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
-
-
-// saturate.sass at /Users/rasty/projects/coco/style/filters/saturate.sass
-$saturate-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200, 300, 400, 500 !default;
-
-
-// sepia.sass at /Users/rasty/projects/coco/style/filters/sepia.sass
-$sepia-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
 
 
 // _all.sass at /Users/rasty/projects/coco/style/layout/_all.sass
@@ -710,7 +710,7 @@ $text: $grey-dark !default;
 $text-invert: findColorInvert($text) !default;
 $text-light: $grey !default;
 $text-strong: $grey-darker !default;
-$code: $red !default;
+$code: $green !default;
 $code-background: $background !default;
 $pre: $text !default;
 $pre-background: $background !default;
