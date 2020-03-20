@@ -182,7 +182,7 @@ Internet Explorer (10+) is only partially supported.
 
 ## Documentation
 
-Browse the online documentation in [WIKI page](https://github.com/cryptohub-digital/coco/wiki) or [cococss.com](https://cococss.com).
+Browse the online documentation in [WIKI page](https://github.com/cryptohub-digital/coco/wiki) or [Online manual](https://cryptohub-digital.github.io/coco/).
 
 ## Copyright and license
 

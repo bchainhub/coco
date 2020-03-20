@@ -97,6 +97,8 @@ $content-table-foot-cell-color: $text-strong !default
       margin-top: 0.5em
       ul
         list-style-type: square
+  dt
+    font-style: oblique
   dd
     margin-left: 2em
   figure
@@ -120,6 +122,11 @@ $content-table-foot-cell-color: $text-strong !default
   sup,
   sub
     font-size: 75%
+  summary
+    cursor: pointer
+    font-weight: medium
+    &::marker
+      color: $scheme-invert-bis
   table
     width: 100%
     td,
