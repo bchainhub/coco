@@ -19,9 +19,9 @@ This is a **new feature | improvement | bugfix**.
 
 <!-- BEFORE SUBMITTING YOUR PR, MAKE SURE TO FOLLOW THESE STEPS: -->
 <!-- 1. Pull the latest `master` branch -->
-<!-- 2. Make sure your Sass code is compliant with the [COCO Sass styleguide](https://github.com/CryptoHub-place/coco/blob/master/.github/CONTRIBUTING.md#coco-sass-styleguide) -->
+<!-- 2. Make sure your Sass code is compliant with the [COCO Sass styleguide](https://github.com/cryptohub-digital/coco/blob/master/.github/CONTRIBUTING.md#coco-sass-styleguide) -->
 <!-- 3. Make sure your PR only affects `.sass` -->
-<!-- 4. [Try your changes](https://github.com/CryptoHub-place/coco/blob/master/.github/CONTRIBUTING.md#try-your-changes). -->
+<!-- 4. [Try your changes](https://github.com/cryptohub-digital/coco/blob/master/.github/CONTRIBUTING.md#try-your-changes). -->
 
 <!-- How have you confirmed this feature works? -->
 <!-- Please explain more than "Yes". -->

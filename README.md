@@ -1,4 +1,4 @@
-# [COCO](https://cococss.com)
+# [COCO](https://cryptohub-digital.github.io/coco/)
 
 ## **COCO** is an open source CSS framework based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes) without any piece of ~~JavaScript~~.
 
@@ -20,7 +20,7 @@ Minor updates and patch fixes within a major version
 
 Patch fixes within a minor version
 ```html
-<script src="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.0/dist/css/coco.min.css"></script>
+<script src="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1/dist/css/coco.min.css"></script>
 ```
 
 ## Install
@@ -76,7 +76,7 @@ You can install and connect node_modules distribution with symbolic link for var
 Note: install meteor plug-in first [fourseven:scss](https://atmospherejs.com/fourseven/scss)
 ```sh
 meteor add fourseven:scss
-meteor npm install CryptoHub-place/coco#master --save
+meteor npm install cryptohub-digital/coco#master --save
 ln -sf ../node_modules/@cryptohub/coco/dist/scss imports/coco
 ```
 > client/styles/main.scss

@@ -1,13 +1,13 @@
 {
   "name": "coco",
-  "version": "1.0.4",
-  "homepage": "https://cococss.com",
+  "homepage": "https://cryptohub-digital.github.io/coco/",
   "authors": [
-    "jgthms <bbxdesign@gmail.com>",
-    "raisty <contact@satoshiplus.net>"
+    "Raisty (https://github.com/raisty)",
+    "CRYPTO ▪ HUB® (https://cryptohub.digital)",
+    "Jeremy Thomas (https://github.com/jgthms)"
   ],
   "description": "Modern CSS framework based on Flexbox",
-  "main": "coco.sass",
+  "main": "style/coco.sass",
   "keywords": [
     "css",
     "sass",

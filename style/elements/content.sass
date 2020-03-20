@@ -21,7 +21,7 @@ $content-table-foot-cell-color: $text-strong !default
 /// @name .content
 /// @group elements
 /// @since 1.0.0
-/// @link https://github.com/CryptoHub-place/coco/wiki/elements-content
+/// @link https://github.com/cryptohub-digital/coco/wiki/elements-content
 .content
   @extend %block
   // Inline
@@ -130,7 +130,8 @@ $content-table-foot-cell-color: $text-strong !default
       vertical-align: top
     th
       color: $content-table-cell-heading-color
-      text-align: left
+      &:not([align])
+        text-align: left
     thead
       td,
       th
@@ -147,6 +148,9 @@ $content-table-foot-cell-color: $text-strong !default
           td,
           th
             border-bottom-width: 0
+  .tabs
+    li + li
+      margin-top: 0
   // Sizes
   &.is-small
     font-size: $size-small

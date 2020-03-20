@@ -123,7 +123,8 @@ $content-table-foot-cell-color: $text-strong !default;
       vertical-align: top; }
     th {
       color: $content-table-cell-heading-color;
-      text-align: left; }
+      &:not([align]) {
+        text-align: left; } }
     thead {
       td,
       th {
@@ -140,6 +141,9 @@ $content-table-foot-cell-color: $text-strong !default;
           td,
           th {
             border-bottom-width: 0; } } } } }
+  .tabs {
+    li + li {
+      margin-top: 0; } }
   &.is-small {
     font-size: $size-small; }
   &.is-medium {

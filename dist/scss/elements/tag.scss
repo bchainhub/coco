@@ -22,15 +22,6 @@ $tag-delete-margin: 1px !default;
   &.are-large {
     .tag:not(.is-normal):not(.is-medium) {
       font-size: $size-medium; } }
-  &.has-addons {
-    .tag {
-      margin-right: 0;
-      &:not(:first-child) {
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0; }
-      &:not(:last-child) {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0; } } }
   &.is-centered {
     justify-content: center;
     .tag {
@@ -75,7 +66,13 @@ $tag-delete-margin: 1px !default;
     $color-invert: nth($pair, 2);
     &.is-#{$name} {
       background-color: $color;
-      color: $color-invert; } }
+      color: $color-invert;
+      @if length($pair) > 3 {
+        $color-light: nth($pair, 3);
+        $color-dark: nth($pair, 4);
+        &.is-light {
+          background-color: $color-light;
+          color: $color-dark; } } } }
   &.is-normal {
     font-size: $size-small; }
   &.is-medium {

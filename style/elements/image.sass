@@ -4,7 +4,7 @@ $dimensions: 16 24 32 48 64 96 128 !default
 /// @name .image
 /// @group elements
 /// @since 1.0.0
-/// @link https://github.com/CryptoHub-place/coco/wiki/elements-image
+/// @link https://github.com/cryptohub-digital/coco/wiki/elements-image
 .image
   display: block
   position: relative
@@ -14,6 +14,8 @@ $dimensions: 16 24 32 48 64 96 128 !default
     width: 100%
     &.is-rounded
       border-radius: $radius-rounded
+  &.is-fullwidth
+    width: 100%
   // Ratio
   &.is-square,
   &.is-1by1,
@@ -31,7 +33,8 @@ $dimensions: 16 24 32 48 64 96 128 !default
   &.is-9by16,
   &.is-1by2,
   &.is-1by3
-    img
+    img,
+    .has-ratio
       @extend %overlay
       height: 100%
       width: 100%
