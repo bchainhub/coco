@@ -10,18 +10,25 @@
 
 Latest version
 ```html
-<script src="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco/dist/css/coco.min.css"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco/dist/css/coco.min.css" />
 ```
 
 Minor updates and patch fixes within a major version
 ```html
-<script src="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1/dist/css/coco.min.css"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1/dist/css/coco.min.css" />
 ```
 
 Patch fixes within a minor version
 ```html
-<script src="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1/dist/css/coco.min.css"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1/dist/css/coco.min.css" />
 ```
+
+Using SRI with exact version
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1.0/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
+```
+
+> Please, replace {hash} with hash generated for chosen specific version. You can use for example this [SRI Hash Generator](https://www.srihash.org/).
 
 ## Install
 
