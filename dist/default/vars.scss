@@ -40,22 +40,6 @@ $displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex' !default;
 // _minireset.sass at /Users/rasty/projects/coco/style/base/_minireset.sass
 
 
-// _all.sass at /Users/rasty/projects/coco/style/effects/_all.sass
-
-
-// _emoji.sass at /Users/rasty/projects/coco/style/effects/_emoji.sass
-
-
-// chessboard.sass at /Users/rasty/projects/coco/style/effects/chessboard.sass
-
-
-// rotate.sass at /Users/rasty/projects/coco/style/effects/rotate.sass
-$rotate-breakpoints: 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 !default;
-
-
-// spinner.sass at /Users/rasty/projects/coco/style/effects/spinner.sass
-
-
 // _all.sass at /Users/rasty/projects/coco/style/components/_all.sass
 
 
@@ -319,6 +303,22 @@ $tabs-toggle-link-active-border-color: $link !default;
 $tabs-toggle-link-active-color: $link-invert !default;
 
 
+// _all.sass at /Users/rasty/projects/coco/style/effects/_all.sass
+
+
+// _emoji.sass at /Users/rasty/projects/coco/style/effects/_emoji.sass
+
+
+// chessboard.sass at /Users/rasty/projects/coco/style/effects/chessboard.sass
+
+
+// rotate.sass at /Users/rasty/projects/coco/style/effects/rotate.sass
+$rotate-breakpoints: 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 !default;
+
+
+// spinner.sass at /Users/rasty/projects/coco/style/effects/spinner.sass
+
+
 // _all.sass at /Users/rasty/projects/coco/style/elements/_all.sass
 
 
@@ -508,7 +508,7 @@ $color: nth($pair, 1) !default;
 
 
 // _shared.sass at /Users/rasty/projects/coco/style/form/_shared.sass
-$input-color: inherit !default;
+$input-color: $text-strong !default;
 $input-background-color: $scheme-main !default;
 $input-border-color: $border !default;
 $input-height: $control-height !default;
@@ -542,6 +542,32 @@ $label-color: $text-strong !default;
 $label-weight: $weight-bold !default;
 $help-size: $size-small !default;
 $color: nth($pair, 1) !default;
+
+
+// _all.sass at /Users/rasty/projects/coco/style/layout/_all.sass
+
+
+// _footer.sass at /Users/rasty/projects/coco/style/layout/_footer.sass
+$footer-background-color: $scheme-main-bis !default;
+$footer-color: false !default;
+$footer-padding: 3rem 1.5rem 6rem !default;
+
+
+// _hero.sass at /Users/rasty/projects/coco/style/layout/_hero.sass
+$hero-body-padding: 3rem 1.5rem !default;
+$hero-body-padding-small: 1.5rem !default;
+$hero-body-padding-medium: 9rem 1.5rem !default;
+$hero-body-padding-large: 18rem 1.5rem !default;
+$color: nth($pair, 1) !default;
+$color-invert: nth($pair, 2) !default;
+$gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%) !default;
+$gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%) !default;
+
+
+// _section.sass at /Users/rasty/projects/coco/style/layout/_section.sass
+$section-padding: 3rem 1.5rem !default;
+$section-padding-medium: 9rem 1.5rem !default;
+$section-padding-large: 18rem 1.5rem !default;
 
 
 // 1977.sass at /Users/rasty/projects/coco/style/filters/1977.sass
@@ -611,32 +637,6 @@ $saturate-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200, 300, 
 
 // sepia.sass at /Users/rasty/projects/coco/style/filters/sepia.sass
 $sepia-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
-
-
-// _all.sass at /Users/rasty/projects/coco/style/layout/_all.sass
-
-
-// _footer.sass at /Users/rasty/projects/coco/style/layout/_footer.sass
-$footer-background-color: $scheme-main-bis !default;
-$footer-color: false !default;
-$footer-padding: 3rem 1.5rem 6rem !default;
-
-
-// _hero.sass at /Users/rasty/projects/coco/style/layout/_hero.sass
-$hero-body-padding: 3rem 1.5rem !default;
-$hero-body-padding-small: 1.5rem !default;
-$hero-body-padding-medium: 9rem 1.5rem !default;
-$hero-body-padding-large: 18rem 1.5rem !default;
-$color: nth($pair, 1) !default;
-$color-invert: nth($pair, 2) !default;
-$gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%) !default;
-$gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%) !default;
-
-
-// _section.sass at /Users/rasty/projects/coco/style/layout/_section.sass
-$section-padding: 3rem 1.5rem !default;
-$section-padding-medium: 9rem 1.5rem !default;
-$section-padding-large: 18rem 1.5rem !default;
 
 
 // _all.sass at /Users/rasty/projects/coco/style/grid/_all.sass

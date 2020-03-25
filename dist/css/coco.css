@@ -5986,7 +5986,6 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 }
 
 .navbar-item {
-  display: block;
   flex-grow: 0;
   flex-shrink: 0;
 }
@@ -6157,9 +6156,6 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   .navbar-item,
   .navbar-link {
     align-items: center;
-    display: flex;
-  }
-  .navbar-item {
     display: flex;
   }
   .navbar-item.has-dropdown {
@@ -6904,23 +6900,23 @@ input[type=date], input[type=datetime-local], input[type=email], input[type=mont
   background-color: white;
   border-color: #dbdbdb;
   border-radius: 4px;
-  color: inherit;
+  color: #363636;
 }
 
 input[type=date]::-moz-placeholder, input[type=datetime-local]::-moz-placeholder, input[type=email]::-moz-placeholder, input[type=month]::-moz-placeholder, input[type=number]::-moz-placeholder, input[type=password]::-moz-placeholder, input[type=search]::-moz-placeholder, input[type=tel]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=time]::-moz-placeholder, input[type=url]::-moz-placeholder, input[type=week]::-moz-placeholder, .input::-moz-placeholder, textarea::-moz-placeholder, .textarea::-moz-placeholder, .select select::-moz-placeholder {
-  color: inherit;
+  color: rgba(54, 54, 54, 0.3);
 }
 
 input[type=date]::-webkit-input-placeholder, input[type=datetime-local]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder, input[type=month]::-webkit-input-placeholder, input[type=number]::-webkit-input-placeholder, input[type=password]::-webkit-input-placeholder, input[type=search]::-webkit-input-placeholder, input[type=tel]::-webkit-input-placeholder, input[type=text]::-webkit-input-placeholder, input[type=time]::-webkit-input-placeholder, input[type=url]::-webkit-input-placeholder, input[type=week]::-webkit-input-placeholder, .input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, .textarea::-webkit-input-placeholder, .select select::-webkit-input-placeholder {
-  color: inherit;
+  color: rgba(54, 54, 54, 0.3);
 }
 
 input:-moz-placeholder[type=date], input:-moz-placeholder[type=datetime-local], input:-moz-placeholder[type=email], input:-moz-placeholder[type=month], input:-moz-placeholder[type=number], input:-moz-placeholder[type=password], input:-moz-placeholder[type=search], input:-moz-placeholder[type=tel], input:-moz-placeholder[type=text], input:-moz-placeholder[type=time], input:-moz-placeholder[type=url], input:-moz-placeholder[type=week], .input:-moz-placeholder, textarea:-moz-placeholder, .textarea:-moz-placeholder, .select select:-moz-placeholder {
-  color: inherit;
+  color: rgba(54, 54, 54, 0.3);
 }
 
 input:-ms-input-placeholder[type=date], input:-ms-input-placeholder[type=datetime-local], input:-ms-input-placeholder[type=email], input:-ms-input-placeholder[type=month], input:-ms-input-placeholder[type=number], input:-ms-input-placeholder[type=password], input:-ms-input-placeholder[type=search], input:-ms-input-placeholder[type=tel], input:-ms-input-placeholder[type=text], input:-ms-input-placeholder[type=time], input:-ms-input-placeholder[type=url], input:-ms-input-placeholder[type=week], .input:-ms-input-placeholder, textarea:-ms-input-placeholder, .textarea:-ms-input-placeholder, .select select:-ms-input-placeholder {
-  color: inherit;
+  color: rgba(54, 54, 54, 0.3);
 }
 
 input:hover[type=date], input:hover[type=datetime-local], input:hover[type=email], input:hover[type=month], input:hover[type=number], input:hover[type=password], input:hover[type=search], input:hover[type=tel], input:hover[type=text], input:hover[type=time], input:hover[type=url], input:hover[type=week], .input:hover, textarea:hover, .textarea:hover, .select select:hover, input.is-hovered[type=date], input.is-hovered[type=datetime-local], input.is-hovered[type=email], input.is-hovered[type=month], input.is-hovered[type=number], input.is-hovered[type=password], input.is-hovered[type=search], input.is-hovered[type=tel], input.is-hovered[type=text], input.is-hovered[type=time], input.is-hovered[type=url], input.is-hovered[type=week], .is-hovered.input, textarea.is-hovered, .is-hovered.textarea, .select select.is-hovered {
