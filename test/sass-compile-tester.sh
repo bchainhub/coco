@@ -3,7 +3,7 @@
 # CONSTANTS
 
 TEST_DIR=$(dirname $BASH_SOURCE)
-FILES=$TEST_DIR/sass/*
+FILES=$TEST_DIR/style/*
 CSS_DIR=$TEST_DIR/css
 SASS_OPTIONS=--sourcemap=none
 

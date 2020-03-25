@@ -4,7 +4,7 @@
 // _all.sass at /Users/rasty/projects/coco/style/base/_all.sass
 
 
-// generic.sass at /Users/rasty/projects/coco/style/base/generic.sass
+// _generic.sass at /Users/rasty/projects/coco/style/base/_generic.sass
 $body-background-color: $scheme-main !default;
 $body-size: 16px !default;
 $body-min-width: 300px !default;
@@ -19,7 +19,7 @@ $body-line-height: 1.5 !default;
 $code-family: $family-code !default;
 $code-padding: 0.25em 0.5em 0.25em !default;
 $code-weight: normal !default;
-$code-size: 0.875em !default;
+$code-size: 0.95em !default;
 $small-font-size: 0.875em !default;
 $hr-background-color: $background !default;
 $hr-height: 2px !default;
@@ -31,19 +31,35 @@ $pre-padding: 1.25rem 1.5rem !default;
 $pre-code-font-size: 1em !default;
 
 
-// helpers.sass at /Users/rasty/projects/coco/style/base/helpers.sass
+// _helpers.sass at /Users/rasty/projects/coco/style/base/_helpers.sass
 $i: index($sizes, $size) !default;
 $color: nth($pair, 1) !default;
 $displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex' !default;
 
 
-// minireset.sass at /Users/rasty/projects/coco/style/base/minireset.sass
+// _minireset.sass at /Users/rasty/projects/coco/style/base/_minireset.sass
+
+
+// _all.sass at /Users/rasty/projects/coco/style/effects/_all.sass
+
+
+// _emoji.sass at /Users/rasty/projects/coco/style/effects/_emoji.sass
+
+
+// chessboard.sass at /Users/rasty/projects/coco/style/effects/chessboard.sass
+
+
+// rotate.sass at /Users/rasty/projects/coco/style/effects/rotate.sass
+$rotate-breakpoints: 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 !default;
+
+
+// spinner.sass at /Users/rasty/projects/coco/style/effects/spinner.sass
 
 
 // _all.sass at /Users/rasty/projects/coco/style/components/_all.sass
 
 
-// breadcrumb.sass at /Users/rasty/projects/coco/style/components/breadcrumb.sass
+// _breadcrumb.sass at /Users/rasty/projects/coco/style/components/_breadcrumb.sass
 $breadcrumb-item-color: $link !default;
 $breadcrumb-item-hover-color: $link-hover !default;
 $breadcrumb-item-active-color: $text-strong !default;
@@ -52,7 +68,7 @@ $breadcrumb-item-padding-horizontal: 0.75em !default;
 $breadcrumb-item-separator-color: $border-hover !default;
 
 
-// card.sass at /Users/rasty/projects/coco/style/components/card.sass
+// _card.sass at /Users/rasty/projects/coco/style/components/_card.sass
 $card-color: $text !default;
 $card-background-color: $scheme-main !default;
 $card-shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02) !default;
@@ -69,7 +85,7 @@ $card-footer-padding: 0.75rem !default;
 $card-media-margin: $block-spacing !default;
 
 
-// dropdown.sass at /Users/rasty/projects/coco/style/components/dropdown.sass
+// _dropdown.sass at /Users/rasty/projects/coco/style/components/_dropdown.sass
 $dropdown-menu-min-width: 12rem !default;
 $dropdown-content-background-color: $scheme-main !default;
 $dropdown-content-arrow: $link !default;
@@ -87,11 +103,11 @@ $dropdown-item-active-background-color: $link !default;
 $dropdown-divider-background-color: $border-light !default;
 
 
-// level.sass at /Users/rasty/projects/coco/style/components/level.sass
+// _level.sass at /Users/rasty/projects/coco/style/components/_level.sass
 $level-item-spacing: ($block-spacing / 2) !default;
 
 
-// list.sass at /Users/rasty/projects/coco/style/components/list.sass
+// _list.sass at /Users/rasty/projects/coco/style/components/_list.sass
 $list-background-color: $scheme-main !default;
 $list-shadow: 0 2px 3px rgba($scheme-invert, 0.1), 0 0 0 1px rgba($scheme-invert, 0.1) !default;
 $list-radius: $radius !default;
@@ -102,11 +118,11 @@ $list-item-active-color: $link-invert !default;
 $list-item-hover-background-color: $background !default;
 
 
-// media.sass at /Users/rasty/projects/coco/style/components/media.sass
+// _media.sass at /Users/rasty/projects/coco/style/components/_media.sass
 $media-border-color: cocoRgba($border, 0.5) !default;
 
 
-// menu.sass at /Users/rasty/projects/coco/style/components/menu.sass
+// _menu.sass at /Users/rasty/projects/coco/style/components/_menu.sass
 $menu-item-color: $text !default;
 $menu-item-radius: $radius-small !default;
 $menu-item-hover-color: $text-strong !default;
@@ -124,7 +140,7 @@ $menu-label-letter-spacing: 0.1em !default;
 $menu-label-spacing: 1em !default;
 
 
-// message.sass at /Users/rasty/projects/coco/style/components/message.sass
+// _message.sass at /Users/rasty/projects/coco/style/components/_message.sass
 $message-background-color: $background !default;
 $message-radius: $radius !default;
 $message-header-background-color: $text !default;
@@ -155,7 +171,7 @@ $color-lightning: max((100% - lightness($color)) - 2%, 0%) !default;
 $color-light: lighten($color, $color-lightning) !default;
 
 
-// modal.sass at /Users/rasty/projects/coco/style/components/modal.sass
+// _modal.sass at /Users/rasty/projects/coco/style/components/_modal.sass
 $modal-z: 40 !default;
 $modal-background-background-color: cocoRgba($scheme-invert, 0.86) !default;
 $modal-content-width: 640px !default;
@@ -179,7 +195,7 @@ $modal-card-body-background-color: $scheme-main !default;
 $modal-card-body-padding: 20px !default;
 
 
-// navbar.sass at /Users/rasty/projects/coco/style/components/navbar.sass
+// _navbar.sass at /Users/rasty/projects/coco/style/components/_navbar.sass
 $navbar-background-color: $scheme-main !default;
 $navbar-box-shadow-size: 0 2px 0 0 !default;
 $navbar-box-shadow-color: $background !default;
@@ -222,7 +238,7 @@ $color: nth($pair, 1) !default;
 $color-invert: nth($pair, 2) !default;
 
 
-// pagination.sass at /Users/rasty/projects/coco/style/components/pagination.sass
+// _pagination.sass at /Users/rasty/projects/coco/style/components/_pagination.sass
 $pagination-color: $text-strong !default;
 $pagination-border-color: $border !default;
 $pagination-margin: -0.25rem !default;
@@ -247,7 +263,7 @@ $pagination-ellipsis-color: $grey-light !default;
 $pagination-shadow-inset: inset 0 1px 2px rgba($scheme-invert, 0.2) !default;
 
 
-// panel.sass at /Users/rasty/projects/coco/style/components/panel.sass
+// _panel.sass at /Users/rasty/projects/coco/style/components/_panel.sass
 $panel-margin: $block-spacing !default;
 $panel-item-border: 1px solid $border-light !default;
 $panel-radius: $radius-large !default;
@@ -276,7 +292,7 @@ $color: nth($components, 1) !default;
 $color-invert: nth($components, 2) !default;
 
 
-// tabs.sass at /Users/rasty/projects/coco/style/components/tabs.sass
+// _tabs.sass at /Users/rasty/projects/coco/style/components/_tabs.sass
 $tabs-border-bottom-color: $border !default;
 $tabs-border-bottom-style: solid !default;
 $tabs-border-bottom-width: 1px !default;
@@ -303,31 +319,10 @@ $tabs-toggle-link-active-border-color: $link !default;
 $tabs-toggle-link-active-color: $link-invert !default;
 
 
-// _all.sass at /Users/rasty/projects/coco/style/effects/_all.sass
-
-
-// chessboard.sass at /Users/rasty/projects/coco/style/effects/chessboard.sass
-
-
-// emoji.sass at /Users/rasty/projects/coco/style/effects/emoji.sass
-
-
-// kaomoji.sass at /Users/rasty/projects/coco/style/effects/kaomoji.sass
-$kao-icon: nth($kaomoji, 1) !default;
-$kao-unicode: nth($kaomoji, 2) !default;
-
-
-// rotate.sass at /Users/rasty/projects/coco/style/effects/rotate.sass
-$rotate-breakpoints: 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 !default;
-
-
-// spinner.sass at /Users/rasty/projects/coco/style/effects/spinner.sass
-
-
 // _all.sass at /Users/rasty/projects/coco/style/elements/_all.sass
 
 
-// box.sass at /Users/rasty/projects/coco/style/elements/box.sass
+// _box.sass at /Users/rasty/projects/coco/style/elements/_box.sass
 $box-color: $text !default;
 $box-background-color: $scheme-main !default;
 $box-radius: $radius-large !default;
@@ -337,7 +332,7 @@ $box-link-hover-shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0 0 1p
 $box-link-active-shadow: inset 0 1px 2px rgba($scheme-invert, 0.2), 0 0 0 1px $link !default;
 
 
-// button.sass at /Users/rasty/projects/coco/style/elements/button.sass
+// _button.sass at /Users/rasty/projects/coco/style/elements/_button.sass
 $button-color: $text-strong !default;
 $button-background-color: $scheme-main !default;
 $button-family: false !default;
@@ -369,11 +364,11 @@ $color-light: nth($pair, 3) !default;
 $color-dark: nth($pair, 4) !default;
 
 
-// container.sass at /Users/rasty/projects/coco/style/elements/container.sass
+// _container.sass at /Users/rasty/projects/coco/style/elements/_container.sass
 $container-offset: (2 * $gap) !default;
 
 
-// content.sass at /Users/rasty/projects/coco/style/elements/content.sass
+// _content.sass at /Users/rasty/projects/coco/style/elements/_content.sass
 $content-heading-color: $text-strong !default;
 $content-heading-weight: $weight-semibold !default;
 $content-heading-line-height: 1.125 !default;
@@ -391,18 +386,18 @@ $content-table-foot-cell-border-width: 2px 0 0 !default;
 $content-table-foot-cell-color: $text-strong !default;
 
 
-// icon.sass at /Users/rasty/projects/coco/style/elements/icon.sass
+// _icon.sass at /Users/rasty/projects/coco/style/elements/_icon.sass
 $icon-dimensions: 1.5rem !default;
 $icon-dimensions-small: 1rem !default;
 $icon-dimensions-medium: 2rem !default;
 $icon-dimensions-large: 3rem !default;
 
 
-// image.sass at /Users/rasty/projects/coco/style/elements/image.sass
+// _image.sass at /Users/rasty/projects/coco/style/elements/_image.sass
 $dimensions: 16 24 32 48 64 96 128 !default;
 
 
-// notification.sass at /Users/rasty/projects/coco/style/elements/notification.sass
+// _notification.sass at /Users/rasty/projects/coco/style/elements/_notification.sass
 $notification-background-color: $background !default;
 $notification-code-background-color: $scheme-main !default;
 $notification-radius: $radius !default;
@@ -413,10 +408,10 @@ $color-light: nth($pair, 3) !default;
 $color-dark: nth($pair, 4) !default;
 
 
-// other.sass at /Users/rasty/projects/coco/style/elements/other.sass
+// _other.sass at /Users/rasty/projects/coco/style/elements/_other.sass
 
 
-// progress.sass at /Users/rasty/projects/coco/style/elements/progress.sass
+// _progress.sass at /Users/rasty/projects/coco/style/elements/_progress.sass
 $progress-bar-background-color: $border-light !default;
 $progress-value-background-color: $text !default;
 $progress-border-radius: $radius-rounded !default;
@@ -424,7 +419,7 @@ $progress-indeterminate-duration: 1.5s !default;
 $color: nth($pair, 1) !default;
 
 
-// table.sass at /Users/rasty/projects/coco/style/elements/table.sass
+// _table.sass at /Users/rasty/projects/coco/style/elements/_table.sass
 $table-color: $text-strong !default;
 $table-background-color: $scheme-main !default;
 $table-cell-border: 1px solid $border !default;
@@ -447,7 +442,7 @@ $color: nth($pair, 1) !default;
 $color-invert: nth($pair, 2) !default;
 
 
-// tag.sass at /Users/rasty/projects/coco/style/elements/tag.sass
+// _tag.sass at /Users/rasty/projects/coco/style/elements/_tag.sass
 $tag-background-color: $background !default;
 $tag-color: $text !default;
 $tag-radius: $radius !default;
@@ -458,7 +453,7 @@ $color-light: nth($pair, 3) !default;
 $color-dark: nth($pair, 4) !default;
 
 
-// title.sass at /Users/rasty/projects/coco/style/elements/title.sass
+// _title.sass at /Users/rasty/projects/coco/style/elements/_title.sass
 $title-color: $text-strong !default;
 $title-family: false !default;
 $title-size: $size-3 !default;
@@ -478,6 +473,75 @@ $subtitle-strong-weight: $weight-semibold !default;
 $subtitle-negative-margin: -1.25rem !default;
 $i: index($sizes, $size) !default;
 $i: index($sizes, $size) !default;
+
+
+// _all.sass at /Users/rasty/projects/coco/style/form/_all.sass
+
+
+// _checkbox.sass at /Users/rasty/projects/coco/style/form/_checkbox.sass
+
+
+// _file.sass at /Users/rasty/projects/coco/style/form/_file.sass
+$file-border-color: $border !default;
+$file-radius: $radius !default;
+$file-cta-background-color: $scheme-main-ter !default;
+$file-cta-color: $text !default;
+$file-cta-hover-color: $text-strong !default;
+$file-cta-active-color: $text-strong !default;
+$file-name-border-color: $border !default;
+$file-name-border-style: solid !default;
+$file-name-border-width: 1px 1px 1px 0 !default;
+$file-name-max-width: 16em !default;
+$color: nth($pair, 1) !default;
+$color-invert: nth($pair, 2) !default;
+
+
+// _input.sass at /Users/rasty/projects/coco/style/form/_input.sass
+$color: nth($pair, 1) !default;
+
+
+// _radio.sass at /Users/rasty/projects/coco/style/form/_radio.sass
+
+
+// _select.sass at /Users/rasty/projects/coco/style/form/_select.sass
+$color: nth($pair, 1) !default;
+
+
+// _shared.sass at /Users/rasty/projects/coco/style/form/_shared.sass
+$input-color: inherit !default;
+$input-background-color: $scheme-main !default;
+$input-border-color: $border !default;
+$input-height: $control-height !default;
+$input-shadow: inset 0 0.0625em 0.125em rgba($scheme-invert, 0.05) !default;
+$input-placeholder-color: cocoRgba($input-color, 0.3) !default;
+$input-hover-color: $text-strong !default;
+$input-hover-border-color: $border-hover !default;
+$input-focus-color: $text-strong !default;
+$input-focus-border-color: $link !default;
+$input-focus-box-shadow-size: 0 0 0 0.125em !default;
+$input-focus-box-shadow-color: cocoRgba($link, 0.25) !default;
+$input-disabled-color: $text-light !default;
+$input-disabled-background-color: $background !default;
+$input-disabled-border-color: $background !default;
+$input-disabled-placeholder-color: cocoRgba($input-disabled-color, 0.3) !default;
+$input-arrow: $link !default;
+$input-icon-color: $border !default;
+$input-icon-active-color: $text !default;
+$input-radius: $radius !default;
+
+
+// _textarea.sass at /Users/rasty/projects/coco/style/form/_textarea.sass
+$textarea-padding: $control-padding-horizontal !default;
+$textarea-max-height: 40em !default;
+$textarea-min-height: 8em !default;
+$color: nth($pair, 1) !default;
+
+
+// _tools.sass at /Users/rasty/projects/coco/style/form/_tools.sass
+$label-color: $text-strong !default;
+$label-weight: $weight-bold !default;
+$help-size: $size-small !default;
+$color: nth($pair, 1) !default;
 
 
 // 1977.sass at /Users/rasty/projects/coco/style/filters/1977.sass
@@ -549,66 +613,30 @@ $saturate-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200, 300, 
 $sepia-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100 !default;
 
 
-// _all.sass at /Users/rasty/projects/coco/style/form/_all.sass
+// _all.sass at /Users/rasty/projects/coco/style/layout/_all.sass
 
 
-// checkbox-radio.sass at /Users/rasty/projects/coco/style/form/checkbox-radio.sass
+// _footer.sass at /Users/rasty/projects/coco/style/layout/_footer.sass
+$footer-background-color: $scheme-main-bis !default;
+$footer-color: false !default;
+$footer-padding: 3rem 1.5rem 6rem !default;
 
 
-// file.sass at /Users/rasty/projects/coco/style/form/file.sass
-$file-border-color: $border !default;
-$file-radius: $radius !default;
-$file-cta-background-color: $scheme-main-ter !default;
-$file-cta-color: $text !default;
-$file-cta-hover-color: $text-strong !default;
-$file-cta-active-color: $text-strong !default;
-$file-name-border-color: $border !default;
-$file-name-border-style: solid !default;
-$file-name-border-width: 1px 1px 1px 0 !default;
-$file-name-max-width: 16em !default;
+// _hero.sass at /Users/rasty/projects/coco/style/layout/_hero.sass
+$hero-body-padding: 3rem 1.5rem !default;
+$hero-body-padding-small: 1.5rem !default;
+$hero-body-padding-medium: 9rem 1.5rem !default;
+$hero-body-padding-large: 18rem 1.5rem !default;
 $color: nth($pair, 1) !default;
 $color-invert: nth($pair, 2) !default;
+$gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%) !default;
+$gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%) !default;
 
 
-// input-textarea.sass at /Users/rasty/projects/coco/style/form/input-textarea.sass
-$textarea-padding: $control-padding-horizontal !default;
-$textarea-max-height: 40em !default;
-$textarea-min-height: 8em !default;
-$color: nth($pair, 1) !default;
-
-
-// select.sass at /Users/rasty/projects/coco/style/form/select.sass
-$color: nth($pair, 1) !default;
-
-
-// shared.sass at /Users/rasty/projects/coco/style/form/shared.sass
-$input-color: inherit !default;
-$input-background-color: $scheme-main !default;
-$input-border-color: $border !default;
-$input-height: $control-height !default;
-$input-shadow: inset 0 0.0625em 0.125em rgba($scheme-invert, 0.05) !default;
-$input-placeholder-color: cocoRgba($input-color, 0.3) !default;
-$input-hover-color: $text-strong !default;
-$input-hover-border-color: $border-hover !default;
-$input-focus-color: $text-strong !default;
-$input-focus-border-color: $link !default;
-$input-focus-box-shadow-size: 0 0 0 0.125em !default;
-$input-focus-box-shadow-color: cocoRgba($link, 0.25) !default;
-$input-disabled-color: $text-light !default;
-$input-disabled-background-color: $background !default;
-$input-disabled-border-color: $background !default;
-$input-disabled-placeholder-color: cocoRgba($input-disabled-color, 0.3) !default;
-$input-arrow: $link !default;
-$input-icon-color: $border !default;
-$input-icon-active-color: $text !default;
-$input-radius: $radius !default;
-
-
-// tools.sass at /Users/rasty/projects/coco/style/form/tools.sass
-$label-color: $text-strong !default;
-$label-weight: $weight-bold !default;
-$help-size: $size-small !default;
-$color: nth($pair, 1) !default;
+// _section.sass at /Users/rasty/projects/coco/style/layout/_section.sass
+$section-padding: 3rem 1.5rem !default;
+$section-padding-medium: 9rem 1.5rem !default;
+$section-padding-large: 18rem 1.5rem !default;
 
 
 // _all.sass at /Users/rasty/projects/coco/style/grid/_all.sass
@@ -622,39 +650,10 @@ $column-gap: 0.75rem !default;
 $tile-spacing: 0.75rem !default;
 
 
-// _all.sass at /Users/rasty/projects/coco/style/layout/_all.sass
-
-
-// footer.sass at /Users/rasty/projects/coco/style/layout/footer.sass
-$footer-background-color: $scheme-main-bis !default;
-$footer-color: false !default;
-$footer-padding: 3rem 1.5rem 6rem !default;
-
-
-// hero.sass at /Users/rasty/projects/coco/style/layout/hero.sass
-$hero-body-padding: 3rem 1.5rem !default;
-$hero-body-padding-small: 1.5rem !default;
-$hero-body-padding-medium: 9rem 1.5rem !default;
-$hero-body-padding-large: 18rem 1.5rem !default;
-$color: nth($pair, 1) !default;
-$color-invert: nth($pair, 2) !default;
-$gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%) !default;
-$gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%) !default;
-
-
-// section.sass at /Users/rasty/projects/coco/style/layout/section.sass
-$section-padding: 3rem 1.5rem !default;
-$section-padding-medium: 9rem 1.5rem !default;
-$section-padding-large: 18rem 1.5rem !default;
-
-
 // _all.sass at /Users/rasty/projects/coco/style/utilities/_all.sass
 
 
-// animations.sass at /Users/rasty/projects/coco/style/utilities/animations.sass
-
-
-// controls.sass at /Users/rasty/projects/coco/style/utilities/controls.sass
+// _controls.sass at /Users/rasty/projects/coco/style/utilities/_controls.sass
 $control-radius: $radius !default;
 $control-radius-small: $radius-small !default;
 $control-border-width: 1px !default;
@@ -662,8 +661,8 @@ $control-height: 2.5em !default;
 $control-line-height: 1.5 !default;
 
 
-// derived-variables.sass at /Users/rasty/projects/coco/style/utilities/derived-variables.sass
-$primary: $turquoise !default;
+// _derived-variables.sass at /Users/rasty/projects/coco/style/utilities/_derived-variables.sass
+$primary: $green-core !default;
 $info: $cyan !default;
 $success: $green !default;
 $warning: $yellow !default;
@@ -681,6 +680,7 @@ $red-invert: findColorInvert($red) !default;
 $primary-invert: findColorInvert($primary) !default;
 $primary-light: findLightColor($primary) !default;
 $primary-dark: findDarkColor($primary) !default;
+$primary-highlight: lighten(saturate($primary, 20%), 20%) !default;
 $info-invert: findColorInvert($info) !default;
 $info-light: findLightColor($info) !default;
 $info-dark: findDarkColor($info) !default;
@@ -719,10 +719,10 @@ $link-invert: findColorInvert($link) !default;
 $link-light: findLightColor($link) !default;
 $link-dark: findDarkColor($link) !default;
 $link-visited: $purple !default;
-$link-hover: $grey-darker !default;
-$link-hover-border: $grey-light !default;
-$link-focus: $grey-darker !default;
-$link-focus-border: $blue !default;
+$link-hover: findDarkColor($blue) !default;
+$link-hover-border: findDarkColor($blue) !default;
+$link-focus: findDarkColor($blue) !default;
+$link-focus-border: findDarkColor($blue) !default;
 $link-active: $grey-darker !default;
 $link-active-border: $grey-dark !default;
 $family-primary: $family-sans-serif !default;
@@ -738,7 +738,7 @@ $white-ter, "white-bis": $white-bis), $custom-shades) !default;
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 !default;
 
 
-// functions.sass at /Users/rasty/projects/coco/style/utilities/functions.sass
+// _functions.sass at /Users/rasty/projects/coco/style/utilities/_functions.sass
 $merged-colors: $coco-colors !default;
 $color-base: null !default;
 $color-invert: null !default;
@@ -780,7 +780,7 @@ $target-l: round($base-l + ($luminance-delta * 53)) !default;
 $color, $lightness: max($base-l, $target-l)) !default;
 
 
-// initial-variables.sass at /Users/rasty/projects/coco/style/utilities/initial-variables.sass
+// _initial-variables.sass at /Users/rasty/projects/coco/style/utilities/_initial-variables.sass
 $black:        hsl(0, 0%, 4%) !default;
 $black-bis:    hsl(0, 0%, 7%) !default;
 $black-ter:    hsl(0, 0%, 14%) !default;
@@ -796,6 +796,7 @@ $white:        hsl(0, 0%, 100%) !default;
 $orange:       hsl(14,  100%, 53%) !default;
 $yellow:       hsl(48,  100%, 67%) !default;
 $green:        hsl(141, 53%,  53%) !default;
+$green-core:   hsl(122, 44%,  49%) !default;
 $turquoise:    hsl(171, 100%, 41%) !default;
 $cyan:         hsl(204, 71%,  53%) !default;
 $blue:         hsl(217, 71%,  53%) !default;
@@ -816,7 +817,7 @@ $weight-normal: 400 !default;
 $weight-medium: 500 !default;
 $weight-semibold: 600 !default;
 $weight-bold: 700 !default;
-$block-spacing: 1.5rem !default;
+$block-spacing: 1rem !default;
 $gap: 32px !default;
 $tablet: 769px !default;
 $desktop: 960px + (2 * $gap) !default;
@@ -835,12 +836,10 @@ $emoji-dimensions: 1rem !default;
 $emoji-dimensions-small: .75rem !default;
 $emoji-dimensions-medium: 1.5rem !default;
 $emoji-dimensions-large: 2rem !default;
-$kaomojis: coco 'c⌾c⌾', star0-of-5 '☆☆☆☆☆', star1-of-5 '★☆☆☆☆', star2-of-5 '★★☆☆☆', star3-of-5 '★★★☆☆', star4-of-5 '★★★★☆', star5-of-5 '★★★★★', lenny '( ͡° ͜ʖ ͡°)', shrug '¯\_(ツ)_/¯', disapproval 'ಠ_ಠ', dunno '¯\(°_o)/¯', donger '༼ ºلº ༽', donger-raise 'ヽ༼ຈل͜ຈ༽ﾉ', happy 'ʘ‿ʘ', happy-square '【ツ】', nyancat '≋≋≋≋≋̯̫⌧̯̫(ˆ•̮ ̮•ˆ)', bear 'ʕ•ᴥ•ʔ' !default;
-$kaomoji-dimensions: 1rem !default;
-$kaomoji-dimensions-small: .75rem !default;
-$kaomoji-dimensions-medium: 1.5rem !default;
-$kaomoji-dimensions-large: 2rem !default;
 
 
-// mixins.sass at /Users/rasty/projects/coco/style/utilities/mixins.sass
+// _mixins.sass at /Users/rasty/projects/coco/style/utilities/_mixins.sass
+
+
+// animations.sass at /Users/rasty/projects/coco/style/utilities/animations.sass
 

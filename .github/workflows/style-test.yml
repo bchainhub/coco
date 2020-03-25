@@ -1,0 +1,22 @@
+name: Test style
+
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+          with:
+            ruby-version: 2.6
+      - name: Install Dependencies
+        run: gem install sass
+      - name: Run test
+        run: |
+          sh ./test/sass-compile-tester.sh

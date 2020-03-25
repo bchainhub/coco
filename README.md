@@ -25,7 +25,7 @@ Patch fixes within a minor version
 
 Using SRI with exact version
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1.0/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1.1/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
 ```
 
 > Please, replace {hash} with hash generated for chosen specific version. You can use for example this [SRI Hash Generator](https://www.srihash.org/).
@@ -55,9 +55,11 @@ bower install https://github.com/cryptohub-digital/coco#master --save
 ```
 
 ### Import
+
 After installation, you can import the CSS file into your project using this snippet:
 
 #### Normal CSS version
+
 ```css
 @import 'coco/dist/css/coco.css'
 ```
@@ -92,16 +94,20 @@ ln -sf ../node_modules/@cryptohub/coco/dist/scss imports/coco
 ```
 
 #### Jekyll aka Github pages :octocat:
+
 ```sh
 npm install cryptohub-digital/coco#master --save
 ln -sf ../node_modules/@cryptohub/coco/dist/sass _sass/coco
 ```
+
 > css/styles.sass
 
 ```css
 @import "coco/coco.sass"
 ```
+
 > \_config.yml
+
 ```yaml
 include:
   - node_modules/@cryptohub/coco/dist/sass
@@ -146,6 +152,7 @@ You can found default variables in [dist/default/vars.scss](https://github.com/c
 ## Get started
 
 ### The simplest grid system
+
 > Just add columns, they will resize themselves
 
 ```html
@@ -158,6 +165,7 @@ You can found default variables in [dist/default/vars.scss](https://github.com/c
 </div>
 ```
 ### Sticky footer
+
 > Sticky footer with one class
 
 ```html
@@ -168,11 +176,39 @@ You can found default variables in [dist/default/vars.scss](https://github.com/c
 </body>
 ```
 
+### Tabs
+
+> Tabs without the JavaScript
+
+```html
+<div class="tabs">
+  <ul>
+    <li><a href="#tab-1">Tab 1</a></li>
+    <li><a href="#tab-2">Tab 2</a></li>
+    <li><a href="#tab-3">Tab 3</a></li>
+  </ul>
+</div>
+<section class="tab-content">
+  <article id="tab-2">Content of second tab</article>
+  <article id="tab-3">Content of third tab</article>
+  <!-- Default tab -->
+  <article id="tab-1">Content of first tab</article>
+</section>
+```
+
 ### em.oji
+
 > You can use Emoji as icons with effects on it
 
 ```html
 <em class="oji flat">📥</em>
+```
+
+### Current version
+> You can call current version with following code:
+
+```html
+<span class="coco version">version </span>
 ```
 
 ## Browser Support
@@ -190,6 +226,10 @@ Internet Explorer (10+) is only partially supported.
 ## Documentation
 
 Browse the online documentation in [WIKI page](https://github.com/cryptohub-digital/coco/wiki) or [Online manual](https://cryptohub-digital.github.io/coco/).
+
+## Changelog
+
+You can check the changes in our [changelog](https://github.com/cryptohub-digital/coco/blob/master/CHANGELOG.md).
 
 ## Copyright and license
 
