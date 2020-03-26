@@ -196,6 +196,15 @@ You can found default variables in [dist/default/vars.scss](https://github.com/c
 </section>
 ```
 
+### Hamburger menu
+
+> Hamburger menu without the JavaScript
+
+1. Add `<input type="checkbox" id="navbar-toggle" aria-hidden="true" />` into the `.navbar`
+2. Change link to label: `<label for="navbar-toggle" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">...</label>`
+3. Optional: Your menu `id` should be same as defined in `label[data-target]` for compatiblity with JavaScript
+4. Test hamburger menu
+
 ### em.oji
 
 > You can use Emoji as icons with effects on it
@@ -229,7 +238,7 @@ Browse the online documentation in [WIKI page](https://github.com/cryptohub-digi
 
 ## Changelog
 
-You can check the changes in our [changelog](https://github.com/cryptohub-digital/coco/blob/master/CHANGELOG.md).
+You can check the changes in our [changelog](https://github.com/cryptohub-digital/coco/blob/master/.changelog).
 
 ## Copyright and license
 

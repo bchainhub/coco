@@ -15,6 +15,16 @@ $container-offset: (2 * $gap) !default
     padding-left: $gap
     padding-right: $gap
     width: 100%
+  +mobile
+    padding-left: ($gap / 2)
+    padding-right: ($gap / 2)
+    &.is-fluidless
+      padding-left: inherit
+      padding-right: inherit
+  +tablet
+    max-width: $tablet - $container-offset
+    &.is-fluidless
+      max-width: inherit
   +desktop
     max-width: $desktop - $container-offset
   +until-widescreen

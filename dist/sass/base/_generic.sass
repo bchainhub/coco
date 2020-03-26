@@ -48,6 +48,11 @@ header,
 hgroup,
 section
 	display: block
+	&.is-sticky
+		position: -webkit-sticky
+		position: sticky
+		top: 0
+		z-index: 2
 
 body,
 button,
@@ -91,13 +96,6 @@ a
 	&:visited
 		color: $link-visited
 
-code
-	background-color: $code-background
-	color: $code
-	font-size: $code-size
-	font-weight: $code-weight
-	padding: $code-padding
-
 hr
 	background-color: $hr-background-color
 	border: none
@@ -129,6 +127,14 @@ strong
 fieldset
 	border: none
 
+code
+	background-color: $code-background
+	color: $code
+	font-size: $code-size
+	font-weight: $code-weight
+	padding: $code-padding
+	border-radius: $radius
+
 pre
 	+overflow-touch
 	background-color: $pre-background
@@ -138,9 +144,11 @@ pre
 	padding: $pre-padding
 	white-space: pre
 	word-wrap: normal
+	border-radius: $radius
 	code
 		background-color: transparent
-		color: currentColor
+		color: $code
+		font-weight: $code-weight
 		font-size: $pre-code-font-size
 		padding: 0
 

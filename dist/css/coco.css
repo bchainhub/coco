@@ -1,5 +1,5 @@
 .coco.version::after {
-  content: "1.1.1";
+  content: "1.1.2";
 }
 
 @-webkit-keyframes spinAround {
@@ -22,10 +22,6 @@
     -webkit-transform: rotate(359deg);
             transform: rotate(359deg);
   }
-}
-
-.coco.version::after {
-  content: "1.1.1";
 }
 
 .delete, .modal-close, .is-unselectable, .button, .breadcrumb, .pagination-previous,
@@ -365,6 +361,19 @@ section {
   display: block;
 }
 
+article.is-sticky,
+aside.is-sticky,
+figure.is-sticky,
+footer.is-sticky,
+header.is-sticky,
+hgroup.is-sticky,
+section.is-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 body,
 button,
 input,
@@ -423,14 +432,6 @@ a:visited {
   color: #b86bff;
 }
 
-code {
-  background-color: whitesmoke;
-  color: #48c774;
-  font-size: 0.95em;
-  font-weight: normal;
-  padding: 0.25em 0.5em 0.25em;
-}
-
 hr {
   background-color: whitesmoke;
   border: none;
@@ -467,6 +468,15 @@ fieldset {
   border: none;
 }
 
+code {
+  background-color: whitesmoke;
+  color: #48c774;
+  font-size: 0.95em;
+  font-weight: normal;
+  padding: 0.25em 0.5em 0.25em;
+  border-radius: 4px;
+}
+
 pre {
   -webkit-overflow-scrolling: touch;
   background-color: whitesmoke;
@@ -476,11 +486,13 @@ pre {
   padding: 1.25rem 1.5rem;
   white-space: pre;
   word-wrap: normal;
+  border-radius: 4px;
 }
 
 pre code {
   background-color: transparent;
-  color: currentColor;
+  color: #48c774;
+  font-weight: normal;
   font-size: 1em;
   padding: 0;
 }
@@ -3247,6 +3259,26 @@ fieldset[disabled] .button {
   width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .container.is-fluidless {
+    padding-left: inherit;
+    padding-right: inherit;
+  }
+}
+
+@media screen and (min-width: 769px), print {
+  .container {
+    max-width: 705px;
+  }
+  .container.is-fluidless {
+    max-width: inherit;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .container {
     max-width: 960px;
@@ -5865,6 +5897,8 @@ a.list-item {
 .navbar.is-sticky {
   position: -webkit-sticky;
   position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 html.has-navbar-fixed-top,
@@ -5954,6 +5988,46 @@ body.has-navbar-fixed-bottom {
 
 .navbar-menu {
   display: none;
+}
+
+input#navbar-toggle {
+  display: none;
+}
+
+input#navbar-toggle:checked ~ .navbar-menu {
+  display: block;
+}
+
+input#navbar-toggle + div > label > span:first-of-type {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+input#navbar-toggle + div > label > span:nth-of-type(2) {
+  opacity: 1;
+}
+
+input#navbar-toggle + div > label > span:last-of-type {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+input#navbar-toggle:checked + div > label > span:first-of-type {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transform-origin: 10% 10%;
+          transform-origin: 10% 10%;
+}
+
+input#navbar-toggle:checked + div > label > span:nth-of-type(2) {
+  opacity: 0;
+}
+
+input#navbar-toggle:checked + div > label > span:last-of-type {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transform-origin: 10% 90%;
+          transform-origin: 10% 90%;
 }
 
 .navbar-item,
@@ -6804,6 +6878,8 @@ label.panel-block:hover {
 .tabs.is-sticky {
   position: -webkit-sticky;
   position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .tabs.is-boxed a {

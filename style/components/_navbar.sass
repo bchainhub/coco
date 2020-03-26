@@ -52,6 +52,11 @@ $navbar-breakpoint: $desktop !default
   right: 0
   z-index: $navbar-fixed-z
 
+/// Navbar - A responsive horizontal navbar that can support images, links, buttons, and dropdowns.
+/// @name .navbar
+/// @group components
+/// @since 1.1.0
+/// @link https://github.com/cryptohub-digital/coco/wiki/components-navbar
 .navbar
   background-color: $navbar-background-color
   min-height: $navbar-height
@@ -124,6 +129,8 @@ $navbar-breakpoint: $desktop !default
   &.is-sticky
     position: -webkit-sticky
     position: sticky
+    top: 0
+    z-index: 2
 
 html,
 body
@@ -158,6 +165,32 @@ body
 
 .navbar-menu
   display: none
+
+/// Navbar Toggle - A responsive horizontal navbar prepared to work out-of-box.
+/// @name input#navbar-toggle
+/// @group components
+/// @since 1.1.2
+/// @link https://github.com/cryptohub-digital/coco/wiki/components-navbar-toggle
+input#navbar-toggle
+  display: none
+  &:checked ~ .navbar-menu
+    display: block
+  & + div > label
+    & > span:first-of-type
+      transform: rotate(0)
+    & > span:nth-of-type(2)
+      opacity: 1
+    & > span:last-of-type
+      transform: rotate(0)
+  &:checked + div > label
+    & > span:first-of-type
+      transform: rotate(45deg)
+      transform-origin: 10% 10%
+    & > span:nth-of-type(2)
+      opacity: 0
+    & > span:last-of-type
+      transform: rotate(-45deg)
+      transform-origin: 10% 90%
 
 .navbar-item,
 .navbar-link

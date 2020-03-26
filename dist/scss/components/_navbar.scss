@@ -123,7 +123,9 @@ $navbar-breakpoint: $desktop !default;
     top: 0; }
   &.is-sticky {
     position: -webkit-sticky;
-    position: sticky; } }
+    position: sticky;
+    top: 0;
+    z-index: 2; } }
 
 html,
 body {
@@ -158,6 +160,27 @@ body {
 
 .navbar-menu {
   display: none; }
+
+input#navbar-toggle {
+  display: none;
+  &:checked ~ .navbar-menu {
+    display: block; }
+  & + div > label {
+    & > span:first-of-type {
+      transform: rotate(0); }
+    & > span:nth-of-type(2) {
+      opacity: 1; }
+    & > span:last-of-type {
+      transform: rotate(0); } }
+  &:checked + div > label {
+    & > span:first-of-type {
+      transform: rotate(45deg);
+      transform-origin: 10% 10%; }
+    & > span:nth-of-type(2) {
+      opacity: 0; }
+    & > span:last-of-type {
+      transform: rotate(-45deg);
+      transform-origin: 10% 90%; } } }
 
 .navbar-item,
 .navbar-link {
