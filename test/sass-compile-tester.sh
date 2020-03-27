@@ -26,7 +26,7 @@ run_it()
 
 	if [ ! -d "${CSS_DIR}" ]; then
 	  echo "Creating $CSS_DIR directory…"
-		mkdir -p "${CSS_DIR}"
+		sudo mkdir -p "${CSS_DIR}"
 	fi
 
 	if [ $1 ]
