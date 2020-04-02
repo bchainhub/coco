@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - '[0-9].[0-9].[0-9]'
+      - 'v[0-9].[0-9].[0-9]'
 
 jobs:
   build:
@@ -25,9 +25,9 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: coco-v${{ github.ref }}.zip
-          name: ${{ github.workflow }} v${{ github.ref }}
-          body_path: .changelog/CHANGELOG-v${{ github.ref }}.md
+          files: coco-${{ github.ref }}.zip
+          name: ${{ github.workflow }} ${{ github.ref }}
+          body_path: .changelog/CHANGELOG-${{ github.ref }}.md
           draft: false
           prerelease: false
         env:
