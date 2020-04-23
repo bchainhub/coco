@@ -81,23 +81,11 @@ After installation, you can import the CSS file into your project using this sni
 ### Linking
 You can install and connect node_modules distribution with symbolic link for various platforms. Such as:
 
-#### Meteor
-Note: install meteor plug-in first [fourseven:scss](https://atmospherejs.com/fourseven/scss)
-```sh
-meteor add fourseven:scss
-meteor npm install cryptohub-digital/coco#master --save
-ln -sf ../node_modules/@cryptohub/coco/dist/scss imports/coco
-```
-> client/styles/main.scss
-```css
-@import "{}/imports/coco/coco.scss";
-```
-
 #### Jekyll aka Github pages :octocat:
 
 ```sh
-npm install cryptohub-digital/coco#master --save
-ln -sf ../node_modules/@cryptohub/coco/dist/sass _sass/coco
+yarn add https://github.com/cryptohub-digital/coco
+mkdir -p _sass; ln -s ../node_modules/@cryptohub/coco/dist/sass _sass/coco
 ```
 
 > css/styles.sass

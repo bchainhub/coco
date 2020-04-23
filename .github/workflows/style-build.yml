@@ -1,0 +1,90 @@
+name: Build style
+
+on:
+  push:
+    branches: master
+
+jobs:
+  test:
+    name: Test style
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install Dependencies
+        run: gem install sass
+      - name: Run test
+        run: |
+          sh ./test/sass-compile-tester.sh
+  build:
+    name: Build style
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+  docs:
+    name: Build documentation
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install sass2scss
+        run: yarn global add sass2scss
+      - name: Build docs
+        run: yarn build-docs
+  release:
+    name: Release
+    needs: docs
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Compress
+        run: mv dist coco-v${{ github.ref }} && zip -r coco-v${{ github.ref }}.zip coco-v${{ github.ref }} && mv coco-v${{ github.ref }} dist
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: coco-${{ github.ref }}.zip
+          name: ${{ github.workflow }} ${{ github.ref }}
+          body_path: .changelog/CHANGELOG-${{ github.ref }}.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
