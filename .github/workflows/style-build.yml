@@ -22,6 +22,7 @@ jobs:
           sh ./test/sass-compile-tester.sh
   build:
     name: Build style
+    runs-on: ubuntu-latest
     needs: test
     steps:
       - name: Checkout
@@ -42,10 +43,13 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn install
+      - name: Install sass2scss
+        run: yarn global add sass2scss
       - name: Build
         run: yarn build
   docs:
     name: Build documentation
+    runs-on: ubuntu-latest
     needs: build
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
@@ -71,11 +75,32 @@ jobs:
         run: yarn build-docs
   release:
     name: Release
+    runs-on: ubuntu-latest
     needs: docs
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn install
+      - name: Install sass2scss
+        run: yarn global add sass2scss
+      - name: Build
+        run: yarn build
       - name: Compress
         run: mv dist coco-v${{ github.ref }} && zip -r coco-v${{ github.ref }}.zip coco-v${{ github.ref }} && mv coco-v${{ github.ref }} dist
       - name: Release
