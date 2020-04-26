@@ -40,22 +40,6 @@ $displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex' !default;
 // _minireset.sass at /Users/rasty/projects/coco/style/base/_minireset.sass
 
 
-// _all.sass at /Users/rasty/projects/coco/style/effects/_all.sass
-
-
-// _emoji.sass at /Users/rasty/projects/coco/style/effects/_emoji.sass
-
-
-// chessboard.sass at /Users/rasty/projects/coco/style/effects/chessboard.sass
-
-
-// rotate.sass at /Users/rasty/projects/coco/style/effects/rotate.sass
-$rotate-breakpoints: 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 !default;
-
-
-// spinner.sass at /Users/rasty/projects/coco/style/effects/spinner.sass
-
-
 // _all.sass at /Users/rasty/projects/coco/style/components/_all.sass
 
 
@@ -317,6 +301,22 @@ $tabs-toggle-link-radius: $radius !default;
 $tabs-toggle-link-active-background-color: $link !default;
 $tabs-toggle-link-active-border-color: $link !default;
 $tabs-toggle-link-active-color: $link-invert !default;
+
+
+// _all.sass at /Users/rasty/projects/coco/style/effects/_all.sass
+
+
+// chessboard.sass at /Users/rasty/projects/coco/style/effects/chessboard.sass
+
+
+// emoji.sass at /Users/rasty/projects/coco/style/effects/emoji.sass
+
+
+// rotate.sass at /Users/rasty/projects/coco/style/effects/rotate.sass
+$rotate-breakpoints: 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 !default;
+
+
+// spinner.sass at /Users/rasty/projects/coco/style/effects/spinner.sass
 
 
 // _all.sass at /Users/rasty/projects/coco/style/elements/_all.sass
