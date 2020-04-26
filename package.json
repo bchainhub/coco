@@ -44,7 +44,7 @@
     "sassdoc": "latest"
   },
   "scripts": {
-    "postinstall": "yarn global add gulp-cli",
+    "postinstall": "yarn global add gulp-cli && echo 'Checking presence of libsass (required >3.5.0)' && node_modules/.bin/node-sass -v",
     "build": "yarn build-add-version && yarn build-clean && yarn build-css && yarn build-autoprefix && yarn build-cleancss && yarn build-scss && yarn build-sass && yarn build-default-vars && yarn build-clean-version",
     "build-autoprefix": "postcss --use autoprefixer --map false --output dist/css/coco.css dist/css/coco.css",
     "build-add-version": "printf '.coco.version::after\n  content: \"%s\"\n\n' $npm_package_version | cat - style/coco.sass > style/coco.sass.old && mv style/coco.sass.old style/coco.sass",
