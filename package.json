@@ -44,20 +44,22 @@
     "sassdoc": "latest"
   },
   "scripts": {
-    "postinstall": "npm i -g gulp-cli",
-    "build": "npm run build-clean && npm run build-css && npm run build-autoprefix && npm run build-cleancss && npm run build-scss && npm run build-sass && npm run build-default-vars",
+    "postinstall": "yarn global add gulp-cli",
+    "build": "yarn build-add-version && yarn build-clean && yarn build-css && yarn build-autoprefix && yarn build-cleancss && yarn build-scss && yarn build-sass && yarn build-default-vars && yarn build-clean-version",
     "build-autoprefix": "postcss --use autoprefixer --map false --output dist/css/coco.css dist/css/coco.css",
+    "build-add-version": "printf '.coco.version::after\n  content: \"%s\"\n\n' $npm_package_version | cat - style/coco.sass > style/coco.sass.old && mv style/coco.sass.old style/coco.sass",
     "build-cleancss": "cleancss -o dist/css/coco.min.css dist/css/coco.css",
     "build-clean": "rimraf css",
+    "build-clean-version": "sed -i .old 1,3d style/coco.sass && rm -f style/coco.sass.old",
     "build-css": "node-sass --output-style expanded --source-map true style/coco.sass dist/css/coco.css",
+    "build-default-vars": "gulp scss-vars",
     "build-docs": "gulp scss-docs && gulp docs && rm -rf dist/docs",
     "build-sass": "gulp sass",
     "build-scss": "gulp scss",
-    "build-default-vars": "gulp scss-vars",
     "compress": "VER=$(echo $npm_package_version | sed s/[.]/-/g) && mv dist coco-v$npm_package_version && zip -r coco-v$VER.zip coco-v$npm_package_version && mv coco-v$npm_package_version dist",
-    "deploy": "npm run build",
-    "start": "npm run build-css -- --watch",
-    "release": "npm run build && npm run build-docs && npm run compress"
+    "deploy": "yarn build",
+    "start": "yarn build-css -- --watch",
+    "release": "yarn build && yarn build-docs && yarn compress"
   },
   "files": [
     "dist",

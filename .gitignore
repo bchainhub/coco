@@ -7,6 +7,7 @@ npm-debug.log
 *.zip
 package-lock.json
 yarn.lock
+yarn-error.log
 
 # Folders
 .idea/
