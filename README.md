@@ -15,17 +15,17 @@ Latest version
 
 Minor updates and patch fixes within a major version
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1/dist/css/coco.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@v1/dist/css/coco.min.css" />
 ```
 
 Patch fixes within a minor version
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1/dist/css/coco.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@v1.1/dist/css/coco.min.css" />
 ```
 
 Using SRI with exact version
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1.1/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@v1.1.3/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
 ```
 
 > Please, replace {hash} with hash generated for chosen specific version. You can use for example this [SRI Hash Generator](https://www.srihash.org/).
@@ -35,7 +35,7 @@ Using SRI with exact version
 #### NPM
 
 ```sh
-npm install cryptohub-digital/coco#master --save
+npm install git@github.com:cryptohub-digital/coco.git#v1.1.3 --save
 ```
 
 ---
@@ -43,7 +43,7 @@ npm install cryptohub-digital/coco#master --save
 #### Yarn
 
 ```sh
-yarn add https://github.com/cryptohub-digital/coco
+yarn add git@github.com:cryptohub-digital/coco.git#v1.1.3
 ```
 
 ---
@@ -51,14 +51,14 @@ yarn add https://github.com/cryptohub-digital/coco
 #### Bower
 
 ```sh
-bower install https://github.com/cryptohub-digital/coco#master --save
+bower install git@github.com:cryptohub-digital/coco.git#v1.1.3 --save
 ```
 
 ### Import
 
 After installation, you can import the CSS file into your project using this snippet:
 
-#### Normal CSS version
+#### CSS version
 
 ```css
 @import 'coco/dist/css/coco.css'
@@ -99,6 +99,20 @@ mkdir -p _sass; ln -s ../node_modules/@cryptohub/coco/dist/sass _sass/coco
 ```yaml
 include:
   - node_modules/@cryptohub/coco/dist/sass
+```
+
+> .gitignore (if present and you don't want import something else)
+
+```bash
+!node_modules/
+node_modules/*
+!node_modules/@cryptohub/
+node_modules/@cryptohub/*
+!node_modules/@cryptohub/coco/
+node_modules/@cryptohub/coco/*
+!node_modules/@cryptohub/coco/dist/
+node_modules/@cryptohub/coco/dist/*
+!node_modules/@cryptohub/coco/dist/sass
 ```
 
 ## Customize distribution

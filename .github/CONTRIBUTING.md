@@ -16,8 +16,8 @@
 When modifying any `.sass`, you will need to rebuild the css. You can do this by running:
 
 ```
-npm install
-npm run build
+yarn install
+yarn build
 ```
 
 ### COCO Sass styleguide

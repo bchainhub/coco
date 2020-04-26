@@ -1,6 +1,0 @@
-template: |
-  ## 🥥 Release changes
-
-  $CHANGES
-
-  🌟 Our stars: $CONTRIBUTORS

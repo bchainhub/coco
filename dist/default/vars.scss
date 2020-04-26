@@ -475,6 +475,17 @@ $i: index($sizes, $size) !default;
 $i: index($sizes, $size) !default;
 
 
+// _all.sass at /Users/rasty/projects/coco/style/grid/_all.sass
+
+
+// columns.sass at /Users/rasty/projects/coco/style/grid/columns.sass
+$column-gap: 0.75rem !default;
+
+
+// tiles.sass at /Users/rasty/projects/coco/style/grid/tiles.sass
+$tile-spacing: 0.75rem !default;
+
+
 // _all.sass at /Users/rasty/projects/coco/style/form/_all.sass
 
 
@@ -542,17 +553,6 @@ $label-color: $text-strong !default;
 $label-weight: $weight-bold !default;
 $help-size: $size-small !default;
 $color: nth($pair, 1) !default;
-
-
-// _all.sass at /Users/rasty/projects/coco/style/grid/_all.sass
-
-
-// columns.sass at /Users/rasty/projects/coco/style/grid/columns.sass
-$column-gap: 0.75rem !default;
-
-
-// tiles.sass at /Users/rasty/projects/coco/style/grid/tiles.sass
-$tile-spacing: 0.75rem !default;
 
 
 // 1977.sass at /Users/rasty/projects/coco/style/filters/1977.sass

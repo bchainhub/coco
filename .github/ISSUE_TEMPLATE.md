@@ -1,9 +1,6 @@
 <!-- Choose one of the following: -->
-<!-- Is it about COCO or about the Docs? -->
-This is about **COCO | the Docs**.
-
 <!-- Is it a bug/feature/question or do you need help? -->
-Topic: 
+Topic:
 <!-- If it's a bug, is it a browser bug? -->
 
 ### Overview of the problem
