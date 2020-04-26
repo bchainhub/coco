@@ -7,5 +7,5 @@
 
 ### Bug fixes
 
-* Versions will be named with `v` prefix and Semantic Versioning
+* Versions will be named without `v` prefix and support Semantic Versioning 2.0.0
 * Updated README
