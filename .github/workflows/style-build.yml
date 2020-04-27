@@ -51,7 +51,7 @@ jobs:
     name: Build documentation
     runs-on: ubuntu-latest
     needs: build
-    if: startsWith(github.ref, 'refs/tags/[0-9].[0-9].[0-9]')
+    if: startsWith(github.ref, 'refs/tags/[0-9]+.[0-9]+.[0-9]+')
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -77,7 +77,7 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     needs: docs
-    if: startsWith(github.ref, 'refs/tags/[0-9].[0-9].[0-9]')
+    if: startsWith(github.ref, 'refs/tags/[0-9]+.[0-9]+.[0-9]+')
     env:
       VER: $github.ref
       VER_CLEAN: $(echo $github.ref | sed s/[.]/-/g)
