@@ -41,10 +41,12 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - name: Install dependencies
-        run: yarn install
+      - name: Install sass
+        run: yarn global add sass
       - name: Install sass2scss
         run: yarn global add sass2scss
+      - name: Install dependencies
+        run: yarn install
       - name: Build
         run: yarn build
   docs:
@@ -69,8 +71,12 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+      - name: Install sass
+        run: yarn global add sass
       - name: Install sass2scss
         run: yarn global add sass2scss
+      - name: Install dependencies
+        run: yarn install
       - name: Build docs
         run: yarn build-docs
   release:
@@ -98,10 +104,12 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - name: Install dependencies
-        run: yarn install
+      - name: Install sass
+        run: yarn global add sass
       - name: Install sass2scss
         run: yarn global add sass2scss
+      - name: Install dependencies
+        run: yarn install
       - name: Build
         run: yarn build
       - name: Compress

@@ -18,7 +18,8 @@ $subtitle-strong-weight: $weight-semibold !default;
 $subtitle-negative-margin: -1.25rem !default;
 
 .title,
-.subtitle {
+.subtitle,
+h1, h2, h3, h4, h5, h6 {
   @extend %block;
   word-break: break-word;
   em,
@@ -31,7 +32,8 @@ $subtitle-negative-margin: -1.25rem !default;
   .tag {
     vertical-align: middle; } }
 
-.title {
+.title,
+h1, h2, h3, h4, h5, h6 {
   color: $title-color;
   @if $title-family {
     font-family: $title-family; }
@@ -49,6 +51,19 @@ $subtitle-negative-margin: -1.25rem !default;
     $i: index($sizes, $size);
     &.is-#{$i} {
       font-size: $size; } } }
+
+h1 {
+  font-size: $size-1; }
+h2 {
+  font-size: $size-2; }
+h3 {
+  font-size: $size-3; }
+h4 {
+  font-size: $size-4; }
+h5 {
+  font-size: $size-5; }
+h6 {
+  font-size: $size-6; }
 
 .subtitle {
   color: $subtitle-color;

@@ -613,6 +613,17 @@ $help-size: $size-small !default;
 $color: nth($pair, 1) !default;
 
 
+// _all.sass at /Users/rasty/projects/coco/style/grid/_all.sass
+
+
+// columns.sass at /Users/rasty/projects/coco/style/grid/columns.sass
+$column-gap: 0.75rem !default;
+
+
+// tiles.sass at /Users/rasty/projects/coco/style/grid/tiles.sass
+$tile-spacing: 0.75rem !default;
+
+
 // _all.sass at /Users/rasty/projects/coco/style/layout/_all.sass
 
 
@@ -637,17 +648,6 @@ $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%) !de
 $section-padding: 3rem 1.5rem !default;
 $section-padding-medium: 9rem 1.5rem !default;
 $section-padding-large: 18rem 1.5rem !default;
-
-
-// _all.sass at /Users/rasty/projects/coco/style/grid/_all.sass
-
-
-// columns.sass at /Users/rasty/projects/coco/style/grid/columns.sass
-$column-gap: 0.75rem !default;
-
-
-// tiles.sass at /Users/rasty/projects/coco/style/grid/tiles.sass
-$tile-spacing: 0.75rem !default;
 
 
 // _all.sass at /Users/rasty/projects/coco/style/utilities/_all.sass

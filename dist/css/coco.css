@@ -1,5 +1,5 @@
 .coco.version::after {
-  content: "1.1.3";
+  content: "1.1.4";
 }
 
 @-webkit-keyframes spinAround {
@@ -55,7 +55,8 @@
 }
 
 .box:not(:last-child), .content:not(:last-child), .notification:not(:last-child), .progress:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .title:not(:last-child),
-.subtitle:not(:last-child), .block:not(:last-child), .highlight:not(:last-child), .breadcrumb:not(:last-child), .level:not(:last-child), .list:not(:last-child), .message:not(:last-child), .pagination:not(:last-child) {
+.subtitle:not(:last-child),
+h1:not(:last-child), h2:not(:last-child), h3:not(:last-child), h4:not(:last-child), h5:not(:last-child), h6:not(:last-child), .block:not(:last-child), .highlight:not(:last-child), .breadcrumb:not(:last-child), .level:not(:last-child), .list:not(:last-child), .message:not(:last-child), .pagination:not(:last-child) {
   margin-bottom: 1rem;
 }
 
@@ -531,6 +532,10 @@ details > summary {
 
 details > summary::marker {
   color: #338436;
+}
+
+ul, ol {
+  list-style-position: inside;
 }
 
 .is-clearfix::after {
@@ -4265,78 +4270,124 @@ a.tag:hover {
 }
 
 .title,
-.subtitle {
+.subtitle,
+h1, h2, h3, h4, h5, h6 {
   word-break: break-word;
 }
 
 .title em,
 .title span,
 .subtitle em,
-.subtitle span {
+.subtitle span,
+h1 em,
+h1 span, h2 em,
+h2 span, h3 em,
+h3 span, h4 em,
+h4 span, h5 em,
+h5 span, h6 em,
+h6 span {
   font-weight: inherit;
 }
 
 .title sub,
-.subtitle sub {
+.subtitle sub,
+h1 sub, h2 sub, h3 sub, h4 sub, h5 sub, h6 sub {
   font-size: 0.75em;
 }
 
 .title sup,
-.subtitle sup {
+.subtitle sup,
+h1 sup, h2 sup, h3 sup, h4 sup, h5 sup, h6 sup {
   font-size: 0.75em;
 }
 
 .title .tag,
-.subtitle .tag {
+.subtitle .tag,
+h1 .tag, h2 .tag, h3 .tag, h4 .tag, h5 .tag, h6 .tag {
   vertical-align: middle;
 }
 
-.title {
+.title,
+h1, h2, h3, h4, h5, h6 {
   color: #363636;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.125;
 }
 
-.title strong {
+.title strong,
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
   color: inherit;
   font-weight: inherit;
 }
 
-.title + .highlight {
+.title + .highlight,
+h1 + .highlight, h2 + .highlight, h3 + .highlight, h4 + .highlight, h5 + .highlight, h6 + .highlight {
   margin-top: -0.75rem;
 }
 
-.title:not(.is-spaced) + .subtitle {
+.title:not(.is-spaced) + .subtitle,
+h1:not(.is-spaced) + .subtitle, h2:not(.is-spaced) + .subtitle, h3:not(.is-spaced) + .subtitle, h4:not(.is-spaced) + .subtitle, h5:not(.is-spaced) + .subtitle, h6:not(.is-spaced) + .subtitle {
   margin-top: -1.25rem;
 }
 
-.title.is-1 {
+.title.is-1,
+h1.is-1, h2.is-1, h3.is-1, h4.is-1, h5.is-1, h6.is-1 {
   font-size: 3rem;
 }
 
-.title.is-2 {
+.title.is-2,
+h1.is-2, h2.is-2, h3.is-2, h4.is-2, h5.is-2, h6.is-2 {
   font-size: 2.5rem;
 }
 
-.title.is-3 {
+.title.is-3,
+h1.is-3, h2.is-3, h3.is-3, h4.is-3, h5.is-3, h6.is-3 {
   font-size: 2rem;
 }
 
-.title.is-4 {
+.title.is-4,
+h1.is-4, h2.is-4, h3.is-4, h4.is-4, h5.is-4, h6.is-4 {
   font-size: 1.5rem;
 }
 
-.title.is-5 {
+.title.is-5,
+h1.is-5, h2.is-5, h3.is-5, h4.is-5, h5.is-5, h6.is-5 {
   font-size: 1.25rem;
 }
 
-.title.is-6 {
+.title.is-6,
+h1.is-6, h2.is-6, h3.is-6, h4.is-6, h5.is-6, h6.is-6 {
   font-size: 1rem;
 }
 
-.title.is-7 {
+.title.is-7,
+h1.is-7, h2.is-7, h3.is-7, h4.is-7, h5.is-7, h6.is-7 {
   font-size: 0.75rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
 }
 
 .subtitle {
