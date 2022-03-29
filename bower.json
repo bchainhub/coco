@@ -2,7 +2,6 @@
   "name": "coco",
   "homepage": "https://cryptohub-digital.github.io/coco/",
   "authors": [
-    "Raisty (https://github.com/raisty)",
     "CRYPTO ▪ HUB® (https://cryptohub.digital)",
     "Jeremy Thomas (https://github.com/jgthms)"
   ],
@@ -15,7 +14,7 @@
     "responsive",
     "framework"
   ],
-  "license": "MIT",
+  "license": "CORE",
   "ignore": [
     "**/.*",
     "node_modules",

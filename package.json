@@ -1,9 +1,8 @@
 {
   "name": "@cryptohub/coco",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "homepage": "https://cryptohub-digital.github.io/coco/",
   "contributors": [
-    "Raisty (https://github.com/raisty)",
     "CRYPTO ▪ HUB® (https://cryptohub.digital)",
     "Jeremy Thomas (https://github.com/jgthms)"
   ],
@@ -15,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/cryptohub-digital/coco.git"
   },
-  "license": "MIT",
+  "license": "CORE",
   "keywords": [
     "css",
     "sass",

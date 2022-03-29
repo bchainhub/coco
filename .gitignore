@@ -2,6 +2,8 @@
 .DS_Store
 .ruby-version
 test.sass
+test.css
+test.css.map
 npm-debug.log
 *.tar.gz
 *.zip
