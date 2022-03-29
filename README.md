@@ -242,6 +242,12 @@ Browse the online documentation in [WIKI page](https://github.com/cryptohub-digi
 
 You can check the changes in our [changelog](https://github.com/cryptohub-digital/coco/blob/master/.changelog).
 
+## Informational notice
+
+Why we are putting underscore in front of file and when to do so?
+
+> A sass file starting with an underscore is a partial. Files with \_ (underscore) are ignored by compiler.
+
 ## Copyright and license
 
-Code copyright 2018 [Crypto ▪ Hub®](https://github.com/cryptohub-digital), [Raisty](https://github.com/raisty); [Jeremy Thomas](https://github.com/jgthms). Code released under the [MIT license](https://github.com/cryptohub-digital/coco/blob/master/LICENSE).
+Code copyright 2018 [Crypto ▪ Hub®](https://github.com/cryptohub-digital); [Jeremy Thomas](https://github.com/jgthms). Code released under the [CORE license](LICENSE).
