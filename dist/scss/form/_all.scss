@@ -1,11 +1,9 @@
 @charset "utf-8";
 
-@import "_shared";
-@import "_input";
-@import "_textarea";
-@import "_checkbox";
-@import "_radio";
-@import "_select";
-@import "_file";
-@import "_tools";
+@import "shared";
+@import "input-textarea";
+@import "checkbox-radio";
+@import "select";
+@import "file";
+@import "tools";
 

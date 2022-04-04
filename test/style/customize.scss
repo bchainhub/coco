@@ -10,7 +10,7 @@ $brown: #757763;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
 
-// Update Bulma's global variables
+// Update Coco's global variables
 $family-sans-serif: "Nunito", sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
@@ -19,13 +19,13 @@ $link: $pink;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
-// Update some of Bulma's component variables
+// Update some of Coco's component variables
 $body-background-color: $beige-lighter;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
-// Import only what you need from Bulma
+// Import only what you need from Coco
 @import "../../style/utilities/_all.sass";
 @import "../../style/base/_all.sass";
 @import "../../style/elements/button.sass";
