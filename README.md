@@ -238,10 +238,6 @@ Internet Explorer (10+) is only partially supported.
 
 Browse the online documentation on the [Online manual](https://cryptohub-digital.github.io/coco/).
 
-## Changelog
-
-You can check the changes in our [changelog](https://github.com/cryptohub-digital/coco/blob/master/.changelog).
-
 ## Informational notice
 
 Why we are putting underscore in front of file and when to do so?

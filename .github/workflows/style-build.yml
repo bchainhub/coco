@@ -5,50 +5,19 @@ on:
     branches: master
 
 jobs:
-  test:
-    name: Test style
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-      - name: Install Dependencies
-        run: gem install sass
-      - name: Run test
-        run: |
-          sh ./test/sass-compile-tester.sh
   build:
     name: Build style
     runs-on: ubuntu-latest
-    needs: test
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '12.x'
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install sass
-        run: yarn global add sass
-      - name: Install sass2scss
-        run: yarn global add sass2scss
-      - name: Install dependencies
-        run: yarn install
-      - name: Build
-        run: yarn build
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install & Build 🔧
+        run: npm i && npm run build
   docs:
     name: Build documentation
     runs-on: ubuntu-latest
@@ -58,69 +27,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '12.x'
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install sass
-        run: yarn global add sass
-      - name: Install sass2scss
-        run: yarn global add sass2scss
-      - name: Install dependencies
-        run: yarn install
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install & Build 🔧
+        run: npm i && npm run build
       - name: Build docs
-        run: yarn build-docs
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    needs: docs
-    if: startsWith(github.ref, 'refs/tags/[0-9]+.[0-9]+.[0-9]+')
-    env:
-      VER: $github.ref
-      VER_CLEAN: $(echo $github.ref | sed s/[.]/-/g)
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install sass
-        run: yarn global add sass
-      - name: Install sass2scss
-        run: yarn global add sass2scss
-      - name: Install dependencies
-        run: yarn install
-      - name: Build
-        run: yarn build
-      - name: Compress
-        run:  mv dist coco-v$VER && zip -r coco-v$VER_CLEAN.zip coco-v$VER && mv coco-v$VER dist
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: coco-v$VER_CLEAN.zip
-          name: ${{ github.workflow }} v$VER
-          body_path: .changelog/CHANGELOG-v$VER.md
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run build-docs

@@ -1,6 +1,6 @@
 {
   "name": "@cryptohub/coco",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "homepage": "https://cryptohub-digital.github.io/coco/",
   "contributors": [
     "CRYPTO ▪ HUB® (https://cryptohub.digital)",
@@ -26,46 +26,35 @@
     "url": "https://github.com/cryptohub-digital/coco/issues"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.4",
-    "clean-css-cli": "^5.5.2",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-css-purge": "^3.0.9",
-    "gulp-delete-lines": "0.0.7",
-    "gulp-ext-replace": "^0.3.0",
-    "gulp-sass-extractvars": "^1.0.1",
-    "gulp-spawn": "^1.0.0",
-    "gulp-streamify": "^1.0.2",
-    "gulp-tabify": "0.0.2",
-    "node-sass": "^7.0.1",
-    "postcss": "^8.4.12",
-    "postcss-cli": "^9.1.0",
+    "autoprefixer": "^10.4.13",
+    "clean-css-cli": "^5.6.1",
+    "node-sass": "^8.0.0",
+    "postcss": "^8.4.19",
+    "postcss-cli": "^10.0.0",
+    "r-comments": "^1.0.2",
     "rimraf": "^3.0.2",
-    "sassdoc": "^2.7.3"
+    "sassdoc": "^2.7.4",
+    "spaces-to-tabs": "^0.0.3"
   },
   "scripts": {
-    "prepare": "echo 'Checking presence of sass2scss'; ! command -v sass2scss &> /dev/null && (echo 'Sass2scss is not installed! Please, install it first. (https://github.com/raisty/sass2scss)' && exit 1)",
-    "build": "yarn build-add-version && yarn build-clean && yarn build-css && yarn build-autoprefix && yarn build-cleancss && yarn build-scss && yarn build-sass && yarn build-default-vars",
+    "build": "npm run build-add-version && npm run build-clean && npm run build-css && npm run build-autoprefix && npm run build-cleancss && npm run build-sass",
     "build-autoprefix": "postcss --use autoprefixer --map false --output dist/css/coco.css dist/css/coco.css",
     "build-add-version": "sed -i .old '2s;\"[0-9.]*\";\"'$(echo $npm_package_version)'\";' style/coco.sass && rm -rf style/coco.sass.old",
     "build-cleancss": "cleancss -o dist/css/coco.min.css dist/css/coco.css",
     "build-clean": "rimraf css",
     "build-css": "node-sass --output-style expanded --source-map true style/coco.sass dist/css/coco.css",
-    "build-default-vars": "gulp scss-vars",
-    "build-docs": "gulp scss-docs && gulp docs && rm -rf dist/docs",
-    "build-sass": "gulp sass",
-    "build-scss": "gulp scss",
+    "build-docs": "sassdoc dist/sass -d docs",
+    "build-sass": "cp -a style/. dist/sass/ && rc list=dist/sass/**/*.sass && spaces-to-tabs dist/sass/**/*.sass -s 2",
     "check-sass": "node_modules/.bin/node-sass -v",
     "pack": "VER=$(echo $npm_package_version | sed s/[.]/-/g) && mv dist coco-v$npm_package_version && zip -r coco-v$VER.zip coco-v$npm_package_version && mv coco-v$npm_package_version dist",
-    "deploy": "yarn build",
-    "start": "yarn build-css --watch",
-    "release": "yarn build && yarn build-docs && yarn compress"
+    "deploy": "npm run build",
+    "check-browsersync": "( npm list -g browser-sync ) || ( npm install -g browser-sync )",
+    "start": "npm run build-css --watch && browser-sync start --config test/bs-config.js",
+    "release": "npm run build && npm run check-browsersync && npm run build-docs && npm run compress"
   },
   "files": [
     "dist",
     "LICENSE",
-    "README.md",
-    "style"
+    "README.md"
   ]
 }

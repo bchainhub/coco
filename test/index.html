@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>🥥 Coco test website</title>
+    <link rel="stylesheet" type="text/css" href="/css/coco.css">
+  </head>
+  <body class="has-sticky-footer">
+    <header>
+      <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+        <input type="checkbox" id="navbar-toggle" aria-hidden="true" />
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://github.com/cryptohub-digital/coco">
+            <em class="oji flat">🥥</em>&nbsp;<h1 class="is-size-4">Coco</h1>
+          </a>
+
+          <label for="navbar-toggle" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </label>
+        </div>
+
+        <div id="navbarMenu" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="https://github.com/cryptohub-digital/coco" class="navbar-item">
+              Home
+            </a>
+
+            <a href="https://cryptohub-digital.github.io/coco/" class="navbar-item">
+              Documentation
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                More
+              </a>
+
+              <div class="navbar-dropdown">
+                <a href="https://github.com/cryptohub-digital/coco#readme" class="navbar-item">
+                  Readme
+                </a>
+                <a href="https://github.com/cryptohub-digital/coco/releases" class="navbar-item">
+                  Releases
+                </a>
+                <a href="https://github.com/cryptohub-digital/coco/blob/master/.github/CONTRIBUTING.md" class="navbar-item">
+                  Contributions
+                </a>
+                <hr class="navbar-divider">
+                <a href="https://github.com/cryptohub-digital/coco/issues" class="navbar-item">
+                  Report an issue
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-light">
+                  Log in
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero is-primary">
+        <div class="hero-body">
+          <p class="title">
+            Coco CSS
+          </p>
+          <p class="subtitle">
+            COCO is an open source CSS framework based on Flexbox without any piece of JavaScript.
+          </p>
+        </div>
+      </section>
+      <div class="container">
+        <section class="section">
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li><a href="#">Coco</a></li>
+              <li><a href="#">Preview</a></li>
+              <li><a href="#">Page</a></li>
+              <li class="is-active"><a href="#" aria-current="page">Home</a></li>
+            </ul>
+          </nav>
+        </section>
+        <section class="section">
+          <h1 class="title">Section</h1>
+          <h2 class="subtitle">
+            A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading.
+          </h2>
+        </section>
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">First</p>
+              <p class="title">1234.20</p>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Second</p>
+              <p class="title">1,200.30</p>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Third</p>
+              <p class="title">123K</p>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Fourth</p>
+              <p class="title">∞</p>
+            </div>
+          </div>
+        </nav>
+        <section class="section">
+          <div class="box">
+            <article class="media">
+              <figure class="media-left">
+                <p class="image filter contrast-150">
+                  <img class="is-rounded" src="https://images.unsplash.com/photo-1668042583100-15aa5e323238?auto=format&fit=crop&w=128&q=60" />
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>John Doe</strong> <small>@johndoe</small> <small>0s</small>
+                    <br>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                  </p>
+                </div>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item">
+                      <span class="icon is-small"><em class="oji primary">↩</em></span>
+                    </a>
+                    <a class="level-item">
+                      <span class="icon is-small"><em class="oji primary">⇆</em></span>
+                    </a>
+                    <a class="level-item">
+                      <span class="icon is-small"><em class="oji primary">❤️</em></span>
+                    </a>
+                  </div>
+                </nav>
+              </div>
+              <div class="media-right">
+                <button class="delete"></button>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section">
+          <div class="tabs">
+            <ul>
+              <li><a href="#tab-1">Headings</a></li>
+              <li><a href="#tab-2">Message</a></li>
+              <li><a href="#tab-3">Panel</a></li>
+            </ul>
+          </div>
+          <section class="tab-content">
+            <article id="tab-2">
+              <article class="message">
+                <div class="message-header">
+                  <p>Hello World</p>
+                  <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus <span class="tag is-link is-light">Link light tag</span> quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                </div>
+              </article>
+            </article>
+            <article id="tab-3">
+              <nav class="panel">
+                <p class="panel-heading">
+                  Repositories
+                </p>
+                <div class="panel-block">
+                  <p class="control has-icons-left">
+                    <input class="input" type="text" placeholder="Search">
+                    <span class="icon is-left">
+                      <em class="oji grayscale">🔎</em>
+                    </span>
+                  </p>
+                </div>
+                <p class="panel-tabs">
+                  <a class="is-active">All</a>
+                  <a>Public</a>
+                  <a>Private</a>
+                  <a>Sources</a>
+                  <a>Forks</a>
+                </p>
+                <a class="panel-block is-active">
+                  <span class="panel-icon">
+                    <em class="oji grayscale">📒</em>
+                  </span>
+                  coco <span class="tag is-primary">Primary</span>
+                </a>
+                <a class="panel-block">
+                  <span class="panel-icon">
+                    <em class="oji grayscale">📒</em>
+                  </span>
+                  marksheet <span class="tag is-link">Link</span>
+                </a>
+                <a class="panel-block">
+                  <span class="panel-icon">
+                    <em class="oji grayscale">📒</em>
+                  </span>
+                  minireset.css <span class="tag is-warning">Warning</span>
+                </a>
+                <a class="panel-block">
+                  <span class="panel-icon">
+                    <em class="oji grayscale">📒</em>
+                  </span>
+                  repo.github.io
+                </a>
+                <a class="panel-block">
+                  <span class="panel-icon">
+                    <em class="oji grayscale">🔗</em>
+                  </span>
+                  hello/infboard
+                </a>
+                <a class="panel-block">
+                  <span class="panel-icon">
+                    <em class="oji grayscale">🔗</em>
+                  </span>
+                  world
+                </a>
+                <label class="panel-block">
+                  <input type="checkbox">
+                  remember me
+                </label>
+                <div class="panel-block">
+                  <button class="button is-link is-outlined is-fullwidth">
+                    Reset all filters
+                  </button>
+                </div>
+              </nav>
+            </article>
+            <!-- Default tab -->
+            <article id="tab-1">
+              <h1>H1 Whereas disregard and contempt for human rights have resulted</h1>
+              <h2>H2 Whereas disregard and contempt for human rights have resulted</h2>
+              <h3>H3 Whereas disregard and contempt for human rights have resulted</h3>
+              <h4>H4 Whereas disregard and contempt for human rights have resulted</h4>
+              <h5>H5 Whereas disregard and contempt for human rights have resulted</h5>
+              <h6>H6 Whereas disregard and contempt for human rights have resulted</h6>
+            </article>
+          </section>
+        </section>
+        <section class="section">
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <aside class="menu">
+                <p class="menu-label">
+                  General
+                </p>
+                <ul class="menu-list">
+                  <li><a>Dashboard</a></li>
+                  <li><a>Customers</a></li>
+                </ul>
+                <p class="menu-label">
+                  Administration
+                </p>
+                <ul class="menu-list">
+                  <li><a>Team Settings</a></li>
+                  <li>
+                    <a class="is-active">Manage Your Team</a>
+                    <ul>
+                      <li><a>Members</a></li>
+                      <li><a>Plugins</a></li>
+                      <li><a>Add a member</a></li>
+                    </ul>
+                  </li>
+                  <li><a>Invitations</a></li>
+                  <li><a>Cloud Storage Environment Settings</a></li>
+                  <li><a>Authentication</a></li>
+                </ul>
+                <p class="menu-label">
+                  Transactions
+                </p>
+                <ul class="menu-list">
+                  <li><a>Payments</a></li>
+                  <li><a>Transfers</a></li>
+                  <li><a>Balance</a></li>
+                </ul>
+              </aside>
+            </div>
+            <div class="column">
+              <figure class="image is-3by4 filter brannan">
+                <img src="https://images.unsplash.com/photo-1668503715495-28e0167e8df8?auto=format&fit=crop&w=512&q=60" />
+              </figure>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Text input">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-success" type="text" placeholder="Text input" value="coco" />
+              <span class="icon is-small is-left">
+                <em class="oji grayscale">👤</em>
+              </span>
+              <span class="icon is-small is-right">
+                <em class="oji">✅</em>
+              </span>
+            </div>
+            <p class="help is-success">This username is available</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-danger" type="email" placeholder="Email input" value="hello@" />
+              <span class="icon is-small is-left">
+                <em class="oji grayscale">📧</em>
+              </span>
+              <span class="icon is-small is-right">
+                <em class="oji">❌</em>
+              </span>
+            </div>
+            <p class="help is-danger">This email is invalid</p>
+          </div>
+
+          <div class="field">
+            <label class="label">Subject</label>
+            <div class="control">
+              <div class="select">
+                <select>
+                  <option>Select dropdown</option>
+                  <option>With options</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Message</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="Textarea"></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox">
+                I agree to the <a href="#">terms and conditions</a>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="question">
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" name="question">
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light">Cancel</button>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <div class="file has-name">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="resume">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <em class="oji grayscale">📤</em>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                  <span class="file-name">
+                    Screen Shot 2020-01-01 at 15.00.00.png
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="column">
+              <div class="file has-name is-boxed">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="resume">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <em class="oji grayscale">📤</em>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                  <span class="file-name">
+                    Screen Shot 2020-01-01 at 15.00.00.png
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <h2>Progress bars</h2>
+          <progress class="progress is-danger" value="90" max="100">90%</progress>
+          <progress class="progress is-primary" value="15" max="100">15%</progress>
+          <progress class="progress is-large is-info" max="100">60%</progress>
+        </section>
+        <section class="section">
+          <div class="content">
+            <h1>Hello World</h1>
+            <p>Lorem ipsum<sup><a>[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque. Sub<sub>script</sub> works as well!</p>
+            <h2>Second level</h2>
+            <p>Curabitur accumsan turpis pharetra <strong>augue tincidunt</strong> blandit. Quisque condimentum maximus mi, sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
+            <ul>
+              <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
+              <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
+              <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
+              <li>Ut non enim metus.</li>
+            </ul>
+            <h3>Third level</h3>
+            <p>Quisque ante lacus, malesuada ac auctor vitae, congue <a href="#">non ante</a>. Phasellus lacus ex, semper ac tortor nec, fringilla condimentum orci. Fusce eu rutrum tellus.</p>
+            <ol>
+              <li>Donec blandit a lorem id convallis.</li>
+              <li>Cras gravida arcu at diam gravida gravida.</li>
+              <li>Integer in volutpat libero.</li>
+              <li>Donec a diam tellus.</li>
+              <li>Aenean nec tortor orci.</li>
+              <li>Quisque aliquam cursus urna, non bibendum massa viverra eget.</li>
+              <li>Vivamus maximus ultricies pulvinar.</li>
+            </ol>
+            <blockquote>Ut venenatis, nisl scelerisque sollicitudin fermentum, quam libero hendrerit ipsum, ut blandit est tellus sit amet turpis.</blockquote>
+            <p>Quisque at semper enim, eu hendrerit odio. Etiam auctor nisl et <em>justo sodales</em> elementum. Maecenas ultrices lacus quis neque consectetur, et lobortis nisi molestie.</p>
+            <p>Sed sagittis enim ac tortor maximus rutrum. Nulla facilisi. Donec mattis vulputate risus in luctus. Maecenas vestibulum interdum commodo.</p>
+            <dl>
+              <dt>Web</dt>
+              <dd>The part of the Internet that contains websites and web pages</dd>
+              <dt>HTML</dt>
+              <dd>A markup language for creating web pages</dd>
+              <dt>CSS</dt>
+              <dd>A technology to make HTML look better</dd>
+            </dl>
+            <p>Suspendisse egestas sapien non felis placerat elementum. Morbi tortor nisl, suscipit sed mi sit amet, mollis malesuada nulla. Nulla facilisi. Nullam ac erat ante.</p>
+            <h4>Fourth level</h4>
+            <p>Nulla efficitur eleifend nisi, sit amet bibendum sapien fringilla ac. Mauris euismod metus a tellus laoreet, at elementum ex efficitur.</p>
+            <pre>
+          &lt;!DOCTYPE html&gt;
+          &lt;html&gt;
+            &lt;head&gt;
+              &lt;title&gt;Hello World&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt;
+            &lt;/body&gt;
+          &lt;/html&gt;
+          </pre>
+            <p>Maecenas eleifend sollicitudin dui, faucibus sollicitudin augue cursus non. Ut finibus eleifend arcu ut vehicula. Mauris eu est maximus est porta condimentum in eu justo. Nulla id iaculis sapien.</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>One</th>
+                  <th>Two</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Three</td>
+                  <td>Four</td>
+                </tr>
+                <tr>
+                  <td>Five</td>
+                  <td>Six</td>
+                </tr>
+                <tr>
+                  <td>Seven</td>
+                  <td>Eight</td>
+                </tr>
+                <tr>
+                  <td>Nine</td>
+                  <td>Ten</td>
+                </tr>
+                <tr>
+                  <td>Eleven</td>
+                  <td>Twelve</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Phasellus porttitor enim id metus volutpat ultricies. Ut nisi nunc, blandit sed dapibus at, vestibulum in felis. Etiam iaculis lorem ac nibh bibendum rhoncus. Nam interdum efficitur ligula sit amet ullamcorper. Etiam tristique, leo vitae porta faucibus, mi lacus laoreet metus, at cursus leo est vel tellus. Sed ac posuere est. Nunc ultricies nunc neque, vitae ultricies ex sodales quis. Aliquam eu nibh in libero accumsan pulvinar. Nullam nec nisl placerat, pretium metus vel, euismod ipsum. Proin tempor cursus nisl vel condimentum. Nam pharetra varius metus non pellentesque.</p>
+            <h5>Fifth level</h5>
+            <p>Aliquam sagittis rhoncus vulputate. Cras non luctus sem, sed tincidunt ligula. Vestibulum at nunc elit. Praesent aliquet ligula mi, in luctus elit volutpat porta. Phasellus molestie diam vel nisi sodales, a eleifend augue laoreet. Sed nec eleifend justo. Nam et sollicitudin odio.</p>
+            <figure class="filter amaro">
+              <img src="https://images.unsplash.com/photo-1668041904884-7167515fd4d7?auto=format&fit=crop&w=512&q=60">
+              <img src="https://images.unsplash.com/photo-1668041904884-7167515fd4d7?auto=format&fit=crop&w=512&q=60">
+              <figcaption>
+                Figure 1: Some beautiful placeholders
+              </figcaption>
+            </figure>
+            <h6>Sixth level</h6>
+            <p>Cras in nibh lacinia, venenatis nisi et, auctor urna. Donec pulvinar lacus sed diam dignissim, ut eleifend eros accumsan. Phasellus non tortor eros. Ut sed rutrum lacus. Etiam purus nunc, scelerisque quis enim vitae, malesuada ultrices turpis. Nunc vitae maximus purus, nec consectetur dui. Suspendisse euismod, elit vel rutrum commodo, ipsum tortor maximus dui, sed varius sapien odio vitae est. Etiam at cursus metus.</p>
+          </div>
+        </section>
+        <section class="section">
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical is-8">
+              <div class="tile">
+                <div class="tile is-parent is-vertical">
+                  <article class="tile is-child notification is-primary">
+                    <p class="title">Vertical...</p>
+                    <p class="subtitle">Top tile</p>
+                  </article>
+                  <article class="tile is-child notification is-warning">
+                    <p class="title">...tiles</p>
+                    <p class="subtitle">Bottom tile</p>
+                  </article>
+                </div>
+                <div class="tile is-parent">
+                  <article class="tile is-child notification is-info">
+                    <p class="title">Middle tile</p>
+                    <p class="subtitle">With an image & filter</p>
+                    <figure class="image is-4by3 filter inkwell">
+                      <img src="https://images.unsplash.com/photo-1668368047837-3d9c67145679?auto=format&fit=crop&w=512&q=60">
+                    </figure>
+                  </article>
+                </div>
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-danger">
+                  <p class="title">Wide tile</p>
+                  <p class="subtitle">Aligned with the right tile</p>
+                  <div class="content">
+                    Content
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification is-success">
+                <div class="content">
+                  <p class="title">Tall tile</p>
+                  <p class="subtitle">With even more content</p>
+                  <div class="content">
+                    Content
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="https://images.unsplash.com/photo-1668042583100-15aa5e323238?auto=format&fit=crop&w=128&q=60">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Barbara Middleton</strong>
+                  <br>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                  <br>
+                  <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+                </p>
+              </div>
+
+              <article class="media">
+                <figure class="media-left">
+                  <p class="image is-48x48">
+                    <img src="https://images.unsplash.com/photo-1668042583100-15aa5e323238?auto=format&fit=crop&w=128&q=60">
+                  </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>Sean Brown</strong>
+                      <br>
+                      Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a lobortis leo feugiat.
+                      <br>
+                      <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                    </p>
+                  </div>
+
+                  <article class="media">
+                    Vivamus quis semper metus, non tincidunt dolor. Vivamus in mi eu lorem cursus ullamcorper sit amet nec massa.
+                  </article>
+
+                  <article class="media">
+                    Morbi vitae diam et purus tincidunt porttitor vel vitae augue. Praesent malesuada metus sed pharetra euismod. Cras tellus odio, tincidunt iaculis diam non, porta aliquet tortor.
+                  </article>
+                </div>
+              </article>
+
+              <article class="media">
+                <figure class="media-left">
+                  <p class="image is-48x48">
+                    <img src="https://images.unsplash.com/photo-1668042583100-15aa5e323238?auto=format&fit=crop&w=128&q=60">
+                  </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>Kayli Eunice </strong>
+                      <br>
+                      Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
+                      <br>
+                      <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </article>
+
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="https://images.unsplash.com/photo-1668042583100-15aa5e323238?auto=format&fit=crop&w=128&q=60">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="field">
+                <p class="control">
+                  <textarea class="textarea" placeholder="Add a comment..."></textarea>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button class="button">Post comment</button>
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="section">
+          <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+            <a class="pagination-previous">Previous</a>
+            <a class="pagination-next">Next page</a>
+            <ul class="pagination-list">
+              <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+              <li><span class="pagination-ellipsis">&hellip;</span></li>
+              <li><a class="pagination-link" aria-label="Goto page 53">53</a></li>
+              <li><a class="pagination-link is-current" aria-label="Page 54" aria-current="page">54</a></li>
+              <li><a class="pagination-link" aria-label="Goto page 55">55</a></li>
+              <li><span class="pagination-ellipsis">&hellip;</span></li>
+              <li><a class="pagination-link" aria-label="Goto page 99">99</a></li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>🥥 Coco</strong> <span class="coco version">version </span>. Source code located at:
+          <a href="https://github.com/cryptohub-digital/coco">GitHub</a>. Feel free to contribute.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

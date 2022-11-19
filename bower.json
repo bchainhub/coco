@@ -6,7 +6,7 @@
     "Jeremy Thomas (https://github.com/jgthms)"
   ],
   "description": "Modern CSS framework based on Flexbox",
-  "main": "style/coco.sass",
+  "main": "dist/sass/coco.sass",
   "keywords": [
     "css",
     "sass",
@@ -21,6 +21,8 @@
     "bower_components",
     "test",
     "tests",
-    "docs"
+    "docs",
+    "style",
+    ".github"
   ]
 }
