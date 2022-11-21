@@ -1,39 +1,44 @@
 @import "../utilities/mixins"
 
-$container-offset: (2 * $gap) !default
+$container-offset: calc(2 * $gap) !default
 $container-max-width: $fullhd !default
 
+/// Container - A simple container to center your content horizontally.
+/// @name .container
+/// @group elements
+/// @since 1.1.0
+/// @link https://github.com/cryptohub-digital/coco/wiki/layout-container
 .container
-	flex-grow: 1
-	margin: 0 auto
-	position: relative
-	width: auto
-	&.is-fullhd:not(.is-max-desktop):not(.is-max-widescreen)
-		max-width: min($fullhd, $container-max-width) - $container-offset
-		padding-left: $gap
-		padding-right: $gap
-		width: 100%
-	+mobile
-		padding-left: ($gap / 2)
-		padding-right: ($gap / 2)
-		&.is-fluidless
-			padding-left: inherit
-			padding-right: inherit
-	+tablet
-		max-width: $tablet - $container-offset
-		&.is-fluidless
-			max-width: inherit
-	+desktop
-		max-width: $desktop - $container-offset
-	+until-widescreen
-		&.is-widescreen:not(.is-max-desktop)
-			max-width: min($widescreen, $container-max-width) - $container-offset
-	+until-fullhd
-		&.is-fullhd
-			max-width: $fullhd - $container-offset
-	+widescreen
-		&:not(.is-max-desktop)
-			max-width: min($widescreen, $container-max-width) - $container-offset
-	+fullhd
-		&:not(.is-max-desktop):not(.is-max-widescreen)
-			max-width: min($fullhd, $container-max-width) - $container-offset
+  flex-grow: 1
+  margin: 0 auto
+  position: relative
+  width: auto
+  &.is-fullhd:not(.is-max-desktop):not(.is-max-widescreen)
+    max-width: min($fullhd, $container-max-width) - $container-offset
+    padding-left: $gap
+    padding-right: $gap
+    width: 100%
+  +mobile
+    padding-left: calc($gap / 2)
+    padding-right: calc($gap / 2)
+    &.is-fluidless
+      padding-left: inherit
+      padding-right: inherit
+  +tablet
+    max-width: $tablet - $container-offset
+    &.is-fluidless
+      max-width: inherit
+  +desktop
+    max-width: $desktop - $container-offset
+  +until-widescreen
+    &.is-widescreen:not(.is-max-desktop)
+      max-width: min($widescreen, $container-max-width) - $container-offset
+  +until-fullhd
+    &.is-fullhd
+      max-width: $fullhd - $container-offset
+  +widescreen
+    &:not(.is-max-desktop)
+      max-width: min($widescreen, $container-max-width) - $container-offset
+  +fullhd
+    &:not(.is-max-desktop):not(.is-max-widescreen)
+      max-width: min($fullhd, $container-max-width) - $container-offset

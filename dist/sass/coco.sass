@@ -1,8 +1,11 @@
+$v: "2.0.0"
+$rtl: false
 .coco.version::after
-	content: "1.2.0"
+  content: #{$v}
+@debug "COCO v#{$v}"
+@debug "RTL version: #{$rtl}"
 
 @charset "utf-8"
-$rtl: true
 @import "utilities/_all"
 @import "base/_all"
 @import "elements/_all"
