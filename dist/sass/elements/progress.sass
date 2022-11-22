@@ -8,6 +8,11 @@ $progress-indeterminate-duration: 1.5s !default
 
 $progress-colors: $colors !default
 
+
+
+
+
+
 .progress
 	@extend %block
 	-moz-appearance: none
@@ -28,7 +33,7 @@ $progress-colors: $colors !default
 	&::-ms-fill
 		background-color: $progress-value-background-color
 		border: none
-	// Colors
+	
 	@each $name, $pair in $progress-colors
 		$color: nth($pair, 1)
 		&.is-#{$name}
@@ -58,7 +63,7 @@ $progress-colors: $colors !default
 		&::-ms-fill
 			animation-name: none
 
-	// Sizes
+	
 	&.is-small
 		height: $size-small
 	&.is-medium

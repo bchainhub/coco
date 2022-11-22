@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Readme
+    url: https://github.com/cryptohub-digital/coco#readme
+    about: Read more about the code
+  - name: Documentation
+    url: https://cryptohub-digital.github.io/coco/
+    about: Get information about each documented tag

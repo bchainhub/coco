@@ -2,6 +2,11 @@
 
 $dimensions: 16 24 32 48 64 96 128 !default
 
+
+
+
+
+
 .image
 	display: block
 	position: relative
@@ -13,7 +18,7 @@ $dimensions: 16 24 32 48 64 96 128 !default
 			border-radius: $radius-rounded
 	&.is-fullwidth
 		width: 100%
-	// Ratio
+	
 	&.is-square,
 	&.is-1by1,
 	&.is-5by4,
@@ -66,7 +71,7 @@ $dimensions: 16 24 32 48 64 96 128 !default
 		padding-top: 200%
 	&.is-1by3
 		padding-top: 300%
-	// Sizes
+	
 	@each $dimension in $dimensions
 		&.is-#{$dimension}x#{$dimension}
 			height: $dimension * 1px

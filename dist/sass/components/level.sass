@@ -11,7 +11,7 @@ $level-item-spacing: ($block-spacing * 0.5) !default
 	img
 		display: inline-block
 		vertical-align: top
-	// Modifiers
+	
 	&.is-mobile
 		display: flex
 		.level-left,
@@ -25,7 +25,7 @@ $level-item-spacing: ($block-spacing * 0.5) !default
 				+ltr-property("margin", $level-item-spacing)
 			&:not(.is-narrow)
 				flex-grow: 1
-	// Responsiveness
+	
 	+tablet
 		display: flex
 		& > .level-item
@@ -42,7 +42,7 @@ $level-item-spacing: ($block-spacing * 0.5) !default
 	.title,
 	.subtitle
 		margin-bottom: 0
-	// Responsiveness
+	
 	+mobile
 		&:not(:last-child)
 			margin-bottom: $level-item-spacing
@@ -53,10 +53,10 @@ $level-item-spacing: ($block-spacing * 0.5) !default
 	flex-grow: 0
 	flex-shrink: 0
 	.level-item
-		// Modifiers
+		
 		&.is-flexible
 			flex-grow: 1
-		// Responsiveness
+		
 		+tablet
 			&:not(:last-child)
 				+ltr-property("margin", $level-item-spacing)
@@ -64,7 +64,7 @@ $level-item-spacing: ($block-spacing * 0.5) !default
 .level-left
 	align-items: center
 	justify-content: flex-start
-	// Responsiveness
+	
 	+mobile
 		& + .level-right
 			margin-top: 1.5rem
@@ -74,6 +74,6 @@ $level-item-spacing: ($block-spacing * 0.5) !default
 .level-right
 	align-items: center
 	justify-content: flex-end
-	// Responsiveness
+	
 	+tablet
 		display: flex

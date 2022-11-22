@@ -56,6 +56,11 @@ $navbar-colors: $colors !default
 	right: 0
 	z-index: $navbar-fixed-z
 
+
+
+
+
+
 .navbar
 	background-color: $navbar-background-color
 	min-height: $navbar-height
@@ -165,6 +170,11 @@ body
 
 .navbar-menu
 	display: none
+
+
+
+
+
 
 input#navbar-toggle
 	display: none
@@ -279,7 +289,7 @@ a.navbar-item,
 		padding: 0.5rem 0
 		&.is-active
 			display: block
-	// Fixed navbar
+	
 	.navbar
 		&.is-fixed-bottom-touch,
 		&.is-fixed-top-touch
@@ -433,7 +443,7 @@ a.navbar-item,
 			+ltr-property("margin", -.75rem, false)
 		.navbar-menu
 			+ltr-property("margin", -.75rem)
-	// Fixed navbar
+	
 	.navbar
 		&.is-fixed-bottom-desktop,
 		&.is-fixed-top-desktop
@@ -457,7 +467,7 @@ a.navbar-item,
 			padding-top: $navbar-height + ($navbar-padding-vertical * 2)
 		&.has-spaced-navbar-fixed-bottom
 			padding-bottom: $navbar-height + ($navbar-padding-vertical * 2)
-	// Hover/Active states
+	
 	a.navbar-item,
 	.navbar-link
 		&.is-active
@@ -471,7 +481,7 @@ a.navbar-item,
 			.navbar-link
 				background-color: $navbar-item-hover-background-color
 
-// Combination
+
 
 .hero
 	&.is-fullheight-with-navbar

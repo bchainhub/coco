@@ -35,6 +35,12 @@ Using SRI with exact version
 #### NPM
 
 ```sh
+npm i @cryptohub/coco
+```
+
+or
+
+```sh
 npm install "https://github.com/cryptohub-digital/coco.git#semver:^1.1" --save
 ```
 
@@ -43,12 +49,24 @@ npm install "https://github.com/cryptohub-digital/coco.git#semver:^1.1" --save
 #### Yarn
 
 ```sh
+yarn add @cryptohub/coco
+```
+
+or
+
+```sh
 yarn add "https://github.com/cryptohub-digital/coco.git#semver:^1.1"
 ```
 
 ---
 
 #### Bower
+
+```sh
+npm i @cryptohub/coco
+```
+
+or
 
 ```sh
 bower install "https://github.com/cryptohub-digital/coco.git#1.1.3" --save
@@ -74,46 +92,7 @@ After installation, you can import the CSS file into your project using this sni
 @import 'coco/dist/sass/coco.sass'
 ```
 
-#### SCSS version
-```css
-@import 'coco/dist/scss/coco.scss'
-```
-### Linking
-You can install and connect node_modules distribution with symbolic link for various platforms. Such as:
-
-#### Jekyll aka Github pages :octocat:
-
-```sh
-yarn add https://github.com/cryptohub-digital/coco
-mkdir -p _sass; ln -s ../node_modules/@cryptohub/coco/dist/sass _sass/coco
-```
-
-> css/styles.sass
-
-```css
-@import "coco/coco.sass"
-```
-
-> \_config.yml
-
-```yaml
-include:
-  - node_modules/@cryptohub/coco/dist/sass
-```
-
-> .gitignore (if present and you don't want import something else)
-
-```bash
-!node_modules/
-node_modules/*
-!node_modules/@cryptohub/
-node_modules/@cryptohub/*
-!node_modules/@cryptohub/coco/
-node_modules/@cryptohub/coco/*
-!node_modules/@cryptohub/coco/dist/
-node_modules/@cryptohub/coco/dist/*
-!node_modules/@cryptohub/coco/dist/sass
-```
+If you want to use Right-to-Left version, just append `-rtl` after name.
 
 ## Customize distribution
 
@@ -148,8 +127,6 @@ $input-shadow: none
 // Import the rest of COCO
 @import "coco/sass/coco.sass"
 ```
-
-You can found default variables in [dist/default/vars.scss](https://github.com/cryptohub-digital/coco/blob/master/dist/default/vars.scss)
 
 ## Get started
 
@@ -237,10 +214,6 @@ Internet Explorer (10+) is only partially supported.
 ## Documentation
 
 Browse the online documentation on the [Online manual](https://cryptohub-digital.github.io/coco/).
-
-## Changelog
-
-You can check the changes in our [changelog](https://github.com/cryptohub-digital/coco/blob/master/.changelog).
 
 ## Informational notice
 

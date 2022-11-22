@@ -31,14 +31,14 @@ $message-colors: $colors !default
 	a:not(.button):not(.tag):not(.dropdown-item)
 		color: currentColor
 		text-decoration: underline
-	// Sizes
+	
 	&.is-small
 		font-size: $size-small
 	&.is-medium
 		font-size: $size-medium
 	&.is-large
 		font-size: $size-large
-	// Colors
+	
 	@each $name, $components in $message-colors
 		$color: nth($components, 1)
 		$color-invert: nth($components, 2)

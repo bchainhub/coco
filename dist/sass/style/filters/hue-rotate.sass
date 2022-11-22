@@ -1,0 +1,14 @@
+$hue-rotate-breakpoints: 0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330
+
+=hue-rotate
+  @each $breakpoint in $hue-rotate-breakpoints
+    &.hue-rotate-#{$breakpoint}
+      filter: hue-rotate(#{$breakpoint}deg)
+
+/// Applies a hue rotation on the image. The value defines the number of degrees around the color circle the image samples will be adjusted.
+/// @name .filter.hue-rotate
+/// @group filters
+/// @since 1.0.0
+/// @link https://github.com/cryptohub-digital/coco/wiki/effects-filters#hue-rotate
+.filter
+  +hue-rotate

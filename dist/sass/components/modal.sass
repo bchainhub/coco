@@ -41,7 +41,7 @@ $modal-breakpoint: $tablet !default
 	overflow: hidden
 	position: fixed
 	z-index: $modal-z
-	// Modifiers
+	
 	&.is-active
 		display: flex
 
@@ -56,7 +56,7 @@ $modal-breakpoint: $tablet !default
 	overflow: auto
 	position: relative
 	width: 100%
-	// Responsiveness
+	
 	+from($modal-breakpoint)
 		margin: 0 auto
 		max-height: calc(100vh - #{$modal-content-spacing-tablet})

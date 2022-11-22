@@ -36,7 +36,7 @@ $panel-colors: $colors !default
 	font-size: $size-normal
 	&:not(:last-child)
 		margin-bottom: $panel-margin
-	// Colors
+	
 	@each $name, $components in $panel-colors
 		$color: nth($components, 1)
 		$color-invert: nth($components, 2)
@@ -72,7 +72,7 @@ $panel-colors: $colors !default
 		border-bottom: $panel-tab-border-bottom
 		margin-bottom: -1px
 		padding: 0.5em
-		// Modifiers
+		
 		&.is-active
 			border-bottom-color: $panel-tab-active-border-bottom-color
 			color: $panel-tab-active-color

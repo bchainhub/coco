@@ -1,7 +1,12 @@
 @import "../utilities/mixins"
 
-$container-offset: (2 * $gap) !default
+$container-offset: calc(2 * $gap) !default
 $container-max-width: $fullhd !default
+
+
+
+
+
 
 .container
 	flex-grow: 1
@@ -14,8 +19,8 @@ $container-max-width: $fullhd !default
 		padding-right: $gap
 		width: 100%
 	+mobile
-		padding-left: ($gap / 2)
-		padding-right: ($gap / 2)
+		padding-left: calc($gap / 2)
+		padding-right: calc($gap / 2)
 		&.is-fluidless
 			padding-left: inherit
 			padding-right: inherit

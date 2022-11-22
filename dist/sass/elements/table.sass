@@ -7,6 +7,7 @@ $table-cell-border: 1px solid $border !default
 $table-cell-border-width: 0 0 1px !default
 $table-cell-padding: 0.5em 0.75em !default
 $table-cell-heading-color: $text-strong !default
+$table-cell-text-align: left !default
 
 $table-head-cell-border-width: 0 0 2px !default
 $table-head-cell-color: $text-strong !default
@@ -27,6 +28,11 @@ $table-striped-row-even-hover-background-color: $scheme-main-ter !default
 
 $table-colors: $colors !default
 
+
+
+
+
+
 .table
 	@extend %block
 	background-color: $table-background-color
@@ -37,7 +43,7 @@ $table-colors: $colors !default
 		border-width: $table-cell-border-width
 		padding: $table-cell-padding
 		vertical-align: top
-		// Colors
+		
 		@each $name, $pair in $table-colors
 			$color: nth($pair, 1)
 			$color-invert: nth($pair, 2)
@@ -45,7 +51,7 @@ $table-colors: $colors !default
 				background-color: $color
 				border-color: $color
 				color: $color-invert
-		// Modifiers
+		
 		&.is-narrow
 			white-space: nowrap
 			width: 1%
@@ -60,7 +66,7 @@ $table-colors: $colors !default
 	th
 		color: $table-cell-heading-color
 		&:not([align])
-			text-align: inherit
+			text-align: $table-cell-text-align
 	tr
 		&.is-selected
 			background-color: $table-row-active-background-color
@@ -91,7 +97,7 @@ $table-colors: $colors !default
 				td,
 				th
 					border-bottom-width: 0
-	// Modifiers
+	
 	&.is-bordered
 		td,
 		th

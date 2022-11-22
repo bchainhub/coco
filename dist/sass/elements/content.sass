@@ -22,12 +22,17 @@ $content-table-body-last-row-cell-border-bottom-width: 0 !default
 $content-table-foot-cell-border-width: 2px 0 0 !default
 $content-table-foot-cell-color: $text-strong !default
 
+
+
+
+
+
 .content
 	@extend %block
-	// Inline
+	
 	li + li
 		margin-top: 0.25em
-	// Block
+	
 	p,
 	dl,
 	ol,
@@ -151,7 +156,7 @@ $content-table-foot-cell-color: $text-strong !default
 	.tabs
 		li + li
 			margin-top: 0
-	// Sizes
+	
 	&.is-small
 		font-size: $size-small
 	&.is-normal

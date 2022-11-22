@@ -47,7 +47,7 @@ $button-static-border-color: $border !default
 $button-colors: $colors !default
 $button-responsive-sizes: ("mobile": ("small": ($size-small * 0.75), "normal": ($size-small * 0.875), "medium": $size-small, "large": $size-normal), "tablet-only": ("small": ($size-small * 0.875), "normal": ($size-small), "medium": $size-normal, "large": $size-medium)) !default
 
-// The button sizes use mixins so they can be used at different breakpoints
+
 =button-small
 	&:not(.is-rounded)
 		border-radius: $radius-small
@@ -94,7 +94,7 @@ $button-responsive-sizes: ("mobile": ("small": ($size-small * 0.75), "normal": (
 		&:first-child:last-child
 			margin-left: calc(#{-0.5 * $button-padding-horizontal} - #{$button-border-width})
 			margin-right: calc(#{-0.5 * $button-padding-horizontal} - #{$button-border-width})
-	// States
+	
 	&:hover,
 	&.is-hovered
 		border-color: $button-hover-border-color
@@ -109,7 +109,7 @@ $button-responsive-sizes: ("mobile": ("small": ($size-small * 0.75), "normal": (
 	&.is-active
 		border-color: $button-active-border-color
 		color: $button-active-color
-	// Colors
+	
 	&.is-text
 		background-color: transparent
 		border-color: transparent
@@ -231,7 +231,7 @@ $button-responsive-sizes: ("mobile": ("small": ($size-small * 0.75), "normal": (
 					border-color: $color-invert
 					box-shadow: none
 					color: $color-invert
-			// If light and dark colors are provided
+			
 			@if length($pair) >= 4
 				$color-light: nth($pair, 3)
 				$color-dark: nth($pair, 4)
@@ -248,7 +248,7 @@ $button-responsive-sizes: ("mobile": ("small": ($size-small * 0.75), "normal": (
 						background-color: cocoDarken($color-light, 5%)
 						border-color: transparent
 						color: $color-dark
-	// Sizes
+	
 	&.is-small
 		+button-small
 	&.is-normal
@@ -257,7 +257,7 @@ $button-responsive-sizes: ("mobile": ("small": ($size-small * 0.75), "normal": (
 		+button-medium
 	&.is-large
 		+button-large
-	// Modifiers
+	
 	&[disabled],
 	fieldset[disabled] &
 		background-color: $button-disabled-background-color
@@ -298,7 +298,7 @@ $button-responsive-sizes: ("mobile": ("small": ($size-small * 0.75), "normal": (
 		margin-bottom: -0.5rem
 	&:not(:last-child)
 		margin-bottom: 1rem
-	// Sizes
+	
 	&.are-small
 		.button:not(.is-normal):not(.is-medium):not(.is-large)
 			+button-small

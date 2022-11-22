@@ -36,11 +36,11 @@ $select-colors: $form-colors !default
 			padding: 0
 			option
 				padding: 0.5em 1em
-	// States
+	
 	&:not(.is-multiple):not(.is-loading):hover
 		&::after
 			border-color: $input-hover-color
-	// Colors
+	
 	@each $name, $pair in $select-colors
 		$color: nth($pair, 1)
 		&.is-#{$name}
@@ -56,17 +56,18 @@ $select-colors: $form-colors !default
 				&:active,
 				&.is-active
 					box-shadow: $input-focus-box-shadow-size cocoRgba($color, 0.25)
-	// Sizes
+	
 	&.is-small
 		+control-small
 	&.is-medium
 		+control-medium
 	&.is-large
 		+control-large
-	// Modifiers
+	
 	&.is-disabled
 		&::after
-			border-color: $input-disabled-color
+			border-color: $input-disabled-color !important
+			opacity: 0.5
 	&.is-fullwidth
 		width: 100%
 		select
