@@ -41,7 +41,9 @@ jobs:
         run: npm i -g sass-convert
       - name: Install Sass Doc globally
         run: npm i -g sassdoc
+      - name: Install Gulp globally
+        run: npm i -g gulp
       - name: Install & Build 🔧
         run: npm i && npm run build-sass
       - name: Build docs
-        run: npm run build-docs
+        run: gulp docs
