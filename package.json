@@ -61,5 +61,9 @@
     "dist",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "sassdoc": "^2.7.4"
+  }
 }
