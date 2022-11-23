@@ -39,8 +39,8 @@ jobs:
         run: gem install sass
       - name: Install Sass Convert globally
         run: npm i -g sass-convert
-      - name: Install Sass Doc globally
-        run: npm i -g sassdoc
+      - name: Install Sass Doc
+        run: npm i sassdoc
       - name: Install Gulp
         run: npm i gulp
       - name: Install & Build 🔧
