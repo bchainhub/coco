@@ -30,7 +30,18 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+      - name: Install Ruby Sass (deprecated)
+        run: gem install sass
+      - name: Install Sass Convert globally
+        run: npm -g sass-convert
+      - name: Install Sass Doc globally
+        run: npm -g sassdoc
       - name: Install & Build 🔧
-        run: npm i && npm run build
+        run: npm i && npm run build-sass
       - name: Build docs
         run: npm run build-docs
