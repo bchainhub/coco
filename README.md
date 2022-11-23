@@ -73,17 +73,17 @@ After installation, you can import the CSS file into your project using this sni
 #### CSS version
 
 ```css
-@import 'coco/dist/css/coco.css'
+@import '@cryptohub/coco/dist/css/coco.css'
 ```
 
 #### Minified CSS version
 ```css
-@import 'coco/dist/css/coco.min.css'
+@import '@cryptohub/coco/dist/css/coco.min.css'
 ```
 
 #### SASS version
 ```css
-@import 'coco/dist/sass/coco.sass'
+@import '@cryptohub/coco/dist/sass/coco.sass'
 ```
 
 If you want to use Right-to-Left version, just append `-rtl` after name.
