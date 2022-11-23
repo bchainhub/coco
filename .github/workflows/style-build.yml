@@ -38,9 +38,9 @@ jobs:
       - name: Install Ruby Sass (deprecated)
         run: gem install sass
       - name: Install Sass Convert globally
-        run: npm -g sass-convert
+        run: npm i -g sass-convert
       - name: Install Sass Doc globally
-        run: npm -g sassdoc
+        run: npm i -g sassdoc
       - name: Install & Build 🔧
         run: npm i && npm run build-sass
       - name: Build docs
