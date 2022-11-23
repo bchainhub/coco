@@ -1,30 +1,16 @@
-name: Build style
+name: Build documentation
 
 on:
   push:
     branches: master
 
 jobs:
-  build:
-    name: Build style
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-          registry-url: 'https://registry.npmjs.org'
-      - name: Install & Build 🔧
-        run: npm i && npm run build
   docs:
     name: Build documentation
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
@@ -47,3 +33,13 @@ jobs:
         run: npm i && npm run build-sass
       - name: Build docs
         run: gulp docs
+      - name: Commit files
+        run: |
+          git config --local user.email "537310+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "Upload documentation"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
