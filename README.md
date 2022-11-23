@@ -15,17 +15,17 @@ Latest version
 
 Minor updates and patch fixes within a major version
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1/dist/css/coco.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@2/dist/css/coco.min.css" />
 ```
 
 Patch fixes within a minor version
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1/dist/css/coco.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@2.0/dist/css/coco.min.css" />
 ```
 
 Using SRI with exact version
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@1.1.3/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@2.0.0/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
 ```
 
 > Please, replace {hash} with hash generated for chosen specific version. You can use for example this [SRI Hash Generator](https://www.srihash.org/).
@@ -41,7 +41,7 @@ npm i @cryptohub/coco
 or
 
 ```sh
-npm install "https://github.com/cryptohub-digital/coco.git#semver:^1.1" --save
+npm install "https://github.com/cryptohub-digital/coco.git#semver:^2.0" --save
 ```
 
 ---
@@ -55,7 +55,7 @@ yarn add @cryptohub/coco
 or
 
 ```sh
-yarn add "https://github.com/cryptohub-digital/coco.git#semver:^1.1"
+yarn add "https://github.com/cryptohub-digital/coco.git#semver:^2.0"
 ```
 
 ---
@@ -63,13 +63,7 @@ yarn add "https://github.com/cryptohub-digital/coco.git#semver:^1.1"
 #### Bower
 
 ```sh
-npm i @cryptohub/coco
-```
-
-or
-
-```sh
-bower install "https://github.com/cryptohub-digital/coco.git#1.1.3" --save
+bower install cryptohub-digital/coco
 ```
 
 ### Import
