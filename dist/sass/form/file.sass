@@ -15,10 +15,8 @@ $file-colors: $form-colors !default
 
 input[type=file], .file
 	@extend %unselectable
-	align-items: stretch
 	display: flex
 	justify-content: flex-start
-	position: relative
 	
 	@each $name, $pair in $file-colors
 		$color: nth($pair, 1)

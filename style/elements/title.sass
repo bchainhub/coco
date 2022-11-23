@@ -2,7 +2,7 @@
 
 $title-color: $text-strong !default
 $title-family: false !default
-$title-size: $size-3 !default
+$title-size: var(--size-3) !default
 $title-weight: $weight-semibold !default
 $title-line-height: 1.125 !default
 $title-strong-color: inherit !default
@@ -12,7 +12,7 @@ $title-sup-size: 0.75em !default
 
 $subtitle-color: $text !default
 $subtitle-family: false !default
-$subtitle-size: $size-5 !default
+$subtitle-size: var(--size-5) !default
 $subtitle-weight: $weight-normal !default
 $subtitle-line-height: 1.25 !default
 $subtitle-strong-color: $text-strong !default
@@ -56,20 +56,20 @@ h1, h2, h3, h4, h5, h6
   @each $size in $sizes
     $i: index($sizes, $size)
     &.is-#{$i}
-      font-size: $size
+      font-size: var(--#{$i})
 
 h1
-  font-size: $size-1
+  font-size: var(--size-1)
 h2
-  font-size: $size-2
+  font-size: var(--size-2)
 h3
-  font-size: $size-3
+  font-size: var(--size-3)
 h4
-  font-size: $size-4
+  font-size: var(--size-4)
 h5
-  font-size: $size-5
+  font-size: var(--size-5)
 h6
-  font-size: $size-6
+  font-size: var(--size-6)
 
 /// Subtitle - More informations for your headings..
 /// @name .subtitle
@@ -92,4 +92,4 @@ h6
   @each $size in $sizes
     $i: index($sizes, $size)
     &.is-#{$i}
-      font-size: $size
+      font-size: var(--#{$i})
