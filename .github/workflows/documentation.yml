@@ -30,7 +30,7 @@ jobs:
       - name: Install Gulp
         run: npm i gulp
       - name: Install & Build 🔧
-        run: npm i && npm run build-sass
+        run: npm i && npm run build-sass-doc
       - name: Build docs
         run: gulp docs
       - name: Deploy
