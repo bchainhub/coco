@@ -49,7 +49,6 @@
     "build-clean": "rimraf css",
     "build-css": "sass style/coco.sass dist/css/coco.css",
     "build-css-rtl": "sass style/coco.sass dist/css/coco-rtl.css",
-    "build-docs": "sassdoc ./dist/sass -d ./docs",
     "build-sass": "cp -a style dist/sass && stripcomments -w --language=Sass --confirm-overwrite dist/sass/**/*.sass && spaces-to-tabs dist/sass/**/*.sass -s 2",
     "check-sass": "node_modules/.bin/sass -v",
     "pack": "VER=$(echo $npm_package_version | sed s/[.]/-/g) && mv dist coco-v$npm_package_version && zip -r coco-v$VER.zip coco-v$npm_package_version && mv coco-v$npm_package_version dist",
