@@ -1,9 +1,9 @@
 $brightness-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200
 
 =brightness
-  @each $breakpoint in $brightness-breakpoints
-    &.brightness-#{$breakpoint}
-      filter: unquote("brightness(#{$breakpoint}%)")
+	@each $breakpoint in $brightness-breakpoints
+		&.brightness-#{$breakpoint}
+			filter: unquote("brightness(#{$breakpoint}%)")
 
 /// The Brightness filter provides advanced options for adjusting brightness.
 /// @name .filter.brightness
@@ -11,4 +11,4 @@ $brightness-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200
 /// @since 1.0.0
 /// @link https://github.com/cryptohub-digital/coco/wiki/effects-filters#brightness
 .filter
-  +brightness
+	+brightness

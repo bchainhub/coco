@@ -20,7 +20,7 @@ $code-size: 0.95em !default
 
 $small-font-size: 0.875em !default
 
-$hr-background-color: $background !default
+$hr-background-color: var(--color-background) !default
 $hr-height: 2px !default
 $hr-margin: 1.5rem 0 !default
 
@@ -32,15 +32,15 @@ $pre-padding: 1.25rem 1.5rem !default
 $pre-code-font-size: 1em !default
 
 html
-  background-color: $body-background-color
-  font-size: $body-size
-  -moz-osx-font-smoothing: grayscale
-  -webkit-font-smoothing: antialiased
-  min-width: $body-min-width
-  overflow-x: $body-overflow-x
-  overflow-y: $body-overflow-y
-  text-rendering: $body-rendering
-  text-size-adjust: 100%
+	background-color: $body-background-color
+	font-size: $body-size
+	-moz-osx-font-smoothing: grayscale
+	-webkit-font-smoothing: antialiased
+	min-width: $body-min-width
+	overflow-x: $body-overflow-x
+	overflow-y: $body-overflow-y
+	text-rendering: $body-rendering
+	text-size-adjust: 100%
 
 article,
 aside,
@@ -49,12 +49,12 @@ footer,
 header,
 hgroup,
 section
-  display: block
-  &.is-sticky
-    position: -webkit-sticky
-    position: sticky
-    top: 0
-    z-index: 2
+	display: block
+	&.is-sticky
+		position: -webkit-sticky
+		position: sticky
+		top: 0
+		z-index: 2
 
 body,
 button,
@@ -62,124 +62,125 @@ input,
 optgroup,
 select,
 textarea
-  font-family: $body-family
+	font-family: $body-family
 
 code,
 pre
-  -moz-osx-font-smoothing: auto
-  -webkit-font-smoothing: auto
-  font-family: $code-family
+	-moz-osx-font-smoothing: auto
+	-webkit-font-smoothing: auto
+	font-family: $code-family
 
 body
-  color: $body-color
-  font-size: $body-font-size
-  font-weight: $body-weight
-  line-height: $body-line-height
-  &.has-sticky-footer
-    display: flex
-    min-height: 100vh
-    flex-direction: column
-    > main
-      flex: 1
+	color: $body-color
+	font-size: $body-font-size
+	font-weight: $body-weight
+	line-height: $body-line-height
+	height: 100vh
+	&.has-sticky-footer
+		display: flex
+		min-height: 100vh
+		flex-direction: column
+		> main
+			flex: 1
 
 // Inline
 
 a
-  color: $link
-  cursor: pointer
-  text-decoration: none
-  strong
-    color: currentColor
-  &:hover
-    color: $link-hover
-  &:focus
-    color: $link-focus
-  &:active
-    color: $link-active
-  &:visited
-    color: $link-visited
+	color: var(--link)
+	cursor: pointer
+	text-decoration: none
+	strong
+		color: currentColor
+	&:hover
+		color: var(--link-hover)
+	&:focus
+		color: var(--link-focus)
+	&:active
+		color: var(--link-active)
+	&:visited
+		color: var(--link-visited)
 
 hr
-  background-color: $hr-background-color
-  border: none
-  display: block
-  height: $hr-height
-  margin: $hr-margin
+	background-color: var(--hr-background-color)
+	border: none
+	display: block
+	height: var(--hr-height)
+	margin: var(--hr-margin)
 
 img
-  height: auto
-  max-width: 100%
+	height: auto
+	max-width: 100%
 
 input[type="checkbox"],
 input[type="radio"]
-  vertical-align: baseline
+	vertical-align: baseline
 
 small
-  font-size: $small-font-size
+	font-size: var(--small-font-size)
 
 span
-  font-style: inherit
-  font-weight: inherit
+	font-style: inherit
+	font-weight: inherit
 
 strong
-  color: $strong-color
-  font-weight: $strong-weight
+	color: var(--strong-color)
+	font-weight: var(--strong-weight)
 
 // Block
 
 fieldset
-  border: none
+	border: none
 
 code
-  background-color: $code-background
-  color: $code
-  font-size: $code-size
-  font-weight: $code-weight
-  padding: $code-padding
-  border-radius: $radius
+	background-color: var(--code-background)
+	color: var(--code)
+	font-size: var(--code-size)
+	font-weight: var(--code-weight)
+	padding: var(--code-padding)
+	border-radius: var(--radius)
 
 pre
-  +overflow-touch
-  background-color: $pre-background
-  color: $pre
-  font-size: $pre-font-size
-  overflow-x: auto
-  padding: $pre-padding
-  white-space: pre
-  word-wrap: normal
-  border-radius: $radius
-  code
-    background-color: transparent
-    color: $code
-    font-weight: $code-weight
-    font-size: $pre-code-font-size
-    padding: 0
+	+overflow-touch
+	background-color: var(--pre-background)
+	color: var(--pre)
+	font-size: var(--pre-font-size)
+	overflow-x: auto
+	padding: var(--pre-padding)
+	white-space: pre
+	word-wrap: normal
+	border-radius: var(--radius)
+	code
+		background-color: transparent
+		color: var(--code)
+		font-weight: var(--code-weight)
+		font-size: var(--pre-code-font-size)
+		padding: 0
 
 table
-  td,
-  th
-    vertical-align: top
-    &:not([align])
-      text-align: inherit
-  th
-    color: $text-strong
+	td,
+	th
+		vertical-align: top
+		&:not([align])
+			text-align: inherit
+	th
+		color: var(--text-strong)
 
 dl
-  & > dt
-    font-style: oblique
-    letter-spacing: 0.12em
-  & > dd
-    margin-left: 2em
+	& > dt
+		font-style: oblique
+		letter-spacing: 0.12em
+	& > dd
+		margin-left: 2em
 
 mark
-  background-color: $primary-highlight
+	background-color: var(--primary-highlight)
 
 details
-  & > summary
-    cursor: pointer
-    font-weight: $weight-medium
-    &::marker
-      color: $primary-dark
+	& > summary
+		cursor: pointer
+		font-weight: var(--weight-medium)
+		&::marker
+			color: var(--primary-dark)
 
 ul, ol
-  list-style-position: inside
+	list-style-position: inside

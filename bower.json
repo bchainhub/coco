@@ -1,28 +1,28 @@
 {
-  "name": "coco",
-  "homepage": "https://cryptohub-digital.github.io/coco/",
-  "authors": [
-    "CRYPTO ▪ HUB® (https://cryptohub.digital)",
-    "Jeremy Thomas (https://github.com/jgthms)"
-  ],
-  "description": "Modern CSS framework based on Flexbox",
-  "main": "dist/sass/coco.sass",
-  "keywords": [
-    "css",
-    "sass",
-    "flexbox",
-    "responsive",
-    "framework"
-  ],
-  "license": "CORE",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests",
-    "docs",
-    "style",
-    ".github"
-  ]
+	"name": "coco",
+	"homepage": "https://cryptohub-digital.github.io/coco/",
+	"authors": [
+		"CRYPTO ▪ HUB® (https://cryptohub.digital)",
+		"Jeremy Thomas (https://github.com/jgthms)"
+	],
+	"description": "Modern CSS framework based on Flexbox",
+	"main": "dist/sass/coco.sass",
+	"keywords": [
+		"css",
+		"sass",
+		"flexbox",
+		"responsive",
+		"framework"
+	],
+	"license": "CORE",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests",
+		"docs",
+		"style",
+		".github"
+	]
 }

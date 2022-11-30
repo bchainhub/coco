@@ -43,34 +43,34 @@ $dark-invert: findColorInvert($dark) !default
 
 // General colors
 
-$scheme-main: $white !default
-$scheme-main-bis: $white-bis !default
-$scheme-main-ter: $white-ter !default
-$scheme-invert: $black !default
-$scheme-invert-bis: $black-bis !default
-$scheme-invert-ter: $black-ter !default
+$scheme-main: var(--color-white) !default
+$scheme-main-bis: var(--color-white-bis) !default
+$scheme-main-ter: var(--color-white-ter) !default
+$scheme-invert: var(--color-black) !default
+$scheme-invert-bis: var(--color-black-bis) !default
+$scheme-invert-ter: var(--color-black-ter) !default
 
 $background: $white-ter !default
 
-$border: $grey-lighter !default
-$border-hover: $grey-light !default
-$border-light: $grey-lightest !default
-$border-light-hover: $grey-light !default
+$border: var(--color-grey-lighter) !default
+$border-hover: var(--color-grey-light) !default
+$border-light: var(--color-grey-lightest) !default
+$border-light-hover: var(--color-grey-light) !default
 
 // Text colors
 
-$text: $grey-dark !default
+$text: var(--color-grey-dark) !default
 $text-invert: findColorInvert($text) !default
-$text-light: $grey !default
-$text-strong: $grey-darker !default
+$text-light: var(--color-grey) !default
+$text-strong: var(--color-grey-darker) !default
 
 // Code colors
 
 $code: darken($red, 15%) !default
-$code-background: $background !default
+$code-background: var(--color-background) !default
 
 $pre: $text !default
-$pre-background: $background !default
+$pre-background: var(--color-background) !default
 
 // Link colors
 

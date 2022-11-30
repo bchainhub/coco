@@ -1,0 +1,94 @@
+$toggle-width: 60px
+$toggle-height: 34px
+$toggle-space: 4px
+$toggle-inner: 26px
+$toggle-colors: $colors !default
+
+.toggle
+	position: relative
+	display: inline-block
+	width: $toggle-width
+	height: $toggle-height
+	input[type=checkbox]
+		display: none
+		&:checked + .slider
+			background-color: var(--primary)
+		&:focus + .slider
+			box-shadow: 0 0 1px var(--primary)
+		&:checked + .slider:before
+			-webkit-transform: translateX($toggle-inner)
+			-ms-transform: translateX($toggle-inner)
+			transform: translateX($toggle-inner)
+	.slider
+		position: absolute
+		cursor: pointer
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: var(--color-grey)
+		-webkit-transition: .4s
+		transition: .4s
+		&:before
+			position: absolute
+			content: ""
+			height: $toggle-inner
+			width: $toggle-inner
+			left: $toggle-space
+			bottom: $toggle-space
+			background-color: var(--color-white)
+			-webkit-transition: .4s
+			transition: .4s
+	&.is-rounded
+		.slider
+			border-radius: $toggle-height
+			&:before
+				border-radius: 50%
+	&.is-small
+		width: calc(#{$toggle-width}*0.6)
+		height: calc(#{$toggle-height}*0.6)
+		input
+			&:checked + .slider:before
+				-webkit-transform: translateX(calc(#{$toggle-inner}*0.6))
+				-ms-transform: translateX(calc(#{$toggle-inner}*0.6))
+				transform: translateX(calc(#{$toggle-inner}*0.6))
+		> span
+			&:before
+				height: calc(#{$toggle-inner}*0.6)
+				width: calc(#{$toggle-inner}*0.6)
+				left: calc(#{$toggle-space}*0.6)
+				bottom: calc(#{$toggle-space}*0.6)
+	&.is-medium
+		width: calc(#{$toggle-width}*0.75)
+		height: calc(#{$toggle-height}*0.75)
+		input
+			&:checked + .slider:before
+				-webkit-transform: translateX(calc(#{$toggle-inner}*0.75))
+				-ms-transform: translateX(calc(#{$toggle-inner}*0.75))
+				transform: translateX(calc(#{$toggle-inner}*0.75))
+		> span
+			&:before
+				height: calc(#{$toggle-inner}*0.75)
+				width: calc(#{$toggle-inner}*0.75)
+				left: calc(#{$toggle-space}*0.75)
+				bottom: calc(#{$toggle-space}*0.75)
+	&.is-large
+		width: calc(#{$toggle-width}*1.5)
+		height: calc(#{$toggle-height}*1.5)
+		input
+			&:checked + .slider:before
+				-webkit-transform: translateX(calc(#{$toggle-inner}*1.5))
+				-ms-transform: translateX(calc(#{$toggle-inner}*1.5))
+				transform: translateX(calc(#{$toggle-inner}*1.5))
+		> span
+			&:before
+				height: calc(#{$toggle-inner}*1.5)
+				width: calc(#{$toggle-inner}*1.5)
+				left: calc(#{$toggle-space}*1.5)
+				bottom: calc(#{$toggle-space}*1.5)
+	@each $name, $pair in $toggle-colors
+		$color: nth($pair, 1)
+		$color-invert: nth($pair, 2)
+		&.is-#{$name}
+			.slider
+				background-color: $color

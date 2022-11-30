@@ -23,7 +23,7 @@ Patch fixes within a minor version
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@2.0/dist/css/coco.min.css" />
 ```
 
-Using SRI with exact version
+Using SRI with the exact version
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@2.0.0/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
 ```
@@ -86,7 +86,7 @@ After installation, you can import the CSS file into your project using this sni
 @import '@cryptohub/coco/dist/sass/coco.sass'
 ```
 
-If you want to use Right-to-Left version, just append `-rtl` after name.
+If you want to use a right-to-left version, just append `-rtl` after the name.
 
 ## Customize distribution
 
@@ -137,7 +137,10 @@ $input-shadow: none
   <div class="column">5</div>
 </div>
 ```
-### Sticky footer
+
+### Features
+
+#### Sticky footer
 
 > Sticky footer with one class
 
@@ -149,7 +152,7 @@ $input-shadow: none
 </body>
 ```
 
-### Tabs
+#### Tabs
 
 > Tabs without the JavaScript
 
@@ -169,16 +172,16 @@ $input-shadow: none
 </section>
 ```
 
-### Hamburger menu
+#### Hamburger menu
 
 > Hamburger menu without the JavaScript
 
-1. Add `<input type="checkbox" id="navbar-toggle" aria-hidden="true" />` into the `.navbar`
-2. Change link to label: `<label for="navbar-toggle" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">...</label>`
-3. Optional: Your menu `id` should be same as defined in `label[data-target]` for compatiblity with JavaScript
-4. Test hamburger menu
+1. Add `<input type="checkbox" id="coco-navbar-toggle" aria-hidden="true" />` into the `.navbar`
+2. Change link to label: `<label for="coco-navbar-toggle" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">...</label>`
+3. Optional: Your menu `id` should be the same as defined in `label[data-target]` for compatibility with JavaScript
+4. Test the hamburger menu
 
-### em.oji
+#### em.oji
 
 > You can use Emoji as icons with effects on it
 
@@ -186,8 +189,34 @@ $input-shadow: none
 <em class="oji flat">📥</em>
 ```
 
-### Current version
-> You can call current version with following code:
+#### Custom theme
+
+> You can create your theme and add your variables into: `style/utilities/themes.sass`
+
+To set the theme, please add into HTML tag `data-theme="theme"`.
+
+Natively we are supporting the light/dark theme.
+
+#### Theme switch
+
+> If you would like the switch between dark/light theme, you can put it in `nav` pane.
+
+To implement, start with:
+
+1. Add input directly after the body tag: `<input type="checkbox" id="coco-theme-switch" />`
+1. Add label into path `input#coco-theme-switch[type=checkbox] ~ header > nav > .navbar-menu > div > div > label[for=coco-theme-switch]`, with the following content:
+
+```html
+<label for="coco-theme-switch">
+  <div class="sun"></div>
+</label>
+```
+
+Note: Theme switch is dependent on [:has()](https://caniuse.com/css-has).
+
+#### Current version
+
+> You can call the current version with the following code:
 
 ```html
 <span class="coco version">version </span>
@@ -211,9 +240,9 @@ Browse the online documentation on the [Online manual](https://cryptohub-digital
 
 ## Informational notice
 
-Why we are putting underscore in front of file and when to do so?
+Why are we putting underscore in front of the file and when to do so?
 
-> A sass file starting with an underscore is a partial. Files with \_ (underscore) are ignored by compiler.
+> A Sass file starting with an underscore is partial. Files with \_ (underscore) are ignored by the compiler.
 
 ## Copyright and license
 
