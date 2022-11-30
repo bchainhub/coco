@@ -1,9 +1,9 @@
 $sepia-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100
 
 =sepia
-  @each $breakpoint in $sepia-breakpoints
-    &.sepia-#{$breakpoint}
-      filter: unquote("sepia(#{$breakpoint}%)")
+	@each $breakpoint in $sepia-breakpoints
+		&.sepia-#{$breakpoint}
+			filter: unquote("sepia(#{$breakpoint}%)")
 
 /// Converts the image to sepia. 0% (0) is default and represents the original image. 100% (100) will make the image completely sepia.
 /// @name .filter.sepia
@@ -11,4 +11,4 @@ $sepia-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100
 /// @since 1.0.0
 /// @link https://github.com/cryptohub-digital/coco/wiki/effects-filters#sepia
 .filter
-  +sepia
+	+sepia
