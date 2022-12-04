@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .coco.version::after {
-  content: "2.1.0";
+  content: "2.1.1";
 }
 
 html {
@@ -67,6 +67,15 @@ body.has-sticky-footer {
   flex-direction: column;
 }
 body.has-sticky-footer > main {
+  flex: 1;
+}
+
+.has-sticky-footer {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.has-sticky-footer > main {
   flex: 1;
 }
 
@@ -696,6 +705,15 @@ body.has-sticky-footer {
   flex-direction: column;
 }
 body.has-sticky-footer > main {
+  flex: 1;
+}
+
+.has-sticky-footer {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.has-sticky-footer > main {
   flex: 1;
 }
 
@@ -13280,169 +13298,169 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .is-size-1 {
-  font-size: var(--1) !important;
+  font-size: var(--size-1) !important;
 }
 
 .is-size-2 {
-  font-size: var(--2) !important;
+  font-size: var(--size-2) !important;
 }
 
 .is-size-3 {
-  font-size: var(--3) !important;
+  font-size: var(--size-3) !important;
 }
 
 .is-size-4 {
-  font-size: var(--4) !important;
+  font-size: var(--size-4) !important;
 }
 
 .is-size-5 {
-  font-size: var(--5) !important;
+  font-size: var(--size-5) !important;
 }
 
 .is-size-6 {
-  font-size: var(--6) !important;
+  font-size: var(--size-6) !important;
 }
 
 .is-size-7 {
-  font-size: var(--7) !important;
+  font-size: var(--size-7) !important;
 }
 
 @media screen and (max-width: 768px) {
   .is-size-1-mobile {
-    font-size: var(--1) !important;
+    font-size: var(--size-1) !important;
   }
   .is-size-2-mobile {
-    font-size: var(--2) !important;
+    font-size: var(--size-2) !important;
   }
   .is-size-3-mobile {
-    font-size: var(--3) !important;
+    font-size: var(--size-3) !important;
   }
   .is-size-4-mobile {
-    font-size: var(--4) !important;
+    font-size: var(--size-4) !important;
   }
   .is-size-5-mobile {
-    font-size: var(--5) !important;
+    font-size: var(--size-5) !important;
   }
   .is-size-6-mobile {
-    font-size: var(--6) !important;
+    font-size: var(--size-6) !important;
   }
   .is-size-7-mobile {
-    font-size: var(--7) !important;
+    font-size: var(--size-7) !important;
   }
 }
 @media screen and (min-width: 769px), print {
   .is-size-1-tablet {
-    font-size: var(--1) !important;
+    font-size: var(--size-1) !important;
   }
   .is-size-2-tablet {
-    font-size: var(--2) !important;
+    font-size: var(--size-2) !important;
   }
   .is-size-3-tablet {
-    font-size: var(--3) !important;
+    font-size: var(--size-3) !important;
   }
   .is-size-4-tablet {
-    font-size: var(--4) !important;
+    font-size: var(--size-4) !important;
   }
   .is-size-5-tablet {
-    font-size: var(--5) !important;
+    font-size: var(--size-5) !important;
   }
   .is-size-6-tablet {
-    font-size: var(--6) !important;
+    font-size: var(--size-6) !important;
   }
   .is-size-7-tablet {
-    font-size: var(--7) !important;
+    font-size: var(--size-7) !important;
   }
 }
 @media screen and (max-width: 1023px) {
   .is-size-1-touch {
-    font-size: var(--1) !important;
+    font-size: var(--size-1) !important;
   }
   .is-size-2-touch {
-    font-size: var(--2) !important;
+    font-size: var(--size-2) !important;
   }
   .is-size-3-touch {
-    font-size: var(--3) !important;
+    font-size: var(--size-3) !important;
   }
   .is-size-4-touch {
-    font-size: var(--4) !important;
+    font-size: var(--size-4) !important;
   }
   .is-size-5-touch {
-    font-size: var(--5) !important;
+    font-size: var(--size-5) !important;
   }
   .is-size-6-touch {
-    font-size: var(--6) !important;
+    font-size: var(--size-6) !important;
   }
   .is-size-7-touch {
-    font-size: var(--7) !important;
+    font-size: var(--size-7) !important;
   }
 }
 @media screen and (min-width: 1024px) {
   .is-size-1-desktop {
-    font-size: var(--1) !important;
+    font-size: var(--size-1) !important;
   }
   .is-size-2-desktop {
-    font-size: var(--2) !important;
+    font-size: var(--size-2) !important;
   }
   .is-size-3-desktop {
-    font-size: var(--3) !important;
+    font-size: var(--size-3) !important;
   }
   .is-size-4-desktop {
-    font-size: var(--4) !important;
+    font-size: var(--size-4) !important;
   }
   .is-size-5-desktop {
-    font-size: var(--5) !important;
+    font-size: var(--size-5) !important;
   }
   .is-size-6-desktop {
-    font-size: var(--6) !important;
+    font-size: var(--size-6) !important;
   }
   .is-size-7-desktop {
-    font-size: var(--7) !important;
+    font-size: var(--size-7) !important;
   }
 }
 @media screen and (min-width: 1216px) {
   .is-size-1-widescreen {
-    font-size: var(--1) !important;
+    font-size: var(--size-1) !important;
   }
   .is-size-2-widescreen {
-    font-size: var(--2) !important;
+    font-size: var(--size-2) !important;
   }
   .is-size-3-widescreen {
-    font-size: var(--3) !important;
+    font-size: var(--size-3) !important;
   }
   .is-size-4-widescreen {
-    font-size: var(--4) !important;
+    font-size: var(--size-4) !important;
   }
   .is-size-5-widescreen {
-    font-size: var(--5) !important;
+    font-size: var(--size-5) !important;
   }
   .is-size-6-widescreen {
-    font-size: var(--6) !important;
+    font-size: var(--size-6) !important;
   }
   .is-size-7-widescreen {
-    font-size: var(--7) !important;
+    font-size: var(--size-7) !important;
   }
 }
 @media screen and (min-width: 1408px) {
   .is-size-1-fullhd {
-    font-size: var(--1) !important;
+    font-size: var(--size-1) !important;
   }
   .is-size-2-fullhd {
-    font-size: var(--2) !important;
+    font-size: var(--size-2) !important;
   }
   .is-size-3-fullhd {
-    font-size: var(--3) !important;
+    font-size: var(--size-3) !important;
   }
   .is-size-4-fullhd {
-    font-size: var(--4) !important;
+    font-size: var(--size-4) !important;
   }
   .is-size-5-fullhd {
-    font-size: var(--5) !important;
+    font-size: var(--size-5) !important;
   }
   .is-size-6-fullhd {
-    font-size: var(--6) !important;
+    font-size: var(--size-6) !important;
   }
   .is-size-7-fullhd {
-    font-size: var(--7) !important;
+    font-size: var(--size-7) !important;
   }
 }
 .has-text-centered {
@@ -14800,7 +14818,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 .footer {
   background-color: var(--color-white-bis);
-  padding: 3rem 1.5rem 6rem;
+  padding: 3rem 1.5rem;
 }
 
 .filter.blur-1px {
