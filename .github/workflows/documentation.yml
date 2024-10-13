@@ -24,6 +24,9 @@ jobs:
       - name: Install SassDoc
         run: npm install sassdoc
 
+      - name: Install Sass Convert globally
+        run: npm install -g sass-convert
+
       - name: Generate SassDoc documentation
         run: npx sassdoc dist/sass --dest docs/
 
