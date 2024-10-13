@@ -1,148 +1,111 @@
-# [COCO](https://cryptohub-digital.github.io/coco/)
 
-## **COCO** is an open source CSS framework based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes) without any piece of ~~JavaScript~~.
+# COCO
+
+**COCO** is an open-source CSS framework based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes). It operates entirely without JavaScript.
 
 100% Responsive 💻 | Modular 🗂 | Modern 💈 | Free ⚗️
 --- | --- | --- | ---
-*Designed for multi device support* | *Import what you need* | *Built with flexbox* | *Open Source*
+*Designed for multi-device support* | *Import only what you need* | *Built with Flexbox* | *Open Source*
 
 ## CDN
 
-Latest version
+**Latest version:**
+
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco/dist/css/coco.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco/dist/css/coco.min.css" />
 ```
 
-Minor updates and patch fixes within a major version
+**Minor updates and patch fixes within a major version:**
+
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@2/dist/css/coco.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco@2/dist/css/coco.min.css" />
 ```
 
-Patch fixes within a minor version
+**Patch fixes within a minor version:**
+
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@2.0/dist/css/coco.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco@2.0/dist/css/coco.min.css" />
 ```
 
-Using SRI with the exact version
+**Using SRI with the exact version:**
+
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cryptohub-digital/coco@2.0.0/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco@2.0.0/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
 ```
 
-> Please, replace {hash} with hash generated for chosen specific version. You can use for example this [SRI Hash Generator](https://www.srihash.org/).
+> Replace `{hash}` with the SRI hash generated for the specific version. Use this [SRI Hash Generator](https://www.srihash.org/) for assistance.
 
 ## Install
 
-#### NPM
+### NPM
 
 ```sh
-npm i @cryptohub/coco
+npm i @blockchainhub/coco
 ```
 
 or
 
 ```sh
-npm install "https://github.com/cryptohub-digital/coco.git#semver:^2.0" --save
+npm install "https://github.com/bchainhub/coco.git#semver:^2.0" --save
 ```
 
----
-
-#### Yarn
+### Yarn
 
 ```sh
-yarn add @cryptohub/coco
+yarn add @blockchainhub/coco
 ```
 
 or
 
 ```sh
-yarn add "https://github.com/cryptohub-digital/coco.git#semver:^2.0"
+yarn add "https://github.com/bchainhub/coco.git#semver:^2.0"
 ```
 
----
-
-#### Bower
+### Bower
 
 ```sh
-bower install cryptohub-digital/coco
+bower install bchainhub/coco
 ```
 
-### Import
+## Import
 
-After installation, you can import the CSS file into your project using this snippet:
+After installation, import the CSS file into your project:
 
-#### CSS version
+**CSS version:**
 
 ```css
-@import '@cryptohub/coco/dist/css/coco.css'
+@import '@blockchainhub/coco/dist/css/coco.css';
 ```
 
-#### Minified CSS version
+**Minified CSS version:**
+
 ```css
-@import '@cryptohub/coco/dist/css/coco.min.css'
+@import '@blockchainhub/coco/dist/css/coco.min.css';
 ```
 
-#### SASS version
+**SASS version:**
+
 ```css
-@import '@cryptohub/coco/dist/sass/coco.sass'
+@import '@blockchainhub/coco/dist/sass/coco.sass';
 ```
 
-If you want to use a right-to-left version, just append `-rtl` after the name.
+For the right-to-left (RTL) version, append `-rtl` to the file name.
 
-## Customize distribution
+## Customize Distribution
 
-COCO is a **CSS** framework. Output is a single CSS file [coco.css](https://github.com/cryptohub-digital/coco/blob/master/dist/css/coco.css) or SASS distribution.
+COCO is a CSS framework that outputs a single CSS file [coco.css](https://github.com/bchainhub/coco/blob/master/dist/css/coco.css) or a SASS distribution. You can use it "out of the box" or download the Sass source files to customize the variables.
 
-You can either use that file, "out of the box", or download the Sass source files to customize the variables.
+## Get Started
 
-```html
-// Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700')
+### Simplest Grid System
 
-// Set your brand colors
-$purple: #8A4D76
-$pink: #FA7C91
-$brown: #757763
-$beige-light: #D0D1CD
-$beige-lighter: #EFF0EB
-
-// Update COCO's global variables
-$family-sans-serif: "Nunito", sans-serif
-$grey-dark: $brown
-$grey-light: $beige-light
-$primary: $purple
-$link: $pink
-
-// Update some of COCO's component variables
-$control-border-width: 2px
-$input-background-color: $beige-lighter
-$input-border-color: transparent
-$input-shadow: none
-
-// Import the rest of COCO
-@import "coco/sass/coco.sass"
-```
-
-## Get started
-
-### The simplest grid system
-
-> Just add columns, they will resize themselves
-
-```html
-<div class="columns">
-  <div class="column">1</div>
-  <div class="column">2</div>
-  <div class="column">3</div>
-  <div class="column">4</div>
-  <div class="column">5</div>
-</div>
-```
+> Add columns, and they will resize automatically based on screen size.
 
 ### Features
 
-#### Sticky footer
+#### Sticky Footer
 
-> Sticky footer with one class
+> Implement a sticky footer with just one class:
 
 ```html
 <body class="has-sticky-footer">
@@ -154,7 +117,7 @@ $input-shadow: none
 
 #### Tabs
 
-> Tabs without the JavaScript
+> Create tabs without JavaScript:
 
 ```html
 <div class="tabs">
@@ -167,44 +130,41 @@ $input-shadow: none
 <section class="tab-content">
   <article id="tab-2">Content of second tab</article>
   <article id="tab-3">Content of third tab</article>
-  <!-- Default tab -->
-  <article id="tab-1">Content of first tab</article>
+  <article id="tab-1">Content of first tab (default)</article>
 </section>
 ```
 
-#### Hamburger menu
+#### Hamburger Menu
 
-> Hamburger menu without the JavaScript
+> Build a hamburger menu without JavaScript:
 
-1. Add `<input type="checkbox" id="coco-navbar-toggle" aria-hidden="true" />` into the `.navbar`
-2. Change link to label: `<label for="coco-navbar-toggle" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">...</label>`
-3. Optional: Your menu `id` should be the same as defined in `label[data-target]` for compatibility with JavaScript
-4. Test the hamburger menu
+1. Add `<input type="checkbox" id="coco-navbar-toggle" aria-hidden="true" />` inside the `.navbar`.
+2. Change the link to a label: `<label for="coco-navbar-toggle" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">...</label>`.
+3. Ensure your menu `id` matches `label[data-target]` for JavaScript compatibility.
+4. Test the hamburger menu functionality.
 
 #### em.oji
 
-> You can use Emoji as icons with effects on it
+> Use emojis as icons with effects:
 
 ```html
 <em class="oji flat">📥</em>
 ```
 
-#### Custom theme
+#### Custom Theme
 
-> You can create your theme and add your variables into: `style/utilities/themes.sass`
+> Create a custom theme by adding variables to `style/utilities/themes.sass`.
 
-To set the theme, please add into HTML tag `data-theme="theme"`.
+To set a theme, add `data-theme="theme"` to the HTML tag.
 
-Natively we are supporting the light/dark theme.
+COCO supports light and dark themes natively.
 
-#### Theme switch
+#### Theme Switch
 
-> If you would like the switch between dark/light theme, you can put it in `nav` pane.
+> To switch between dark/light themes in a `nav` pane:
 
-To implement, start with:
-
-1. Add input directly after the body tag: `<input type="checkbox" id="coco-theme-switch" />`
-1. Add label into path `input#coco-theme-switch[type=checkbox] ~ header > nav > .navbar-menu > div > div > label[for=coco-theme-switch]`, with the following content:
+1. Add the input after the body tag: `<input type="checkbox" id="coco-theme-switch" />`
+2. Add a label within the navbar, following this structure:
 
 ```html
 <label for="coco-theme-switch">
@@ -212,11 +172,11 @@ To implement, start with:
 </label>
 ```
 
-Note: Theme switch is dependent on [:has()](https://caniuse.com/css-has).
+Note: The theme switch depends on the [:has()](https://caniuse.com/css-has) CSS selector.
 
-#### Current version
+#### Current Version
 
-> You can call the current version with the following code:
+> Display the current version of COCO using this code:
 
 ```html
 <span class="coco version">version </span>
@@ -224,26 +184,26 @@ Note: Theme switch is dependent on [:has()](https://caniuse.com/css-has).
 
 ## Browser Support
 
-COCO uses [autoprefixer](https://github.com/postcss/autoprefixer) to make (most) Flexbox features compatible with earlier browser versions. According to [Can I use](https://caniuse.com/#feat=flexbox), COCO is compatible with **recent** versions of:
+COCO uses [autoprefixer](https://github.com/postcss/autoprefixer) to ensure Flexbox compatibility with older browsers. Based on [Can I use](https://caniuse.com/#feat=flexbox), COCO supports **recent** versions of:
 
-* Chrome
-* Edge
-* Firefox
-* Opera
-* Safari
+- Chrome
+- Edge
+- Firefox
+- Opera
+- Safari
 
-Internet Explorer (10+) is only partially supported.
+Internet Explorer 10+ is only partially supported.
 
 ## Documentation
 
-Browse the online documentation on the [Online manual](https://cryptohub-digital.github.io/coco/).
+For detailed documentation, visit the [Online Manual](https://bchainhub.github.io/coco/).
 
-## Informational notice
+## Informational Notice
 
-Why are we putting underscore in front of the file and when to do so?
+Wondering why some files start with an underscore?
 
-> A Sass file starting with an underscore is partial. Files with \_ (underscore) are ignored by the compiler.
+> Sass files that begin with an underscore (`_`) are considered partials. These files are not compiled by themselves but are included in other files.
 
-## Copyright and license
+## Copyright and License
 
-Code copyright 2018 [Crypto ▪ Hub®](https://github.com/cryptohub-digital); [Jeremy Thomas](https://github.com/jgthms). Code released under the [CORE license](LICENSE).
+This code is copyright 2018 by [Blockchain Hub](https://github.com/bchainhub) and [Jeremy Thomas](https://github.com/jgthms). It is released under the [CORE license](LICENSE).
