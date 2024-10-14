@@ -22,10 +22,12 @@ jobs:
         run: npm i && npm run build
 
       - name: Install SassDoc
-        run: npm install sassdoc
+        run: npm install -g sassdoc
 
       - name: Install Sass Convert globally
-        run: npm install -g sass-convert
+        run: |
+          npm install -g sass-convert
+          echo "::add-path::$(npm bin -g)"
 
       - name: Generate SassDoc documentation
         run: npx sassdoc dist/sass --dest docs/

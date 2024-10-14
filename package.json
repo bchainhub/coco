@@ -1,9 +1,9 @@
 {
 	"name": "@blockchainhub/coco",
-	"version": "2.1.4",
+	"version": "2.1.5",
 	"homepage": "https://bchainhub.github.io/coco/",
 	"contributors": [
-		"Blockchain Hub",
+		"Blockchain Hub (https://github.com/bchainhub)",
 		"Jeremy Thomas (https://github.com/jgthms)"
 	],
 	"description": "Modern CSS framework based on Flexbox.",
