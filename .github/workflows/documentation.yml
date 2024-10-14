@@ -12,22 +12,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
-          registry-url: 'https://registry.npmjs.org'
+      - name: Setup Ruby Sass
+        run: |
+          sudo apt-get install -y ruby-full
+          gem install sass
 
       - name: Install & Build 🔧
         run: npm i && npm run build
-
-      - name: Install SassDoc
-        run: npm install -g sassdoc
-
-      - name: Install Sass Convert globally
-        run: |
-          npm install -g sass-convert
-          echo "$(npm root -g)/../bin" >> $GITHUB_PATH
 
       - name: Generate SassDoc documentation
         run: npx sassdoc dist/sass --dest docs/
