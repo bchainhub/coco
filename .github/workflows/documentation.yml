@@ -12,12 +12,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Ruby Sass
-        run: |
-          sudo apt-get install -y ruby-full
-          gem install sass
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
 
-      - name: Install & Build 🔧
+      - name: Setup Sass
+        run: gem install sass
+
+      - name: Install & Build
         run: npm i && npm run build
 
       - name: Generate SassDoc documentation
