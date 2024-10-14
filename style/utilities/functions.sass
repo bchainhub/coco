@@ -1,3 +1,5 @@
+@use 'sass:color'
+
 @function mergeColorMaps($coco-colors, $custom-colors)
 	// We return at least coco's hard-coded colors
 	$merged-colors: $coco-colors
@@ -64,9 +66,8 @@
 @function colorLuminance($color)
 	@if type-of($color) != 'color'
 		@return 0.55
-	$color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+	$color-rgb: ('red': color.channel($color, "red", $space: rgb), 'green': color.channel($color, "green", $space: rgb), 'blue': color.channel($color, "blue", $space: rgb))
 	@each $name, $value in $color-rgb
-		$adjusted: 0
 		$value: divide($value, 255)
 		@if $value < 0.03928
 			$value: divide($value, 12.92)
@@ -84,7 +85,7 @@
 
 @function findLightColor($color, $l: 96%)
 	@if type-of($color) == 'color'
-		@if lightness($color) > 96%
+		@if color.channel($color, 'lightness', $space: hsl) > 96%
 			$l: lightness($color)
 		@return change-color($color, $lightness: $l)
 	@return $background
@@ -105,12 +106,12 @@
 @function cocoDarken($color, $amount)
 	@if type-of($color) != 'color'
 		@return $color
-	@return darken($color, $amount)
+	@return color.adjust($color, $lightness: -$amount)
 
 @function cocoLighten($color, $amount)
 	@if type-of($color) != 'color'
 		@return $color
-	@return lighten($color, $amount)
+	@return color.adjust($color, $lightness: $amount)
 
 @function divide($dividend, $divisor, $precision: 10)
 	$sign: if($dividend > 0 and $divisor > 0, 1, -1)

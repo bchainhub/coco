@@ -1,3 +1,5 @@
+@use 'sass:color'
+
 @import "../utilities/mixins"
 
 $message-background-color: var(--color-background) !default
@@ -55,8 +57,8 @@ $message-colors: $colors !default
 				$desaturate-percentage: $color-luminance * 30%
 				$color-dark: desaturate(darken($color, $darken-percentage), $desaturate-percentage)
 		@else
-			$color-lightning: max((100% - lightness($color)) - 2%, 0%)
-			$color-light: lighten($color, $color-lightning)
+			$color-lightning: max((100% - color.channel($color, 'lightness')) - 2%, 0%)
+			$color-light: color.adjust($color, $lightness: $color-lightning)
 
 		&.is-#{$name}
 			background-color: $color-light
