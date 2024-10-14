@@ -27,7 +27,7 @@ jobs:
       - name: Install Sass Convert globally
         run: |
           npm install -g sass-convert
-          echo "::add-path::$(npm bin -g)"
+          echo "$(npm root -g)/../bin" >> $GITHUB_PATH
 
       - name: Generate SassDoc documentation
         run: npx sassdoc dist/sass --dest docs/
