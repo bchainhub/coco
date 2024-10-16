@@ -1,0 +1,18 @@
+$rotate-breakpoints: 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330;
+
+@mixin rotate {
+	@each $breakpoint in $rotate-breakpoints {
+		&.rotate-#{$breakpoint} {
+			transform: rotate(#{$breakpoint}deg);
+		}
+	}
+}
+
+/// Rotate in percentage units.
+/// @name .effect.rotate
+/// @group effects
+/// @since 1.0.0
+/// @link https://github.com/cryptohub-digital/coco/wiki/effects-effects#rotate
+.effect {
+	@include rotate;
+}

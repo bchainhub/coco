@@ -83,10 +83,10 @@ After installation, import the CSS file into your project:
 @import '@blockchainhub/coco/dist/css/coco.min.css';
 ```
 
-**SASS version:**
+**SCSS version:**
 
 ```css
-@import '@blockchainhub/coco/dist/sass/coco.sass';
+@import '@blockchainhub/coco/dist/scss/coco.scss';
 ```
 
 For the right-to-left (RTL) version, append `-rtl` to the file name.

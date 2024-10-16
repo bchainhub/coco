@@ -1,0 +1,23 @@
+@import "initial-variables";
+@import "derived-variables";
+
+$load-themes: dark;
+
+@mixin theme($theme) {
+	@if $theme == dark {
+		--coco-color-black: #{$white};
+		--coco-color-black-bis: #{$white-bis};
+		--coco-color-black-ter: #{$white-ter};
+		--coco-color-grey-darkest: #{$grey-lightest};
+		--coco-color-grey-darker: #{$grey-lighter};
+		--coco-color-grey-dark: #{$grey-light};
+		--coco-color-grey: #{$grey};
+		--coco-color-grey-light: #{$grey-dark};
+		--coco-color-grey-lighter: #{$grey-darker};
+		--coco-color-grey-lightest: #{$grey-darkest};
+		--coco-color-white: #{$black};
+		--coco-color-white-bis: #{$black-bis};
+		--coco-color-white-ter: #{$black-ter};
+		--coco-color-background: #{$black-ter};
+	}
+}

@@ -1,0 +1,171 @@
+@import "initial-variables";
+@import "derived-variables";
+@import "themes";
+@import "../base/generic";
+
+:root,
+:root[data-theme=light] {
+	--coco-color-black: #{$black};
+	--coco-color-black-bis: #{$black-bis};
+	--coco-color-black-ter: #{$black-ter};
+	--coco-color-grey-darkest: #{$grey-darkest};
+	--coco-color-grey-darker: #{$grey-darker};
+	--coco-color-grey-dark: #{$grey-dark};
+	--coco-color-grey: #{$grey};
+	--coco-color-grey-light: #{$grey-light};
+	--coco-color-grey-lighter: #{$grey-lighter};
+	--coco-color-grey-lightest: #{$grey-lightest};
+	--coco-color-white: #{$white};
+	--coco-color-white-bis: #{$white-bis};
+	--coco-color-white-ter: #{$white-ter};
+	--coco-color-orange: #{$orange};
+	--coco-color-yellow: #{$yellow};
+	--coco-color-green: #{$green};
+	--coco-color-green-core: #{$green-core};
+	--coco-color-turquoise: #{$turquoise};
+	--coco-color-cyan: #{$cyan};
+	--coco-color-blue: #{$blue};
+	--coco-color-purple: #{$purple};
+	--coco-color-red: #{$red};
+	--coco-color-background: #{$white-ter};
+	--coco-family-sans-serif: "#{$family-sans-serif}";
+	--coco-family-monospace: "#{$family-monospace}";
+	--coco-size-1: #{$size-1};
+	--coco-size-2: #{$size-2};
+	--coco-size-3: #{$size-3};
+	--coco-size-4: #{$size-4};
+	--coco-size-5: #{$size-5};
+	--coco-size-6: #{$size-6};
+	--coco-size-7: #{$size-7};
+	--coco-weight-light: #{$weight-light};
+	--coco-weight-normal: #{$weight-normal};
+	--coco-weight-medium: #{$weight-medium};
+	--coco-weight-semibold: #{$weight-semibold};
+	--coco-weight-bold: #{$weight-bold};
+	--coco-rtl: #{$rtl};
+	// Extended
+	--coco-primary: #{$primary};
+	--coco-info: #{$info};
+	--coco-success: #{$success};
+	--coco-warning: #{$warning};
+	--coco-danger: #{$danger};
+	--coco-light: #{$light};
+	--coco-dark: #{$dark};
+	--coco-orange-invert: #{$orange-invert};
+	--coco-yellow-invert: #{$yellow-invert};
+	--coco-green-invert: #{$green-invert};
+	--coco-turquoise-invert: #{$turquoise-invert};
+	--coco-cyan-invert: #{$cyan-invert};
+	--coco-blue-invert: #{$blue-invert};
+	--coco-purple-invert: #{$purple-invert};
+	--coco-red-invert: #{$red-invert};
+	--coco-primary-invert: #{$primary-invert};
+	--coco-primary-light: #{$primary-light};
+	--coco-primary-dark: #{$primary-dark};
+	--coco-primary-highlight: #{$primary-highlight};
+	--coco-info-invert: #{$info-invert};
+	--coco-info-light: #{$info-light};
+	--coco-info-dark: #{$info-dark};
+	--coco-success-invert: #{$success-invert};
+	--coco-success-light: #{$success-light};
+	--coco-success-dark: #{$success-dark};
+	--coco-warning-invert: #{$warning-invert};
+	--coco-warning-light: #{$warning-light};
+	--coco-warning-dark: #{$warning-dark};
+	--coco-danger-invert: #{$danger-invert};
+	--coco-danger-light: #{$danger-light};
+	--coco-danger-dark: #{$danger-dark};
+	--coco-light-invert: #{$light-invert};
+	--coco-dark-invert: #{$dark-invert};
+	--coco-scheme-main: #{$scheme-main};
+	--coco-scheme-main-bis: #{$scheme-main-bis};
+	--coco-scheme-main-ter: #{$scheme-main-ter};
+	--coco-scheme-invert: #{$scheme-invert};
+	--coco-scheme-invert-bis: #{$scheme-invert-bis};
+	--coco-scheme-invert-ter: #{$scheme-invert-ter};
+	--coco-background: #{$background};
+	--coco-border: #{$border};
+	--coco-border-hover: #{$border-hover};
+	--coco-border-light: #{$border-light};
+	--coco-border-light-hover: #{$border-light-hover};
+	--coco-text: #{$text};
+	--coco-text-invert: #{$text-invert};
+	--coco-text-light: #{$text-light};
+	--coco-text-strong: #{$text-strong};
+	--coco-code: #{$code};
+	--coco-code-background: #{$code-background};
+	--coco-code-size: #{$code-size};
+	--coco-code-weight: #{$code-weight};
+	--coco-code-padding: #{$code-padding};
+	--coco-pre: #{$pre};
+	--coco-pre-background: #{$pre-background};
+	--coco-pre-font-size: #{$pre-font-size};
+	--coco-pre-padding: #{$pre-padding};
+	--coco-pre-code-font-size: #{$pre-code-font-size};
+	--coco-link: #{$link};
+	--coco-link-invert: #{$link-invert};
+	--coco-link-light: #{$link-light};
+	--coco-link-dark: #{$link-dark};
+	--coco-link-visited: #{$link-visited};
+	--coco-link-hover: #{$link-hover};
+	--coco-link-hover-border: #{$link-hover-border};
+	--coco-link-focus: #{$link-focus};
+	--coco-link-focus-border: #{$link-focus-border};
+	--coco-link-active: #{$link-active};
+	--coco-link-active-border: #{$link-active-border};
+	--coco-family-primary: "#{$family-primary}";
+	--coco-family-secondary: "#{$family-secondary}";
+	--coco-family-code: #{$family-code};
+	--coco-size-small: #{$size-small};
+	--coco-size-normal: #{$size-normal};
+	--coco-size-medium: #{$size-medium};
+	--coco-size-large: #{$size-large};
+	--coco-shadow: #{$shadow};
+	--coco-hr-background-color: #{$hr-background-color};
+	--coco-hr-height: #{$hr-height};
+	--coco-hr-margin: #{$hr-margin};
+	--coco-small-font-size: #{$small-font-size};
+	--coco-strong-color: #{$strong-color};
+	--coco-strong-weight: #{$strong-weight};
+	--coco-primary-highlight: #{$primary-highlight};
+	--coco-radius: #{$radius};
+	--coco-emutton-r: 100px;
+	--coco-emutton-primary: #{$orange};
+	--coco-emutton-secondary: #{$red};
+	--coco-theme-sun: "🔆";
+	--coco-theme-moon: "🌙";
+}
+
+@each $theme in $load-themes {
+	@if $autoselect-theme {
+		@if $theme == light {
+			@media (prefers-color-scheme: #{$theme}) {
+				:root {
+					@include theme($theme);
+				}
+			}
+		}
+		@if $theme == dark {
+			@media (prefers-color-scheme: #{$theme}) {
+				:root {
+					@include theme($theme);
+				}
+			}
+		}
+	}
+	@if $theme == light {
+		:root[data-theme=#{$theme}], html:has(> body > input#coco-theme-switch[type=checkbox]), body:has(> input#coco-theme-switch[type=checkbox]), input#coco-theme-switch[type=checkbox] ~ header, input#coco-theme-switch[type=checkbox] ~ main, input#coco-theme-switch[type=checkbox] ~ article, input#coco-theme-switch[type=checkbox] ~ footer {
+			@include theme($theme);
+		}
+	}
+	@if $theme == dark {
+		:root[data-theme=#{$theme}], html:has(> body > input#coco-theme-switch[type=checkbox]:checked), body:has(> input#coco-theme-switch[type=checkbox]:checked), input#coco-theme-switch[type=checkbox]:checked ~ header, input#coco-theme-switch[type=checkbox]:checked ~ main, input#coco-theme-switch[type=checkbox]:checked ~ article, input#coco-theme-switch[type=checkbox]:checked ~ footer {
+			@include theme($theme);
+		}
+	}
+	@else {
+		:root[data-theme=#{$theme}] {
+			@include theme($theme);
+		}
+	}
+}

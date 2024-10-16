@@ -15,23 +15,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 20.x
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-
-      - name: Setup Sass
-        run: gem install sass
+      - name: Install Nucleus
+        run: npm i -g nucleus-styleguide
 
       - name: Install & Build
         run: npm i && npm run build
 
-      - name: Generate SassDoc documentation
-        run: npx sassdoc dist/sass --dest docs/
+      - name: Generate documentation
+        run: npm run styleguide
 
       - name: Deploy documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

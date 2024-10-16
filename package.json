@@ -1,13 +1,13 @@
 {
 	"name": "@blockchainhub/coco",
-	"version": "2.1.9",
+	"version": "2.2.0",
 	"homepage": "https://bchainhub.github.io/coco/",
 	"contributors": [
 		"Blockchain Hub (https://github.com/bchainhub)",
 		"Jeremy Thomas (https://github.com/jgthms)"
 	],
 	"description": "Modern CSS framework based on Flexbox.",
-	"main": "dist/css/coco.sass",
+	"main": "dist/css/coco.scss",
 	"unpkg": "dist/css/coco.css",
 	"style": "dist/css/coco.min.css",
 	"repository": {
@@ -44,18 +44,18 @@
 		"build-rtl": "npm run build-add-version-rtl && npm run build-clean && npm run build-css-rtl && npm run build-autoprefix-rtl && npm run build-cleancss-rtl && npm run build-rtl-to-ltr && if [ \"$GITHUB_ACTIONS\" != \"true\" ]; then npm run build-remove-version; fi",
 		"build-autoprefix": "postcss --use autoprefixer --map false --output dist/css/coco.css dist/css/coco.css",
 		"build-autoprefix-rtl": "postcss --use autoprefixer --map false --output dist/css/coco-rtl.css dist/css/coco-rtl.css",
-		"build-add-version": "echo '$v: \"'$(echo $npm_package_version)'\"' | cat - style/coco.sass > temp && mv temp style/coco.sass",
-		"build-add-version-rtl": "npm run build-add-version && sed -i.old '2s;false;true;' style/coco.sass && rm -rf style/coco.sass.old",
-		"build-remove-version": "awk 'NR==1 && /^\\$v:/ {next} {print}' style/coco.sass > temp && mv temp style/coco.sass",
-		"build-rtl-to-ltr": "sed -i.old '2s;true;false;' style/coco.sass && rm -rf style/coco.sass.old",
+		"build-add-version": "awk 'NR==2 && /^\\$v:/ {sub(/^\\$v:.*/, \"$v: \\\"$(echo $npm_package_version)\\\";\")} NR!=2 || !/^\\$v:/ {print} NR==1 {print \"$v: \\\"$(echo $npm_package_version)\\\";\"}' style/coco.scss > temp && mv temp style/coco.scss",
+		"build-add-version-rtl": "npm run build-add-version && sed -i.old '3s;false;true;' style/coco.scss && rm -rf style/coco.scss.old",
+		"build-remove-version": "awk 'NR==2 && /^\\$v:/ {next} {print}' style/coco.scss > temp && mv temp style/coco.scss",
+		"build-rtl-to-ltr": "sed -i.old '3s;true;false;' style/coco.scss && rm -rf style/coco.scss.old",
 		"build-cleancss": "cleancss -o dist/css/coco.min.css dist/css/coco.css",
 		"build-cleancss-rtl": "cleancss -o dist/css/coco-rtl.min.css dist/css/coco-rtl.css",
 		"build-clean": "rimraf css",
 		"build-css": "npm run build-css-ltr && npm run build-css-rtl",
-		"build-css-ltr": "sass style/coco.sass dist/css/coco.css",
-		"build-css-rtl": "sass style/coco.sass dist/css/coco-rtl.css",
-		"build-sass": "cp -a style dist/sass && stripcomments -w --language=Sass --confirm-overwrite dist/sass/**/*.sass && spaces-to-tabs dist/sass/**/*.sass -s 2",
-		"build-sass-doc": "cp -a style dist/sass && spaces-to-tabs dist/sass/**/*.sass -s 2",
+		"build-css-ltr": "sass style/coco.scss dist/css/coco.css",
+		"build-css-rtl": "sass style/coco.scss dist/css/coco-rtl.css",
+		"build-sass": "cp -a style dist/sass && stripcomments -w --language=Sass --confirm-overwrite dist/sass/**/*.scss && spaces-to-tabs dist/sass/**/*.scss -s 2",
+		"build-sass-doc": "cp -a style dist/sass && spaces-to-tabs dist/sass/**/*.scss -s 2",
 		"check-sass": "node_modules/.bin/sass -v",
 		"pack": "VER=$(echo $npm_package_version | sed s/[.]/-/g) && mv dist coco-v$npm_package_version && zip -r coco-v$VER.zip coco-v$npm_package_version && mv coco-v$npm_package_version dist",
 		"deploy": "npm run build",
@@ -64,7 +64,8 @@
 		"release": "npm run build && npm run check-browsersync && npm run build-docs && npm run compress",
 		"tab:watch": "ttab -t 'Watching SASS files' npm exec npm-watch",
 		"tab:browser-sync": "ttab -t 'Browser synchronization' browser-sync start --config test/bs-config.js",
-		"watch": "run-s tab:watch tab:browser-sync"
+		"watch": "run-s tab:watch tab:browser-sync",
+		"styleguide": "nucleus --config config.nucleus.json"
 	},
 	"files": [
 		"dist",
@@ -72,6 +73,6 @@
 		"README.md"
 	],
 	"watch": {
-		"build-css": "style/**/*.sass"
+		"build-css": "style/**/*.scss"
 	}
 }

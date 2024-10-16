@@ -1,0 +1,86 @@
+.emutton {
+	display: inline-grid;
+	cursor: pointer;
+	width: var(--coco-emutton-r);
+	height: var(--coco-emutton-r);
+	border-radius: 50%;
+	margin: calc(var(--coco-emutton-r)/3);
+	line-height: var(--coco-emutton-r);
+	text-align: center;
+	transform: rotate(0);
+
+	& > em.oji {
+		filter: grayscale(100%);
+		transform: scale(1);
+		grid-area: 1/1;
+		display: inherit;
+		transition: transform .6s cubic-bezier(0.5,-12,1,-12);
+		font-style: normal;
+		font-size: calc(0.6*var(--coco-emutton-r));
+
+		&:after {
+			background-size: calc(var(--coco-emutton-r)/8) calc(var(--coco-emutton-r)/8);
+			transform: rotate(60deg) scale(0);
+		}
+	}
+
+	&:hover {
+		transform: rotate(0.1deg);
+		transition: transform 0.25s cubic-bezier(0.5,400,0.5,-400);
+	}
+
+	&:before {
+		content: "";
+		grid-area: 1/1;
+		border-radius: 50%;
+		border: solid var(--coco-emutton-primary) calc(var(--coco-emutton-r)/2);
+		transform: scale(0);
+	}
+
+	&:after, & > em.oji:after {
+		content: "";
+		grid-area: 1/1;
+		margin: calc(var(--coco-emutton-r)/-2);
+		--coco-emutton-c1: radial-gradient(var(--coco-emutton-secondary) 50%, #0000 60%);
+		--coco-emutton-c2: radial-gradient(var(--coco-emutton-primary) 50%, #0000 60%);
+		background: var(--coco-emutton-c1), var(--coco-emutton-c1), var(--coco-emutton-c1), var(--coco-emutton-c1), var(--coco-emutton-c2), var(--coco-emutton-c2), var(--coco-emutton-c2), var(--coco-emutton-c2);
+		background-size: calc(var(--coco-emutton-r)/6) calc(var(--coco-emutton-r)/6);
+		background-position: calc(50% - var(--coco-emutton-r)/2) calc(50% - var(--coco-emutton-r)/2), calc(50% + var(--coco-emutton-r)/2) calc(50% - var(--coco-emutton-r)/2), calc(50% - var(--coco-emutton-r)/2) calc(50% + var(--coco-emutton-r)/2), calc(50% + var(--coco-emutton-r)/2) calc(50% + var(--coco-emutton-r)/2), 50% calc(50% + var(--coco-emutton-r)*0.707), calc(50% + var(--coco-emutton-r)*0.707) calc(50% + 0px), calc(50% - var(--coco-emutton-r)*0.707) calc(50% + 0px), calc(50% + 0px) calc(50% - var(--coco-emutton-r)*0.707);
+		background-repeat: no-repeat;
+		transform: scale(0);
+	}
+}
+
+input.emutton-hidden {
+	position: absolute;
+	visibility: hidden;
+	clip-path: inset(50%);
+
+	&:checked {
+		& + .emutton {
+			em.oji {
+				filter: grayscale(0);
+				transform: scale(0.95);
+				transition: filter .5s .5s, transform 1s cubic-bezier(0,26.67,.5,26.67);
+
+				&:after {
+					transform: rotate(55deg) scale(1);
+				}
+			}
+
+			&:before {
+				border-width: 0;
+				transform: scale(1);
+				transition: transform 0.5s, border-width 0.5s 0.5s;
+			}
+		}
+	}
+}
+
+input.emutton-hidden:checked + .emutton:after,
+input.emutton-hidden:checked + .emutton em.oji:after {
+	transform: scale(1);
+	opacity: 0;
+	background-size: 0 0;
+	transition: transform 0.5s 0.5s, opacity 0.4s 0.9s, background-size 0.5s 0.9s;
+}
