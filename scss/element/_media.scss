@@ -1,0 +1,26 @@
+@use '../function' as *;
+@use '../mixin' as *;
+
+@mixin generate-media {
+  img {
+    block-size: auto;
+    display: block;
+    max-inline-size: 100%;
+    user-select: none;
+  }
+
+  iframe {
+    block-size: 100%;
+    display: block;
+    inline-size: 100%;
+  }
+
+  figure {
+    margin-inline: 0;
+
+    figcaption {
+      margin-block-start: spacer('xs');
+      text-align: center;
+    }
+  }
+}

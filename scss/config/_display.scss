@@ -1,0 +1,10 @@
+@use 'sass:map';
+
+$display: () !default;
+$display: map.merge(
+  (
+    'border-radius-lg': 0.925rem,
+    'border-radius-sm': 0.425rem,
+  ),
+  $display
+);

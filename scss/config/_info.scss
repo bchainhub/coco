@@ -1,0 +1,6 @@
+$v: "2.0.0";
+.coco.version::after {
+	content: "#{$v}";
+}
+
+@debug "COCO v#{$v}";

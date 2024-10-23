@@ -1,0 +1,42 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'display' as *;
+
+$typography: () !default;
+$typography: map.merge(
+  (
+    'border-radius': map.get($display, 'border-radius-sm'),
+    'font-family-base': #{BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif},
+    'font-family-cursive': #{ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace},
+    'font-family-heading': #{Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif},
+    'font-family-monospace': #{ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace},
+    'font-size-base': 1rem,
+    'font-size-lead': clamp(1.15rem, 2vw, 1.35rem),
+    'font-size-lg': 1.125rem,
+    'font-size-ratio': 1.25,
+    'font-size-sm': 0.875rem,
+    'font-weight-base': null,
+    'font-weight-heading': 700,
+    'inline-padding': 0.1em 0.3em,
+    'letter-spacing-heading': null,
+    'line-height-base': 1.8,
+    'line-height-heading': calc(2px + 2ex + 2px),
+    'line-height-lg': 1.8,
+    'line-height-md': 1.5,
+    'line-height-sm': 1.2,
+  ),
+  $typography
+);
+
+$font-sizes: () !default;
+$font-sizes: map.merge(
+  (
+    'h1': math.pow(map.get($typography, 'font-size-ratio'), 4) * map.get($typography, 'font-size-base'),
+    'h2': math.pow(map.get($typography, 'font-size-ratio'), 3) * map.get($typography, 'font-size-base'),
+    'h3': math.pow(map.get($typography, 'font-size-ratio'), 2) * map.get($typography, 'font-size-base'),
+    'h4': math.pow(map.get($typography, 'font-size-ratio'), 1) * map.get($typography, 'font-size-base'),
+    'h5': map.get($typography, 'font-size-base'),
+    'h6': map.get($typography, 'font-size-base'),
+  ),
+  $font-sizes
+);

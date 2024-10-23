@@ -1,0 +1,170 @@
+@use 'sass:map';
+@use '../function' as *;
+@use '../config' as *;
+@use 'form' as *;
+
+
+/// Hide something from the screen but keep it visible for assistive technology.
+/// @return {mixin} - The visually hidden mixin.
+@mixin visually-hidden {
+  block-size: 1px !important;
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  inline-size: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+}
+
+/// Crop text and display an ellipsis with multiline.
+/// @param {number} $number-of-lines - The number of lines.
+/// @return {mixin} - The text ellipsis mixin.
+@mixin text-ellipsis(
+  $number-of-lines: 1
+) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @if $number-of-lines == 1 {
+    white-space: nowrap;
+  } @else {
+    white-space: inherit;
+
+    @supports (-webkit-line-clamp: $number-of-lines) {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: $number-of-lines;
+    }
+  }
+}
+
+/// Custom scrollbar.
+/// @param {string} $thumb-background-color - The background color of the thumb.
+/// @param {string} $thumb-background-color-hover - The background color of the thumb when hovered.
+/// @param {string} $track-background-color - The background color of the track.
+/// @param {string} $size - The size of the scrollbar.
+/// @param {string} $border-radius - The border radius of the scrollbar.
+/// @return {mixin} - The scrollbar mixin.
+@mixin scrollbar(
+  $thumb-background-color: color('thumb-background', 'scrollbar'),
+  $thumb-background-color-hover: color('thumb-background-hover', 'scrollbar'),
+  $track-background-color: color('track-background', 'scrollbar'),
+  $size: 0.5rem,
+  $border-radius: config('border-radius-sm', $display)
+) {
+  &::-webkit-scrollbar {
+    block-size: $size;
+    inline-size: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-background-color;
+    border-radius: $border-radius;
+
+    &:hover {
+      background: $thumb-background-color-hover;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-background-color;
+    border-radius: $border-radius;
+  }
+}
+
+/// Clear default button styles.
+/// @return {mixin} - The clear button mixin.
+@mixin clear-btn {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+  padding: 0;
+}
+
+// Clear list styles
+@mixin clear-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/// More accessible card linking.
+/// @param {string} $link - The link element's selector.
+/// @param {boolean} $at-root - Whether to use @at-root.
+/// @return {mixin} - The a11y card link mixin.
+@mixin a11y-card-link(
+  $link,
+  $at-root: false
+) {
+  position: relative;
+
+  @if $at-root == true {
+    @at-root {
+      #{$link}::before {
+        content: '';
+        inset: 0;
+        position: absolute;
+      }
+    }
+  } @else {
+    #{$link}::before {
+      content: '';
+      inset: 0;
+      position: absolute;
+    }
+  }
+}
+
+/// Break long string.
+/// @author Chris Coyier - https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+/// @return {mixin} - The word-wrap mixin.
+@mixin word-wrap {
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+/// Generate a focus ring.
+/// @param {string} $type - The type of the focus ring.
+/// @param {string} $btn-type - The type - hence color - of the button.
+/// @return {mixin} - The focus ring mixin.
+@mixin short-ring(
+  $type: 'input',
+  $btn-type: 'primary'
+) {
+  @if $type == 'input' {
+    @include focus-ring(
+      $type: config('focus-ring-type', $form-control, false),
+      $border-color: color('border-focus', 'form'),
+      $ring-color: color('ring-focus', 'form'),
+      $box-shadow-type: config('focus-ring-box-shadow-type', $form-control, false),
+      $ring-size: config('focus-ring-size', $form-control, false),
+      $ring-offset: config('focus-ring-offset', $form-control, false)
+    );
+  }
+
+  @if $type == 'button' {
+    $ring-color: null;
+
+    @if map.has-key($colors, 'btn', $btn-type + '-focus-ring') {
+      $ring-color: color($btn-type + '-focus-ring', 'btn');
+    } @else {
+      $ring-color: color($btn-type + '-background', 'btn');
+    }
+
+    @include focus-ring(
+      $type: config('focus-ring-type', $btn, false),
+      $ring-color: $ring-color,
+      $box-shadow-type: config('focus-ring-box-shadow-type', $btn, false),
+      $ring-size: config('focus-ring-size', $btn, false),
+      $ring-offset: config('focus-ring-offset', $btn, false)
+    );
+  }
+}

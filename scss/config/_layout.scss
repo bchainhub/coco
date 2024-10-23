@@ -1,0 +1,9 @@
+@use 'sass:map';
+
+$layout: () !default;
+$layout: map.merge(
+  (
+    'container-inline-size': 84rem,
+  ),
+  $layout
+);

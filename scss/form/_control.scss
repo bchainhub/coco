@@ -1,0 +1,196 @@
+@use 'sass:map';
+@use '../function' as *;
+@use '../mixin' as *;
+@use '../config' as *;
+
+@mixin generate-form-control(
+  $selector,
+  $has-states: false,
+  $has-sizes: false,
+  $has-select: true
+) {
+  #{$selector} {
+    --webkit-date-line-height: 1.375;
+    @include generate-variables($form-control, ('focus-'));
+
+    appearance: none;
+    background-color: color('background', 'form');
+    border: config('border-width', $form-control) solid color('border', 'form');
+    border-radius: config('border-radius', $form-control);
+    box-sizing: border-box;
+    color: color('text', 'form');
+    display: block;
+    font-family: config('font-family', $form-control);
+    font-size: config('font-size', $form-control);
+    font-weight: config('font-weight', $form-control);
+    inline-size: 100%;
+    line-height: config('line-height', $form-control);
+    padding: config('padding', $form-control);
+    transition-duration: config('duration', $transition);
+    transition-property: border, box-shadow;
+    transition-timing-function: config('timing-function', $transition);
+
+    &::placeholder {
+      color: color('placeholder', 'form');
+    };
+
+    &::-webkit-datetime-edit {
+      line-height: var(--webkit-date-line-height);
+    }
+
+    &:focus {
+      @include focus-ring(
+        $type: config('focus-ring-type', $form-control, false),
+        $border-color: color('border-focus', 'form'),
+        $ring-color: color('ring-focus', 'form'),
+        $box-shadow-type: config('focus-ring-box-shadow-type', $form-control, false),
+        $ring-size: config('focus-ring-size', $form-control, false),
+        $ring-offset: config('focus-ring-offset', $form-control, false)
+      );
+    }
+
+    &[type='color'] {
+      @include generate-variables($form-control-color);
+      aspect-ratio: config('aspect-ratio', $form-control-color);
+      block-size: config('block-size', $form-control-color);
+      inline-size: config('inline-size', $form-control-color);
+      padding: config('padding', $form-control-color);
+
+      &::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+
+      &::-moz-color-swatch {
+        border: 0;
+        border-radius: config('border-radius', $form-control);
+      }
+
+      &::-webkit-color-swatch {
+        border: 0;
+        border-radius: config('border-radius', $form-control);
+      }
+    }
+
+    &[disabled],
+    &[disabled='true'] {
+      @include field-disabled(
+        $background: color('background-disabled', 'form'),
+        $border: color('border-disabled', 'form')
+      );
+    }
+
+    @at-root {
+      textarea#{$selector} {
+        block-size: config('textarea-block-size', $form-control);
+        min-block-size: config('textarea-block-size', $form-control);
+        resize: vertical;
+      }
+    }
+
+    @if ($has-states) {
+      &--valid,
+      &--invalid {
+        background-position: center right config('icon-right-offset', $form-select, false);
+        background-repeat: no-repeat;
+        background-size: config('icon-inline-size', $form-select, false) auto;
+        padding-inline-end: config('padding-inline-end', $form-select, false);
+
+        html[dir='rtl'] & {
+          background-position: center left config('icon-right-offset', $form-select, false);
+        }
+      }
+
+      &--valid {
+        @include field-icon(config('valid', $form-icon, false), color('success', 'alert', true));
+        border-color: color('success', 'alert');
+
+        &:focus {
+          @include focus-ring(
+            $type: config('focus-ring-type', $form-control, false),
+            $border-color: color('valid', 'form'),
+            $ring-color: color('valid-focus-ring', 'form', false),
+            $box-shadow-type: config('focus-ring-box-shadow-type', $form-control),
+            $ring-size: config('focus-ring-size', $form-control, false),
+            $ring-offset: config('focus-ring-offset', $form-control, false)
+          );
+        }
+      }
+
+      &--invalid {
+        @include field-icon(config('invalid', $form-icon, false), color('danger', 'alert', true));
+        border-color: color('danger', 'alert');
+
+        &:focus {
+          @include focus-ring(
+            $type: config('focus-ring-type', $form-control, false),
+            $border-color: color('invalid', 'form'),
+            $ring-color: color('invalid-focus-ring', 'form'),
+            $box-shadow-type: config('focus-ring-box-shadow-type', $form-control, false),
+            $ring-size: config('focus-ring-size', $form-control, false),
+            $ring-offset: config('focus-ring-offset', $form-control, false)
+          );
+        }
+      }
+    }
+
+    @if ($has-sizes) {
+      &--sm {
+        --webkit-date-line-height: 1.36;
+        @include generate-variables($form-control-sm);
+
+        &[type='color'] {
+          @include generate-variables($form-control-color-sm);
+        }
+
+        @if not map.get($settings, 'css-custom-properties') {
+          font-size: config('font-size', $form-control-sm);
+          padding: config('padding', $form-control-sm);
+
+          &[type='color'] {
+            aspect-ratio: config('aspect-ratio', $form-control-color-sm);
+            block-size: config('block-size', $form-control-color-sm);
+            inline-size: config('inline-size', $form-control-color-sm);
+            padding: config('padding', $form-control-color-sm);
+          }
+        }
+      }
+
+      &--lg {
+        --webkit-date-line-height: 1.387;
+        @include generate-variables($form-control-lg);
+
+        &[type='color'] {
+          @include generate-variables($form-control-color-lg);
+        }
+
+        @if not map.get($settings, 'css-custom-properties') {
+          font-size: config('font-size', $form-control-lg);
+          padding: config('padding', $form-control-lg);
+
+          &[type='color'] {
+            aspect-ratio: config('aspect-ratio', $form-control-color-lg);
+            height: config('block-size', $form-control-color-lg);
+            inline-size: config('inline-size', $form-control-color-lg);
+            padding: config('padding', $form-control-color-lg);
+          }
+        }
+      }
+    }
+  }
+
+  @if ($has-select) {
+    select#{$selector} {
+      &:not([multiple]):not([size]) {
+        @include field-icon(config('select', $form-icon, false), color('select-foreground', 'form', true));
+        background-position: center right config('icon-right-offset', $form-select, false);
+        background-repeat: no-repeat;
+        background-size: config('icon-inline-size', $form-select, false) auto;
+        padding-inline-end: config('padding-inline-end', $form-select, false);
+
+        html[dir='rtl'] & {
+          background-position: center left config('icon-right-offset', $form-select, false);
+        }
+      }
+    }
+  }
+}

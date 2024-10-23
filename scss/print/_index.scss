@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../config' as *;
+@use '../function' as *;
+@use '../mixin' as *;
+
+@mixin generate-print {
+  @if setting('print') == true {
+    @media print {
+      @page {
+        margin: config('page-margin', $print);
+      }
+
+      #{config('hidden-elements', $print, false)} {
+        display: none !important;
+      }
+
+      a[href^='http']::after {
+        content: ' (' attr(href) ')';
+      }
+    }
+  }
+}

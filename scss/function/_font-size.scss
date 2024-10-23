@@ -1,0 +1,54 @@
+@use 'sass:map';
+@use 'sass:math';
+@use '../config' as *;
+
+/// Get the font size of a key from the $font-sizes map.
+/// @param {string} $key - The key name.
+/// @param {boolean} $fluid - Whether to return the fluid font size.
+/// @param {number} $scaler - The scaler value (15 = 15% smaller).
+/// @param {number} $optimal-size - The optimal font size.
+/// @return {string} - The font size of the key.
+/// @throws {error} - If the key doesn't exist.
+@function font-size(
+  $key,
+  $fluid: true,
+  $scaler: map.get($settings, 'scaler'),
+  $optimal-size: map.get($settings, 'optimal-font-size')
+) {
+  @if not map.has-key($font-sizes, $key) {
+    @error 'The #{$key} key name doesn\'t exist at the $font-sizes map.';
+  }
+
+  @if $scaler < 0 or $scaler > 100 {
+    @error 'The $scaler value must be between 0 and 100.';
+  }
+
+  @if $fluid {
+    $scaled-size: map.get($font-sizes, $key) * math.div(100 - $scaler, 100);
+
+    @if $scaled-size < map.get($typography, 'font-size-base') {
+      @return map.get($font-sizes, $key);
+    }
+
+    @return clamp(#{$scaled-size}, #{$optimal-size}, #{map.get($font-sizes, $key)});
+  }
+
+  @return map.get($font-sizes, $key);
+}
+
+/// Generate responsive font-size value using clamp().
+/// @param {number} $size - The font size.
+/// @param {number} $scaler - The scaler value (15 = 15% smaller).
+/// @param {number} $optimal-size - The optimal font size.
+/// @return {string} - The responsive font-size value.
+@function responsive-font-size(
+  $size,
+  $scaler: map.get($settings, 'scaler'),
+  $optimal-size: map.get($settings, 'optimal-font-size')
+) {
+  @if $scaler < 0 or $scaler > 100 {
+    @error 'The $scaler value must be between 0 and 100.';
+  }
+
+  @return clamp(#{$size * math.div(100 - $scaler, 100)}, #{$optimal-size}, #{$size});
+}

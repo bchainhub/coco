@@ -1,78 +1,62 @@
 {
-	"name": "@blockchainhub/coco",
-	"version": "2.2.0",
-	"homepage": "https://bchainhub.github.io/coco/",
-	"contributors": [
-		"Blockchain Hub (https://github.com/bchainhub)",
-		"Jeremy Thomas (https://github.com/jgthms)"
-	],
-	"description": "Modern CSS framework based on Flexbox.",
-	"main": "dist/css/coco.scss",
-	"unpkg": "dist/css/coco.css",
-	"style": "dist/css/coco.min.css",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/bchainhub/coco.git"
-	},
-	"license": "CORE",
-	"keywords": [
-		"css",
-		"sass",
-		"flexbox",
-		"responsive",
-		"framework"
-	],
-	"bugs": {
-		"url": "https://github.com/bchainhub/coco/issues"
-	},
-	"devDependencies": {
-		"@prasadrajandran/strip-comments-cli": "^1.0.0-beta.1",
-		"autoprefixer": "^10.4.20",
-		"clean-css-cli": "^5.6.3",
-		"npm-run-all": "^4.1.5",
-		"npm-watch": "^0.13.0",
-		"postcss": "^8.4.47",
-		"postcss-cli": "^11.0.0",
-		"rimraf": "^6.0.1",
-		"sass": "^1.79.5",
-		"spaces-to-tabs": "^0.0.3",
-		"ttab": "^0.9.0"
-	},
-	"scripts": {
-		"build": "npm run build-ltr && npm run build-rtl",
-		"build-ltr": "npm run build-add-version && npm run build-clean && npm run build-css-ltr && npm run build-autoprefix && npm run build-cleancss && npm run build-sass && if [ \"$GITHUB_ACTIONS\" != \"true\" ]; then npm run build-remove-version; fi",
-		"build-rtl": "npm run build-add-version-rtl && npm run build-clean && npm run build-css-rtl && npm run build-autoprefix-rtl && npm run build-cleancss-rtl && npm run build-rtl-to-ltr && if [ \"$GITHUB_ACTIONS\" != \"true\" ]; then npm run build-remove-version; fi",
-		"build-autoprefix": "postcss --use autoprefixer --map false --output dist/css/coco.css dist/css/coco.css",
-		"build-autoprefix-rtl": "postcss --use autoprefixer --map false --output dist/css/coco-rtl.css dist/css/coco-rtl.css",
-		"build-add-version": "awk 'NR==2 && /^\\$v:/ {sub(/^\\$v:.*/, \"$v: \\\"$(echo $npm_package_version)\\\";\")} NR!=2 || !/^\\$v:/ {print} NR==1 {print \"$v: \\\"$(echo $npm_package_version)\\\";\"}' style/coco.scss > temp && mv temp style/coco.scss",
-		"build-add-version-rtl": "npm run build-add-version && sed -i.old '3s;false;true;' style/coco.scss && rm -rf style/coco.scss.old",
-		"build-remove-version": "awk 'NR==2 && /^\\$v:/ {next} {print}' style/coco.scss > temp && mv temp style/coco.scss",
-		"build-rtl-to-ltr": "sed -i.old '3s;true;false;' style/coco.scss && rm -rf style/coco.scss.old",
-		"build-cleancss": "cleancss -o dist/css/coco.min.css dist/css/coco.css",
-		"build-cleancss-rtl": "cleancss -o dist/css/coco-rtl.min.css dist/css/coco-rtl.css",
-		"build-clean": "rimraf css",
-		"build-css": "npm run build-css-ltr && npm run build-css-rtl",
-		"build-css-ltr": "sass style/coco.scss dist/css/coco.css",
-		"build-css-rtl": "sass style/coco.scss dist/css/coco-rtl.css",
-		"build-sass": "cp -a style dist/sass && stripcomments -w --language=Sass --confirm-overwrite dist/sass/**/*.scss && spaces-to-tabs dist/sass/**/*.scss -s 2",
-		"build-sass-doc": "cp -a style dist/sass && spaces-to-tabs dist/sass/**/*.scss -s 2",
-		"check-sass": "node_modules/.bin/sass -v",
-		"pack": "VER=$(echo $npm_package_version | sed s/[.]/-/g) && mv dist coco-v$npm_package_version && zip -r coco-v$VER.zip coco-v$npm_package_version && mv coco-v$npm_package_version dist",
-		"deploy": "npm run build",
-		"check-browsersync": "npm list -g | grep browser-sync || npm install -g browser-sync --no-shrinkwrap",
-		"start": "npm run build-css && browser-sync start --config test/bs-config.js",
-		"release": "npm run build && npm run check-browsersync && npm run build-docs && npm run compress",
-		"tab:watch": "ttab -t 'Watching SASS files' npm exec npm-watch",
-		"tab:browser-sync": "ttab -t 'Browser synchronization' browser-sync start --config test/bs-config.js",
-		"watch": "run-s tab:watch tab:browser-sync",
-		"styleguide": "nucleus --config config.nucleus.json"
-	},
+  "name": "@blockchainhub/coco",
+  "version": "2.0.0",
+  "description": "Modern CSS framework based on Flexbox.",
+  "keywords": [
+    "css",
+    "css-framework",
+    "framework",
+    "front-end",
+    "responsive",
+    "sass",
+    "sass-framework",
+    "web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blockchainhub/coco.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blockchainhub/coco/issues"
+  },
+  "scripts": {
+    "autoprefixer": "postcss dist/*.css -u autoprefixer --replace --no-map",
+    "browser-sync": "browser-sync start --server --startPath \"preview/html/page/color.html\" --files \"**/*\" --directory --no-notify --no-open",
+    "delete:dev-folder": "del-cli --force dist",
+    "prod": "npm-run-all delete:dev-folder sass:prod:expanded sass:prod:compressed autoprefixer",
+    "pug": "pug --obj preview/pug/assets/data.json --watch preview/pug/ --out preview/html/ --pretty",
+    "sass:preview": "sass --watch --update --style=expanded --no-source-map preview/assets/scss:preview/assets/css --load-path=scss",
+    "sass:prod:expanded": "sass --no-source-map --style=expanded scss/coco-styles.scss:dist/coco.css",
+    "sass:prod:compressed": "sass --no-source-map --style=compressed scss/coco-styles.scss:dist/coco.min.css",
+    "sass:lint": "stylelint scss/**/*.scss",
+    "sass:lint:fix": "stylelint scss/**/*.scss --fix",
+    "start": "npm-run-all --parallel pug sass:preview browser-sync",
+    "test": "jest"
+  },
+  "license": "CORE",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.3",
+    "del-cli": "^6.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-node-single-context": "^29.4.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^11.0.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.80.3",
+    "sass-true": "^8.1.0",
+    "stylelint": "^16.10.0",
+    "stylelint-config-sass-guidelines": "^12.1.0",
+    "stylelint-order": "^6.0.4"
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-node-single-context"
+  },
+	"unpkg": "dist/coco.css",
+	"style": "dist/coco.min.css",
 	"files": [
 		"dist",
 		"LICENSE",
 		"README.md"
-	],
-	"watch": {
-		"build-css": "style/**/*.scss"
-	}
+	]
 }

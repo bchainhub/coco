@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use 'typography' as *;
+@use 'spacer' as *;
+
+$table: () !default;
+$table: map.merge(
+  (
+    'caption-font-size': null,
+    'caption-font-style': null,
+    'caption-font-weight': null,
+    'line-height': map.get($typography, 'line-height-md'),
+    'padding': map.get($spacers, 's'),
+    'responsive-inline-size': 40rem,
+    'stripe': odd,
+  ),
+  $table
+);
+
+$table-sm: () !default;
+$table-sm: map.merge(
+  (
+    'padding': map.get($spacers, 'xs'),
+  ),
+  $table-sm
+);

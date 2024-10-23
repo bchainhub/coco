@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '../function' as *;
+@use '../config' as *;
+
+/// Set the ::selection of an element with automatic foreground color.
+/// @param {color} $background - The background color.
+/// @param {color} $foreground - The foreground color. If null, the color will be automatically calculated.
+/// @param {boolean} $is-direct - If true, the selection will be applied to the current element if false it will be applied to its children.
+/// @return {mixin} - The selection mixin.
+@mixin selection(
+  $background: 'primary',
+  $foreground: null,
+  $is-direct: false
+) {
+  $is-variable: false;
+  $original-background: $background;
+
+  @if map.has-key($colors, 'base', $background) {
+    $background: color($background);
+    $is-variable: true;
+  }
+
+  @if not $foreground and not $is-variable {
+    $foreground: color-contrast($background);
+  } @else if not $foreground and $is-variable {
+    $foreground: color-contrast(color($original-background, $only-color: true));
+  }
+
+  @if $is-direct {
+    &::selection {
+      background-color: $background;
+      color: $foreground;
+    }
+  } @else {
+    ::selection {
+      background-color: $background;
+      color: $foreground;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 
 # COCO
 
-**COCO** is an open-source CSS framework based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes). It operates entirely without JavaScript.
+**COCO** is an open-source CSS framework based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes).
 
 100% Responsive 💻 | Modular 🗂 | Modern 💈 | Free ⚗️
 --- | --- | --- | ---
@@ -89,8 +89,6 @@ After installation, import the CSS file into your project:
 @import '@blockchainhub/coco/dist/scss/coco.scss';
 ```
 
-For the right-to-left (RTL) version, append `-rtl` to the file name.
-
 ## Customize Distribution
 
 COCO is a CSS framework that outputs a single CSS file [coco.css](https://github.com/bchainhub/coco/blob/master/dist/css/coco.css) or a SASS distribution. You can use it "out of the box" or download the Sass source files to customize the variables.
@@ -158,21 +156,6 @@ COCO is a CSS framework that outputs a single CSS file [coco.css](https://github
 To set a theme, add `data-theme="theme"` to the HTML tag.
 
 COCO supports light and dark themes natively.
-
-#### Theme Switch
-
-> To switch between dark/light themes in a `nav` pane:
-
-1. Add the input after the body tag: `<input type="checkbox" id="coco-theme-switch" />`
-2. Add a label within the navbar, following this structure:
-
-```html
-<label for="coco-theme-switch">
-  <div class="sun"></div>
-</label>
-```
-
-Note: The theme switch depends on the [:has()](https://caniuse.com/css-has) CSS selector.
 
 #### Current Version
 

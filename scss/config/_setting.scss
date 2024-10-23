@@ -1,0 +1,24 @@
+@use 'sass:map';
+
+$settings: () !default;
+$settings: map.deep-merge(
+  (
+    'color-fallback': false,
+    'css-custom-properties': false,
+    'html-smooth-scrolling': true,
+    'hyphens': true,
+    'optimal-font-size': '2vw + 1rem',
+    'optimal-spacer-size': '5vw',
+    'prefix': 'coco',
+    'print': false,
+    'scaler': 15,
+    'utilities': (
+      'display': true,
+      'typography': true,
+    ),
+  ),
+  $settings
+);
+
+// We use this value to prefix our CSS variables. The only difference to the default prefix value that we add the '-' suffix.
+$internal-prefix: if(map.get($settings, prefix), map.get($settings, prefix) + '-', '');

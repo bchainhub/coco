@@ -1,0 +1,11 @@
+/// Inkwell adds high contrast and also makes your photos black and white.
+/// @name .filter.inkwell
+/// @group filters
+/// @since 2.0.0
+.filter {
+	&.inkwell {
+		position: relative;
+		filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
+		-webkit-filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
+	}
+}

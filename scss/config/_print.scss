@@ -1,0 +1,10 @@
+@use 'sass:map';
+
+$print: () !default;
+$print: map.merge(
+  (
+    'page-margin': 2cm,
+    'hidden-elements': 'header, footer, aside, nav, form, iframe, [class^="aspect-ratio"]',
+  ),
+  $print
+);

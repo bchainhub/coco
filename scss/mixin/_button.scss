@@ -1,0 +1,126 @@
+@use 'sass:color';
+@use 'sass:map';
+@use '../function' as *;
+@use '../config' as *;
+@use 'form' as *;
+
+/// Generate a button focus ring.
+/// @param {string} $type - The type of the button for the color value.
+/// @param {boolean} $focus - If the focus ring should be generated.
+/// @return {string} - The generated focus ring.
+@mixin btn-focus-helper(
+  $type: 'primary',
+  $focus: true
+) {
+  @if $focus {
+    &:focus-visible {
+      $ring-color: null;
+
+      @if map.has-key($colors, 'btn', $type + '-focus-ring') {
+        $ring-color: color($type + '-focus-ring', 'btn');
+      } @else {
+        $ring-color: color($type + '-background', 'btn');
+      }
+
+      @include focus-ring(
+        $type: map.get($btn, 'focus-ring-type'),
+        $ring-color: $ring-color,
+        $box-shadow-type: map.get($btn, 'focus-ring-box-shadow-type'),
+        $ring-size: map.get($btn, 'focus-ring-size'),
+        $ring-offset: map.get($btn, 'focus-ring-offset')
+      );
+    }
+  }
+}
+
+/// Generate a button variant.
+/// @param {string} $type - The type of the button for the color value.
+/// @param {boolean} $focus - If the focus ring should be generated.
+/// @return {string} - The generated button variant.
+/// @throws {error} - If the color key doesn't exist.
+@mixin btn-variant(
+  $type: 'primary',
+  $focus: true
+) {
+  @if not map.has-key($colors, 'btn', $type + '-foreground') or not map.has-key($colors, 'btn', $type + '-background') {
+    @error 'The #{$type + '-foreground'} or #{$type + '-background'} key name doesn\'t exist under btn at the $colors map.';
+  }
+
+  @include btn-focus-helper($type, $focus);
+
+  background-color: color($type + '-background', 'btn');
+  border-color: color($type + '-background', 'btn');
+  color: color($type + '-foreground', 'btn');
+
+  &:hover {
+    @if map.has-key($colors, 'btn', $type + '-background-hover') {
+      background-color: color($type + '-background-hover', 'btn');
+      border-color: color($type + '-background-hover', 'btn');
+    } @else {
+      background-color: color.adjust(color($type + '-background', 'btn', true), $lightness: -10%);
+      border-color: color.adjust(color($type + '-background', 'btn', true), $lightness: -10%);
+    }
+
+    @if map.has-key($colors, 'btn', $type + '-foreground-hover') {
+      color: color($type + '-foreground-hover', 'btn');
+    } @else {
+      color: color($type + '-foreground', 'btn');
+    }
+  }
+
+  @if map.has-key($colors, 'btn', $type + '-shadow') {
+    &-shadow {
+      box-shadow: 0 0.55em 1em -0.2em color($type + '-shadow', 'btn'), 0 0.15em 0.35em -0.185em color($type + '-shadow', 'btn');
+    }
+  }
+}
+
+/// Generate a button variant with outline.
+/// @param {string} $type - The type of the button for the color value.
+/// @param {boolean} $focus - If the focus ring should be generated.
+/// @return {string} - The generated button variant with outline.
+/// @throws {error} - If the color key doesn't exist.
+@mixin btn-variant-outline(
+  $type: primary,
+  $focus: true
+) {
+  @if not map.has-key($colors, 'btn', $type + '-foreground') or not map.has-key($colors, 'btn', $type + '-background') {
+    @error 'The #{$type + '-foreground'} or #{$type + '-background'} key name doesn\'t exist under btn at the $colors map.';
+  }
+
+  @if map.has-key($colors, 'btn', $type + '-outline-focus-ring') {
+    @include btn-focus-helper($type + '-outline', $focus);
+  } @else {
+    @include btn-focus-helper($type, $focus);
+  }
+
+  background-color: transparent;
+
+  @if map.has-key($colors, 'btn', $type + '-outline-border') {
+    border-color: color($type + '-outline-border', 'btn');
+  } @else {
+    border-color: color($type + '-background', 'btn');
+  }
+
+  @if map.has-key($colors, 'btn', $type + '-outline-foreground') {
+    color: color($type + '-outline-foreground', 'btn');
+  } @else {
+    color: color($type + '-background', 'btn');
+  }
+
+  &:hover {
+    @if map.has-key($colors, 'btn', $type + '-outline-background-hover') {
+      background-color: color($type + '-outline-background-hover', 'btn');
+      border-color: color($type + '-outline-background-hover', 'btn');
+    } @else {
+      background-color: color($type + '-background', 'btn');
+      border-color: color($type + '-background', 'btn');
+    }
+
+    @if map.has-key($colors, 'btn', $type + '-outline-foreground-hover') {
+      color: color($type + '-outline-foreground-hover', 'btn');
+    } @else {
+      color: color($type + '-foreground', 'btn');
+    }
+  }
+}
