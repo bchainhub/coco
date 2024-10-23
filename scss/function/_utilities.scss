@@ -1,0 +1,29 @@
+@use 'sass:string';
+@use '../config' as *;
+
+// Replace `$search` with `$replace` in `$string`
+// @author Kitty Giraudel
+// @param {String} $string - Initial string
+// @param {String} $search - Substring to replace
+// @param {String} $replace ('') - New value
+// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: string.index($string, $search);
+
+  @if $index {
+    @return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+/// Escape a string to be used as a data URI.
+/// @param {String} $string - The string to escape.
+/// @return {String} - The escaped string.
+/// @author Kevin Weber - https://codepen.io/kevinweber/pen/dXWoRw
+@function svg-escape($svg) {
+  @each $char, $encoded in $escaping-characters {
+    $svg: str-replace($svg, $char, $encoded);
+  }
+  @return 'data:image/svg+xml,' + $svg;
+}

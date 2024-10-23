@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use '../typography' as *;
+@use 'label' as *;
+
+$form-switch: () !default;
+$form-switch: map.merge(
+  (
+    'border-width': 1px,
+    'font-size': 1.125rem,
+    'font-weight': map.get($form-label, 'font-weight'),
+    'line-height': map.get($typography, 'line-height-md'),
+    'margin-block': 0.15em,
+    'vertical-alignment': center,
+  ),
+  $form-switch
+);
+
+$form-switch-lg: () !default;
+$form-switch-lg: map.merge(
+  (
+    'font-size': map.get($typography, 'font-size-lead'),
+  ),
+  $form-switch-lg
+);
+
+
+$form-switch-sm: () !default;
+$form-switch-sm: map.merge(
+  (
+    'font-size': map.get($typography, 'font-size-base'),
+  ),
+  $form-switch-sm
+);

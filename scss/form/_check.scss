@@ -1,0 +1,124 @@
+@use 'sass:map';
+@use '../config' as *;
+@use '../function' as *;
+@use '../mixin' as *;
+
+// Create custom checkbox and radio
+@mixin generate-form-check(
+  $parent,
+  $input,
+  $label,
+  $has-sizes: false
+) {
+  #{$parent} {
+    @include generate-variables($form-check, ('focus-'));
+
+    align-items: config('vertical-alignment', $form-check);
+    display: inline-flex;
+    gap: spacer('xs');
+  }
+
+  #{$parent}--vertical-center {
+    align-items: center;
+  }
+
+  #{$parent}--vertical-start {
+    align-items: flex-start;
+  }
+
+  @if ($has-sizes) {
+    #{$parent}--sm {
+      @include generate-variables($form-control-sm);
+
+      #{$input} {
+        font-size: config('font-size', $form-check-sm);
+      }
+    }
+
+    #{$parent}--lg {
+      @include generate-variables($form-control-lg);
+
+      #{$input} {
+        font-size: config('font-size', $form-check-lg);
+      }
+    }
+  }
+
+  @at-root {
+    #{$input} {
+      appearance: none;
+      background-color: color('background', 'form');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      block-size: 1em;
+      border: config('border-width', $form-check) solid color('border', 'form');
+      flex-shrink: 0;
+      font-size: config('font-size', $form-check);
+      font-weight: config('font-weight', $form-check);
+      inline-size: 1em;
+      line-height: 1;
+      margin-block: config('margin-block', $form-check);
+      transition-duration: config('duration', $transition);
+      transition-property: border, box-shadow;
+      transition-timing-function: config('timing-function', $transition);
+
+      &[type='radio'] {
+        border-radius: 50%;
+      }
+
+      &[type='checkbox'] {
+        border-radius: config('border-radius', $form-check);
+      }
+
+      &:focus-visible {
+        @include focus-ring(
+          $type: config('focus-ring-type', $form-check, false),
+          $border-color: color('check-background', 'form'),
+          $ring-color: color('check-focus-ring', 'form'),
+          $box-shadow-type: config('focus-ring-box-shadow-type', $form-check, false),
+          $ring-size: config('focus-ring-size', $form-check, false),
+          $ring-offset: config('focus-ring-offset', $form-check, false)
+        );
+      }
+
+      &:checked {
+        background-color: color('check-background', 'form');
+        border-color: color('check-background', 'form');
+
+        &[type='radio'] {
+          @include field-icon(config('radio', $form-icon, false), color('check-foreground', 'form', true));
+        }
+
+        &[type='checkbox'] {
+          @include field-icon(config('checkbox', $form-icon, false), color('check-foreground', 'form', true));
+        }
+      }
+
+      &:indeterminate {
+        &[type='checkbox'] {
+          @include field-icon(config('checkbox-indeterminate', $form-icon, false), color('check-foreground', 'form', true));
+          background-color: color('check-background', 'form');
+          border-color: color('check-background', 'form');
+        }
+      }
+
+      &:disabled,
+      &.disabled {
+        @include field-disabled(
+          $background: color('background-disabled', 'form'),
+          $border: color('border-disabled', 'form')
+        );
+
+        + #{$label} {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    #{$label} {
+      font-weight: config('font-weight', $form-check);
+      line-height: config('line-height', $form-check);
+    }
+  }
+}

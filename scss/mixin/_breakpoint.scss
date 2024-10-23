@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../config' as *;
+
+/// Return a media query for a breakpoint based on min-width.
+/// @param {string} $breakpoint - The breakpoint name.
+/// @param {string} $logic - The logic operator.
+/// @return {string} - The media query.
+/// @throws {error} - If the breakpoint doesn't exist.
+@mixin breakpoint(
+  $breakpoint,
+  $logic: false
+) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $breakpoint: map.get($breakpoints, $breakpoint);
+
+    @if $logic {
+      @media #{$logic} and (min-width: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    }
+  } @else {
+    @error 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}

@@ -1,0 +1,7 @@
+@use 'coco' as * with (
+  $settings: (
+    'css-custom-properties': true,
+  ),
+);
+
+@include generate-styles;

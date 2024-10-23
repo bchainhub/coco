@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../function' as *;
+@use '../mixin' as *;
+@use '../config' as *;
+@use 'button' as *;
+
+@mixin generate-file-btn(
+  $selector,
+  $pseudo-selector: null,
+  $has-icons: true,
+  $has-sizes: true,
+) {
+  @include generate-btn($selector, $pseudo-selector, $has-icons, $has-sizes);
+
+  #{$selector} {
+    display: block;
+
+    &:focus {
+      outline: revert;
+    }
+
+    &:focus-within#{$pseudo-selector} {
+      background-color: color(config('background', $form-file, false) + '-background-hover', btn);
+    }
+
+    &#{$pseudo-selector} {
+      @include btn-variant(config('background', $form-file, false), false);
+      margin-inline-end: spacer('s');
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use '../function' as *;
+@use '../mixin' as *;
+@use '../config' as *;
+
+@mixin generate-form-fieldset {
+  fieldset {
+    @include generate-variables($form-fieldset);
+    @include layout-stack(config('layout-gap', $form-fieldset));
+
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    + fieldset {
+      margin-block-start: spacer('l');
+    }
+  }
+
+  legend {
+    color: color('legend', 'form');
+    font-family: config('legend-font-family', $form-fieldset);
+    font-size: config('legend-font-size', $form-fieldset);
+    font-weight: config('legend-font-weight', $form-fieldset);
+  }
+}

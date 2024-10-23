@@ -1,0 +1,17 @@
+@use 'sass:map';
+
+$form-range: () !default;
+$form-range: map.merge(
+  (
+    'focus-ring-box-shadow-type': outside,
+    'focus-ring-offset': 2px,
+    'focus-ring-size': 2px,
+    'focus-ring-type': outline,
+    'thumb-block-size': 1rem,
+    'thumb-border-radius': 0.5rem,
+    'thumb-inline-size': 1rem,
+    'track-block-size': 0.25rem,
+    'track-border-radius': 0.15rem,
+  ),
+  $form-range
+);

@@ -1,0 +1,117 @@
+@use 'sass:map';
+@use '../config' as *;
+@use '../function' as *;
+@use '../mixin' as *;
+
+@mixin generate-form-switch(
+  $parent,
+  $input,
+  $label,
+  $has-sizes: false
+) {
+  #{$parent} {
+    @include generate-variables($form-switch, ('focus-'));
+    align-items: config('vertical-alignment', $form-switch);
+    display: inline-flex;
+    gap: spacer('xs');
+
+    &--block {
+      inline-size: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  #{$parent}--vertical-center {
+    align-items: center;
+  }
+
+  #{$parent}--vertical-start {
+    align-items: flex-start;
+  }
+
+  @if ($has-sizes) {
+    #{$parent}--sm {
+      @include generate-variables($form-switch-sm);
+
+      @if not map.get($settings, 'css-custom-properties') {
+        #{$input} {
+          font-size: config('font-size', $form-switch-sm);
+        }
+      }
+    }
+
+    #{$parent}--lg {
+      @include generate-variables($form-switch-lg);
+
+      @if not map.get($settings, 'css-custom-properties') {
+        #{$input} {
+          font-size: config('font-size', $form-switch-lg);
+        }
+      }
+    }
+  }
+
+  @at-root {
+    #{$input} {
+      @include field-icon(config('switch', $form-icon, false), color('border', 'form', 'true'));
+      appearance: none;
+      background-color: color('background', 'form');
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      block-size: 1em;
+      border: config('border-width', $form-switch) solid color('border', 'form');
+      border-radius: 2em;
+      flex-shrink: 0;
+      font-size: config('font-size', $form-switch);
+      inline-size: 2em;
+      line-height: 1;
+      margin-block: config('margin-block', $form-switch);
+      transition-duration: config('duration', $transition);
+      transition-property: background-position, border, box-shadow;
+      transition-timing-function: config('timing-function', $transition);
+
+      &:focus-visible {
+        @include focus-ring(
+          $type: config('focus-ring-type', $form-check, false),
+          $border-color: color('switch-background', 'form'),
+          $ring-color: color('switch-focus-ring', 'form'),
+          $box-shadow-type: config('focus-ring-box-shadow-type', $form-check, false),
+          $ring-size: config('focus-ring-size', $form-check, false),
+          $ring-offset: config('focus-ring-offset', $form-check, false)
+        );
+      }
+
+      &:checked {
+        @include field-icon(config('switch', $form-icon, false), color('switch-foreground', 'form', 'true'));
+        background-color: color('switch-background', 'form');
+        background-position: right center;
+        border-color: color('switch-background', 'form');
+      }
+
+      &:disabled {
+        @include field-disabled(
+          $background: color('background-disabled', 'form'),
+          $border: color('border-disabled', 'form')
+        );
+
+        + #{$label} {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    [dir='rtl'] #{$input} {
+      background-position: right center;
+
+      &:checked {
+        background-position: left center;
+      }
+    }
+
+    #{$label} {
+      font-weight: config('font-weight', $form-switch);
+      line-height: config('line-height', $form-switch);
+    }
+  }
+}

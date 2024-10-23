@@ -1,0 +1,10 @@
+@use 'sass:map';
+
+$transition: () !default;
+$transition: map.merge(
+  (
+    'duration': 0.15s,
+    'timing-function': ease-in-out,
+  ),
+  $transition
+);

@@ -1,0 +1,100 @@
+@use 'sass:map';
+@use '../function' as *;
+@use '../mixin' as *;
+@use '../config' as *;
+
+@mixin generate-btn(
+  $selector,
+  $pseudo-selector: null,
+  $has-icons: true,
+  $has-sizes: true,
+) {
+  #{$selector}#{$pseudo-selector} {
+    @include generate-variables($btn, ('focus-'));
+
+    align-items: center;
+    border-radius: config('border-radius', $btn);
+    border-style: solid;
+    border-width: config('border-width', $btn);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: config('font-family', $btn);
+    font-size: config('font-size', $btn);
+    font-style: config('font-style', $btn);
+    font-weight: config('font-weight', $btn);
+    gap: config('gap', $btn);
+    justify-content: center;
+    line-height: 1;
+    padding: config('padding', $btn);
+    text-align: start;
+    text-decoration: none;
+    text-transform: config('text-transform', $btn);
+    transition-duration: config('duration', $transition);
+    transition-property: background-color, border-color, box-shadow, color;
+    transition-timing-function: config('timing-function', $transition);
+  }
+
+  #{$selector}:focus {
+    outline-color: transparent;
+    outline-style: solid;
+  }
+
+  #{$selector}:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @if ($has-icons) {
+    #{$selector}--icon {
+      padding: config('icon-padding', $btn);
+
+      &#{$selector}--sm {
+        padding: config('icon-padding', $btn-sm);
+      }
+
+      &#{$selector}--lg {
+        padding: config('icon-padding', $btn-lg);
+      }
+    }
+
+    #{$selector}__icon {
+      block-size: config('icon-size', $btn);
+      flex-shrink: 0;
+      inline-size: config('icon-size', $btn);
+      pointer-events: none;
+
+      &--sm {
+        block-size: config('icon-size', $btn-sm);
+        inline-size: config('icon-size', $btn-sm);
+      }
+    }
+  }
+
+  @if ($has-sizes) {
+    // Sizes
+    #{$selector}--sm#{$pseudo-selector} {
+      @include generate-variables($btn-sm);
+
+      font-size: config('font-size', $btn-sm);
+      gap: config('gap', $btn-sm);
+      padding: config('padding', $btn-sm);
+    }
+
+    #{$selector}--lg#{$pseudo-selector} {
+      @include generate-variables($btn-lg);
+
+      @if not map.get($settings, 'css-custom-properties') {
+        gap: config('gap', $btn-lg);
+        padding: config('padding', $btn-lg);
+
+        @include breakpoint(md) {
+          font-size: config('font-size', $btn-lg);
+        }
+      }
+    }
+
+    #{$selector}--block#{$pseudo-selector} {
+      inline-size: 100%;
+    }
+  }
+}
