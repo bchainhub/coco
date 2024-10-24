@@ -23,15 +23,19 @@
     "autoprefixer": "postcss dist/*.css -u autoprefixer --replace --no-map",
     "browser-sync": "browser-sync start --server --startPath \"preview/html/page/color.html\" --files \"**/*\" --directory --no-notify --no-open",
     "delete:dev-folder": "del-cli --force dist",
-    "prod": "npm-run-all delete:dev-folder sass:prod:expanded sass:prod:compressed autoprefixer",
+    "build": "npm-run-all add-version delete:dev-folder build:prod remove-version",
+    "build:prod": "npm-run-all sass:prod:expanded sass:prod:compressed autoprefixer",
     "pug": "pug --obj preview/pug/assets/data.json --watch preview/pug/ --out preview/html/ --pretty",
-    "sass:preview": "sass --watch --update --style=expanded --no-source-map preview/assets/scss:preview/assets/css --load-path=scss",
+    "sass:preview": "sass --watch --update --style=expanded --no-source-map scss:preview/assets/css --load-path=scss",
     "sass:prod:expanded": "sass --no-source-map --style=expanded scss/coco-styles.scss:dist/coco.css",
     "sass:prod:compressed": "sass --no-source-map --style=compressed scss/coco-styles.scss:dist/coco.min.css",
+    "lint": "npm-run-all add-version sass:lint remove-version",
     "sass:lint": "stylelint scss/**/*.scss",
     "sass:lint:fix": "stylelint scss/**/*.scss --fix",
-    "start": "npm-run-all --parallel pug sass:preview browser-sync",
-    "test": "jest"
+    "start": "npm-run-all --parallel pug add-version sass:preview remove-version browser-sync",
+    "test": "jest",
+    "add-version": "node -e \"const fs = require('fs'); const version = require('./package.json').version; const filePath = 'scss/config/_info.scss'; let content = fs.readFileSync(filePath, 'utf8').split('\\n'); const text = '\\$v: \\''+version+'\\';'; if (content[0].startsWith('\\$v:')) { content[0] = text; } else { content.unshift(text+'\\n'); } fs.writeFileSync(filePath, content.join('\\n'), 'utf8');\"",
+    "remove-version": "node -e \"const fs = require('fs'); const filePath = 'scss/config/_info.scss'; let content = fs.readFileSync(filePath, 'utf8').split('\\n'); if (content[0].startsWith('\\$v:')) { content.shift(); if (content[0] === '') content.shift(); } fs.writeFileSync(filePath, content.join('\\n'), 'utf8');\""
   },
   "license": "CORE",
   "devDependencies": {

@@ -3,9 +3,9 @@
 /// @group filters
 /// @since 2.0.0
 .filter {
-	&.inkwell {
-		position: relative;
-		filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
-		-webkit-filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
-	}
+  &.inkwell {
+    filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
+    filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
+    position: relative;
+  }
 }

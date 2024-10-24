@@ -61,12 +61,6 @@ or
 yarn add "https://github.com/bchainhub/coco.git#semver:^2.0"
 ```
 
-### Bower
-
-```sh
-bower install bchainhub/coco
-```
-
 ## Import
 
 After installation, import the CSS file into your project:
@@ -149,14 +143,6 @@ COCO is a CSS framework that outputs a single CSS file [coco.css](https://github
 <em class="oji flat">📥</em>
 ```
 
-#### Custom Theme
-
-> Create a custom theme by adding variables to `style/utilities/themes.sass`.
-
-To set a theme, add `data-theme="theme"` to the HTML tag.
-
-COCO supports light and dark themes natively.
-
 #### Current Version
 
 > Display the current version of COCO using this code:
@@ -189,4 +175,4 @@ Wondering why some files start with an underscore?
 
 ## Copyright and License
 
-This code is copyright 2018 by [Blockchain Hub](https://github.com/bchainhub) and [Jeremy Thomas](https://github.com/jgthms). It is released under the [CORE license](LICENSE).
+Released under the [CORE license](LICENSE).

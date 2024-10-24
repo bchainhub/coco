@@ -1,11 +1,13 @@
+@use 'sass:string';
+
 $grayscale-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100;
 
 @mixin grayscale {
-	@each $breakpoint in $grayscale-breakpoints {
-		&.grayscale-#{$breakpoint} {
-			filter: unquote("grayscale(#{$breakpoint}%)");
-		}
-	}
+  @each $breakpoint in $grayscale-breakpoints {
+    &.grayscale-#{$breakpoint} {
+      filter: string.unquote('grayscale(#{$breakpoint}%)');
+    }
+  }
 }
 
 /// Converts the image to grayscale.
@@ -13,9 +15,9 @@ $grayscale-breakpoints: 0, 10, 25, 40, 50, 60, 75, 100;
 /// @group filters
 /// @since 2.0.0
 .filter {
-	@include grayscale;
+  @include grayscale;
 
-	&.grayscale {
-		filter: unquote("grayscale(100%)");
-	}
+  &.grayscale {
+    filter: string.unquote('grayscale(100%)');
+  }
 }

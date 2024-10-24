@@ -1,11 +1,13 @@
+@use 'sass:string';
+
 $contrast-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200;
 
 @mixin contrast {
-	@each $breakpoint in $contrast-breakpoints {
-		&.contrast-#{$breakpoint} {
-			filter: unquote("contrast(#{$breakpoint}%)");
-		}
-	}
+  @each $breakpoint in $contrast-breakpoints {
+    &.contrast-#{$breakpoint} {
+      filter: string.unquote('contrast(#{$breakpoint}%)');
+    }
+  }
 }
 
 /// Contrast filter adjusts the contrast of an image.
@@ -13,5 +15,5 @@ $contrast-breakpoints: 0, 10, 25, 40, 50, 60, 75, 110, 125, 150, 175, 200;
 /// @group filters
 /// @since 2.0.0
 .filter {
-	@include contrast;
+  @include contrast;
 }

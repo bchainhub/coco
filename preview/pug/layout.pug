@@ -15,7 +15,7 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title coco CSS Development Preview
-    link(rel='stylesheet' href=`../../assets/css/main.css?time=${time}`)
+    link(rel='stylesheet' href=`../../assets/css/coco.css?time=${time}`)
     link(rel='icon' href='../../assets/img/favicon-32x32.png' type='image/png')
   body
     main(class='l-main')
@@ -41,6 +41,8 @@ html(lang='en')
                 a(href='mixin.html' aria-current=page === 'mixin' ? 'page' : '') Mixin
               li
                 a(href='component.html' aria-current=page === 'component' ? 'page' : '') Component
+              li
+                a(href='filters.html' aria-current=page === 'filters' ? 'page' : '') Filters
             div(class='form-group')
               label(class='form-label') Reading direction
               select(id='reading-direction' class='form-control form-control--sm')

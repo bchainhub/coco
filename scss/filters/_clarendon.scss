@@ -3,22 +3,22 @@
 /// @group filters
 /// @since 2.0.0
 .filter {
-	&.clarendon {
-		position: relative;
-		filter: contrast(120%) saturate(125%);
-		-webkit-filter: contrast(120%) saturate(125%);
+  &.clarendon {
+    filter: contrast(120%) saturate(125%);
+    filter: contrast(120%) saturate(125%);
+    position: relative;
 
-		&::before {
-			content: "";
-			display: block;
-			height: 100%;
-			width: 100%;
-			top: 0;
-			left: 0;
-			position: absolute;
-			pointer-events: none;
-			mix-blend-mode: overlay;
-			background: rgba(127, 187, 227, 0.2);
-		}
-	}
+    &::before {
+      background: rgb(127 187 227 / 0.2);
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
 }
