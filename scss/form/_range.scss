@@ -7,6 +7,7 @@
     @include generate-variables($form-range);
     appearance: none;
     margin-block-start: calc(#{config('thumb-block-size', $form-range)} / 2 - #{config('track-block-size', $form-range)} / 2);
+    cursor: col-resize;
 
     &:focus-visible {
       outline: none;

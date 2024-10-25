@@ -1,0 +1,56 @@
+@use 'sass:map';
+@use '../function' as *;
+@use '../config' as *;
+
+// Variables from configuration map
+$container-max-width: config('container-max-width', $grid, false);
+$grid-columns: config('grid-columns', $grid, false);
+$gutter: config('gutter-width', $grid, false);
+$breakpoints: config('grid-breakpoints', $grid, false);
+$container-widths: config('container-widths', $grid, false);
+
+// Container
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $gutter;
+}
+
+// Row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+}
+
+// Column Mixin for Flexbox Grid
+@mixin col($columns) {
+  flex: 0 0 percentage($columns / $grid-columns);
+  max-width: percentage($columns / $grid-columns);
+  padding: $gutter;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+// Define column classes (e.g., col-1, col-2, ..., col-12)
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include col($i);
+  }
+}
+
+// Responsive Adjustments
+@each $breakpoint, $width in $breakpoints {
+  @media (min-width: $width) {
+    .container {
+      max-width: map.get($container-widths, $breakpoint);
+    }
+
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        @include col($i);
+      }
+    }
+  }
+}

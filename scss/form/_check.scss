@@ -62,6 +62,7 @@
       transition-duration: config('duration', $transition);
       transition-property: border, box-shadow;
       transition-timing-function: config('timing-function', $transition);
+      cursor: pointer;
 
       &[type='radio'] {
         border-radius: 50%;
@@ -119,6 +120,7 @@
     #{$label} {
       font-weight: config('font-weight', $form-check);
       line-height: config('line-height', $form-check);
+      cursor: pointer;
     }
   }
 }

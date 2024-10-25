@@ -14,7 +14,7 @@ html(lang='en')
       }
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title coco CSS Development Preview
+    title CoCo CSS Framework
     link(rel='stylesheet' href=`../../assets/css/coco.css?time=${time}`)
     link(rel='icon' href='../../assets/img/favicon-32x32.png' type='image/png')
   body
@@ -43,6 +43,8 @@ html(lang='en')
                 a(href='component.html' aria-current=page === 'component' ? 'page' : '') Component
               li
                 a(href='filters.html' aria-current=page === 'filters' ? 'page' : '') Filters
+              li
+                a(href='grid.html' aria-current=page === 'grid' ? 'page' : '') Grid system
             div(class='form-group')
               label(class='form-label') Reading direction
               select(id='reading-direction' class='form-control form-control--sm')

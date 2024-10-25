@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use 'sass:string';
+@use 'sass:meta';
 @use 'setting' as *;
 @use '../config' as *;
 
@@ -19,14 +20,12 @@
     @error 'The #{$key} key name doesn\'t exist under #{$map} at the specified map.';
   }
 
-  @if map.get($map, $key) == null {
-    @return null;
-  }
-
-  @if not $custom-property {
+  // Return the value directly if not using custom properties
+  @if not $custom-property or (meta.type-of(map.get($map, $key)) == 'number' or meta.type-of(map.get($map, $key)) == 'map') {
     @return map.get($map, $key);
   }
 
+  // Return as a CSS variable if it's a custom property request
   @if map.get($settings, 'css-custom-properties') {
     @return var(--#{$internal-prefix}#{$key});
   }
