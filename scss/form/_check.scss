@@ -53,6 +53,7 @@
       background-size: contain;
       block-size: 1em;
       border: config('border-width', $form-check) solid color('border', 'form');
+      cursor: pointer;
       flex-shrink: 0;
       font-size: config('font-size', $form-check);
       font-weight: config('font-weight', $form-check);
@@ -62,7 +63,6 @@
       transition-duration: config('duration', $transition);
       transition-property: border, box-shadow;
       transition-timing-function: config('timing-function', $transition);
-      cursor: pointer;
 
       &[type='radio'] {
         border-radius: 50%;
@@ -118,9 +118,9 @@
     }
 
     #{$label} {
+      cursor: pointer;
       font-weight: config('font-weight', $form-check);
       line-height: config('line-height', $form-check);
-      cursor: pointer;
     }
   }
 }

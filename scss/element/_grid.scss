@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:math';
 @use '../function' as *;
 @use '../config' as *;
 
@@ -11,8 +12,8 @@ $container-widths: config('container-widths', $grid, false);
 
 // Container
 .container {
-  max-width: $container-max-width;
   margin: 0 auto;
+  max-width: $container-max-width;
   padding: $gutter;
 }
 
@@ -26,10 +27,10 @@ $container-widths: config('container-widths', $grid, false);
 
 // Column Mixin for Flexbox Grid
 @mixin col($columns) {
-  flex: 0 0 percentage($columns / $grid-columns);
-  max-width: percentage($columns / $grid-columns);
-  padding: $gutter;
   box-sizing: border-box;
+  flex: 0 0 math.percentage($columns / $grid-columns);
+  max-width: math.percentage($columns / $grid-columns);
+  padding: $gutter;
   text-align: center;
 }
 

@@ -145,10 +145,10 @@
   }
 
   pre > code {
-    display: block;
-    margin-block-start: spacer('s');
-    margin-block-end: spacer('s');
     background-color: color('code-background');
+    display: block;
+    margin-block-end: spacer('s');
+    margin-block-start: spacer('s');
   }
 
   strong {
@@ -160,9 +160,9 @@
   }
 
   .copy {
-    user-select: all;
-    -moz-user-select: all;
-    -webkit-user-select: all;
     cursor: copy;
+    user-select: all;
+    user-select: all;
+    user-select: all;
   }
 }

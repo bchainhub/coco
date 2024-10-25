@@ -12,9 +12,9 @@
   #{$parent} {
     @include generate-variables($form-switch, ('focus-'));
     align-items: config('vertical-alignment', $form-switch);
+    cursor: pointer;
     display: inline-flex;
     gap: spacer('xs');
-    cursor: pointer;
 
     &--block {
       inline-size: 100%;
@@ -63,6 +63,7 @@
       block-size: 1em;
       border: config('border-width', $form-switch) solid color('border', 'form');
       border-radius: 2em;
+      cursor: pointer;
       flex-shrink: 0;
       font-size: config('font-size', $form-switch);
       inline-size: 2em;
@@ -71,7 +72,6 @@
       transition-duration: config('duration', $transition);
       transition-property: background-position, border, box-shadow;
       transition-timing-function: config('timing-function', $transition);
-      cursor: pointer;
 
       &:focus-visible {
         @include focus-ring(

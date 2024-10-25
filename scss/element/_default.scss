@@ -29,10 +29,11 @@
     color: color('text');
   }
 
-  body.has-sticky-footer {
+  .has-sticky-footer {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
+    min-height: 100vh;
+
     > main {
       flex: 1;
     }

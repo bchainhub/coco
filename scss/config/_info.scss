@@ -1,3 +1,5 @@
+$v: '2.0.0';
+
 .coco.version::after {
-  content: "#{$v}";
+  content: '#{$v}';
 }

@@ -53,9 +53,9 @@
       @include generate-variables($form-control-color);
       aspect-ratio: config('aspect-ratio', $form-control-color);
       block-size: config('block-size', $form-control-color);
+      cursor: pointer;
       inline-size: config('inline-size', $form-control-color);
       padding: config('padding', $form-control-color);
-      cursor: pointer;
 
       &::-webkit-color-swatch-wrapper {
         padding: 0;
@@ -182,6 +182,7 @@
   @if ($has-select) {
     select#{$selector} {
       cursor: context-menu;
+
       &:not([multiple]):not([size]) {
         @include field-icon(config('select', $form-icon, false), color('select-foreground', 'form', true));
         background-position: center right config('icon-right-offset', $form-select, false);
