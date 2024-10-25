@@ -29,7 +29,7 @@
     "sass:preview": "sass --watch --update --style=expanded --no-source-map scss/coco-styles.scss:preview/assets/css/coco.css --load-path=scss",
     "sass:prod:expanded": "sass --no-source-map --style=expanded scss/coco-styles.scss:dist/coco.css",
     "sass:prod:compressed": "sass --no-source-map --style=compressed scss/coco-styles.scss:dist/coco.min.css",
-    "lint": "npm-run-all add-version sass:lint remove-version",
+    "lint": "npm run add-version && stylelint --formatter github 'scss/**/*.scss' && npm run remove-version",
     "sass:lint": "stylelint scss/**/*.scss",
     "sass:lint:fix": "stylelint scss/**/*.scss --fix",
     "start": "npm-run-all --parallel pug add-version sass:preview remove-version browser-sync",
