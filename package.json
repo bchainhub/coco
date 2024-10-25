@@ -56,11 +56,11 @@
   "jest": {
     "testEnvironment": "jest-environment-node-single-context"
   },
-	"unpkg": "dist/coco.css",
-	"style": "dist/coco.min.css",
-	"files": [
-		"dist",
-		"LICENSE",
-		"README.md"
-	]
+  "unpkg": "dist/coco.css",
+  "style": "dist/coco.min.css",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ]
 }
