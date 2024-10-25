@@ -53,6 +53,7 @@
       background-size: contain;
       block-size: 1em;
       border: config('border-width', $form-check) solid color('border', 'form');
+      cursor: pointer;
       flex-shrink: 0;
       font-size: config('font-size', $form-check);
       font-weight: config('font-weight', $form-check);
@@ -117,6 +118,7 @@
     }
 
     #{$label} {
+      cursor: pointer;
       font-weight: config('font-weight', $form-check);
       line-height: config('line-height', $form-check);
     }

@@ -3,22 +3,22 @@
 /// @group filters
 /// @since 2.0.0
 .filter {
-	&.brannan {
-		position: relative;
-		filter: contrast(140%) sepia(50%);
-		-webkit-filter: contrast(140%) sepia(50%);
+  &.brannan {
+    filter: contrast(140%) sepia(50%);
+    filter: contrast(140%) sepia(50%);
+    position: relative;
 
-		&::before {
-			content: "";
-			display: block;
-			height: 100%;
-			width: 100%;
-			top: 0;
-			left: 0;
-			position: absolute;
-			pointer-events: none;
-			mix-blend-mode: lighten;
-			background: rgba(161, 44, 199, 0.31);
-		}
-	}
+    &::before {
+      background: rgb(161 44 199 / 0.31);
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      mix-blend-mode: lighten;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
 }

@@ -1,6 +1,5 @@
-$v: "2.0.0";
-.coco.version::after {
-	content: "#{$v}";
-}
+$v: '2.0.0';
 
-@debug "COCO v#{$v}";
+.coco.version::after {
+  content: '#{$v}';
+}

@@ -3,8 +3,8 @@
 /// @group filters
 /// @since 2.0.0
 .filter {
-	&.amaro {
-		filter: contrast(90%) brightness(110%) saturate(150%) hue-rotate(-10deg);
-		-webkit-filter: contrast(90%) brightness(110%) saturate(150%) hue-rotate(-10deg);
-	}
+  &.amaro {
+    filter: contrast(90%) brightness(110%) saturate(150%) hue-rotate(-10deg);
+    filter: contrast(90%) brightness(110%) saturate(150%) hue-rotate(-10deg);
+  }
 }

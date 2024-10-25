@@ -1,0 +1,26 @@
+@use 'sass:map';
+
+$grid: () !default;
+$grid: map.merge(
+  (
+    'container-max-width': 1320px,      // Maximum width of the container
+    'grid-columns': 12,                 // 12 columns by default
+    'gutter-width': 1.5rem,             // 1.5rem gutters
+    'grid-breakpoints': (
+      'xs': 0,                          // Extra small devices (portrait phones)
+      'sm': 576px,                      // Small devices (landscape phones)
+      'md': 768px,                      // Medium devices (tablets)
+      'lg': 992px,                      // Large devices (desktops)
+      'xl': 1200px,                     // Extra large devices (large desktops)
+      'xxl': 1400px                     // Extra extra large devices (larger desktops)
+    ),
+    'container-widths': (
+      'sm': 540px,
+      'md': 720px,
+      'lg': 960px,
+      'xl': 1140px,
+      'xxl': 1320px
+    )
+  ),
+  $grid
+);

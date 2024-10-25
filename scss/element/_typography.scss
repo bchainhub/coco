@@ -144,11 +144,25 @@
     padding: config('inline-padding', $typography);
   }
 
+  pre > code {
+    background-color: color('code-background');
+    display: block;
+    margin-block-end: spacer('s');
+    margin-block-start: spacer('s');
+  }
+
   strong {
     color: color('strong');
   }
 
   .lead {
     font-size: config('font-size-lead', $typography);
+  }
+
+  .copy {
+    cursor: copy;
+    user-select: all;
+    user-select: all;
+    user-select: all;
   }
 }

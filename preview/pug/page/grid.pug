@@ -1,0 +1,64 @@
+extends ../layout.pug
+
+block variables
+  - var title = 'Grid system'
+  - var page = 'grid'
+
+block content
+  h2.section-title Grid system
+  p This Flexbox-based grid system, inspired by Bootstrap, allows for easy, responsive layouts. Here’s a quick guide on how to use it:
+
+  h3 Flexbox Grid System Tutorial
+
+  .tutorial-container
+    h4 Step 1: Set Up a Container
+    p Start by adding a container to center and add padding around your content.
+    pre
+      code.language-html
+        | &lt;div class="container"&gt;
+        |   &lt;div class="row"&gt;
+        |     &lt;div class="col col-12"&gt;Full Width Column&lt;/div&gt;
+        |   &lt;/div&gt;
+        | &lt;/div&gt;
+
+    h4 Step 2: Use Rows to Wrap Columns
+    p Wrap your columns in a row to structure them in a horizontal layout.
+    pre
+      code.language-html
+        | &lt;div class="row"&gt;
+        |   &lt;div class="col col-6"&gt;Half Width&lt;/div&gt;
+        |   &lt;div class="col col-6"&gt;Half Width&lt;/div&gt;
+        | &lt;/div&gt;
+
+    h4 Step 3: Define Columns with Responsive Classes
+    p Assign column classes to control width at different screen sizes:
+    pre
+      code.language-html
+        | &lt;div class="row"&gt;
+        |   &lt;div class="col-sm-12 col-md-6 col-lg-4"&gt;Responsive Column&lt;/div&gt;
+        |   &lt;div class="col-sm-12 col-md-6 col-lg-4"&gt;Responsive Column&lt;/div&gt;
+        |   &lt;div class="col-sm-12 col-md-6 col-lg-4"&gt;Responsive Column&lt;/div&gt;
+        | &lt;/div&gt;
+
+    h4 Step 4: Responsive Adjustments
+    p As the viewport changes, columns adjust based on their class. For instance:
+    ul
+      li `col-12`: Full width on all screens
+      li `col-md-6`: Half width on medium and larger screens
+      li `col-lg-4`: One-third width on large screens
+
+    h4 Step 5: Example of Nested Columns
+    p You can nest rows within columns for more complex layouts:
+    pre
+      code.language-html
+        | &lt;div class="container"&gt;
+        |   &lt;div class="row"&gt;
+        |     &lt;div class="col col-6"&gt;
+        |       &lt;div class="row"&gt;
+        |         &lt;div class="col col-6"&gt;Nested Column&lt;/div&gt;
+        |         &lt;div class="col col-6"&gt;Nested Column&lt;/div&gt;
+        |       &lt;/div&gt;
+        |     &lt;/div&gt;
+        |     &lt;div class="col col-6"&gt;Half Width Column&lt;/div&gt;
+        |   &lt;/div&gt;
+        | &lt;/div&gt;

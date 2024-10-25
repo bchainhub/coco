@@ -21,9 +21,9 @@ jobs:
         with:
           node-version: 'lts/*'
       - name: Install dependencies
-        run: npm ci
+        run: npm i
       - name: Run linter
-        run: npm run sass:lint -- --formatter github
+        run: npm run lint -- --formatter github
       - name: Check EditorConfig configuration
         run: test -f .editorconfig
       - name: Check adherence to EditorConfig
