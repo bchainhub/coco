@@ -28,8 +28,8 @@ $container-widths: config('container-widths', $grid, false);
 // Column Mixin for Flexbox Grid
 @mixin col($columns) {
   box-sizing: border-box;
-  flex: 0 0 math.percentage($columns / $grid-columns);
-  max-width: math.percentage($columns / $grid-columns);
+  flex: 0 0 math.percentage(math.div($columns, $grid-columns));
+  max-width: math.percentage(math.div($columns, $grid-columns));
   padding: $gutter;
   text-align: center;
 }

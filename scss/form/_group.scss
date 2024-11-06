@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../function' as *;
 @use '../mixin' as *;
 @use '../config' as *;
@@ -89,7 +90,7 @@
     }
 
     &-container {
-      container: form-group-container / inline-size;
+      container: list.slash(form-group-container, inline-size);
     }
   }
 }
