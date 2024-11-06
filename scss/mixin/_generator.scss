@@ -8,8 +8,8 @@
 
 /// Generate all the styles.
 @mixin generate-styles {
-  @if map.get($generators, 'content', 'normalize') {
-    @include generate-normalize;
+  @if map.get($generators, 'content', 'reset') {
+    @include generate-reset;
   }
 
   @if map.get($generators, 'content', 'root') {
