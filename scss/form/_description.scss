@@ -3,6 +3,20 @@
 @use '../mixin' as *;
 @use '../config' as *;
 
+/*
+Form description
+
+Use `.form-description` for persistent help text and associate it with the
+control using `aria-describedby`.
+
+Markup:
+<label class="form-label" for="kss-password">Password</label>
+<input class="form-control" id="kss-password" type="password" aria-describedby="kss-password-help">
+<small class="form-description" id="kss-password-help">Use at least 12 characters.</small>
+
+Styleguide 3.12
+*/
+
 @mixin generate-form-description {
   .form-description {
     @include generate-variables($form-description);

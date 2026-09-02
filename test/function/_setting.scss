@@ -1,0 +1,12 @@
+@use 'true' as *;
+@use '../../scss/function/setting' as *;
+
+@include describe('setting()') {
+  @include it('returns a top-level setting') {
+    @include assert-equal(setting('prefix'), 'coco');
+  }
+
+  @include it('returns a nested setting') {
+    @include assert-true(setting('display', 'utilities'));
+  }
+}

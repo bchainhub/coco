@@ -1,0 +1,89 @@
+@use 'true' as *;
+@use '../../scss/mixin/css-variable' as *;
+@use '../../scss/mixin/form' as *;
+@use '../../scss/mixin/layout' as *;
+@use '../../scss/mixin/transition' as *;
+
+@include describe('core mixins') {
+  @include it('generates a prefixed CSS custom property') {
+    @include assert {
+      @include output {
+        @include set-css-variable(('--accent': #f00));
+      }
+
+      @include expect {
+        --coco-accent: #f00;
+      }
+    }
+  }
+
+  @include it('generates transition declarations') {
+    @include assert {
+      @include output {
+        @include transition(200ms, opacity, linear);
+      }
+
+      @include expect {
+        transition-duration: 200ms;
+        transition-property: opacity;
+        transition-timing-function: linear;
+      }
+    }
+  }
+
+  @include it('resolves spacing in the centered layout') {
+    @include assert {
+      @include output {
+        @include layout-center('xs', 60rem);
+      }
+
+      @include expect {
+        inline-size: 100%;
+        margin-inline: auto;
+        max-inline-size: 60rem;
+        padding-inline: 0.5rem;
+      }
+    }
+  }
+
+  @include it('generates an inset focus ring') {
+    @include assert {
+      @include output {
+        @include focus-ring('box-shadow', #f00, #00f, inset, 3px);
+      }
+
+      @include expect {
+        border-color: #f00;
+        box-shadow: 0 0 0 3px #00f inset;
+        outline: 2px solid transparent;
+      }
+    }
+  }
+
+  @include it('generates an outline focus ring') {
+    @include assert {
+      @include output {
+        @include focus-ring('outline', $ring-color: #00f, $ring-size: 3px, $ring-offset: 4px);
+      }
+
+      @include expect {
+        outline: 3px solid #00f;
+        outline-offset: 4px;
+      }
+    }
+  }
+
+  @include it('generates disabled field styles') {
+    @include assert {
+      @include output {
+        @include field-disabled(#eee, #aaa);
+      }
+
+      @include expect {
+        background-color: #eee;
+        border-color: #aaa;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

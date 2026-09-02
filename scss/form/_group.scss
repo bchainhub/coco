@@ -3,6 +3,30 @@
 @use '../mixin' as *;
 @use '../config' as *;
 
+/*
+Form groups
+
+`.form-group` stacks a label, control, description, and feedback. Check groups
+can flow horizontally or vertically; row groups become two-column layouts when
+their named container is wide enough; stacked groups join adjacent controls.
+
+.form-group--horizontal-check - Wrap checks in a horizontal row.
+.form-group--vertical-check - Stack checks vertically.
+.form-group--row - Create a responsive label/control row.
+.form-group--stacked - Join adjacent controls into one visual group.
+
+Markup:
+<div class="form-group-container">
+  <div class="form-group {{ modifier_class }}">
+    <label class="form-label" for="kss-name">Name</label>
+    <input class="form-control" id="kss-name" type="text">
+    <small class="form-description">Enter your public display name.</small>
+  </div>
+</div>
+
+Styleguide 3.8
+*/
+
 @mixin generate-form-group {
   .form-group {
     @include generate-variables($form-group);
@@ -46,12 +70,15 @@
         grid-template-columns: minmax(0, #{config('label-inline-size', $form-group-row)}) minmax(0, 1fr);
       }
 
+      // The BEM parent selector is misread as a qualifying type by stylelint.
+      // stylelint-disable selector-no-qualifying-type
       .form-description,
       .field-feedback {
         @container form-group-container (inline-size > #{config('container-inline-size', $form-group-row, false)}) {
           grid-column-start: 2;
         }
       }
+      // stylelint-enable selector-no-qualifying-type
     }
 
     &--stacked {

@@ -2,6 +2,22 @@
 @use '../config' as *;
 @use '../mixin' as *;
 
+/*
+Input group label
+
+`.form-group-label` visually joins short text to a neighboring control. Use it
+inside a stacked form group and provide an accessible label for the input.
+
+Markup:
+<label class="form-label" for="kss-price">Price</label>
+<div class="form-group form-group--stacked">
+  <span class="form-group-label" aria-hidden="true">€</span>
+  <input class="form-control" id="kss-price" type="number" aria-label="Price in euros">
+</div>
+
+Styleguide 3.10
+*/
+
 @mixin generate-form-group-label {
   .form-group-label {
     @include generate-variables($form-control, $include: ('border-width', 'border-radius'));

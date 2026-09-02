@@ -1,0 +1,29 @@
+@use 'true' as *;
+@use 'sass:meta';
+@use '../../scss/function/spacer' as *;
+
+@include describe('split-values()') {
+  @include it('splits a responsive pair') {
+    @include assert-equal(split-values('xs:l'), ('xs', 'l'));
+  }
+
+  @include it('returns null when the separator is absent') {
+    @include assert-equal(split-values('m'), null);
+  }
+}
+
+@include describe('spacer()') {
+  @include it('returns one configured spacer') {
+    @include assert-equal(spacer('m'), 1.5rem);
+  }
+
+  @include it('returns a pair of configured spacers') {
+    @include assert-equal(spacer('xs:l'), 0.5rem 3rem);
+  }
+}
+
+@include describe('spacer-clamp()') {
+  @include it('resolves configured minimum and maximum values') {
+    @include assert-equal(meta.inspect(spacer-clamp('xs', 'l')), 'clamp(0.5rem, 5vw, 3rem)');
+  }
+}

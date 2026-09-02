@@ -1,5 +1,19 @@
 @use '../function' as *;
 
+/*
+Divider
+
+Use a thematic break to separate related content. The element receives the
+configured border color and no default raised border.
+
+Markup:
+<p>Content before the break.</p>
+<hr>
+<p>Content after the break.</p>
+
+Styleguide 2.4
+*/
+
 @mixin generate-divider {
   hr {
     border: 0;

@@ -6,7 +6,7 @@
 /// @param {map} $map - The map to generate the CSS custom properties from.
 /// @param {list} $exclude - The list of keys (or a segment of it) to exclude.
 /// @param {list} $include - The list of keys (or a segment of it) to include.
-/// @return {string} - The generated CSS custom properties.
+/// @output The generated CSS custom properties.
 /// @throws {error} - If you use both $exclude and $include arguments.
 @mixin generate-variables(
   $map,

@@ -16,7 +16,7 @@ block content
         input(class='form-control' id='number' type='number')
       div(class='form-group')
         label(for='password' class='form-label') Password
-        input(class='form-control' id='password' type='password')
+        input(class='form-control' id='password' type='password' autocomplete='current-password')
       div(class='form-group')
         label(for='search' class='form-label') Search
         input(class='form-control' id='search' type='search')
@@ -51,9 +51,6 @@ block content
         label(for='date' class='form-label') Date
         input(class='form-control' id='date' type='date')
       div(class='form-group')
-        label(for='datetime' class='form-label') Date / Time
-        input(class='form-control' id='datetime' type='datetime')
-      div(class='form-group')
         label(for='datetime-local' class='form-label') Date / Time local
         input(class='form-control' id='datetime-local' type='datetime-local')
       div(class='form-group')
@@ -75,10 +72,10 @@ block content
       div(class='form-row--mixed')
         div(class='form-group')
           label(for='time-test-2' class='form-label') Time
-          input(class='form-control form-control' id='time-test-2' type='time')
+          input(class='form-control' id='time-test-2' type='time')
         div(class='form-group')
           label(for='email-address-test-2' class='form-label') Email address
-          input(class='form-control form-control' id='email-address-test-2' type='email')
+          input(class='form-control' id='email-address-test-2' type='email')
       div(class='form-row--mixed')
         div(class='form-group')
           label(for='time-test-3' class='form-label') Time
@@ -98,20 +95,20 @@ block content
         input(class='form-file form-file--lg' type='file' id='avatar-lg' accept='image/png, image/jpeg')
       div(class='form-group')
         label(for='avatar' class='form-label') Avatar
-        input(class='form-file form-file' type='file' id='avatar' accept='image/png, image/jpeg')
+        input(class='form-file' type='file' id='avatar' accept='image/png, image/jpeg')
       div(class='form-group')
         label(for='files' class='form-label') Files
         input(class='form-file form-file--sm' type='file' id='files' multiple accept='image/png, image/jpeg')
     fieldset
-      legend Range
+      legend Disabled Range
       div(class='form-group')
         label(for='rating' class='form-label') Your Rating
         input(class='form-range form-range--lg' type='range' id='rating' min='-10' max='10')
     fieldset
       legend Range
       div(class='form-group')
-        label(for='rating' class='form-label') Your Rating (disabled)
-        input(class='form-range form-range--lg' type='range' id='rating' min='-10' max='10' disabled)
+        label(for='rating-disabled' class='form-label') Your rating (disabled)
+        input(class='form-range form-range--lg' type='range' id='rating-disabled' min='-10' max='10' disabled)
     fieldset
       legend Selects
       div(class='form-group')
@@ -278,7 +275,7 @@ block content
       div(class='form-group--stacked')
         input(class='form-control' type='text' aria-label='First Name')
         input(class='form-control' type='text' aria-label='Last Name')
-        button(class='btn btn--primary') Submit
+        button(type='submit' class='btn btn--primary') Submit
       div(class='form-group--stacked')
         div(class='form-group-label') $
         input(class='form-control' type='text' aria-label='First Name')
@@ -307,6 +304,3 @@ block content
         div(class='form-group form-group--width-auto' style='--coco-col-width: 8ch;')
           label(for='zip' class='form-label') Zip
           input(id='zip' class='form-control' type='text')
-  script.
-    var checkbox = document.getElementById('indeterminate');
-    checkbox.indeterminate = true;

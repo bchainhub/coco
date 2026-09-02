@@ -5,11 +5,12 @@
 
 
 /// Hide something from the screen but keep it visible for assistive technology.
-/// @return {mixin} - The visually hidden mixin.
+/// @output The visually hidden mixin.
 @mixin visually-hidden {
   block-size: 1px !important;
   border: 0 !important;
   clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
   inline-size: 1px !important;
   margin: -1px !important;
   overflow: hidden !important;
@@ -20,7 +21,7 @@
 
 /// Crop text and display an ellipsis with multiline.
 /// @param {number} $number-of-lines - The number of lines.
-/// @return {mixin} - The text ellipsis mixin.
+/// @output The text ellipsis mixin.
 @mixin text-ellipsis(
   $number-of-lines: 1
 ) {
@@ -46,7 +47,7 @@
 /// @param {string} $track-background-color - The background color of the track.
 /// @param {string} $size - The size of the scrollbar.
 /// @param {string} $border-radius - The border radius of the scrollbar.
-/// @return {mixin} - The scrollbar mixin.
+/// @output The scrollbar mixin.
 @mixin scrollbar(
   $thumb-background-color: color('thumb-background', 'scrollbar'),
   $thumb-background-color-hover: color('thumb-background-hover', 'scrollbar'),
@@ -75,7 +76,7 @@
 }
 
 /// Clear default button styles.
-/// @return {mixin} - The clear button mixin.
+/// @output The clear button mixin.
 @mixin clear-btn {
   background: none;
   border: 0;
@@ -96,7 +97,7 @@
 /// More accessible card linking.
 /// @param {string} $link - The link element's selector.
 /// @param {boolean} $at-root - Whether to use @at-root.
-/// @return {mixin} - The a11y card link mixin.
+/// @output The a11y card link mixin.
 @mixin a11y-card-link(
   $link,
   $at-root: false
@@ -122,7 +123,7 @@
 
 /// Break long string.
 /// @author Chris Coyier - https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
-/// @return {mixin} - The word-wrap mixin.
+/// @output The word-wrap mixin.
 @mixin word-wrap {
   hyphens: auto;
   overflow-wrap: break-word;
@@ -134,7 +135,7 @@
 /// Generate a focus ring.
 /// @param {string} $type - The type of the focus ring.
 /// @param {string} $btn-type - The type - hence color - of the button.
-/// @return {mixin} - The focus ring mixin.
+/// @output The focus ring mixin.
 @mixin short-ring(
   $type: 'input',
   $btn-type: 'primary'

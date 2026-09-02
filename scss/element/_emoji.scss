@@ -2,6 +2,29 @@
 /// @name em.oji
 /// @group effects
 /// @since 2.0.0
+/*
+Effects
+
+Small visual effects that enhance content without JavaScript.
+
+Styleguide 5
+*/
+
+/*
+Emoji effects
+
+Emoji can be normalized with flat, grayscale, gray, or black rendering.
+
+.flat - Increase contrast and flatten the colors.
+.grayscale - Remove all color.
+.gray - Render a gray silhouette.
+.black - Render a black silhouette.
+
+Markup:
+<em class="oji {{ modifier_class }}" aria-hidden="true">📥</em>
+
+Styleguide 5.1
+*/
 /* stylelint-disable selector-no-qualifying-type */
 em.oji {
   font-style: normal;

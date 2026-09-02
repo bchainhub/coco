@@ -9,3 +9,31 @@
 @forward 'gingham';
 @forward 'hudson';
 @forward 'inkwell';
+
+/*
+Image filters
+
+Wrap an image in `.filter` and add one effect class. The wrapper clips generated
+overlays correctly when it has the same dimensions as its image.
+
+.seventyseven - Bright, faded 1970s tones.
+.aden - Soft pastel light with a warm cast.
+.amaro - A bright center and darker edges.
+.brannan - High contrast with a metallic tint.
+.brooklyn - Bright yellow-green highlights.
+.clarendon - Brighter highlights and stronger shadows.
+.earlybird - Faded Polaroid color with warm yellow.
+.gingham - A subtle warm haze.
+.hudson - Bright, cool blue tones.
+.inkwell - High-contrast monochrome.
+.chessboard - A neutral transparency grid.
+.chessboard.is-light - A light transparency grid.
+.chessboard.is-dark - A dark transparency grid.
+
+Markup:
+<figure class="filter {{ modifier_class }}">
+  <img src="https://picsum.photos/seed/coco-filter/800/450" alt="Landscape demonstrating the selected filter">
+</figure>
+
+Styleguide 5.2
+*/

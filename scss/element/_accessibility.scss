@@ -1,5 +1,20 @@
 @use '../mixin' as *;
 
+/*
+Screen-reader-only content
+
+`.sr-only` visually hides content while retaining it for assistive technology.
+Use it for context that is apparent visually but otherwise needs a text label.
+Elements focused with `tabindex="-1"` have their redundant outline removed.
+
+Markup:
+<button class="btn btn--primary" type="button">
+  <span aria-hidden="true">×</span><span class="sr-only">Close dialog</span>
+</button>
+
+Styleguide 6.1
+*/
+
 @mixin generate-accessibility {
   .sr-only {
     @include visually-hidden;

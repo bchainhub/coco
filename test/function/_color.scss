@@ -1,0 +1,32 @@
+@use 'true' as *;
+@use '../../scss/config' as *;
+@use '../../scss/function/color' as *;
+
+@include describe('color()') {
+  @include it('returns a CSS custom property by default') {
+    @include assert-equal(color('primary'), var(--coco-base-color-primary));
+  }
+
+  @include it('returns the raw configured color when requested') {
+    @include assert-equal(color('primary', $only-color: true), $color-primary);
+  }
+
+  @include it('returns null for an explicitly empty color') {
+    @include assert-equal(color('empty', 'base', $map: ('base': ('empty': null))), null);
+  }
+}
+
+@include describe('color-contrast()') {
+  @include it('returns white for a dark background') {
+    @include assert-equal(color-contrast(#000), #fff);
+  }
+
+  @include it('returns black for a light background') {
+    @include assert-equal(color-contrast(#fff), #000);
+  }
+
+  @include it('uses the perceived-brightness threshold') {
+    @include assert-equal(color-contrast(#f00), #fff);
+    @include assert-equal(color-contrast(#0f0), #000);
+  }
+}

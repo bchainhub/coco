@@ -1,5 +1,48 @@
 @use '../function' as *;
 
+/*
+Utilities
+
+Single-purpose classes for common presentation and accessibility needs.
+
+Styleguide 6
+*/
+
+/*
+Hidden content
+
+`.hidden` and the native `[hidden]` attribute remove an element from layout and
+the accessibility tree. Use `.sr-only` instead when assistive tools still need
+the content.
+
+.hidden - Hide the element completely.
+
+Markup:
+<span class="{{ modifier_class }}">This explanatory text may be hidden.</span>
+
+Styleguide 6.2
+*/
+
+/*
+Heading utilities
+
+Use `.h1` through `.h6` when semantic heading level and visual size need to
+differ. These classes change font size only; choose the HTML element by document
+structure first.
+
+.h1 - First-level display size.
+.h2 - Second-level display size.
+.h3 - Third-level display size.
+.h4 - Fourth-level display size.
+.h5 - Fifth-level display size.
+.h6 - Sixth-level display size.
+
+Markup:
+<p class="{{ modifier_class }}">Heading-sized text</p>
+
+Styleguide 6.3
+*/
+
 @mixin generate-utilities {
   @if setting('display', 'utilities') == true {
     .hidden,

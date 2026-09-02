@@ -3,6 +3,26 @@
 @use '../function' as *;
 @use '../mixin' as *;
 
+/*
+Checks and radios
+
+`.form-check` aligns a custom checkbox or radio with its label. The control
+supports checked, indeterminate, focused, disabled, small, and large states.
+
+.form-check--vertical-center - Vertically center the control and label.
+.form-check--vertical-start - Align the control with the first line.
+.form-check--sm - Use the small control size.
+.form-check--lg - Use the large control size.
+
+Markup:
+<label class="form-check {{ modifier_class }}">
+  <input class="form-check__control" type="checkbox" checked>
+  <span class="form-check__label">Send release notifications</span>
+</label>
+
+Styleguide 3.3
+*/
+
 // Create custom checkbox and radio
 @mixin generate-form-check(
   $parent,

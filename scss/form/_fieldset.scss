@@ -2,6 +2,22 @@
 @use '../mixin' as *;
 @use '../config' as *;
 
+/*
+Fieldset and legend
+
+Group related controls with a fieldset and describe the group with its first
+legend. Consecutive fieldsets receive additional vertical separation.
+
+Markup:
+<fieldset>
+  <legend>Contact preference</legend>
+  <label class="form-check"><input class="form-check__control" type="radio" name="kss-contact" checked> <span class="form-check__label">Email</span></label>
+  <label class="form-check"><input class="form-check__control" type="radio" name="kss-contact"> <span class="form-check__label">Telephone</span></label>
+</fieldset>
+
+Styleguide 3.7
+*/
+
 @mixin generate-form-fieldset {
   fieldset {
     @include generate-variables($form-fieldset);

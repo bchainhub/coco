@@ -3,6 +3,36 @@
 @use '../mixin' as *;
 @use '../config' as *;
 
+/*
+Forms
+
+Buttons and native form controls with consistent states and sizing.
+
+Styleguide 3
+*/
+
+/*
+Buttons
+
+Use a variant class to communicate an action's emphasis. Buttons support small,
+large, block, icon, focus, and disabled states.
+
+.btn--primary - Primary action.
+.btn--secondary - Secondary action.
+.btn--outline-primary - Outlined primary action.
+.btn--outline-secondary - Outlined secondary action.
+.btn--primary-shadow - Primary action with an elevated shadow.
+.btn--sm - A compact button.
+.btn--lg - A large button.
+.btn--block - A full-width button.
+.btn--icon - Square padding for an icon-only button; provide an accessible name.
+
+Markup:
+<button class="btn {{ modifier_class }}" type="button">Button</button>
+
+Styleguide 3.1
+*/
+
 @mixin generate-btn(
   $selector,
   $pseudo-selector: null,

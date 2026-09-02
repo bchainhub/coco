@@ -1,0 +1,23 @@
+@use 'true' as *;
+@use 'sass:meta';
+@use '../../scss/function/font-size' as *;
+
+@include describe('font-size()') {
+  @include it('returns a fixed configured font size') {
+    @include assert-equal(font-size('h5', false), 1rem);
+  }
+
+  @include it('does not scale below the base font size') {
+    @include assert-equal(font-size('h6'), 1rem);
+  }
+
+  @include it('generates a fluid heading size') {
+    @include assert-equal(meta.inspect(font-size('h1')), 'clamp(2.0751953125rem, 2vw + 1rem, 2.44140625rem)');
+  }
+}
+
+@include describe('responsive-font-size()') {
+  @include it('generates a clamp from explicit values') {
+    @include assert-equal(meta.inspect(responsive-font-size(2rem, 25, 4vw)), 'clamp(1.5rem, 4vw, 2rem)');
+  }
+}

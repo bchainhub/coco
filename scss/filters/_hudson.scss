@@ -5,21 +5,16 @@
 .filter {
   &.hudson {
     filter: contrast(90%) brightness(120%) saturate(110%);
-    filter: contrast(90%) brightness(120%) saturate(110%);
     position: relative;
 
     &::before {
       background: radial-gradient(circle closest-corner, rgb(255 177 166 / 1), rgb(52 33 52 / 1));
-      background: radial-gradient(circle closest-corner, rgb(255 177 166 / 1), rgb(52 33 52 / 1));
       content: '';
       display: block;
-      height: 100%;
-      left: 0;
+      inset: 0;
       mix-blend-mode: darken;
       pointer-events: none;
       position: absolute;
-      top: 0;
-      width: 100%;
     }
   }
 }

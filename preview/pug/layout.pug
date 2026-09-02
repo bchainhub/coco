@@ -2,70 +2,43 @@
 
 block variables
 
-<!DOCTYPE html>
+doctype html
 html(lang='en')
   head
-    script.
-      if (localStorage.getItem('coco-reading-direction')) {
-        document.documentElement.setAttribute('dir', localStorage.getItem('coco-reading-direction'));
-      }
-      if (localStorage.getItem('coco-theme-mode')) {
-        document.documentElement.setAttribute('data-theme-mode', localStorage.getItem('coco-theme-mode'));
-      }
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title CoCo CSS Framework
+    title #{title} | COCO CSS Framework
     link(rel='stylesheet' href=`../../assets/css/coco.css?time=${time}`)
     link(rel='icon' href='../../assets/img/favicon-32x32.png' type='image/png')
   body
     main(class='l-main')
       div(class='container')
         div(class='l-main__inner')
-          aside(class='l-main__sidebar')
+          aside(class='l-main__sidebar' aria-label='Documentation')
             ul(class='sidebar-navigation')
               li
-                a(href='color.html' aria-current=page === 'color' ? 'page' : '') Color
+                a(href='color.html' aria-current=page === 'color' ? 'page' : false) Colors
               li
-                a(href='typography.html' aria-current=page === 'typography' ? 'page' : '') Typography
+                a(href='typography.html' aria-current=page === 'typography' ? 'page' : false) Typography
               li
-                a(href='table.html' aria-current=page === 'table' ? 'page' : '') Table
+                a(href='table.html' aria-current=page === 'table' ? 'page' : false) Tables
               li
-                a(href='media.html' aria-current=page === 'media' ? 'page' : '') Media
+                a(href='media.html' aria-current=page === 'media' ? 'page' : false) Media
               li
-                a(href='button.html' aria-current=page === 'button' ? 'page' : '') Button
+                a(href='button.html' aria-current=page === 'button' ? 'page' : false) Buttons
               li
-                a(href='form.html' aria-current=page === 'form' ? 'page' : '') Form
+                a(href='form.html' aria-current=page === 'form' ? 'page' : false) Forms
               li
-                a(href='function.html' aria-current=page === 'function' ? 'page' : '') Function
+                a(href='function.html' aria-current=page === 'function' ? 'page' : false) Functions
               li
-                a(href='mixin.html' aria-current=page === 'mixin' ? 'page' : '') Mixin
+                a(href='mixin.html' aria-current=page === 'mixin' ? 'page' : false) Mixins
               li
-                a(href='component.html' aria-current=page === 'component' ? 'page' : '') Component
+                a(href='component.html' aria-current=page === 'component' ? 'page' : false) Components
               li
-                a(href='filters.html' aria-current=page === 'filters' ? 'page' : '') Filters
+                a(href='filters.html' aria-current=page === 'filters' ? 'page' : false) Filters
               li
-                a(href='grid.html' aria-current=page === 'grid' ? 'page' : '') Grid system
-            div(class='form-group')
-              label(class='form-label') Reading direction
-              select(id='reading-direction' class='form-control form-control--sm')
-                option(value='ltr') LTR
-                option(value='rtl') RTL
-            div(class='form-group')
-              label(class='form-label') Theme mode
-              select(id='theme-mode' class='form-control form-control--sm')
-                option(value='light') Light
-                option(value='dark') Dark
+                a(href='grid.html' aria-current=page === 'grid' ? 'page' : false) Grid
           div(class='l-main__body')
             h1(class='l-main__title')= title
             div(class='l-main__content')
               block content
-    script.
-      if (localStorage.getItem('coco-reading-direction')) {
-        document.getElementById('reading-direction').value = localStorage.getItem('coco-reading-direction');
-      }
-      if (localStorage.getItem('coco-theme-mode')) {
-        document.getElementById('theme-mode').value = localStorage.getItem('coco-theme-mode');
-      }
-    script(src='../../assets/js/reading-direction.js')
-    script(src='../../assets/js/theme-mode.js')
-    block scripts

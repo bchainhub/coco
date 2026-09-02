@@ -11,5 +11,5 @@
     @error 'It seems that this is not a valid CSS custom property name.';
   }
 
-  @return var(string.insert($var, '#{$internal-prefix}', 3));
+  @return var(#{string.unquote(string.insert($var, '#{$internal-prefix}', 3))});
 }

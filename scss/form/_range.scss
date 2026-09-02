@@ -2,6 +2,19 @@
 @use '../function' as *;
 @use '../mixin' as *;
 
+/*
+Range input
+
+The range control provides a consistent track, thumb, focus ring, and disabled
+state while preserving the native value and keyboard behavior.
+
+Markup:
+<label class="form-label" for="kss-range">Volume</label>
+<input class="form-range" id="kss-range" type="range" min="0" max="100" value="60">
+
+Styleguide 3.6
+*/
+
 @mixin generate-form-range {
   .form-range {
     @include generate-variables($form-range);

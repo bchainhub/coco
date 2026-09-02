@@ -1,12 +1,12 @@
-name: Feature request 🔮
-description: Suggest an idea for this project
+name: Feature request
+description: Suggest an improvement to COCO
 labels:
   - feature
 body:
   - type: markdown
     attributes:
       value: |
-        Suggest an idea for this project and developers will consider the integration.
+        Explain the use case and how the proposal fits a JavaScript-free CSS framework.
 
   - type: textarea
     id: problem
@@ -34,10 +34,10 @@ body:
     id: implementation
     attributes:
       label: Implementation
-      description: Describe implementation with example of the code.
+      description: Describe a possible implementation and include example markup or CSS.
 
   - type: textarea
     id: additional
     attributes:
       label: Additional context
-      description: Please, place additional content or screenshots.
+      description: Add any relevant context, screenshots, or links.

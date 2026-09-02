@@ -5,20 +5,16 @@
 .filter {
   &.seventyseven {
     filter: contrast(110%) brightness(110%) saturate(130%);
-    filter: contrast(110%) brightness(110%) saturate(130%);
     position: relative;
 
     &::before {
       background: rgb(243 106 188 / 0.3);
       content: '';
       display: block;
-      height: 100%;
-      left: 0;
+      inset: 0;
       mix-blend-mode: screen;
       pointer-events: none;
       position: absolute;
-      top: 0;
-      width: 100%;
     }
   }
 }

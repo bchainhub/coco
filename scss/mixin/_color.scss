@@ -5,7 +5,7 @@
 /// Generate color variables.
 /// @param {map} $colors - The colors map.
 /// @param {string} $selector - The selector.
-/// @return {string} - The generated color variables.
+/// @output The generated color variables.
 @mixin generate-color-variables(
   $colors: $colors,
   $selector: ':root'

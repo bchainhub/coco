@@ -35,7 +35,7 @@
   @return var(--#{$internal-prefix}#{$type}-color-#{$key});
 }
 
-/// Get any - just - color value from $colors (or any) Sass map.
+/// Get a raw color value from $colors (or any) Sass map.
 /// @param {string} $key - The key name of the color.
 /// @param {string} $type - The type of the color group (base, dark, etc.).
 /// @param {map} $map - The map to get the color from.
@@ -56,17 +56,21 @@
   @return map.get($map, $type, $key);
 }
 
-/// Get a white or black contrast color for any color (on WCAG standards).
+/// Get a white or black contrast color based on perceived brightness.
 /// Thanks for David Halford for this function: https://codepen.io/davidhalford/pen/ALrbEP
 /// @param {color} $color - The color to get the contrast color.
 /// @return {color} - The contrast color.
 @function color-contrast($color) {
-  $color-brightness: math.round((color.channel($color, 'red', $space: rgb) * 299) + (color.channel($color, 'green', $space: rgb) * 587) + math.div(color.channel($color, 'blue', $space: rgb) * 114, 1000));
-  $light-color: math.round((color.channel(#fff, 'red', $space: rgb) * 299) + (color.channel(#fff, 'green', $space: rgb) * 587) + math.div(color.channel(#fff, 'blue', $space: rgb) * 114, 1000));
+  $color-brightness: math.round(math.div(
+    (color.channel($color, 'red', $space: rgb) * 299) +
+    (color.channel($color, 'green', $space: rgb) * 587) +
+    (color.channel($color, 'blue', $space: rgb) * 114),
+    1000
+  ));
 
-  @if math.abs($color-brightness) < math.div($light-color, 2) {
-    @return hsl(0 0% 100%);
-  } @else {
-    @return hsl(0 100% 0%);
+  @if $color-brightness < 128 {
+    @return #fff;
   }
+
+  @return #000;
 }
