@@ -1,128 +1,108 @@
-
 # COCO
 
-**COCO** is an open-source CSS framework.
-
-Minimalistic ⛽ | Modular 🗂 | Modern 💈 | Free ⚗️
---- | --- | --- | ---
-*As small as possible, yet feature-rich* | *Import only the components you need* | *Built on CSS3* | *Open Source*
-
-## CDN
-
-**Latest version:**
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco/dist/css/coco.min.css" />
-```
-
-**Minor updates and patch fixes within a major version:**
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco@2/dist/css/coco.min.css" />
-```
-
-**Patch fixes within a minor version:**
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco@2.0/dist/css/coco.min.css" />
-```
-
-**Using SRI with the exact version:**
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco@2.0.0/dist/css/coco.min.css" integrity="sha384-{hash}" crossorigin="anonymous" />
-```
-
-> Replace `{hash}` with the SRI hash generated for the specific version. Use this [SRI Hash Generator](https://www.srihash.org/) for assistance.
+COCO is a lightweight, modular CSS framework built with Sass. It ships CSS only,
+with no JavaScript runtime, dependencies, or required initialization.
 
 ## Install
 
-### NPM
+Install the package with npm:
 
 ```sh
-npm i @blockchainhub/coco
+npm install @blockchainhub/coco
 ```
 
-or
+Then load either the expanded or minified stylesheet:
 
-```sh
-npm install "https://github.com/bchainhub/coco.git#semver:^2.0" --save
+```html
+<link rel="stylesheet" href="./node_modules/@blockchainhub/coco/dist/coco.min.css">
 ```
-
-### Yarn
-
-```sh
-yarn add @blockchainhub/coco
-```
-
-or
-
-```sh
-yarn add "https://github.com/bchainhub/coco.git#semver:^2.0"
-```
-
-## Import
-
-After installation, import the CSS file into your project:
-
-**CSS version:**
 
 ```css
 @import '@blockchainhub/coco/dist/coco.css';
 ```
 
-**Minified CSS version:**
+## CDN
 
-```css
-@import '@blockchainhub/coco/dist/coco.min.css';
+Pin the exact version for reproducible production builds:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco@2.3.0/dist/coco.min.css">
 ```
 
-## Get Started
+To receive compatible updates within major version 2:
 
-### Simplest Grid System, same as Bootstrap
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blockchainhub/coco@2/dist/coco.min.css">
+```
 
-> This framework uses a grid system with the same standards as Bootstrap.
+The package files are `dist/coco.css` and `dist/coco.min.css`. No JavaScript is
+published.
 
-### Features
+## Examples
 
-#### Sticky Footer
+COCO uses a responsive grid familiar to Bootstrap users and includes typography,
+forms, tables, buttons, layout utilities, and image filters.
 
-> Implement a sticky footer with just one class:
+### Sticky footer
 
 ```html
 <body class="has-sticky-footer">
-  <header></header>
-  <main></main>
-  <footer></footer>
+  <header>Header</header>
+  <main>Main content</main>
+  <footer>Footer</footer>
 </body>
 ```
 
-#### em.oji
-
-> Use emojis as icons with effects:
+### Emoji icon
 
 ```html
-<em class="oji flat">📥</em>
+<em class="oji flat" aria-hidden="true">📥</em>
 ```
 
-#### Current Version
-
-> Display the current version of COCO using this code:
+### Framework version
 
 ```html
-<span class="coco version">version </span>
+<span class="coco version">Version </span>
 ```
 
 ## Documentation
 
-For detailed documentation, visit the [Online Manual](https://bchainhub.github.io/coco/).
+Browse the [online documentation](https://bchainhub.github.io/coco/) for the
+preview, KSS component style guide, and SassDoc API reference. Documentation is
+generated directly from comments beside the relevant SCSS source.
 
-## Informational Notice
+The documentation build also produces `llms.txt`, `llms-full.txt`,
+`components.json`, and `sass-api.json` for coding assistants and automated
+tools. Repository-specific instructions for coding agents are in
+[AGENTS.md](AGENTS.md).
 
-Have you noticed some files start with an underscore?
+## Development
 
-> Sass files that begin with an underscore (`_`) are considered partials. These files are not compiled by themselves but are included in other files.
+COCO requires Node.js 22.22.2 or newer for its development toolchain.
 
-## Copyright and License
+```sh
+npm install
+npm run test:all
+```
+
+Lock files are intentionally not committed, so use `npm install` for a fresh checkout.
+
+Useful commands:
+
+- `npm run build` creates the expanded and minified production CSS.
+- `npm run preview:build` generates the static preview.
+- `npm run docs:build` creates the complete documentation site in `.site/`.
+- `npm start` watches the Sass and Pug sources and serves the preview at `http://localhost:3000/html/page/color.html`.
+- `npm test` runs the Sass unit tests with Node's built-in test runner.
+- `npm run lint` checks all Sass and SCSS files.
+
+Build tools use JavaScript during development, but the website-facing package
+and preview require none.
+
+## Contributing
+
+See the [contribution guide](.github/CONTRIBUTING.md) before opening a pull request.
+
+## License
 
 Released under the [CORE license](LICENSE).

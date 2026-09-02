@@ -4,7 +4,7 @@
 
 /// Declare CSS custom properties to add the prefix.
 /// @param {map} $vars - The CSS custom properties.
-/// @return {null}
+/// @output Prefixed CSS custom-property declarations.
 /// @throws {error} - If the CSS custom property name is invalid.
 @mixin set-css-variable($vars) {
   @each $name, $value in $vars {

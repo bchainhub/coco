@@ -1,6 +1,34 @@
 @use '../config' as *;
 @use '../function' as *;
 
+/*
+Sticky footer
+
+Apply `.has-sticky-footer` to the body or another page wrapper. Its direct
+`main` child expands to fill the available viewport height.
+
+Markup:
+<div class="has-sticky-footer">
+  <header>Header</header>
+  <main>Page content</main>
+  <footer>Footer</footer>
+</div>
+
+Styleguide 1.2
+*/
+
+/*
+Links
+
+Links use the configured foreground and hover colors. Keep meaningful link
+text and use buttons, rather than links, for actions that do not navigate.
+
+Markup:
+<a href="#kss-link-target">Read the COCO documentation</a>
+
+Styleguide 2.2
+*/
+
 @mixin generate-default {
   ::selection {
     background-color: color('background', 'selection');
@@ -33,6 +61,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-height: 100dvh;
 
     > main {
       flex: 1;

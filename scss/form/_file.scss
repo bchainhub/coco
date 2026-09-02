@@ -4,6 +4,22 @@
 @use '../config' as *;
 @use 'button' as *;
 
+/*
+File input
+
+The native file input receives a button-like file selector. It retains native
+focus and supports the standard small, large, and disabled input states.
+
+.form-file--sm - A compact file input.
+.form-file--lg - A large file input.
+
+Markup:
+<label class="form-label" for="kss-file">Upload an image</label>
+<input class="form-file {{ modifier_class }}" id="kss-file" type="file" accept="image/*">
+
+Styleguide 3.5
+*/
+
 @mixin generate-file-btn(
   $selector,
   $pseudo-selector: null,

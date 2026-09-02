@@ -5,20 +5,16 @@
 .filter {
   &.brannan {
     filter: contrast(140%) sepia(50%);
-    filter: contrast(140%) sepia(50%);
     position: relative;
 
     &::before {
       background: rgb(161 44 199 / 0.31);
       content: '';
       display: block;
-      height: 100%;
-      left: 0;
+      inset: 0;
       mix-blend-mode: lighten;
       pointer-events: none;
       position: absolute;
-      top: 0;
-      width: 100%;
     }
   }
 }

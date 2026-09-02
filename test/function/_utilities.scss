@@ -1,0 +1,18 @@
+@use 'true' as *;
+@use '../../scss/function/utilities' as *;
+
+@include describe('str-replace()') {
+  @include it('replaces every occurrence') {
+    @include assert-equal(str-replace('a-b-a', 'a', 'x'), 'x-b-x');
+  }
+
+  @include it('preserves a string without a match') {
+    @include assert-equal(str-replace('coco', 'x', 'y'), 'coco');
+  }
+}
+
+@include describe('svg-escape()') {
+  @include it('escapes reserved SVG characters') {
+    @include assert-equal(svg-escape('<svg fill="#fff">'), 'data:image/svg+xml,%3csvg fill="%23fff"%3e');
+  }
+}

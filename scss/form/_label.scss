@@ -2,6 +2,19 @@
 @use '../config' as *;
 @use '../function' as *;
 
+/*
+Form label
+
+`.form-label` provides consistent label typography. Connect it to its control
+with `for` and the control's matching `id`.
+
+Markup:
+<label class="form-label" for="kss-labelled-control">Email address</label>
+<input class="form-control" id="kss-labelled-control" type="email">
+
+Styleguide 3.13
+*/
+
 @mixin generate-form-label {
   .form-label {
     color: color('label', 'form');

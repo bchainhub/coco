@@ -3,6 +3,27 @@
 @use '../function' as *;
 @use '../mixin' as *;
 
+/*
+Switches
+
+Use a switch for an immediately applied on/off setting. Preserve the native
+checkbox so keyboard, focus, checked, disabled, and right-to-left behavior work.
+
+.form-switch--block - Put the label and switch at opposite edges.
+.form-switch--vertical-center - Vertically center the control and label.
+.form-switch--vertical-start - Align the control with the first line.
+.form-switch--sm - Use the small switch size.
+.form-switch--lg - Use the large switch size.
+
+Markup:
+<label class="form-switch {{ modifier_class }}">
+  <span class="form-switch__label">Enable notifications</span>
+  <input class="form-switch__control" type="checkbox" checked>
+</label>
+
+Styleguide 3.4
+*/
+
 @mixin generate-form-switch(
   $parent,
   $input,

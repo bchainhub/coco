@@ -1,0 +1,96 @@
+name: Documentation
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: documentation-doc-branch
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build documentation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Update npm
+        run: npm install --global npm@12.0.2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run checks
+        run: npm run test:all
+
+      - name: Build documentation
+        run: npm run docs:build
+
+      - name: Upload documentation artifact
+        if: >-
+          github.event_name != 'pull_request' &&
+          github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation
+          path: .site
+          if-no-files-found: error
+
+  deploy:
+    name: Publish documentation
+    if: >-
+      github.event_name != 'pull_request' &&
+      github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Download documentation artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: documentation
+          path: .site
+
+      - name: Publish documentation to doc branch
+        env:
+          DEPLOY_DIRECTORY: ${{ runner.temp }}/coco-documentation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin doc
+          git worktree add --detach "$DEPLOY_DIRECTORY" origin/doc
+          git -C "$DEPLOY_DIRECTORY" rm --recursive --force --ignore-unmatch .
+          cp -R .site/. "$DEPLOY_DIRECTORY/"
+          touch "$DEPLOY_DIRECTORY/.nojekyll"
+          git -C "$DEPLOY_DIRECTORY" add --all
+
+          if git -C "$DEPLOY_DIRECTORY" diff --cached --quiet; then
+            echo "Documentation is already current."
+            exit 0
+          fi
+
+          git -C "$DEPLOY_DIRECTORY" commit \
+            --message "Deploy documentation for ${GITHUB_SHA}"
+          git -C "$DEPLOY_DIRECTORY" push origin HEAD:doc

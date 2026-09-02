@@ -1,0 +1,8 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "form-dup-name": "off",
+    "no-inline-style": "off",
+    "no-trailing-whitespace": "off"
+  }
+}

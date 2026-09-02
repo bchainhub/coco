@@ -3,7 +3,15 @@
 @use '../../scss/function/config' as *;
 
 @include describe('config()') {
-  @include it('should return "0.75em 1em" as the base padding for the button elements') {
+  @include it('returns a numeric value directly') {
+    @include assert-equal(config('duration', $transition), 0.15s);
+  }
+
+  @include it('returns a configured list') {
     @include assert-equal(config('padding', $btn), 0.75em 1em);
+  }
+
+  @include it('returns the raw value when custom properties are disabled') {
+    @include assert-equal(config('padding', $btn, false), 0.75em 1em);
   }
 }

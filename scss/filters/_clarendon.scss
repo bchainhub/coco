@@ -5,20 +5,16 @@
 .filter {
   &.clarendon {
     filter: contrast(120%) saturate(125%);
-    filter: contrast(120%) saturate(125%);
     position: relative;
 
     &::before {
       background: rgb(127 187 227 / 0.2);
       content: '';
       display: block;
-      height: 100%;
-      left: 0;
+      inset: 0;
       mix-blend-mode: overlay;
       pointer-events: none;
       position: absolute;
-      top: 0;
-      width: 100%;
     }
   }
 }

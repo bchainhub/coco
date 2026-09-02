@@ -1,0 +1,8 @@
+@use 'true' as *;
+@use '../../scss/function/css-variable' as *;
+
+@include describe('get-css-variable()') {
+  @include it('adds the configured prefix') {
+    @include assert-equal(get-css-variable('--accent'), var(--coco-accent));
+  }
+}

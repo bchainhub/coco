@@ -2,6 +2,39 @@
 @use '../function' as *;
 @use '../mixin' as *;
 
+/*
+Data
+
+Patterns for presenting structured data.
+
+Styleguide 4
+*/
+
+/*
+Tables
+
+Wrap wide tables in `.table-responsive`. Variants can add stripes, hover
+feedback, compact spacing, rounded cells, or remove borders.
+
+.table--striped - Alternating row backgrounds.
+.table--hover - Highlight rows on hover.
+.table--sm - Compact cell spacing.
+.table--clear-border - Remove cell borders.
+.table--in-line - Align the first and last cells with surrounding content.
+.table--rounded - Round the outside cells.
+
+Markup:
+<div class="table-responsive">
+  <table class="table {{ modifier_class }}">
+    <caption>Framework releases</caption>
+    <thead><tr><th scope="col">Version</th><th scope="col">Status</th></tr></thead>
+    <tbody><tr><td>2.3.0</td><td>Current</td></tr><tr><td>2.2.0</td><td>Previous</td></tr></tbody>
+  </table>
+</div>
+
+Styleguide 4.1
+*/
+
 @mixin generate-table(
   $selector: '.table',
   $has-variations: true,

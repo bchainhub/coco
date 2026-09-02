@@ -1,6 +1,22 @@
 @use '../function' as *;
 @use '../mixin' as *;
 
+/*
+Responsive media
+
+Images scale down without distortion. Iframes fill their parent, so place an
+iframe inside a container with an appropriate aspect ratio. A `figure` adds
+space before its centered `figcaption`.
+
+Markup:
+<figure>
+  <img src="https://picsum.photos/seed/coco-kss/800/450" alt="Mountain landscape">
+  <figcaption>A responsive image with a caption.</figcaption>
+</figure>
+
+Styleguide 2.3
+*/
+
 @mixin generate-media {
   img {
     block-size: auto;

@@ -3,6 +3,24 @@
 @use '../mixin' as *;
 @use '../config' as *;
 
+/*
+Form controls
+
+Text fields, text areas, and selects share sizing, focus, validation, and disabled
+states. Always associate a visible label with each control.
+
+.form-control--sm - A compact control.
+.form-control--lg - A large control.
+.form-control--valid - A valid control.
+.form-control--invalid - An invalid control.
+
+Markup:
+<label class="form-label" for="kss-email">Email address</label>
+<input class="form-control {{ modifier_class }}" id="kss-email" type="email" placeholder="hello@example.com">
+
+Styleguide 3.2
+*/
+
 @mixin generate-form-control(
   $selector,
   $has-states: false,
@@ -10,7 +28,7 @@
   $has-select: true
 ) {
   #{$selector} {
-    --webkit-date-line-height: 1.375;
+    --#{$internal-prefix}webkit-date-line-height: 1.375;
     @include generate-variables($form-control, ('focus-'));
 
     appearance: none;
@@ -32,10 +50,10 @@
 
     &::placeholder {
       color: color('placeholder', 'form');
-    };
+    }
 
     &::-webkit-datetime-edit {
-      line-height: var(--webkit-date-line-height);
+      line-height: var(--#{$internal-prefix}webkit-date-line-height);
     }
 
     &:focus {
@@ -136,7 +154,7 @@
 
     @if ($has-sizes) {
       &--sm {
-        --webkit-date-line-height: 1.36;
+        --#{$internal-prefix}webkit-date-line-height: 1.36;
         @include generate-variables($form-control-sm);
 
         &[type='color'] {
@@ -157,7 +175,7 @@
       }
 
       &--lg {
-        --webkit-date-line-height: 1.387;
+        --#{$internal-prefix}webkit-date-line-height: 1.387;
         @include generate-variables($form-control-lg);
 
         &[type='color'] {
@@ -170,7 +188,7 @@
 
           &[type='color'] {
             aspect-ratio: config('aspect-ratio', $form-control-color-lg);
-            height: config('block-size', $form-control-color-lg);
+            block-size: config('block-size', $form-control-color-lg);
             inline-size: config('inline-size', $form-control-color-lg);
             padding: config('padding', $form-control-color-lg);
           }

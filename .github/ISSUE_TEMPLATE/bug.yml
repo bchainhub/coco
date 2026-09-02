@@ -1,42 +1,48 @@
-name: Report Bug 🪲
-description: Create a bug report
+name: Bug report
+description: Report a reproducible problem with COCO
 labels:
   - bug
 body:
   - type: markdown
     attributes:
       value: |
-        Please, provide as much details as possible to make proper evaluation and in the end resolve the bug report faster.
+        Thanks for helping improve COCO. Please provide enough detail for us to reproduce the problem.
 
-  - type: markdown
+  - type: input
+    id: coco-version
     attributes:
-      value: |
-        Software specific details.
+      label: COCO version
+      description: Which version of COCO are you using?
+      placeholder: 2.3.0
+    validations:
+      required: true
 
   - type: input
     id: os
     attributes:
       label: OS and version
-      description: Name and version of OS used.
-      placeholder: OS
+      description: Include the operating system and browser, with their versions.
+      placeholder: macOS 15.6, Safari 18.6
     validations:
       required: true
 
   - type: textarea
     id: bug
     attributes:
-      label: Bug
-      description: Describe the Bug.
-      placeholder: Bug description
+      label: Problem
+      description: Clearly describe what went wrong.
     validations:
       required: true
 
   - type: textarea
     id: reproduce
     attributes:
-      label: Reproduce Bug
-      description: Steps to reproduce the behavior.
-      placeholder: 1. Step 1
+      label: Reproduction steps
+      description: List the smallest set of steps that reproduces the problem.
+      placeholder: |
+        1. Add ...
+        2. Open ...
+        3. Observe ...
     validations:
       required: true
 
@@ -44,8 +50,7 @@ body:
     id: expected
     attributes:
       label: Expected behavior
-      description: Describe the result you are expecting.
-      placeholder: Result
+      description: Describe what you expected to happen.
     validations:
       required: true
 
@@ -53,11 +58,11 @@ body:
     id: hash
     attributes:
       label: Commit hash
-      description: Commit hash if known.
+      description: Provide the commit hash when testing an unreleased revision.
       placeholder: baf2aab0128f07262b564214ec70fc07befc6bb3
 
   - type: textarea
     id: additional
     attributes:
       label: Additional context
-      description: Please, place additional content or screenshots.
+      description: Add relevant markup, screenshots, or links to a minimal reproduction.

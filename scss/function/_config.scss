@@ -1,5 +1,4 @@
 @use 'sass:map';
-@use 'sass:string';
 @use 'sass:meta';
 @use 'setting' as *;
 @use '../config' as *;
@@ -16,7 +15,6 @@
   $custom-property: true
 ) {
   @if not map.has-key($map, $key) {
-    @error $key;
     @error 'The #{$key} key name doesn\'t exist under #{$map} at the specified map.';
   }
 

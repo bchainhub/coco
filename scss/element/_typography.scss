@@ -3,6 +3,58 @@
 @use '../mixin' as *;
 @use '../config' as *;
 
+/*
+Content
+
+Default typography and content elements.
+
+Styleguide 2
+*/
+
+/*
+Typography
+
+Headings, lead text, inline code, highlighted text, and quotations inherit the
+configured COCO type scale and colors.
+
+Markup:
+<article>
+  <h2>Build websites with COCO</h2>
+  <p class="lead">A lightweight, JavaScript-free CSS framework.</p>
+  <p>Use <mark>semantic HTML</mark> and document code with <code>SassDoc</code>.</p>
+  <blockquote>Styles should support the content.</blockquote>
+</article>
+
+Styleguide 2.1
+*/
+
+/*
+Attributed quotation
+
+`.quote` groups a quotation and attribution with consistent spacing. Use a
+`blockquote` for the quoted content and a `figcaption` for its source.
+
+Markup:
+<figure class="quote">
+  <blockquote>Good design makes the useful understandable.</blockquote>
+  <figcaption>— A useful attribution</figcaption>
+</figure>
+
+Styleguide 2.5
+*/
+
+/*
+Copyable text
+
+`.copy` selects all of an element's text when users interact with it. It is
+useful for identifiers and short values that are commonly copied.
+
+Markup:
+<code class="copy">@blockchainhub/coco</code>
+
+Styleguide 6.4
+*/
+
 @mixin generate-typography {
   html {
     -webkit-tap-highlight-color: hsl(0deg 0% 0% / 0%);
@@ -161,8 +213,6 @@
 
   .copy {
     cursor: copy;
-    user-select: all;
-    user-select: all;
     user-select: all;
   }
 }

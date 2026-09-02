@@ -4,14 +4,14 @@
 @use './variables' as *;
 @use './breakpoint' as *;
 
-/// Generate a from focus ring.
+/// Generate a form focus ring.
 /// @param {string} $type - The type of focus ring (box-shadow, outline).
 /// @param {string} $border-color - The border color.
 /// @param {string} $ring-color - The ring color.
 /// @param {string} $box-shadow-type - The box shadow type (outset, inset).
 /// @param {string} $ring-size - The ring width.
 /// @param {string} $ring-offset - The ring offset.
-/// @return {string} - The generated focus ring.
+/// @output The generated focus ring.
 @mixin focus-ring(
   $type: 'box-shadow',
   $border-color: null,
@@ -20,6 +20,10 @@
   $ring-size: 2px,
   $ring-offset: 2px
 ) {
+  @if $type != 'box-shadow' and $type != 'outline' {
+    @error 'The focus ring type must be "box-shadow" or "outline".';
+  }
+
   @if $type == 'box-shadow' {
     border-color: $border-color;
     @if $box-shadow-type == 'inset' {
@@ -39,7 +43,7 @@
 /// Style field disabled input states.
 /// @param {string} $background - The background color.
 /// @param {string} $border - The border color.
-/// @return {string} - The generated disabled input states.
+/// @output The generated disabled input states.
 @mixin field-disabled(
   $background,
   $border
@@ -50,9 +54,9 @@
 }
 
 /// Get custom icon background for input and select fields.
-/// @param {string} $icon - The icon (an SVG in string).
+/// @param {string} $icon - The icon as an SVG string.
 /// @param {string} $color - The color.
-/// @return {string} - The generated icon background.
+/// @output The generated icon background.
 @mixin field-icon(
   $icon,
   $color
@@ -62,12 +66,12 @@
 
 /// Create a form group stacked layout with custom breakpoint.
 /// @param {string} $breakpoint - The breakpoint.
-/// @return {string} - The generated form group stacked layout.
+/// @output The generated form group stacked layout.
 @mixin form-group-stacked(
   $breakpoint: 'sm',
 ) {
   @if not map.has-key($breakpoints, $breakpoint) {
-    @error 'The #{$breakpoint} not exists in the breakpoints map.';
+    @error 'The #{$breakpoint} breakpoint doesn\'t exist in the $breakpoints map.';
   }
 
   @include generate-variables($form-control, $include: ('border-radius'));

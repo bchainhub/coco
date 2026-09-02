@@ -1,27 +1,56 @@
-<!-- PLEASE READ THE FOLLOWING INSTRUCTIONS -->
-<!-- DO NOT REBUILD THE CSS OUTPUT IN YOUR PR -->
+# Pull Request
 
-<!-- Choose one of the following: -->
-This is a **new feature | improvement | bugfix**.
-<!-- New feature? Update the CHANGELOG.md too, and eventually the Docs. -->
-<!-- Improvement? Explain how and why. -->
-<!-- Bugfix? Reference that issue as well. -->
+## Summary
 
-### Proposed solution
-<!-- Which specific problem does this PR solve and how?  -->
-<!-- If it fixes a particular Issue, add "Fixes #ISSUE_NUMBER" in your title -->
+<!-- Explain what changed and why. -->
 
-### Tradeoffs
-<!-- What are the drawbacks of this solution? Are there alternative ones? -->
-<!-- Think of performance, build time, usability, complexity, coupling…) -->
+## Related issue
 
-### Testing Done
+<!-- Use "Fixes #123" when this pull request should close an issue. -->
 
-<!-- BEFORE SUBMITTING YOUR PR, MAKE SURE TO FOLLOW THESE STEPS: -->
-<!-- 1. Pull the latest `master` branch -->
-<!-- 2. Make sure your Sass code is compliant with the [COCO Sass styleguide](https://github.com/bchainhub/coco/blob/master/.github/CONTRIBUTING.md#coco-sass-styleguide) -->
-<!-- 3. Make sure your PR only affects `.sass` -->
-<!-- 4. [Try your changes](https://github.com/bchainhub/coco/blob/master/.github/CONTRIBUTING.md#try-your-changes). -->
+## Type of change
 
-<!-- How have you confirmed this feature works? -->
-<!-- Please explain more than "Yes". -->
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Refactoring or maintenance
+- [ ] Documentation
+- [ ] Breaking change
+
+## Testing
+
+<!-- List the commands and browsers used to verify the change. -->
+
+- [ ] `npm run test:all` passes
+- [ ] `npm run docs:build` passes
+- [ ] The preview was checked when styles or examples changed
+- [ ] Tests cover new behavior or a regression
+
+## CSS and documentation checklist
+
+- [ ] Public selectors have complete KSS documentation
+- [ ] Public Sass APIs have complete SassDoc comments
+- [ ] Accessibility and right-to-left behavior were considered
+- [ ] No website-facing JavaScript was added
+- [ ] Generated CSS is included only when required by a maintainer
+
+## Published package requirements
+
+- [ ] `npm run package:verify` passes
+- [ ] The package has no runtime, peer, or optional dependencies
+- [ ] The package has no Node.js, bundler, or framework requirement
+- [ ] The published files contain no JavaScript or TypeScript
+- [ ] Websites need only a stylesheet link and documented HTML classes
+- [ ] No initialization script, custom element, or client-side API is required
+
+## Trade-offs
+
+<!--
+Note important compatibility, size, accessibility, or maintenance
+considerations.
+-->
+
+## Screenshots
+
+<!--
+Add before-and-after images for visual changes, or write "Not applicable".
+-->

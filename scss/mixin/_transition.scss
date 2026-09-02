@@ -6,8 +6,7 @@
 /// @param {string} $duration - The duration of the transition.
 /// @param {string} $property - The property to which the transition is applied.
 /// @param {string} $timing-function - The speed curve of the transition.
-/// @return {string} - The generated transition declarations.
-/// @throws {error} - If the duration or timing-function is invalid.
+/// @output The generated transition declarations.
 @mixin transition(
   $duration: config('duration', $transition),
   $property: all,

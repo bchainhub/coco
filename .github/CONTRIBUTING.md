@@ -1,78 +1,44 @@
-### Raising an issue
+# Contributing to COCO
 
-* Make sure the issue hasn't been raised yet
-* Include **screenshots** and animated GIFs in your issue whenever possible
+Thanks for helping improve COCO.
 
-### Submitting a Pull Request
+## Before opening an issue
 
-* Include **screenshots** and animated GIFs in your pull request whenever possible
-* Use the **present** tense ("Add feature" not "Added feature")
-* Use the **imperative** mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or fewer
-* Reference issues and pull requests liberally
+- Search existing issues first.
+- For bugs, include the COCO version, browser and operating system versions, a
+  minimal reproduction, and screenshots when useful.
+- Keep proposals within COCO's scope: website-facing releases are CSS-only and
+  require no JavaScript.
 
-### Try your changes
+## Development
 
-When modifying any `.sass`, you will need to rebuild the css. You can do this by running:
+Install Node.js 22.22.2 or newer, then run:
 
+```sh
+npm install
+npm run test:all
 ```
-yarn install
-yarn build
-```
 
-### COCO Sass styleguide
+Use `npm start` to rebuild sources while previewing the documentation at
+`http://localhost:3000/html/page/color.html`.
 
-* **No semi-colons** `;` or **curly braces** `{` `}`
-* **No camelCase**
-* Use only **classes**
-* Order the CSS properties **alphabetically**
-* Order the CSS rule by
-  * direct styles
-  * nested tags
-  * pseudo-classes
-  * color modifiers
-  * size modifiers
-  * modifiers
-  * responsive styles
-* Add appropriate one-line comments for each of these sections within a CSS rule
-* **No trailing space**
-* End files with a **newline**
+## Sass style
 
-```sass
-.element
-  @extend .something
-  +mixin
-  property: value
-  span
-    // ...
-  div
-    // ...
-  .child
-    // ...
-  &:pseudo-class
-    // ...
-  // Colors
-  @each $name, $pair in $colors
-    // Loop
-  // Sizes
-  &.is-small
-    // ...
-  &.is-medium
-    // ...
-  &.is-large
-    // ...
-  // Modifiers (ordered alphabetically)
-  &.has-icons
-    // ...
-  &.is-active
-    // ...
-  &.is-fullwidth
-    // ...
-  // Responsiveness
-  +mobile
-    // ...
-  +tablet
-    // ...
-  +desktop
-    // ...
-```
+- Follow the repository's Stylelint and EditorConfig rules.
+- Use lowercase kebab-case class names.
+- Prefer logical properties for writing-mode support.
+- Keep declarations in alphabetical order.
+- Keep nesting shallow and selectors focused.
+- Add tests for Sass functions and regressions when practical.
+- End every file with a newline and remove trailing whitespace.
+
+Run `npm run lint` before submitting changes. Use `npm run sass:lint:fix` only
+after reviewing the affected files.
+
+## Pull requests
+
+- Keep each pull request focused on one change.
+- Use an imperative, present-tense title no longer than 72 characters.
+- Explain the problem, solution, trade-offs, and verification performed.
+- Link related issues and update documentation when behavior changes.
+- Commit generated CSS when preparing a release or when requested by a maintainer.

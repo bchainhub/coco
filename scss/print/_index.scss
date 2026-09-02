@@ -1,5 +1,23 @@
 @use 'sass:map';
 @use '../config' as *;
+
+/*
+Reference
+
+Cross-cutting framework behavior that does not render as an isolated component.
+
+Styleguide 7
+*/
+
+/*
+Print behavior
+
+When printing, COCO removes decorative page chrome, avoids splitting important
+content, expands abbreviations, and optionally prints external link targets.
+These rules are automatic and do not require a class.
+
+Styleguide 7.1
+*/
 @use '../function' as *;
 @use '../mixin' as *;
 

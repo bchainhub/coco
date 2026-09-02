@@ -2,6 +2,25 @@
 @use '../config' as *;
 @use '../function' as *;
 
+/*
+Validation feedback
+
+Place `.field-feedback` after its related control and connect the message with
+`aria-describedby`. Match valid or invalid feedback to the control state.
+
+.field-feedback--valid - A successful validation message.
+.field-feedback--invalid - An error validation message.
+
+Markup:
+<div class="form-group">
+  <label class="form-label" for="kss-username">Username</label>
+  <input class="form-control" id="kss-username" aria-describedby="kss-feedback">
+  <span class="field-feedback {{ modifier_class }}" id="kss-feedback">Username is available.</span>
+</div>
+
+Styleguide 3.9
+*/
+
 @mixin generate-form-feedback {
   .field-feedback {
     display: block;
