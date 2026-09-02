@@ -1,0 +1,125 @@
+{
+  "_animate-x_9xNIEv.js": {
+    "file": "animate-x_9xNIEv.js",
+    "name": "animate"
+  },
+  "_code-highlight-Fm7cxf-E.js": {
+    "file": "code-highlight-Fm7cxf-E.js",
+    "name": "code-highlight"
+  },
+  "_rolldown-runtime-B1bRi_D7.js": {
+    "file": "rolldown-runtime-B1bRi_D7.js",
+    "name": "rolldown-runtime"
+  },
+  "_shared-hGcWlnRM.js": {
+    "file": "shared-hGcWlnRM.js",
+    "name": "shared"
+  },
+  "_signal-ZVBNTRLw.js": {
+    "file": "signal-ZVBNTRLw.js",
+    "name": "signal"
+  },
+  "_utils-DrMb1LbR.js": {
+    "file": "utils-DrMb1LbR.js",
+    "name": "utils"
+  },
+  "client/fullpage.ts": {
+    "file": "fullpage-Ck0nyq2C.js",
+    "name": "fullpage",
+    "src": "client/fullpage.ts",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-B1bRi_D7.js",
+      "_shared-hGcWlnRM.js"
+    ],
+    "dynamicImports": [
+      "node_modules/axe-core/axe.js",
+      "node_modules/html-validate/dist/esm/browser.js"
+    ]
+  },
+  "client/lib/clipboard.ts": {
+    "file": "clipboard-BUvXbiCa.js",
+    "name": "clipboard",
+    "src": "client/lib/clipboard.ts",
+    "isDynamicEntry": true,
+    "imports": [
+      "_animate-x_9xNIEv.js",
+      "_signal-ZVBNTRLw.js",
+      "_utils-DrMb1LbR.js"
+    ]
+  },
+  "client/lib/editor-select.ts": {
+    "file": "editor-select-DIZFtqe7.js",
+    "name": "editor-select",
+    "src": "client/lib/editor-select.ts",
+    "isDynamicEntry": true
+  },
+  "client/lib/html-validator.ts": {
+    "file": "html-validator-Cq21EQMK.js",
+    "name": "html-validator",
+    "src": "client/lib/html-validator.ts",
+    "isDynamicEntry": true,
+    "imports": [
+      "_code-highlight-Fm7cxf-E.js",
+      "_utils-DrMb1LbR.js",
+      "_shared-hGcWlnRM.js"
+    ]
+  },
+  "client/lib/icons.ts": {
+    "file": "icons-C6KKEuT_.js",
+    "name": "icons",
+    "src": "client/lib/icons.ts",
+    "isDynamicEntry": true,
+    "imports": [
+      "_animate-x_9xNIEv.js",
+      "_utils-DrMb1LbR.js"
+    ]
+  },
+  "client/preview-inline.ts": {
+    "file": "preview-inline-CW9Pw65W.js",
+    "name": "preview-inline",
+    "src": "client/preview-inline.ts",
+    "isEntry": true
+  },
+  "client/preview.ts": {
+    "file": "preview-CHOmMvuB.js",
+    "name": "preview",
+    "src": "client/preview.ts",
+    "isEntry": true,
+    "imports": [
+      "_animate-x_9xNIEv.js",
+      "_code-highlight-Fm7cxf-E.js",
+      "_signal-ZVBNTRLw.js",
+      "_utils-DrMb1LbR.js",
+      "_shared-hGcWlnRM.js"
+    ],
+    "dynamicImports": [
+      "client/lib/html-validator.ts",
+      "client/lib/icons.ts",
+      "client/lib/clipboard.ts",
+      "client/lib/editor-select.ts"
+    ]
+  },
+  "node_modules/axe-core/axe.js": {
+    "file": "axe-B09yVm_c.js",
+    "name": "axe",
+    "src": "node_modules/axe-core/axe.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-B1bRi_D7.js"
+    ]
+  },
+  "node_modules/html-validate/dist/esm/browser.js": {
+    "file": "browser-nU7CpeVb.js",
+    "name": "browser",
+    "src": "node_modules/html-validate/dist/esm/browser.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-B1bRi_D7.js"
+    ]
+  },
+  "style.css": {
+    "file": "kss-modern-DeXoMEvT.css",
+    "src": "style.css"
+  }
+}

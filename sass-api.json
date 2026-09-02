@@ -1,0 +1,1122 @@
+{
+  "framework": "COCO",
+  "version": "2.3.0",
+  "api": [
+    {
+      "name": "escaping-characters",
+      "type": "variable",
+      "description": "Characters to escape using SVG as data:image.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [],
+      "source": "scss/config/_escaping-characters.scss",
+      "line": 2
+    },
+    {
+      "name": "em.oji",
+      "type": "css",
+      "description": "Emoji are ideograms and smileys used in electronic messages and web pages. Emoji exist in various genres.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/element/_emoji.scss",
+      "line": 24
+    },
+    {
+      "name": ".filter.seventyseven",
+      "type": "css",
+      "description": "1977 effect. As the name suggests, this filter gives you a nostalgic 70’s feel by making photos brighter as well as faded.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_1977.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.aden",
+      "type": "css",
+      "description": "Aden is famous for its retro, pastel-y look, which works great if you need to soften harsh lights.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_aden.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.amaro",
+      "type": "css",
+      "description": "This filter adds more light to the center of the photo and darkens around the edges.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_amaro.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.brannan",
+      "type": "css",
+      "description": "Brannan adds high contrast and exposure to your photo, giving it some stylish metallic tint. This photo effect is soft and washed out, like a photo from old granny’s album.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_brannan.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.brooklyn",
+      "type": "css",
+      "description": "Brooklyn brightens up your image and boosts its yellow tones. Depending on the image, it can give it an ethereal look.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_brooklyn.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.chessboard",
+      "type": "css",
+      "description": "Chessboard effect - black and white geometric checkered pattern. Mostly best for backgrounds.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_chessboard.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.clarendon",
+      "type": "css",
+      "description": "Clarendon filter will brighten the highlights found in your photos, while also making the shadows a bit bolder.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_clarendon.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.earlybird",
+      "type": "css",
+      "description": "Earlybird to get a retro “Polaroid” feel with soft faded colors and a hint of yellow.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_earlybird.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.gingham",
+      "type": "css",
+      "description": "Gingham muddy highlights, brightness, a slight haze and a subtle warm up of the tones by carefully applying red and magenta to selected parts of the image.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_gingham.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.hudson",
+      "type": "css",
+      "description": "Hudson emphasizes light in your image and gives your photos a bluish, colder feel.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_hudson.scss",
+      "line": 5
+    },
+    {
+      "name": ".filter.inkwell",
+      "type": "css",
+      "description": "Inkwell adds high contrast and also makes your photos black and white.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [
+        {
+          "version": "2.0.0"
+        }
+      ],
+      "source": "scss/filters/_inkwell.scss",
+      "line": 5
+    },
+    {
+      "name": "color",
+      "type": "function",
+      "description": "Get any color value from $colors (or any) Sass map.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "key",
+          "description": "The key name of the color."
+        },
+        {
+          "type": "string",
+          "name": "type",
+          "description": "The type of the color group (base, dark, etc.)."
+        },
+        {
+          "type": "boolean",
+          "name": "only-color",
+          "description": "If true, return only the color value."
+        },
+        {
+          "type": "map",
+          "name": "map",
+          "description": "The map to get the color from."
+        }
+      ],
+      "returns": {
+        "type": "color",
+        "description": "The color value or the variable."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_color.scss",
+      "line": 13
+    },
+    {
+      "name": "color-value",
+      "type": "function",
+      "description": "Get a raw color value from $colors (or any) Sass map.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "key",
+          "description": "The key name of the color."
+        },
+        {
+          "type": "string",
+          "name": "type",
+          "description": "The type of the color group (base, dark, etc.)."
+        },
+        {
+          "type": "map",
+          "name": "map",
+          "description": "The map to get the color from."
+        }
+      ],
+      "returns": {
+        "type": "color",
+        "description": "The color value."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_color.scss",
+      "line": 43
+    },
+    {
+      "name": "color-contrast",
+      "type": "function",
+      "description": "Get a white or black contrast color based on perceived brightness.\nThanks for David Halford for this function: https://codepen.io/davidhalford/pen/ALrbEP",
+      "parameters": [
+        {
+          "type": "color",
+          "name": "color",
+          "description": "The color to get the contrast color."
+        }
+      ],
+      "returns": {
+        "type": "color",
+        "description": "The contrast color."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_color.scss",
+      "line": 63
+    },
+    {
+      "name": "config",
+      "type": "function",
+      "description": "Get the value of a key from a map.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "key",
+          "description": "The key name."
+        },
+        {
+          "type": "map",
+          "name": "map",
+          "description": "The map to get the value from."
+        },
+        {
+          "type": "boolean",
+          "name": "custom-property",
+          "description": "Whether to return the value as a CSS custom property."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The value of the key."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_config.scss",
+      "line": 12
+    },
+    {
+      "name": "get-css-variable",
+      "type": "function",
+      "description": "Add the prefix value to a CSS custom properties.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "var",
+          "description": "The name of the CSS custom property."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The CSS custom property with the prefix."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_css-variable.scss",
+      "line": 9
+    },
+    {
+      "name": "font-size",
+      "type": "function",
+      "description": "Get the font size of a key from the $font-sizes map.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "key",
+          "description": "The key name."
+        },
+        {
+          "type": "boolean",
+          "name": "fluid",
+          "description": "Whether to return the fluid font size."
+        },
+        {
+          "type": "number",
+          "name": "scaler",
+          "description": "The scaler value (15 = 15% smaller)."
+        },
+        {
+          "type": "number",
+          "name": "optimal-size",
+          "description": "The optimal font size."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The font size of the key."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_font-size.scss",
+      "line": 12
+    },
+    {
+      "name": "responsive-font-size",
+      "type": "function",
+      "description": "Generate responsive font-size value using clamp().",
+      "parameters": [
+        {
+          "type": "number",
+          "name": "size",
+          "description": "The font size."
+        },
+        {
+          "type": "number",
+          "name": "scaler",
+          "description": "The scaler value (15 = 15% smaller)."
+        },
+        {
+          "type": "number",
+          "name": "optimal-size",
+          "description": "The optimal font size."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The responsive font-size value."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_font-size.scss",
+      "line": 44
+    },
+    {
+      "name": "setting",
+      "type": "function",
+      "description": "Get a value from the $settings map.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "key",
+          "description": "The key name."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The value of the key."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_setting.scss",
+      "line": 8
+    },
+    {
+      "name": "split-values",
+      "type": "function",
+      "description": "Split a string into a list of values.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "value",
+          "description": "The string to split."
+        },
+        {
+          "type": "string",
+          "name": "separator",
+          "description": "The separator to split by."
+        }
+      ],
+      "returns": {
+        "type": "list",
+        "description": "The list of values."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_spacer.scss",
+      "line": 10
+    },
+    {
+      "name": "spacer",
+      "type": "function",
+      "description": "Get spacer value from $spacers map.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "key",
+          "description": "The key name."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The value of the key."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_spacer.scss",
+      "line": 27
+    },
+    {
+      "name": "spacer-clamp",
+      "type": "function",
+      "description": "Get value returned in a clamp from $spacers maps.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "min",
+          "description": "The minimum value."
+        },
+        {
+          "type": "string",
+          "name": "max",
+          "description": "The maximum value."
+        },
+        {
+          "type": "string",
+          "name": "optimal",
+          "description": "The optimal value."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The value returned in a clamp."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_spacer.scss",
+      "line": 54
+    },
+    {
+      "name": "svg-escape",
+      "type": "function",
+      "description": "Escape a string to be used as a data URI.",
+      "parameters": [
+        {
+          "type": "String",
+          "name": "string",
+          "description": "The string to escape."
+        }
+      ],
+      "returns": {
+        "type": "String",
+        "description": "The escaped string."
+      },
+      "output": null,
+      "since": [],
+      "source": "scss/function/_utilities.scss",
+      "line": 24
+    },
+    {
+      "name": "breakpoint",
+      "type": "mixin",
+      "description": "Return a media query for a breakpoint based on min-width.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "breakpoint",
+          "description": "The breakpoint name."
+        },
+        {
+          "type": "string",
+          "name": "logic",
+          "description": "The logic operator."
+        }
+      ],
+      "returns": null,
+      "output": "The media query.",
+      "since": [],
+      "source": "scss/mixin/_breakpoint.scss",
+      "line": 9
+    },
+    {
+      "name": "btn-focus-helper",
+      "type": "mixin",
+      "description": "Generate a button focus ring.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "type",
+          "description": "The type of the button for the color value."
+        },
+        {
+          "type": "boolean",
+          "name": "focus",
+          "description": "If the focus ring should be generated."
+        }
+      ],
+      "returns": null,
+      "output": "The generated focus ring.",
+      "since": [],
+      "source": "scss/mixin/_button.scss",
+      "line": 11
+    },
+    {
+      "name": "btn-variant",
+      "type": "mixin",
+      "description": "Generate a button variant.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "type",
+          "description": "The type of the button for the color value."
+        },
+        {
+          "type": "boolean",
+          "name": "focus",
+          "description": "If the focus ring should be generated."
+        }
+      ],
+      "returns": null,
+      "output": "The generated button variant.",
+      "since": [],
+      "source": "scss/mixin/_button.scss",
+      "line": 41
+    },
+    {
+      "name": "btn-variant-outline",
+      "type": "mixin",
+      "description": "Generate a button variant with outline.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "type",
+          "description": "The type of the button for the color value."
+        },
+        {
+          "type": "boolean",
+          "name": "focus",
+          "description": "If the focus ring should be generated."
+        }
+      ],
+      "returns": null,
+      "output": "The generated button variant with outline.",
+      "since": [],
+      "source": "scss/mixin/_button.scss",
+      "line": 83
+    },
+    {
+      "name": "generate-color-variables",
+      "type": "mixin",
+      "description": "Generate color variables.",
+      "parameters": [
+        {
+          "type": "map",
+          "name": "colors",
+          "description": "The colors map."
+        },
+        {
+          "type": "string",
+          "name": "selector",
+          "description": "The selector."
+        }
+      ],
+      "returns": null,
+      "output": "The generated color variables.",
+      "since": [],
+      "source": "scss/mixin/_color.scss",
+      "line": 9
+    },
+    {
+      "name": "set-css-variable",
+      "type": "mixin",
+      "description": "Declare CSS custom properties to add the prefix.",
+      "parameters": [
+        {
+          "type": "map",
+          "name": "vars",
+          "description": "The CSS custom properties."
+        }
+      ],
+      "returns": null,
+      "output": "Prefixed CSS custom-property declarations.",
+      "since": [],
+      "source": "scss/mixin/_css-variable.scss",
+      "line": 9
+    },
+    {
+      "name": "font-face",
+      "type": "mixin",
+      "description": "Generate font-face declaration.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "font-family",
+          "description": "The font family name."
+        },
+        {
+          "type": "string",
+          "name": "src",
+          "description": "The font source."
+        },
+        {
+          "type": "number",
+          "name": "font-weight",
+          "description": "The font weight."
+        },
+        {
+          "type": "string",
+          "name": "font-style",
+          "description": "The font style."
+        },
+        {
+          "type": "string",
+          "name": "font-display",
+          "description": "The font display."
+        }
+      ],
+      "returns": null,
+      "output": "The generated font-face declaration.",
+      "since": [],
+      "source": "scss/mixin/_font-face.scss",
+      "line": 12
+    },
+    {
+      "name": "focus-ring",
+      "type": "mixin",
+      "description": "Generate a form focus ring.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "type",
+          "description": "The type of focus ring (box-shadow, outline)."
+        },
+        {
+          "type": "string",
+          "name": "border-color",
+          "description": "The border color."
+        },
+        {
+          "type": "string",
+          "name": "ring-color",
+          "description": "The ring color."
+        },
+        {
+          "type": "string",
+          "name": "box-shadow-type",
+          "description": "The box shadow type (outset, inset)."
+        },
+        {
+          "type": "string",
+          "name": "ring-size",
+          "description": "The ring width."
+        },
+        {
+          "type": "string",
+          "name": "ring-offset",
+          "description": "The ring offset."
+        }
+      ],
+      "returns": null,
+      "output": "The generated focus ring.",
+      "since": [],
+      "source": "scss/mixin/_form.scss",
+      "line": 15
+    },
+    {
+      "name": "field-disabled",
+      "type": "mixin",
+      "description": "Style field disabled input states.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "background",
+          "description": "The background color."
+        },
+        {
+          "type": "string",
+          "name": "border",
+          "description": "The border color."
+        }
+      ],
+      "returns": null,
+      "output": "The generated disabled input states.",
+      "since": [],
+      "source": "scss/mixin/_form.scss",
+      "line": 47
+    },
+    {
+      "name": "field-icon",
+      "type": "mixin",
+      "description": "Get custom icon background for input and select fields.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "icon",
+          "description": "The icon as an SVG string."
+        },
+        {
+          "type": "string",
+          "name": "color",
+          "description": "The color."
+        }
+      ],
+      "returns": null,
+      "output": "The generated icon background.",
+      "since": [],
+      "source": "scss/mixin/_form.scss",
+      "line": 60
+    },
+    {
+      "name": "form-group-stacked",
+      "type": "mixin",
+      "description": "Create a form group stacked layout with custom breakpoint.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "breakpoint",
+          "description": "The breakpoint."
+        }
+      ],
+      "returns": null,
+      "output": "The generated form group stacked layout.",
+      "since": [],
+      "source": "scss/mixin/_form.scss",
+      "line": 70
+    },
+    {
+      "name": "generate-styles",
+      "type": "mixin",
+      "description": "Generate all the styles.",
+      "parameters": [],
+      "returns": null,
+      "output": null,
+      "since": [],
+      "source": "scss/mixin/_generator.scss",
+      "line": 10
+    },
+    {
+      "name": "layout-center",
+      "type": "mixin",
+      "description": "Create center layout.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "gap",
+          "description": "The gap between the container and the content."
+        },
+        {
+          "type": "string",
+          "name": "max-inline-size",
+          "description": "The maximum width (inline-size) of the container."
+        }
+      ],
+      "returns": null,
+      "output": "The centered layout.",
+      "since": [],
+      "source": "scss/mixin/_layout.scss",
+      "line": 12
+    },
+    {
+      "name": "layout-stack",
+      "type": "mixin",
+      "description": "Create stack layout.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "gap",
+          "description": "The gap between the elements."
+        },
+        {
+          "type": "boolean",
+          "name": "inline-size",
+          "description": "Whether it has explicit width (inline-size)."
+        },
+        {
+          "type": "string",
+          "name": "align",
+          "description": "The horizontal alignment of the elements."
+        },
+        {
+          "type": "boolean",
+          "name": "important",
+          "description": "Whether it should use the !important keyword."
+        }
+      ],
+      "returns": null,
+      "output": "The stacked layout.",
+      "since": [],
+      "source": "scss/mixin/_layout.scss",
+      "line": 32
+    },
+    {
+      "name": "layout-grid",
+      "type": "mixin",
+      "description": "Create grid layout.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "gap",
+          "description": "The gap between the elements."
+        },
+        {
+          "type": "string",
+          "name": "minimum",
+          "description": "The minimum width (inline-size) of the elements."
+        }
+      ],
+      "returns": null,
+      "output": "The grid layout.",
+      "since": [],
+      "source": "scss/mixin/_layout.scss",
+      "line": 77
+    },
+    {
+      "name": "layout-sidebar",
+      "type": "mixin",
+      "description": "Create sidebar layout.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "gap",
+          "description": "The gap between the elements."
+        },
+        {
+          "type": "string",
+          "name": "inline-size",
+          "description": "The width (flex-basis) of the sidebar."
+        }
+      ],
+      "returns": null,
+      "output": "The sidebar layout.",
+      "since": [],
+      "source": "scss/mixin/_layout.scss",
+      "line": 101
+    },
+    {
+      "name": "layout-flex",
+      "type": "mixin",
+      "description": "Create instinctive flex layout.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "gap",
+          "description": "The gap between the elements."
+        },
+        {
+          "type": "string",
+          "name": "inline-size",
+          "description": "The width (inline size) of the elements."
+        }
+      ],
+      "returns": null,
+      "output": "The instinctive flex layout.",
+      "since": [],
+      "source": "scss/mixin/_layout.scss",
+      "line": 131
+    },
+    {
+      "name": "selection",
+      "type": "mixin",
+      "description": "Set the ::selection of an element with automatic foreground color.",
+      "parameters": [
+        {
+          "type": "color",
+          "name": "background",
+          "description": "The background color."
+        },
+        {
+          "type": "color",
+          "name": "foreground",
+          "description": "The foreground color. If null, the color will be automatically calculated."
+        },
+        {
+          "type": "boolean",
+          "name": "is-direct",
+          "description": "If true, the selection will be applied to the current element if false it will be applied to its children."
+        }
+      ],
+      "returns": null,
+      "output": "The selection mixin.",
+      "since": [],
+      "source": "scss/mixin/_selection.scss",
+      "line": 10
+    },
+    {
+      "name": "transition",
+      "type": "mixin",
+      "description": "Generates transition related declarations.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "duration",
+          "description": "The duration of the transition."
+        },
+        {
+          "type": "string",
+          "name": "property",
+          "description": "The property to which the transition is applied."
+        },
+        {
+          "type": "string",
+          "name": "timing-function",
+          "description": "The speed curve of the transition."
+        }
+      ],
+      "returns": null,
+      "output": "The generated transition declarations.",
+      "since": [],
+      "source": "scss/mixin/_transition.scss",
+      "line": 10
+    },
+    {
+      "name": "visually-hidden",
+      "type": "mixin",
+      "description": "Hide something from the screen but keep it visible for assistive technology.",
+      "parameters": [],
+      "returns": null,
+      "output": "The visually hidden mixin.",
+      "since": [],
+      "source": "scss/mixin/_utilities.scss",
+      "line": 9
+    },
+    {
+      "name": "text-ellipsis",
+      "type": "mixin",
+      "description": "Crop text and display an ellipsis with multiline.",
+      "parameters": [
+        {
+          "type": "number",
+          "name": "number-of-lines",
+          "description": "The number of lines."
+        }
+      ],
+      "returns": null,
+      "output": "The text ellipsis mixin.",
+      "since": [],
+      "source": "scss/mixin/_utilities.scss",
+      "line": 25
+    },
+    {
+      "name": "scrollbar",
+      "type": "mixin",
+      "description": "Custom scrollbar.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "thumb-background-color",
+          "description": "The background color of the thumb."
+        },
+        {
+          "type": "string",
+          "name": "thumb-background-color-hover",
+          "description": "The background color of the thumb when hovered."
+        },
+        {
+          "type": "string",
+          "name": "track-background-color",
+          "description": "The background color of the track."
+        },
+        {
+          "type": "string",
+          "name": "size",
+          "description": "The size of the scrollbar."
+        },
+        {
+          "type": "string",
+          "name": "border-radius",
+          "description": "The border radius of the scrollbar."
+        }
+      ],
+      "returns": null,
+      "output": "The scrollbar mixin.",
+      "since": [],
+      "source": "scss/mixin/_utilities.scss",
+      "line": 51
+    },
+    {
+      "name": "clear-btn",
+      "type": "mixin",
+      "description": "Clear default button styles.",
+      "parameters": [],
+      "returns": null,
+      "output": "The clear button mixin.",
+      "since": [],
+      "source": "scss/mixin/_utilities.scss",
+      "line": 80
+    },
+    {
+      "name": "a11y-card-link",
+      "type": "mixin",
+      "description": "More accessible card linking.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "link",
+          "description": "The link element's selector."
+        },
+        {
+          "type": "boolean",
+          "name": "at-root",
+          "description": "Whether to use @at-root."
+        }
+      ],
+      "returns": null,
+      "output": "The a11y card link mixin.",
+      "since": [],
+      "source": "scss/mixin/_utilities.scss",
+      "line": 101
+    },
+    {
+      "name": "word-wrap",
+      "type": "mixin",
+      "description": "Break long string.",
+      "parameters": [],
+      "returns": null,
+      "output": "The word-wrap mixin.",
+      "since": [],
+      "source": "scss/mixin/_utilities.scss",
+      "line": 127
+    },
+    {
+      "name": "short-ring",
+      "type": "mixin",
+      "description": "Generate a focus ring.",
+      "parameters": [
+        {
+          "type": "string",
+          "name": "type",
+          "description": "The type of the focus ring."
+        },
+        {
+          "type": "string",
+          "name": "btn-type",
+          "description": "The type - hence color - of the button."
+        }
+      ],
+      "returns": null,
+      "output": "The focus ring mixin.",
+      "since": [],
+      "source": "scss/mixin/_utilities.scss",
+      "line": 139
+    },
+    {
+      "name": "generate-variables",
+      "type": "mixin",
+      "description": "Generate CSS custom properties based on a map.",
+      "parameters": [
+        {
+          "type": "map",
+          "name": "map",
+          "description": "The map to generate the CSS custom properties from."
+        },
+        {
+          "type": "list",
+          "name": "exclude",
+          "description": "The list of keys (or a segment of it) to exclude."
+        },
+        {
+          "type": "list",
+          "name": "include",
+          "description": "The list of keys (or a segment of it) to include."
+        }
+      ],
+      "returns": null,
+      "output": "The generated CSS custom properties.",
+      "since": [],
+      "source": "scss/mixin/_variables.scss",
+      "line": 11
+    }
+  ]
+}

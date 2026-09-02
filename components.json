@@ -1,0 +1,566 @@
+{
+  "framework": "COCO",
+  "version": "2.3.0",
+  "components": [
+    {
+      "reference": "1.1",
+      "category": "Layout",
+      "name": "Grid",
+      "description": "Place columns inside a row and container. Responsive column classes use the\nconfigured breakpoint name, for example `.col-md-6`.",
+      "markup": "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-4\">One third</div>\n    <div class=\"col-8\">Two thirds</div>\n  </div>\n</div>",
+      "modifiers": [],
+      "source": "scss/element/_grid.scss",
+      "line": 21,
+      "preview": "styleguide/preview-1.1.html"
+    },
+    {
+      "reference": "1.2",
+      "category": "Layout",
+      "name": "Sticky footer",
+      "description": "Apply `.has-sticky-footer` to the body or another page wrapper. Its direct\n`main` child expands to fill the available viewport height.",
+      "markup": "<div class=\"has-sticky-footer\">\n  <header>Header</header>\n  <main>Page content</main>\n  <footer>Footer</footer>\n</div>",
+      "modifiers": [],
+      "source": "scss/element/_default.scss",
+      "line": 4,
+      "preview": "styleguide/preview-1.2.html"
+    },
+    {
+      "reference": "2.1",
+      "category": "Content",
+      "name": "Typography",
+      "description": "Headings, lead text, inline code, highlighted text, and quotations inherit the\nconfigured COCO type scale and colors.",
+      "markup": "<article>\n  <h2>Build websites with COCO</h2>\n  <p class=\"lead\">A lightweight, JavaScript-free CSS framework.</p>\n  <p>Use <mark>semantic HTML</mark> and document code with <code>SassDoc</code>.</p>\n  <blockquote>Styles should support the content.</blockquote>\n</article>",
+      "modifiers": [],
+      "source": "scss/element/_typography.scss",
+      "line": 14,
+      "preview": "styleguide/preview-2.1.html"
+    },
+    {
+      "reference": "2.2",
+      "category": "Content",
+      "name": "Links",
+      "description": "Links use the configured foreground and hover colors. Keep meaningful link\ntext and use buttons, rather than links, for actions that do not navigate.",
+      "markup": "<a href=\"#kss-link-target\">Read the COCO documentation</a>",
+      "modifiers": [],
+      "source": "scss/element/_default.scss",
+      "line": 20,
+      "preview": "styleguide/preview-2.2.html"
+    },
+    {
+      "reference": "2.3",
+      "category": "Content",
+      "name": "Responsive media",
+      "description": "Images scale down without distortion. Iframes fill their parent, so place an\niframe inside a container with an appropriate aspect ratio. A `figure` adds\nspace before its centered `figcaption`.",
+      "markup": "<figure>\n  <img src=\"https://picsum.photos/seed/coco-kss/800/450\" alt=\"Mountain landscape\">\n  <figcaption>A responsive image with a caption.</figcaption>\n</figure>",
+      "modifiers": [],
+      "source": "scss/element/_media.scss",
+      "line": 4,
+      "preview": "styleguide/preview-2.3.html"
+    },
+    {
+      "reference": "2.4",
+      "category": "Content",
+      "name": "Divider",
+      "description": "Use a thematic break to separate related content. The element receives the\nconfigured border color and no default raised border.",
+      "markup": "<p>Content before the break.</p>\n<hr>\n<p>Content after the break.</p>",
+      "modifiers": [],
+      "source": "scss/element/_divider.scss",
+      "line": 3,
+      "preview": "styleguide/preview-2.4.html"
+    },
+    {
+      "reference": "2.5",
+      "category": "Content",
+      "name": "Attributed quotation",
+      "description": "`.quote` groups a quotation and attribution with consistent spacing. Use a\n`blockquote` for the quoted content and a `figcaption` for its source.",
+      "markup": "<figure class=\"quote\">\n  <blockquote>Good design makes the useful understandable.</blockquote>\n  <figcaption>— A useful attribution</figcaption>\n</figure>",
+      "modifiers": [],
+      "source": "scss/element/_typography.scss",
+      "line": 31,
+      "preview": "styleguide/preview-2.5.html"
+    },
+    {
+      "reference": "3.1",
+      "category": "Forms",
+      "name": "Buttons",
+      "description": "Use a variant class to communicate an action's emphasis. Buttons support small,\nlarge, block, icon, focus, and disabled states.",
+      "markup": "<button class=\"btn {{ modifier_class }}\" type=\"button\">Button</button>",
+      "modifiers": [
+        {
+          "value": ".btn--primary",
+          "description": "Primary action."
+        },
+        {
+          "value": ".btn--secondary",
+          "description": "Secondary action."
+        },
+        {
+          "value": ".btn--outline-primary",
+          "description": "Outlined primary action."
+        },
+        {
+          "value": ".btn--outline-secondary",
+          "description": "Outlined secondary action."
+        },
+        {
+          "value": ".btn--primary-shadow",
+          "description": "Primary action with an elevated shadow."
+        },
+        {
+          "value": ".btn--sm",
+          "description": "A compact button."
+        },
+        {
+          "value": ".btn--lg",
+          "description": "A large button."
+        },
+        {
+          "value": ".btn--block",
+          "description": "A full-width button."
+        },
+        {
+          "value": ".btn--icon",
+          "description": "Square padding for an icon-only button; provide an accessible name."
+        }
+      ],
+      "source": "scss/form/_button.scss",
+      "line": 14,
+      "preview": "styleguide/preview-3.1.html"
+    },
+    {
+      "reference": "3.2",
+      "category": "Forms",
+      "name": "Form controls",
+      "description": "Text fields, text areas, and selects share sizing, focus, validation, and disabled\nstates. Always associate a visible label with each control.",
+      "markup": "<label class=\"form-label\" for=\"kss-email\">Email address</label>\n<input class=\"form-control {{ modifier_class }}\" id=\"kss-email\" type=\"email\" placeholder=\"hello@example.com\">",
+      "modifiers": [
+        {
+          "value": ".form-control--sm",
+          "description": "A compact control."
+        },
+        {
+          "value": ".form-control--lg",
+          "description": "A large control."
+        },
+        {
+          "value": ".form-control--valid",
+          "description": "A valid control."
+        },
+        {
+          "value": ".form-control--invalid",
+          "description": "An invalid control."
+        }
+      ],
+      "source": "scss/form/_control.scss",
+      "line": 6,
+      "preview": "styleguide/preview-3.2.html"
+    },
+    {
+      "reference": "3.3",
+      "category": "Forms",
+      "name": "Checks and radios",
+      "description": "`.form-check` aligns a custom checkbox or radio with its label. The control\nsupports checked, indeterminate, focused, disabled, small, and large states.",
+      "markup": "<label class=\"form-check {{ modifier_class }}\">\n  <input class=\"form-check__control\" type=\"checkbox\" checked>\n  <span class=\"form-check__label\">Send release notifications</span>\n</label>",
+      "modifiers": [
+        {
+          "value": ".form-check--vertical-center",
+          "description": "Vertically center the control and label."
+        },
+        {
+          "value": ".form-check--vertical-start",
+          "description": "Align the control with the first line."
+        },
+        {
+          "value": ".form-check--sm",
+          "description": "Use the small control size."
+        },
+        {
+          "value": ".form-check--lg",
+          "description": "Use the large control size."
+        }
+      ],
+      "source": "scss/form/_check.scss",
+      "line": 6,
+      "preview": "styleguide/preview-3.3.html"
+    },
+    {
+      "reference": "3.4",
+      "category": "Forms",
+      "name": "Switches",
+      "description": "Use a switch for an immediately applied on/off setting. Preserve the native\ncheckbox so keyboard, focus, checked, disabled, and right-to-left behavior work.",
+      "markup": "<label class=\"form-switch {{ modifier_class }}\">\n  <span class=\"form-switch__label\">Enable notifications</span>\n  <input class=\"form-switch__control\" type=\"checkbox\" checked>\n</label>",
+      "modifiers": [
+        {
+          "value": ".form-switch--block",
+          "description": "Put the label and switch at opposite edges."
+        },
+        {
+          "value": ".form-switch--vertical-center",
+          "description": "Vertically center the control and label."
+        },
+        {
+          "value": ".form-switch--vertical-start",
+          "description": "Align the control with the first line."
+        },
+        {
+          "value": ".form-switch--sm",
+          "description": "Use the small switch size."
+        },
+        {
+          "value": ".form-switch--lg",
+          "description": "Use the large switch size."
+        }
+      ],
+      "source": "scss/form/_switch.scss",
+      "line": 6,
+      "preview": "styleguide/preview-3.4.html"
+    },
+    {
+      "reference": "3.5",
+      "category": "Forms",
+      "name": "File input",
+      "description": "The native file input receives a button-like file selector. It retains native\nfocus and supports the standard small, large, and disabled input states.",
+      "markup": "<label class=\"form-label\" for=\"kss-file\">Upload an image</label>\n<input class=\"form-file {{ modifier_class }}\" id=\"kss-file\" type=\"file\" accept=\"image/*\">",
+      "modifiers": [
+        {
+          "value": ".form-file--sm",
+          "description": "A compact file input."
+        },
+        {
+          "value": ".form-file--lg",
+          "description": "A large file input."
+        }
+      ],
+      "source": "scss/form/_file.scss",
+      "line": 7,
+      "preview": "styleguide/preview-3.5.html"
+    },
+    {
+      "reference": "3.6",
+      "category": "Forms",
+      "name": "Range input",
+      "description": "The range control provides a consistent track, thumb, focus ring, and disabled\nstate while preserving the native value and keyboard behavior.",
+      "markup": "<label class=\"form-label\" for=\"kss-range\">Volume</label>\n<input class=\"form-range\" id=\"kss-range\" type=\"range\" min=\"0\" max=\"100\" value=\"60\">",
+      "modifiers": [],
+      "source": "scss/form/_range.scss",
+      "line": 5,
+      "preview": "styleguide/preview-3.6.html"
+    },
+    {
+      "reference": "3.7",
+      "category": "Forms",
+      "name": "Fieldset and legend",
+      "description": "Group related controls with a fieldset and describe the group with its first\nlegend. Consecutive fieldsets receive additional vertical separation.",
+      "markup": "<fieldset>\n  <legend>Contact preference</legend>\n  <label class=\"form-check\"><input class=\"form-check__control\" type=\"radio\" name=\"kss-contact\" checked> <span class=\"form-check__label\">Email</span></label>\n  <label class=\"form-check\"><input class=\"form-check__control\" type=\"radio\" name=\"kss-contact\"> <span class=\"form-check__label\">Telephone</span></label>\n</fieldset>",
+      "modifiers": [],
+      "source": "scss/form/_fieldset.scss",
+      "line": 5,
+      "preview": "styleguide/preview-3.7.html"
+    },
+    {
+      "reference": "3.8",
+      "category": "Forms",
+      "name": "Form groups",
+      "description": "`.form-group` stacks a label, control, description, and feedback. Check groups\ncan flow horizontally or vertically; row groups become two-column layouts when\ntheir named container is wide enough; stacked groups join adjacent controls.",
+      "markup": "<div class=\"form-group-container\">\n  <div class=\"form-group {{ modifier_class }}\">\n    <label class=\"form-label\" for=\"kss-name\">Name</label>\n    <input class=\"form-control\" id=\"kss-name\" type=\"text\">\n    <small class=\"form-description\">Enter your public display name.</small>\n  </div>\n</div>",
+      "modifiers": [
+        {
+          "value": ".form-group--horizontal-check",
+          "description": "Wrap checks in a horizontal row."
+        },
+        {
+          "value": ".form-group--vertical-check",
+          "description": "Stack checks vertically."
+        },
+        {
+          "value": ".form-group--row",
+          "description": "Create a responsive label/control row."
+        },
+        {
+          "value": ".form-group--stacked",
+          "description": "Join adjacent controls into one visual group."
+        }
+      ],
+      "source": "scss/form/_group.scss",
+      "line": 6,
+      "preview": "styleguide/preview-3.8.html"
+    },
+    {
+      "reference": "3.9",
+      "category": "Forms",
+      "name": "Validation feedback",
+      "description": "Place `.field-feedback` after its related control and connect the message with\n`aria-describedby`. Match valid or invalid feedback to the control state.",
+      "markup": "<div class=\"form-group\">\n  <label class=\"form-label\" for=\"kss-username\">Username</label>\n  <input class=\"form-control\" id=\"kss-username\" aria-describedby=\"kss-feedback\">\n  <span class=\"field-feedback {{ modifier_class }}\" id=\"kss-feedback\">Username is available.</span>\n</div>",
+      "modifiers": [
+        {
+          "value": ".field-feedback--valid",
+          "description": "A successful validation message."
+        },
+        {
+          "value": ".field-feedback--invalid",
+          "description": "An error validation message."
+        }
+      ],
+      "source": "scss/form/_validation.scss",
+      "line": 5,
+      "preview": "styleguide/preview-3.9.html"
+    },
+    {
+      "reference": "3.10",
+      "category": "Forms",
+      "name": "Input group label",
+      "description": "`.form-group-label` visually joins short text to a neighboring control. Use it\ninside a stacked form group and provide an accessible label for the input.",
+      "markup": "<label class=\"form-label\" for=\"kss-price\">Price</label>\n<div class=\"form-group form-group--stacked\">\n  <span class=\"form-group-label\" aria-hidden=\"true\">€</span>\n  <input class=\"form-control\" id=\"kss-price\" type=\"number\" aria-label=\"Price in euros\">\n</div>",
+      "modifiers": [],
+      "source": "scss/form/_group-label.scss",
+      "line": 5,
+      "preview": "styleguide/preview-3.10.html"
+    },
+    {
+      "reference": "3.11",
+      "category": "Forms",
+      "name": "Mixed form row",
+      "description": "`.form-row--mixed` arranges different-width form groups in a wrapping row. Set\n`--inline-size` on a child group when it needs a preferred width.",
+      "markup": "<div class=\"form-row--mixed\">\n  <div class=\"form-group\"><label class=\"form-label\" for=\"kss-city\">City</label><input class=\"form-control\" id=\"kss-city\"></div>\n  <div class=\"form-group\"><label class=\"form-label\" for=\"kss-postcode\">Postcode</label><input class=\"form-control\" id=\"kss-postcode\"></div>\n</div>",
+      "modifiers": [],
+      "source": "scss/form/_row.scss",
+      "line": 5,
+      "preview": "styleguide/preview-3.11.html"
+    },
+    {
+      "reference": "3.12",
+      "category": "Forms",
+      "name": "Form description",
+      "description": "Use `.form-description` for persistent help text and associate it with the\ncontrol using `aria-describedby`.",
+      "markup": "<label class=\"form-label\" for=\"kss-password\">Password</label>\n<input class=\"form-control\" id=\"kss-password\" type=\"password\" aria-describedby=\"kss-password-help\">\n<small class=\"form-description\" id=\"kss-password-help\">Use at least 12 characters.</small>",
+      "modifiers": [],
+      "source": "scss/form/_description.scss",
+      "line": 6,
+      "preview": "styleguide/preview-3.12.html"
+    },
+    {
+      "reference": "3.13",
+      "category": "Forms",
+      "name": "Form label",
+      "description": "`.form-label` provides consistent label typography. Connect it to its control\nwith `for` and the control's matching `id`.",
+      "markup": "<label class=\"form-label\" for=\"kss-labelled-control\">Email address</label>\n<input class=\"form-control\" id=\"kss-labelled-control\" type=\"email\">",
+      "modifiers": [],
+      "source": "scss/form/_label.scss",
+      "line": 5,
+      "preview": "styleguide/preview-3.13.html"
+    },
+    {
+      "reference": "4.1",
+      "category": "Data",
+      "name": "Tables",
+      "description": "Wrap wide tables in `.table-responsive`. Variants can add stripes, hover\nfeedback, compact spacing, rounded cells, or remove borders.",
+      "markup": "<div class=\"table-responsive\">\n  <table class=\"table {{ modifier_class }}\">\n    <caption>Framework releases</caption>\n    <thead><tr><th scope=\"col\">Version</th><th scope=\"col\">Status</th></tr></thead>\n    <tbody><tr><td>2.3.0</td><td>Current</td></tr><tr><td>2.2.0</td><td>Previous</td></tr></tbody>\n  </table>\n</div>",
+      "modifiers": [
+        {
+          "value": ".table--striped",
+          "description": "Alternating row backgrounds."
+        },
+        {
+          "value": ".table--hover",
+          "description": "Highlight rows on hover."
+        },
+        {
+          "value": ".table--sm",
+          "description": "Compact cell spacing."
+        },
+        {
+          "value": ".table--clear-border",
+          "description": "Remove cell borders."
+        },
+        {
+          "value": ".table--in-line",
+          "description": "Align the first and last cells with surrounding content."
+        },
+        {
+          "value": ".table--rounded",
+          "description": "Round the outside cells."
+        }
+      ],
+      "source": "scss/element/_table.scss",
+      "line": 13,
+      "preview": "styleguide/preview-4.1.html"
+    },
+    {
+      "reference": "5.1",
+      "category": "Effects",
+      "name": "Emoji effects",
+      "description": "Emoji can be normalized with flat, grayscale, gray, or black rendering.",
+      "markup": "<em class=\"oji {{ modifier_class }}\" aria-hidden=\"true\">📥</em>",
+      "modifiers": [
+        {
+          "value": ".flat",
+          "description": "Increase contrast and flatten the colors."
+        },
+        {
+          "value": ".grayscale",
+          "description": "Remove all color."
+        },
+        {
+          "value": ".gray",
+          "description": "Render a gray silhouette."
+        },
+        {
+          "value": ".black",
+          "description": "Render a black silhouette."
+        }
+      ],
+      "source": "scss/element/_emoji.scss",
+      "line": 13,
+      "preview": "styleguide/preview-5.1.html"
+    },
+    {
+      "reference": "5.2",
+      "category": "Effects",
+      "name": "Image filters",
+      "description": "Wrap an image in `.filter` and add one effect class. The wrapper clips generated\noverlays correctly when it has the same dimensions as its image.",
+      "markup": "<figure class=\"filter {{ modifier_class }}\">\n  <img src=\"https://picsum.photos/seed/coco-filter/800/450\" alt=\"Landscape demonstrating the selected filter\">\n</figure>",
+      "modifiers": [
+        {
+          "value": ".seventyseven",
+          "description": "Bright, faded 1970s tones."
+        },
+        {
+          "value": ".aden",
+          "description": "Soft pastel light with a warm cast."
+        },
+        {
+          "value": ".amaro",
+          "description": "A bright center and darker edges."
+        },
+        {
+          "value": ".brannan",
+          "description": "High contrast with a metallic tint."
+        },
+        {
+          "value": ".brooklyn",
+          "description": "Bright yellow-green highlights."
+        },
+        {
+          "value": ".clarendon",
+          "description": "Brighter highlights and stronger shadows."
+        },
+        {
+          "value": ".earlybird",
+          "description": "Faded Polaroid color with warm yellow."
+        },
+        {
+          "value": ".gingham",
+          "description": "A subtle warm haze."
+        },
+        {
+          "value": ".hudson",
+          "description": "Bright, cool blue tones."
+        },
+        {
+          "value": ".inkwell",
+          "description": "High-contrast monochrome."
+        },
+        {
+          "value": ".chessboard",
+          "description": "A neutral transparency grid."
+        },
+        {
+          "value": ".chessboard.is-light",
+          "description": "A light transparency grid."
+        },
+        {
+          "value": ".chessboard.is-dark",
+          "description": "A dark transparency grid."
+        }
+      ],
+      "source": "scss/filters/_index.scss",
+      "line": 13,
+      "preview": "styleguide/preview-5.2.html"
+    },
+    {
+      "reference": "6.1",
+      "category": "Utilities",
+      "name": "Screen-reader-only content",
+      "description": "`.sr-only` visually hides content while retaining it for assistive technology.\nUse it for context that is apparent visually but otherwise needs a text label.\nElements focused with `tabindex=\"-1\"` have their redundant outline removed.",
+      "markup": "<button class=\"btn btn--primary\" type=\"button\">\n  <span aria-hidden=\"true\">×</span><span class=\"sr-only\">Close dialog</span>\n</button>",
+      "modifiers": [],
+      "source": "scss/element/_accessibility.scss",
+      "line": 3,
+      "preview": "styleguide/preview-6.1.html"
+    },
+    {
+      "reference": "6.2",
+      "category": "Utilities",
+      "name": "Hidden content",
+      "description": "`.hidden` and the native `[hidden]` attribute remove an element from layout and\nthe accessibility tree. Use `.sr-only` instead when assistive tools still need\nthe content.",
+      "markup": "<span class=\"{{ modifier_class }}\">This explanatory text may be hidden.</span>",
+      "modifiers": [
+        {
+          "value": ".hidden",
+          "description": "Hide the element completely."
+        }
+      ],
+      "source": "scss/element/_utilities.scss",
+      "line": 11,
+      "preview": "styleguide/preview-6.2.html"
+    },
+    {
+      "reference": "6.3",
+      "category": "Utilities",
+      "name": "Heading utilities",
+      "description": "Use `.h1` through `.h6` when semantic heading level and visual size need to\ndiffer. These classes change font size only; choose the HTML element by document\nstructure first.",
+      "markup": "<p class=\"{{ modifier_class }}\">Heading-sized text</p>",
+      "modifiers": [
+        {
+          "value": ".h1",
+          "description": "First-level display size."
+        },
+        {
+          "value": ".h2",
+          "description": "Second-level display size."
+        },
+        {
+          "value": ".h3",
+          "description": "Third-level display size."
+        },
+        {
+          "value": ".h4",
+          "description": "Fourth-level display size."
+        },
+        {
+          "value": ".h5",
+          "description": "Fifth-level display size."
+        },
+        {
+          "value": ".h6",
+          "description": "Sixth-level display size."
+        }
+      ],
+      "source": "scss/element/_utilities.scss",
+      "line": 26,
+      "preview": "styleguide/preview-6.3.html"
+    },
+    {
+      "reference": "6.4",
+      "category": "Utilities",
+      "name": "Copyable text",
+      "description": "`.copy` selects all of an element's text when users interact with it. It is\nuseful for identifiers and short values that are commonly copied.",
+      "markup": "<code class=\"copy\">@blockchainhub/coco</code>",
+      "modifiers": [],
+      "source": "scss/element/_typography.scss",
+      "line": 46,
+      "preview": "styleguide/preview-6.4.html"
+    },
+    {
+      "reference": "7.2",
+      "category": "Reference",
+      "name": "Version indicator",
+      "description": "Add `.coco.version` to an element to insert the framework version with CSS.\nInclude a readable prefix in the element because the generated content alone\nshould not carry essential information.",
+      "markup": "<span class=\"coco version\">COCO version </span>",
+      "modifiers": [],
+      "source": "scss/config/_info.scss",
+      "line": 3,
+      "preview": "styleguide/preview-7.2.html"
+    }
+  ]
+}

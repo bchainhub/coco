@@ -1,0 +1,22 @@
+# COCO
+
+> A modular, JavaScript-free CSS framework built with Sass.
+
+COCO 2.3.0 publishes CSS only. Load dist/coco.min.css, use semantic HTML, and
+apply the documented component classes. No runtime initialization is required.
+
+## Documentation
+
+- Component style guide: styleguide/
+- Sass API reference: api/
+- Preview and examples: preview/html/page/color.html
+- Structured components: components.json
+- Structured Sass API: sass-api.json
+- Complete LLM reference: llms-full.txt
+
+## Constraints
+
+- Do not generate or require website-facing JavaScript.
+- Prefer semantic HTML and native controls.
+- Preserve keyboard, accessibility, responsive, and RTL behavior.
+- Use documented modifiers; do not infer undocumented class names.

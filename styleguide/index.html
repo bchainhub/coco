@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <title>Grid</title>
+    <meta name="description" content="Place columns inside a row and container. Responsive column classes use the
+configured breakpoint name, for example `.col-md-6`.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="styleguide">
+    <link rel="icon" type="image/svg+xml" href="./styleguide-assets/favicon/preview.svg">
+    
+    <meta name="theme-color" content="#43b649">
+    <link rel="stylesheet" type="text/css" href="./styleguide-assets/kss-modern-DeXoMEvT.css">
+    <script>
+  //#region client/lib/iframe-resize.ts
+var e = [
+	{
+		width: 320,
+		label: "320px – Mobile"
+	},
+	{
+		width: 768,
+		label: "768px – Tablet"
+	},
+	{
+		width: 1024,
+		label: "1024px – Desktop"
+	},
+	{
+		width: 1200,
+		label: "1200px – Desktop L"
+	}
+], t = 14;
+function n(n) {
+	for (let r of e) if (Math.abs(n - r.width) <= t) return {
+		width: r.width,
+		label: r.label
+	};
+	return {
+		width: n,
+		label: null
+	};
+}
+function r(e) {
+	let t = document.createElement("div");
+	return t.className = "absolute -bottom-3 -right-0.5 text-[11px] leading-none font-mono opacity-0 pointer-events-none whitespace-nowrap transition-opacity duration-150", e.appendChild(t), t;
+}
+function i(e, t, n) {
+	e.textContent = n ?? `${Math.round(t)}px`, e.style.opacity = n ? "0.6" : "0.4";
+}
+function a() {
+	document.querySelectorAll(".preview-resize-container").forEach((e) => {
+		let t = e.querySelector(".preview-resize-handle");
+		if (!t) return;
+		let a = 0, o = 0, s = null;
+		t.addEventListener("pointerdown", (n) => {
+			n.preventDefault(), a = n.clientX, o = e.offsetWidth, t.setPointerCapture(n.pointerId), e.classList.add("is-resizing"), s ||= r(e), i(s, o, null);
+		}), t.addEventListener("pointermove", (r) => {
+			if (!t.hasPointerCapture(r.pointerId)) return;
+			let c = r.clientX - a, l = e.parentElement?.clientWidth ?? e.offsetWidth, u = Math.max(200, Math.min(o + c, l));
+			if (u >= l) e.style.width = "";
+			else {
+				let t = n(u);
+				e.style.width = `${t.width}px`;
+			}
+			if (s) {
+				let t = e.offsetWidth, r = n(t);
+				i(s, t, r.label);
+			}
+		}), t.addEventListener("lostpointercapture", () => {
+			e.classList.remove("is-resizing");
+			let t = e.parentElement?.clientWidth ?? 0;
+			e.offsetWidth >= t ? (e.style.width = "", e.classList.remove("is-resized"), s && (s.style.opacity = "")) : (e.classList.add("is-resized"), s && (s.style.opacity = "0.4"));
+		}), t.addEventListener("dblclick", () => {
+			e.style.width = "", e.classList.remove("is-resized"), s && (s.style.opacity = "");
+		});
+	});
+}
+//#endregion
+//#region client/lib/iframe.ts
+var o = 5e3;
+async function s(e) {
+	let t = (e) => {
+		let t = e.contentWindow?.document;
+		if (!t) return !1;
+		let n = t.body && t.body.children.length > 0, r = t.readyState === "complete";
+		return n && r && t.body.children.length > 0;
+	};
+	await Promise.allSettled(e.map((e) => new Promise((n) => {
+		let r = setInterval(() => {
+			if (t(e)) return clearInterval(r), n();
+		}, 100);
+		setTimeout(() => (clearInterval(r), n()), o);
+	})));
+}
+function c(e) {
+	let t = e.contentWindow?.document;
+	if (!t) throw Error("iFrame was not fully loaded yet");
+	e.style.height = "0px", e.offsetHeight;
+	let n = Math.max(t.documentElement.scrollHeight, t.body.scrollHeight, t.documentElement.offsetHeight, t.body.offsetHeight, t.documentElement.clientHeight, t.body.clientHeight);
+	e.style.height = `${n}px`;
+}
+function l() {
+	document.body.classList.add("js-loaded");
+}
+var u = async (e) => {
+	if (await s(e), e.forEach((e) => {
+		c(e);
+		let t = e.contentWindow;
+		t && (new ResizeObserver(() => c(e)).observe(t.document.body), t.document.body.querySelectorAll("details").forEach((t) => {
+			t.addEventListener("toggle", () => c(e));
+		}));
+	}), window.addEventListener("resize", () => {
+		e.forEach((e) => c(e));
+	}), window.location.hash) {
+		let e = document.querySelector(window.location.hash);
+		e && (await new Promise((e) => setTimeout(e, 200)), e.scrollIntoView());
+	}
+	l();
+}, d = {
+	normal: "theme-normal",
+	light: "theme-light",
+	dark: "theme-dark"
+};
+function f(e) {
+	let t = window.matchMedia("(prefers-color-scheme: dark)");
+	function n() {
+		return localStorage.getItem("in2theme") || (localStorage.setItem("in2theme", "normal"), "normal");
+	}
+	function r() {
+		let r = n(), i = d[r] ?? d.normal;
+		r === "normal" && t.matches && (i = d.dark);
+		let a = (e) => {
+			Object.values(d).forEach((t) => e.classList.remove(t));
+		};
+		a(e), e.classList.add(i), a(document.body), document.body.classList.add(i), document.querySelectorAll("iframe").forEach((e) => {
+			a(e), e.classList.add(i);
+		}), Array.from(document.querySelectorAll("iframe")).filter((e) => e.src.includes("embed.figma.com")).forEach((e) => {
+			let t = new URL(e.src);
+			t.searchParams.set("theme", r === "normal" ? "system" : r), e.src = t.href;
+		}), setTimeout(() => {
+			document.body.classList.add("allow-transitions");
+		}, 500);
+	}
+	r();
+	let i = e.querySelector(`input[value="${n()}"]`);
+	i && (i.checked = !0), e.addEventListener("change", () => {
+		let t = e.querySelector("input[name=\"theme\"]:checked");
+		if (!t) throw Error("No selected theme found");
+		localStorage.setItem("in2theme", t.value), r();
+	}), t.addEventListener("change", () => {
+		n() === "normal" && r();
+	});
+}
+//#endregion
+//#region client/preview-inline.ts
+document.addEventListener("DOMContentLoaded", () => {
+	let e = document.querySelector(".theme-select");
+	e && f(e);
+	let t = Array.from(document.querySelectorAll(".preview-iframe"));
+	t.length > 0 ? u(t).catch(console.error) : l(), a();
+});
+//#endregion
+;
+</script>
+    <script type="module" src="./styleguide-assets/preview-CHOmMvuB.js"></script>
+    <link rel="preload" href="./styleguide-assets/fonts/geist-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="./styleguide-assets/fonts/geist-mono-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="./styleguide-assets/fonts/geist-mono-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="./styleguide-assets/fonts/geist-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="./styleguide-assets/fonts/geist-mono-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+    
+    <style>
+        :root {
+            --styleguide-color-theme-highlight: #43b649;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen antialiased text-styleguide">
+    <header class="sticky top-0 z-10 mx-auto flex w-full min-[1222px]:border-x border-b pr-6 max-w-[1600px] border-styleguide-border bg-styleguide-bg-highlight">
+    <a
+      class="mr-4 flex gap-4 items-center border-r py-4 pr-4 pl-6 border-styleguide-border w-[260px] font-semibold tracking-tight text-styleguide-theme-highlight [&>svg]:!size-6 [&>img]:!size-6"
+      href="./"
+    >
+        COCO component style guide
+    </a>
+
+    <div class="flex grow items-center justify-end py-4 md:justify-between">
+        <button
+            class="inline-flex items-center cursor-pointer justify-between gap-2 rounded-full border p-2 text-sm transition border-styleguide-border hover:text-styleguide-highlight focus:text-styleguide-highlight active:scale-[0.96] md:py-1.5 md:rounded-md md:px-2"
+            type="button"
+            aria-controls="search-dialog"
+            aria-expanded="false"
+            data-open-search=""
+        >
+            <span class="sr-only md:not-sr-only">Search page</span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 md:hidden">
+                <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+            </svg>
+
+            <kbd class="relative hidden items-center gap-1 rounded-md border font-semibold text-[10px] border-styleguide-border px-1.5 pt-[4px] pb-[3px] md:inline-flex">
+                <span class="winlinux-only inline-block text-[10px] leading-[10px]">Ctrl</span>
+                <span class="mac-only inline-block text-[12px] leading-[12px]">⌘</span>
+                <span class="leading-[10px]">K</span>
+            </kbd>
+        </button>
+
+        <div class="flex gap-4">
+          
+        
+          
+              <form class="hidden theme-select md:block">
+                <fieldset class="flex items-center rounded-3xl border border-styleguide-border">
+                    <legend class="sr-only">Select a display theme</legend>
+    
+                    <input id="normal" class="sr-only" type="radio" value="normal" name="theme">
+                    <label for="normal" class="cursor-pointer p-2">
+                        <span class="sr-only">System</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                        </svg>
+                    </label>
+    
+                    <input id="light" class="sr-only" type="radio" value="light" name="theme">
+                    <label for="light" class="cursor-pointer p-2">
+                        <span class="sr-only">Light</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                        </svg>
+                    </label>
+    
+                    <input id="dark" class="sr-only" type="radio" value="dark" name="theme">
+                    <label for="dark" class="cursor-pointer p-2">
+                        <span class="sr-only">Dark</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                        </svg>
+                    </label>
+                </fieldset>
+              </form>
+          
+        </div>
+    </div>
+</header>
+  
+    <main class="relative flex h-full min-h-screen min-[1222px]:border-x min-[1220px]:mx-auto max-w-[1600px] border-styleguide-border">
+      <aside
+          class="sticky order-1 hidden flex-col overflow-y-auto border-r z-100 w-[260px] border-styleguide-border shrink-0 md:flex"
+          style="top: var(--header-height); max-height: calc(100vh - var(--header-height))"
+      >
+        <nav>
+            <ol class="grid gap-6 px-3 py-6">
+    
+        <li>
+            <span class="block rounded-md px-3 text-sm font-semibold text-styleguide-theme-highlight">
+                Layout
+            </span>
+            <ol class="mt-3 grid gap-2">
+                
+                    <li>
+                       <a class="menu-item" href="./index.html">Grid</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-1.2.html">Sticky footer</a>
+                    </li>
+                
+            </ol>
+        </li>
+    
+
+        <li>
+            <span class="block rounded-md px-3 text-sm font-semibold text-styleguide-theme-highlight">
+                Content
+            </span>
+            <ol class="mt-3 grid gap-2">
+                
+                    <li>
+                       <a class="menu-item" href="./preview-2.1.html">Typography</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-2.2.html">Links</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-2.3.html">Responsive media</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-2.4.html">Divider</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-2.5.html">Attributed quotation</a>
+                    </li>
+                
+            </ol>
+        </li>
+    
+
+        <li>
+            <span class="block rounded-md px-3 text-sm font-semibold text-styleguide-theme-highlight">
+                Forms
+            </span>
+            <ol class="mt-3 grid gap-2">
+                
+                    <li>
+                       <a class="menu-item" href="./preview-3.1.html">Buttons</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.2.html">Form controls</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.3.html">Checks and radios</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.4.html">Switches</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.5.html">File input</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.6.html">Range input</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.7.html">Fieldset and legend</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.8.html">Form groups</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.9.html">Validation feedback</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.10.html">Input group label</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.11.html">Mixed form row</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.12.html">Form description</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-3.13.html">Form label</a>
+                    </li>
+                
+            </ol>
+        </li>
+    
+
+        <li>
+            <span class="block rounded-md px-3 text-sm font-semibold text-styleguide-theme-highlight">
+                Data
+            </span>
+            <ol class="mt-3 grid gap-2">
+                
+                    <li>
+                       <a class="menu-item" href="./preview-4.1.html">Tables</a>
+                    </li>
+                
+            </ol>
+        </li>
+    
+
+        <li>
+            <span class="block rounded-md px-3 text-sm font-semibold text-styleguide-theme-highlight">
+                Effects
+            </span>
+            <ol class="mt-3 grid gap-2">
+                
+                    <li>
+                       <a class="menu-item" href="./preview-5.1.html">Emoji effects</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-5.2.html">Image filters</a>
+                    </li>
+                
+            </ol>
+        </li>
+    
+
+        <li>
+            <span class="block rounded-md px-3 text-sm font-semibold text-styleguide-theme-highlight">
+                Utilities
+            </span>
+            <ol class="mt-3 grid gap-2">
+                
+                    <li>
+                       <a class="menu-item" href="./preview-6.1.html">Screen-reader-only content</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-6.2.html">Hidden content</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-6.3.html">Heading utilities</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-6.4.html">Copyable text</a>
+                    </li>
+                
+            </ol>
+        </li>
+    
+
+        <li>
+            <span class="block rounded-md px-3 text-sm font-semibold text-styleguide-theme-highlight">
+                Reference
+            </span>
+            <ol class="mt-3 grid gap-2">
+                
+                    <li>
+                       <a class="menu-item" href="./preview-7.1.html">Print behavior</a>
+                    </li>
+                
+
+                    <li>
+                       <a class="menu-item" href="./preview-7.2.html">Version indicator</a>
+                    </li>
+                
+            </ol>
+        </li>
+    
+</ol>
+        </nav>
+      </aside>
+      
+      <div class="order-2 w-full md:w-[calc(100%-260px)]">
+        
+<section 
+  id="section-1-1" 
+  class="styleguide-section border-b px-4 py-10 border-b-styleguide-border scroll-mt-[50px] md:px-10"
+>
+    <div class="flex items-center justify-between gap-6">
+        <a class="relative group" href="#section-1-1">
+            <svg class="absolute top-1/2 -left-6 -translate-y-1/2 opacity-0 transition size-[18px] group-hover:opacity-100 group-focus:opacity-100"
+                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 0 .225 5.865.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l3-3Z"/>
+                <path d="M11.603 7.963a.75.75 0 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l1.225-1.224a.75.75 0 0 0-1.061-1.06l-1.224 1.224a4 4 0 1 0 5.656 5.656l3-3a4 4 0 0 0-.225-5.865Z"/>
+            </svg>
+            <h1 class="text-4xl font-semibold text-styleguide-theme-highlight">Grid</h1>
+        </a>
+
+        
+          <a 
+            class="p-2 group hover:text-styleguide-highlight focus:text-styleguide-highlight" 
+            href="./fullpage-1.1.html" 
+            target="_blank" 
+            title="Open Grid in fullpage"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4">
+                <path class="transition group-hover:translate-x-px group-hover:-translate-y-px group-focus:translate-x-px group-focus:-translate-y-px" d="M6.22 8.72a.75.75 0 0 0 1.06 1.06l5.22-5.22v1.69a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-.75-.75h-3.5a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z"/>
+                <path class="transition" d="M3.5 6.75c0-.69.56-1.25 1.25-1.25H7A.75.75 0 0 0 7 4H4.75A2.75 2.75 0 0 0 2 6.75v4.5A2.75 2.75 0 0 0 4.75 14h4.5A2.75 2.75 0 0 0 12 11.25V9a.75.75 0 0 0-1.5 0v2.25c0 .69-.56 1.25-1.25 1.25h-4.5c-.69 0-1.25-.56-1.25-1.25v-4.5Z"/>
+            </svg>
+          </a>
+        
+    </div>
+    <p class="mt-2 text-xl">Place columns inside a row and container. Responsive column classes use the
+configured breakpoint name, for example `.col-md-6`.</p>
+
+    <!-- Preview Box -->
+    <div class="mt-4 overflow-hidden rounded-2xl border border-styleguide-border">
+        <div class="w-full border-b p-6 bg-styleguide-bg-highlight border-styleguide-border">
+            <div class="preview-resize-container relative max-w-full group/resize [&.is-resizing_iframe]:pointer-events-none">
+                <iframe
+                      id="preview-fullpage-1-1"
+                      src="./fullpage-1.1.html"
+                      class="preview-iframe"
+                      data-preview="true"
+                      title="Grid Preview"
+                      scrolling="no"
+                ></iframe>
+                <div class="preview-resize-handle absolute top-0 right-0 w-3 h-full cursor-col-resize hidden md:flex items-center justify-center touch-none after:content-[''] after:w-1 after:h-[80%] after:rounded-full after:bg-current after:opacity-0 after:transition-opacity after:duration-150 group-hover/resize:after:opacity-[0.12] hover:after:opacity-[0.3] group-[.is-resized]/resize:after:opacity-[0.12] group-[.is-resizing]/resize:after:opacity-[0.3]" aria-hidden="true"></div>
+            </div>
+        </div>
+
+        <!-- Code -->
+        <details class="group @container">
+           <summary class="flex cursor-pointer justify-between items-center rounded-b-2xl px-6 text-sm font-light bg-styleguide-bg">
+                <span class="flex gap-2 items-center py-4 select-none">
+                    <svg class="h-4 w-4 group-open:rotate-90 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
+                    </svg>
+
+                    <span class="group-open:hidden">Show code</span>
+                    <span class="group-open:block hidden">Hide code</span>
+                </span>
+                
+                <span class="flex items-center"> 
+                    
+                
+                      
+                          
+                      
+
+                    <button
+                        class="inline-flex items-center gap-1.5 p-4 cursor-pointer active:scale-90 transition hover:text-styleguide-highlight duration-200" 
+                        type="button"
+                        data-clipboard-value="%3Cdiv%20class%3D%22container%22%3E%0A%09%3Cdiv%20class%3D%22row%22%3E%0A%09%09%3Cdiv%20class%3D%22col-4%22%3EOne%20third%3C%2Fdiv%3E%0A%09%09%3Cdiv%20class%3D%22col-8%22%3ETwo%20thirds%3C%2Fdiv%3E%0A%09%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A"
+                        data-clipboard-uri-encoded="true"
+                    >
+                        <svg class="h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <title>Clipboard</title>
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" />
+                        </svg>
+
+                        <span class="hidden @2xl:inline-block">Copy</span>
+                        <span class="sr-only"> Code</span>
+                    </button>
+
+                    <button
+                        class="inline-flex items-center gap-1.5 p-4 cursor-pointer active:scale-90 transition hover:text-styleguide-highlight duration-200" 
+                        type="button"
+                        data-code-audit-iframe="preview-fullpage-1-1"
+                        aria-controls="code-audit-dialog"
+                        aria-expanded="false"
+                    >
+                        <svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 122.88" aria-hidden="true"><title>accessibility</title><path fill="currentcolor" d="M61.44,0A61.46,61.46,0,1,1,18,18,61.21,61.21,0,0,1,61.44,0Zm-.39,74.18L52.1,98.91a4.94,4.94,0,0,1-2.58,2.83A5,5,0,0,1,42.7,95.5l6.24-17.28a26.3,26.3,0,0,0,1.17-4,40.64,40.64,0,0,0,.54-4.18c.24-2.53.41-5.27.54-7.9s.22-5.18.29-7.29c.09-2.63-.62-2.8-2.73-3.3l-.44-.1-18-3.39A5,5,0,0,1,27.08,46a5,5,0,0,1,5.05-7.74l19.34,3.63c.77.07,1.52.16,2.31.25a57.64,57.64,0,0,0,7.18.53A81.13,81.13,0,0,0,69.9,42c.9-.1,1.75-.21,2.6-.29l18.25-3.42A5,5,0,0,1,94.5,39a5,5,0,0,1,1.3,7,5,5,0,0,1-3.21,2.09L75.15,51.37c-.58.13-1.1.22-1.56.29-1.82.31-2.72.47-2.61,3.06.08,1.89.31,4.15.61,6.51.35,2.77.81,5.71,1.29,8.4.31,1.77.6,3.19,1,4.55s.79,2.75,1.39,4.42l6.11,16.9a5,5,0,0,1-6.82,6.24,4.94,4.94,0,0,1-2.58-2.83L63,74.23,62,72.4l-1,1.78Zm.39-53.52a8.83,8.83,0,1,1-6.24,2.59,8.79,8.79,0,0,1,6.24-2.59Zm36.35,4.43a51.42,51.42,0,1,0,15,36.35,51.27,51.27,0,0,0-15-36.35Z"/></svg>
+                        <span class="hidden md:inline-block">Audit</span>
+                    </button>
+                    
+                    
+                       <a
+                            class="hidden [.styleguide-section--large_&]:inline-block -mr-2 px-2 py-4 group/externallink hover:text-styleguide-highlight focus:text-styleguide-highlight"
+                            href="./fullpage-1.1.html"
+                            target="_blank"
+                            title="Open Grid in fullpage"
+                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4">
+                            <path class="transition group-hover/externallink:translate-x-px group-hover/externallink:-translate-y-px group-focus/externallink:translate-x-px group/externallink-focus:-translate-y-px" d="M6.22 8.72a.75.75 0 0 0 1.06 1.06l5.22-5.22v1.69a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-.75-.75h-3.5a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z"/>
+                            <path class="transition" d="M3.5 6.75c0-.69.56-1.25 1.25-1.25H7A.75.75 0 0 0 7 4H4.75A2.75 2.75 0 0 0 2 6.75v4.5A2.75 2.75 0 0 0 4.75 14h4.5A2.75 2.75 0 0 0 12 11.25V9a.75.75 0 0 0-1.5 0v2.25c0 .69-.56 1.25-1.25 1.25h-4.5c-.69 0-1.25-.56-1.25-1.25v-4.5Z"/>
+                        </svg>
+                      </a>
+                    
+                </span>
+            </summary>
+
+            <div class="border-t p-6 text-sm bg-styleguide-bg-highlight border-styleguide-border">
+                <div 
+                  id="code-fullpage-1-1" 
+                  class="overflow-x-auto w-full code-highlight"
+                  data-source-code="%3Cdiv%20class%3D%22container%22%3E%0A%09%3Cdiv%20class%3D%22row%22%3E%0A%09%09%3Cdiv%20class%3D%22col-4%22%3EOne%20third%3C%2Fdiv%3E%0A%09%09%3Cdiv%20class%3D%22col-8%22%3ETwo%20thirds%3C%2Fdiv%3E%0A%09%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A"
+                  data-source-lang="html"
+                ></div>
+            </div>
+        </details>
+    </div>
+    
+    
+  
+</section>
+  
+        <nav class="flex w-full justify-between px-4 py-10 md:px-10">
+    <div>    
+        
+    </div>
+    
+    <div>
+        
+                <a id="styleguide-next" class="flex items-center gap-1 group" href="preview-1.2.html">
+                    <span class="grid text-right gap-1.5">
+                        <span class="text-sm font-light leading-none">Next</span>
+                        <span class="font-semibold leading-none text-styleguide-highlight">Sticky footer</span>
+                    </span>
+        
+                    <svg class="h-5 w-5 transition group-hover:translate-x-0.5 group-focus:translate-x-0.5"
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+        
+    </div>
+</nav>
+      </div>
+    </main>
+   
+    
+    <div id="alerts"></div>
+  
+    <dialog
+    id="search-dialog"
+    data-project="coco-component-style-guide"
+    class="fixed inset-0 top-8 z-30 backdrop:hidden -mb-px size-full max-sm:max-h-none open:md:flex open:md:flex-col md:h-auto overflow-y-hidden max-w-none rounded-t-2xl border bg-styleguide-bg border-styleguide-border text-styleguide md:max-w-[720px] md:top-12 md:max-h-[calc(100%-5rem)] md:bottom-auto md:left-1/2 md:-translate-x-1/2 md:rounded-2xl mx-0 lg:top-24 lg:max-h-[calc(100%-8rem)]"
+>
+    <h2 class="sr-only">Search</h2>
+    <div class="flex items-center h-[53px] border-b px-4 py-3 border-styleguide-border shrink-0">
+        <label for="search-input" class="sr-only">Search styleguide</label>
+        <input
+            id="search-input"
+            class="grow bg-transparent text-[18px] h-[28px] focus:outline-hidden"
+            placeholder="Search..."
+            aria-autocomplete="list"
+            aria-controls="search-list"
+            autocomplete="off"
+            role="combobox"
+            spellcheck="false"
+            type="text"
+            value=""
+            aria-expanded="false"
+        >
+        <button id="search-dialog-close" class="md:hidden -mr-1 p-1 rounded-md text-styleguide hover:bg-styleguide-bg-highlight transition" type="button" aria-label="Close search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-5">
+                <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
+            </svg>
+        </button>
+    </div>
+
+    <div role="tablist" aria-label="Filter by category" class="relative flex gap-1 px-4 py-2 border-b border-styleguide-border overflow-x-auto shrink-0">
+        <div class="search-tab-background absolute inset-y-2 left-0 bg-[rgb(242,242,242)] dark:bg-[rgb(26,26,26)] rounded-md"></div>
+        <button role="tab" data-search-tab="all" aria-selected="true" class="search-tab relative text-sm px-3 py-1.5 rounded-md whitespace-nowrap cursor-pointer font-medium text-styleguide-highlight">All</button>
+        
+            <button role="tab" data-search-tab="0" aria-selected="false" class="search-tab relative text-sm px-3 py-1.5 rounded-md whitespace-nowrap cursor-pointer">Layout</button>
+        
+
+            <button role="tab" data-search-tab="1" aria-selected="false" class="search-tab relative text-sm px-3 py-1.5 rounded-md whitespace-nowrap cursor-pointer">Content</button>
+        
+
+            <button role="tab" data-search-tab="2" aria-selected="false" class="search-tab relative text-sm px-3 py-1.5 rounded-md whitespace-nowrap cursor-pointer">Forms</button>
+        
+
+            <button role="tab" data-search-tab="3" aria-selected="false" class="search-tab relative text-sm px-3 py-1.5 rounded-md whitespace-nowrap cursor-pointer">Data</button>
+        
+
+            <button role="tab" data-search-tab="4" aria-selected="false" class="search-tab relative text-sm px-3 py-1.5 rounded-md whitespace-nowrap cursor-pointer">Effects</button>
+        
+
+            <button role="tab" data-search-tab="5" aria-selected="false" class="search-tab relative text-sm px-3 py-1.5 rounded-md whitespace-nowrap cursor-pointer">Utilities</button>
+        
+
+            <button role="tab" data-search-tab="6" aria-selected="false" class="search-tab relative text-sm px-3 py-1.5 rounded-md whitespace-nowrap cursor-pointer">Reference</button>
+        
+    </div>
+
+    <div
+      id="search-list"
+      role="listbox"
+      class="grid gap-4 px-4 py-3 text-sm overflow-y-auto max-h-[calc(100%-2rem-53px-45px)] md:min-h-0 md:max-h-none"
+    >
+        
+            <div class="search-category" id="search-category-0" data-category-index="0">
+                <h3 class="mb-1.5 px-1.5 text-xs font-medium tracking-wider uppercase opacity-60">Layout</h3>
+                <ul>
+                    
+                        <li
+                            id="search-item-0-0"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Grid%22%2C%22Place%20columns%20inside%20a%20row%20and%20container.%20Responsive%20column%20classes%20use%20the%20configured%20breakpoint%20name%2C%20for%20example%20%60.col-md-6%60.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./index.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Grid</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-0-1"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Sticky%20footer%22%2C%22Apply%20%60.has-sticky-footer%60%20to%20the%20body%20or%20another%20page%20wrapper.%20Its%20direct%20%60main%60%20child%20expands%20to%20fill%20the%20available%20viewport%20height.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-1.2.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Sticky footer</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+            <div class="search-category" id="search-category-1" data-category-index="1">
+                <h3 class="mb-1.5 px-1.5 text-xs font-medium tracking-wider uppercase opacity-60">Content</h3>
+                <ul>
+                    
+                        <li
+                            id="search-item-1-0"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Typography%22%2C%22Headings%2C%20lead%20text%2C%20inline%20code%2C%20highlighted%20text%2C%20and%20quotations%20inherit%20the%20configured%20COCO%20type%20scale%20and%20colors.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-2.1.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Typography</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-1-1"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Links%22%2C%22Links%20use%20the%20configured%20foreground%20and%20hover%20colors.%20Keep%20meaningful%20link%20text%20and%20use%20buttons%2C%20rather%20than%20links%2C%20for%20actions%20that%20do%20not%20navigate.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-2.2.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Links</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-1-2"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Responsive%20media%22%2C%22Images%20scale%20down%20without%20distortion.%20Iframes%20fill%20their%20parent%2C%20so%20place%20an%20iframe%20inside%20a%20container%20with%20an%20appropriate%20aspect%20ratio.%20A%20%60figure%60%20adds%20space%20before%20its%20centered%20%60figcaption%60.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-2.3.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Responsive media</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-1-3"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Divider%22%2C%22Use%20a%20thematic%20break%20to%20separate%20related%20content.%20The%20element%20receives%20the%20configured%20border%20color%20and%20no%20default%20raised%20border.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-2.4.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Divider</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-1-4"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Attributed%20quotation%22%2C%22%60.quote%60%20groups%20a%20quotation%20and%20attribution%20with%20consistent%20spacing.%20Use%20a%20%60blockquote%60%20for%20the%20quoted%20content%20and%20a%20%60figcaption%60%20for%20its%20source.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-2.5.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Attributed quotation</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+            <div class="search-category" id="search-category-2" data-category-index="2">
+                <h3 class="mb-1.5 px-1.5 text-xs font-medium tracking-wider uppercase opacity-60">Forms</h3>
+                <ul>
+                    
+                        <li
+                            id="search-item-2-0"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Buttons%22%2C%22Use%20a%20variant%20class%20to%20communicate%20an%20action's%20emphasis.%20Buttons%20support%20small%2C%20large%2C%20block%2C%20icon%2C%20focus%2C%20and%20disabled%20states.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.1.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Buttons</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-1"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Form%20controls%22%2C%22Text%20fields%2C%20text%20areas%2C%20and%20selects%20share%20sizing%2C%20focus%2C%20validation%2C%20and%20disabled%20states.%20Always%20associate%20a%20visible%20label%20with%20each%20control.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.2.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Form controls</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-2"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Checks%20and%20radios%22%2C%22%60.form-check%60%20aligns%20a%20custom%20checkbox%20or%20radio%20with%20its%20label.%20The%20control%20supports%20checked%2C%20indeterminate%2C%20focused%2C%20disabled%2C%20small%2C%20and%20large%20states.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.3.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Checks and radios</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-3"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Switches%22%2C%22Use%20a%20switch%20for%20an%20immediately%20applied%20on%2Foff%20setting.%20Preserve%20the%20native%20checkbox%20so%20keyboard%2C%20focus%2C%20checked%2C%20disabled%2C%20and%20right-to-left%20behavior%20work.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.4.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Switches</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-4"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22File%20input%22%2C%22The%20native%20file%20input%20receives%20a%20button-like%20file%20selector.%20It%20retains%20native%20focus%20and%20supports%20the%20standard%20small%2C%20large%2C%20and%20disabled%20input%20states.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.5.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">File input</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-5"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Range%20input%22%2C%22The%20range%20control%20provides%20a%20consistent%20track%2C%20thumb%2C%20focus%20ring%2C%20and%20disabled%20state%20while%20preserving%20the%20native%20value%20and%20keyboard%20behavior.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.6.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Range input</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-6"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Fieldset%20and%20legend%22%2C%22Group%20related%20controls%20with%20a%20fieldset%20and%20describe%20the%20group%20with%20its%20first%20legend.%20Consecutive%20fieldsets%20receive%20additional%20vertical%20separation.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.7.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Fieldset and legend</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-7"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Form%20groups%22%2C%22%60.form-group%60%20stacks%20a%20label%2C%20control%2C%20description%2C%20and%20feedback.%20Check%20groups%20can%20flow%20horizontally%20or%20vertically%3B%20row%20groups%20become%20two-column%20layouts%20when%20their%20named%20container%20is%20wide%20enough%3B%20stacked%20groups%20join%20adjacent%20controls.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.8.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Form groups</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-8"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Validation%20feedback%22%2C%22Place%20%60.field-feedback%60%20after%20its%20related%20control%20and%20connect%20the%20message%20with%20%60aria-describedby%60.%20Match%20valid%20or%20invalid%20feedback%20to%20the%20control%20state.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.9.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Validation feedback</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-9"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Input%20group%20label%22%2C%22%60.form-group-label%60%20visually%20joins%20short%20text%20to%20a%20neighboring%20control.%20Use%20it%20inside%20a%20stacked%20form%20group%20and%20provide%20an%20accessible%20label%20for%20the%20input.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.10.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Input group label</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-10"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Mixed%20form%20row%22%2C%22%60.form-row--mixed%60%20arranges%20different-width%20form%20groups%20in%20a%20wrapping%20row.%20Set%20%60--inline-size%60%20on%20a%20child%20group%20when%20it%20needs%20a%20preferred%20width.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.11.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Mixed form row</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-11"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Form%20description%22%2C%22Use%20%60.form-description%60%20for%20persistent%20help%20text%20and%20associate%20it%20with%20the%20control%20using%20%60aria-describedby%60.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.12.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Form description</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-2-12"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Form%20label%22%2C%22%60.form-label%60%20provides%20consistent%20label%20typography.%20Connect%20it%20to%20its%20control%20with%20%60for%60%20and%20the%20control's%20matching%20%60id%60.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-3.13.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Form label</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+            <div class="search-category" id="search-category-3" data-category-index="3">
+                <h3 class="mb-1.5 px-1.5 text-xs font-medium tracking-wider uppercase opacity-60">Data</h3>
+                <ul>
+                    
+                        <li
+                            id="search-item-3-0"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Tables%22%2C%22Wrap%20wide%20tables%20in%20%60.table-responsive%60.%20Variants%20can%20add%20stripes%2C%20hover%20feedback%2C%20compact%20spacing%2C%20rounded%20cells%2C%20or%20remove%20borders.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-4.1.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Tables</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+            <div class="search-category" id="search-category-4" data-category-index="4">
+                <h3 class="mb-1.5 px-1.5 text-xs font-medium tracking-wider uppercase opacity-60">Effects</h3>
+                <ul>
+                    
+                        <li
+                            id="search-item-4-0"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Emoji%20effects%22%2C%22Emoji%20can%20be%20normalized%20with%20flat%2C%20grayscale%2C%20gray%2C%20or%20black%20rendering.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-5.1.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Emoji effects</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-4-1"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Image%20filters%22%2C%22Wrap%20an%20image%20in%20%60.filter%60%20and%20add%20one%20effect%20class.%20The%20wrapper%20clips%20generated%20overlays%20correctly%20when%20it%20has%20the%20same%20dimensions%20as%20its%20image.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-5.2.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Image filters</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+            <div class="search-category" id="search-category-5" data-category-index="5">
+                <h3 class="mb-1.5 px-1.5 text-xs font-medium tracking-wider uppercase opacity-60">Utilities</h3>
+                <ul>
+                    
+                        <li
+                            id="search-item-5-0"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Screen-reader-only%20content%22%2C%22%60.sr-only%60%20visually%20hides%20content%20while%20retaining%20it%20for%20assistive%20technology.%20Use%20it%20for%20context%20that%20is%20apparent%20visually%20but%20otherwise%20needs%20a%20text%20label.%20Elements%20focused%20with%20%60tabindex%3D%5C%22-1%5C%22%60%20have%20their%20redundant%20outline%20removed.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-6.1.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Screen-reader-only content</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-5-1"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Hidden%20content%22%2C%22%60.hidden%60%20and%20the%20native%20%60%5Bhidden%5D%60%20attribute%20remove%20an%20element%20from%20layout%20and%20the%20accessibility%20tree.%20Use%20%60.sr-only%60%20instead%20when%20assistive%20tools%20still%20need%20the%20content.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-6.2.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Hidden content</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-5-2"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Heading%20utilities%22%2C%22Use%20%60.h1%60%20through%20%60.h6%60%20when%20semantic%20heading%20level%20and%20visual%20size%20need%20to%20differ.%20These%20classes%20change%20font%20size%20only%3B%20choose%20the%20HTML%20element%20by%20document%20structure%20first.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-6.3.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Heading utilities</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-5-3"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Copyable%20text%22%2C%22%60.copy%60%20selects%20all%20of%20an%20element's%20text%20when%20users%20interact%20with%20it.%20It%20is%20useful%20for%20identifiers%20and%20short%20values%20that%20are%20commonly%20copied.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-6.4.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Copyable text</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+            <div class="search-category" id="search-category-6" data-category-index="6">
+                <h3 class="mb-1.5 px-1.5 text-xs font-medium tracking-wider uppercase opacity-60">Reference</h3>
+                <ul>
+                    
+                        <li
+                            id="search-item-6-0"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Print%20behavior%22%2C%22When%20printing%2C%20COCO%20removes%20decorative%20page%20chrome%2C%20avoids%20splitting%20important%20content%2C%20expands%20abbreviations%2C%20and%20optionally%20prints%20external%20link%20targets.%20These%20rules%20are%20automatic%20and%20do%20not%20require%20a%20class.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-7.1.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Print behavior</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                        <li
+                            id="search-item-6-1"
+                            role="option"
+                            aria-selected="false"
+                            class="search-category__item search-category__item--active"
+                            data-search-keywords="%5B%7B%22keywords%22%3A%5B%22Version%20indicator%22%2C%22Add%20%60.coco.version%60%20to%20an%20element%20to%20insert%20the%20framework%20version%20with%20CSS.%20Include%20a%20readable%20prefix%20in%20the%20element%20because%20the%20generated%20content%20alone%20should%20not%20carry%20essential%20information.%22%5D%7D%5D"
+                          >
+                            <a
+                                class="flex items-center gap-4 px-1.5 py-2.5 group rounded-md hover:bg-[rgb(242,242,242)] focus:bg-[rgb(242,242,242)] dark:hover:bg-[rgb(26,26,26)] dark:focus:bg-[rgb(26,26,26)] transition"
+                                href="./preview-7.2.html"
+                                tabindex="-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="transition-all size-5 shrink-0 group-hover:translate-x-0.5 group-focus:translate-x-0.5">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="grid min-w-0 gap-0.5">
+                                    <span data-search-label class="text-styleguide-highlight">Version indicator</span>
+                                    <span data-type="search-hint" class="truncate text-[13px] text-styleguide"></span>
+                                </span>
+                            </a>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+
+    <p id="search-no-results" class="hidden px-6 py-8 text-center text-sm">
+        No results found
+    </p>
+</dialog>
+
+<div class="dialog-backdrop"></div>
+    
+    <dialog 
+        id="code-audit-dialog"
+        class="fixed inset-0 top-8 z-30 py-6 backdrop:hidden -mb-px size-full md:h-auto md:max-h-[85dvh] max-w-none overflow-y-auto rounded-t-2xl border bg-styleguide-bg border-styleguide-border text-styleguide md:max-w-[720px] md:top-12 md:bottom-auto md:left-1/2 md:-translate-x-1/2 md:rounded-2xl mx-0 lg:top-24"
+      >
+          <h2 class="flex items-center gap-2 mb-4 px-6">
+            <svg class="-mt-0.5 h-4 transition duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 122.88" aria-hidden="true"><title>accessibility</title><path fill="currentcolor" d="M61.44,0A61.46,61.46,0,1,1,18,18,61.21,61.21,0,0,1,61.44,0Zm-.39,74.18L52.1,98.91a4.94,4.94,0,0,1-2.58,2.83A5,5,0,0,1,42.7,95.5l6.24-17.28a26.3,26.3,0,0,0,1.17-4,40.64,40.64,0,0,0,.54-4.18c.24-2.53.41-5.27.54-7.9s.22-5.18.29-7.29c.09-2.63-.62-2.8-2.73-3.3l-.44-.1-18-3.39A5,5,0,0,1,27.08,46a5,5,0,0,1,5.05-7.74l19.34,3.63c.77.07,1.52.16,2.31.25a57.64,57.64,0,0,0,7.18.53A81.13,81.13,0,0,0,69.9,42c.9-.1,1.75-.21,2.6-.29l18.25-3.42A5,5,0,0,1,94.5,39a5,5,0,0,1,1.3,7,5,5,0,0,1-3.21,2.09L75.15,51.37c-.58.13-1.1.22-1.56.29-1.82.31-2.72.47-2.61,3.06.08,1.89.31,4.15.61,6.51.35,2.77.81,5.71,1.29,8.4.31,1.77.6,3.19,1,4.55s.79,2.75,1.39,4.42l6.11,16.9a5,5,0,0,1-6.82,6.24,4.94,4.94,0,0,1-2.58-2.83L63,74.23,62,72.4l-1,1.78Zm.39-53.52a8.83,8.83,0,1,1-6.24,2.59,8.79,8.79,0,0,1,6.24-2.59Zm36.35,4.43a51.42,51.42,0,1,0,15,36.35,51.27,51.27,0,0,0-15-36.35Z"/></svg>
+            <span class="text-lg font-semibold text-styleguide-highlight leading-[1]">
+                Code Audit Results
+            </span>
+          </h2>
+          
+          <ol class="audit-results"></ol>
+    </dialog>
+  
+    
+    <script type="speculationrules">
+    {
+      "prerender": [{
+        "where": {
+          "href_matches": "/*"
+        },
+        "eagerness": "moderate"
+      }]
+    }
+    </script>
+    
+    
+</body>
+</html>

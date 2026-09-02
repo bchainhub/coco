@@ -1,0 +1,1329 @@
+# COCO 2.3.0 Complete Reference
+
+COCO is a JavaScript-free CSS framework. This file is generated from KSS and
+SassDoc comments. Prefer the documented semantic markup and class names.
+
+# CSS Components
+
+## Grid
+
+Reference: 1.1
+Category: Layout
+Source: scss/element/_grid.scss:21
+
+Place columns inside a row and container. Responsive column classes use the
+configured breakpoint name, for example `.col-md-6`.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-4">One third</div>
+    <div class="col-8">Two thirds</div>
+  </div>
+</div>
+```
+
+## Sticky footer
+
+Reference: 1.2
+Category: Layout
+Source: scss/element/_default.scss:4
+
+Apply `.has-sticky-footer` to the body or another page wrapper. Its direct
+`main` child expands to fill the available viewport height.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<div class="has-sticky-footer">
+  <header>Header</header>
+  <main>Page content</main>
+  <footer>Footer</footer>
+</div>
+```
+
+## Typography
+
+Reference: 2.1
+Category: Content
+Source: scss/element/_typography.scss:14
+
+Headings, lead text, inline code, highlighted text, and quotations inherit the
+configured COCO type scale and colors.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<article>
+  <h2>Build websites with COCO</h2>
+  <p class="lead">A lightweight, JavaScript-free CSS framework.</p>
+  <p>Use <mark>semantic HTML</mark> and document code with <code>SassDoc</code>.</p>
+  <blockquote>Styles should support the content.</blockquote>
+</article>
+```
+
+## Links
+
+Reference: 2.2
+Category: Content
+Source: scss/element/_default.scss:20
+
+Links use the configured foreground and hover colors. Keep meaningful link
+text and use buttons, rather than links, for actions that do not navigate.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<a href="#kss-link-target">Read the COCO documentation</a>
+```
+
+## Responsive media
+
+Reference: 2.3
+Category: Content
+Source: scss/element/_media.scss:4
+
+Images scale down without distortion. Iframes fill their parent, so place an
+iframe inside a container with an appropriate aspect ratio. A `figure` adds
+space before its centered `figcaption`.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<figure>
+  <img src="https://picsum.photos/seed/coco-kss/800/450" alt="Mountain landscape">
+  <figcaption>A responsive image with a caption.</figcaption>
+</figure>
+```
+
+## Divider
+
+Reference: 2.4
+Category: Content
+Source: scss/element/_divider.scss:3
+
+Use a thematic break to separate related content. The element receives the
+configured border color and no default raised border.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<p>Content before the break.</p>
+<hr>
+<p>Content after the break.</p>
+```
+
+## Attributed quotation
+
+Reference: 2.5
+Category: Content
+Source: scss/element/_typography.scss:31
+
+`.quote` groups a quotation and attribution with consistent spacing. Use a
+`blockquote` for the quoted content and a `figcaption` for its source.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<figure class="quote">
+  <blockquote>Good design makes the useful understandable.</blockquote>
+  <figcaption>— A useful attribution</figcaption>
+</figure>
+```
+
+## Buttons
+
+Reference: 3.1
+Category: Forms
+Source: scss/form/_button.scss:14
+
+Use a variant class to communicate an action's emphasis. Buttons support small,
+large, block, icon, focus, and disabled states.
+
+Modifiers:
+- .btn--primary: Primary action.
+- .btn--secondary: Secondary action.
+- .btn--outline-primary: Outlined primary action.
+- .btn--outline-secondary: Outlined secondary action.
+- .btn--primary-shadow: Primary action with an elevated shadow.
+- .btn--sm: A compact button.
+- .btn--lg: A large button.
+- .btn--block: A full-width button.
+- .btn--icon: Square padding for an icon-only button; provide an accessible name.
+
+Markup:
+```html
+<button class="btn {{ modifier_class }}" type="button">Button</button>
+```
+
+## Form controls
+
+Reference: 3.2
+Category: Forms
+Source: scss/form/_control.scss:6
+
+Text fields, text areas, and selects share sizing, focus, validation, and disabled
+states. Always associate a visible label with each control.
+
+Modifiers:
+- .form-control--sm: A compact control.
+- .form-control--lg: A large control.
+- .form-control--valid: A valid control.
+- .form-control--invalid: An invalid control.
+
+Markup:
+```html
+<label class="form-label" for="kss-email">Email address</label>
+<input class="form-control {{ modifier_class }}" id="kss-email" type="email" placeholder="hello@example.com">
+```
+
+## Checks and radios
+
+Reference: 3.3
+Category: Forms
+Source: scss/form/_check.scss:6
+
+`.form-check` aligns a custom checkbox or radio with its label. The control
+supports checked, indeterminate, focused, disabled, small, and large states.
+
+Modifiers:
+- .form-check--vertical-center: Vertically center the control and label.
+- .form-check--vertical-start: Align the control with the first line.
+- .form-check--sm: Use the small control size.
+- .form-check--lg: Use the large control size.
+
+Markup:
+```html
+<label class="form-check {{ modifier_class }}">
+  <input class="form-check__control" type="checkbox" checked>
+  <span class="form-check__label">Send release notifications</span>
+</label>
+```
+
+## Switches
+
+Reference: 3.4
+Category: Forms
+Source: scss/form/_switch.scss:6
+
+Use a switch for an immediately applied on/off setting. Preserve the native
+checkbox so keyboard, focus, checked, disabled, and right-to-left behavior work.
+
+Modifiers:
+- .form-switch--block: Put the label and switch at opposite edges.
+- .form-switch--vertical-center: Vertically center the control and label.
+- .form-switch--vertical-start: Align the control with the first line.
+- .form-switch--sm: Use the small switch size.
+- .form-switch--lg: Use the large switch size.
+
+Markup:
+```html
+<label class="form-switch {{ modifier_class }}">
+  <span class="form-switch__label">Enable notifications</span>
+  <input class="form-switch__control" type="checkbox" checked>
+</label>
+```
+
+## File input
+
+Reference: 3.5
+Category: Forms
+Source: scss/form/_file.scss:7
+
+The native file input receives a button-like file selector. It retains native
+focus and supports the standard small, large, and disabled input states.
+
+Modifiers:
+- .form-file--sm: A compact file input.
+- .form-file--lg: A large file input.
+
+Markup:
+```html
+<label class="form-label" for="kss-file">Upload an image</label>
+<input class="form-file {{ modifier_class }}" id="kss-file" type="file" accept="image/*">
+```
+
+## Range input
+
+Reference: 3.6
+Category: Forms
+Source: scss/form/_range.scss:5
+
+The range control provides a consistent track, thumb, focus ring, and disabled
+state while preserving the native value and keyboard behavior.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<label class="form-label" for="kss-range">Volume</label>
+<input class="form-range" id="kss-range" type="range" min="0" max="100" value="60">
+```
+
+## Fieldset and legend
+
+Reference: 3.7
+Category: Forms
+Source: scss/form/_fieldset.scss:5
+
+Group related controls with a fieldset and describe the group with its first
+legend. Consecutive fieldsets receive additional vertical separation.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<fieldset>
+  <legend>Contact preference</legend>
+  <label class="form-check"><input class="form-check__control" type="radio" name="kss-contact" checked> <span class="form-check__label">Email</span></label>
+  <label class="form-check"><input class="form-check__control" type="radio" name="kss-contact"> <span class="form-check__label">Telephone</span></label>
+</fieldset>
+```
+
+## Form groups
+
+Reference: 3.8
+Category: Forms
+Source: scss/form/_group.scss:6
+
+`.form-group` stacks a label, control, description, and feedback. Check groups
+can flow horizontally or vertically; row groups become two-column layouts when
+their named container is wide enough; stacked groups join adjacent controls.
+
+Modifiers:
+- .form-group--horizontal-check: Wrap checks in a horizontal row.
+- .form-group--vertical-check: Stack checks vertically.
+- .form-group--row: Create a responsive label/control row.
+- .form-group--stacked: Join adjacent controls into one visual group.
+
+Markup:
+```html
+<div class="form-group-container">
+  <div class="form-group {{ modifier_class }}">
+    <label class="form-label" for="kss-name">Name</label>
+    <input class="form-control" id="kss-name" type="text">
+    <small class="form-description">Enter your public display name.</small>
+  </div>
+</div>
+```
+
+## Validation feedback
+
+Reference: 3.9
+Category: Forms
+Source: scss/form/_validation.scss:5
+
+Place `.field-feedback` after its related control and connect the message with
+`aria-describedby`. Match valid or invalid feedback to the control state.
+
+Modifiers:
+- .field-feedback--valid: A successful validation message.
+- .field-feedback--invalid: An error validation message.
+
+Markup:
+```html
+<div class="form-group">
+  <label class="form-label" for="kss-username">Username</label>
+  <input class="form-control" id="kss-username" aria-describedby="kss-feedback">
+  <span class="field-feedback {{ modifier_class }}" id="kss-feedback">Username is available.</span>
+</div>
+```
+
+## Input group label
+
+Reference: 3.10
+Category: Forms
+Source: scss/form/_group-label.scss:5
+
+`.form-group-label` visually joins short text to a neighboring control. Use it
+inside a stacked form group and provide an accessible label for the input.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<label class="form-label" for="kss-price">Price</label>
+<div class="form-group form-group--stacked">
+  <span class="form-group-label" aria-hidden="true">€</span>
+  <input class="form-control" id="kss-price" type="number" aria-label="Price in euros">
+</div>
+```
+
+## Mixed form row
+
+Reference: 3.11
+Category: Forms
+Source: scss/form/_row.scss:5
+
+`.form-row--mixed` arranges different-width form groups in a wrapping row. Set
+`--inline-size` on a child group when it needs a preferred width.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<div class="form-row--mixed">
+  <div class="form-group"><label class="form-label" for="kss-city">City</label><input class="form-control" id="kss-city"></div>
+  <div class="form-group"><label class="form-label" for="kss-postcode">Postcode</label><input class="form-control" id="kss-postcode"></div>
+</div>
+```
+
+## Form description
+
+Reference: 3.12
+Category: Forms
+Source: scss/form/_description.scss:6
+
+Use `.form-description` for persistent help text and associate it with the
+control using `aria-describedby`.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<label class="form-label" for="kss-password">Password</label>
+<input class="form-control" id="kss-password" type="password" aria-describedby="kss-password-help">
+<small class="form-description" id="kss-password-help">Use at least 12 characters.</small>
+```
+
+## Form label
+
+Reference: 3.13
+Category: Forms
+Source: scss/form/_label.scss:5
+
+`.form-label` provides consistent label typography. Connect it to its control
+with `for` and the control's matching `id`.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<label class="form-label" for="kss-labelled-control">Email address</label>
+<input class="form-control" id="kss-labelled-control" type="email">
+```
+
+## Tables
+
+Reference: 4.1
+Category: Data
+Source: scss/element/_table.scss:13
+
+Wrap wide tables in `.table-responsive`. Variants can add stripes, hover
+feedback, compact spacing, rounded cells, or remove borders.
+
+Modifiers:
+- .table--striped: Alternating row backgrounds.
+- .table--hover: Highlight rows on hover.
+- .table--sm: Compact cell spacing.
+- .table--clear-border: Remove cell borders.
+- .table--in-line: Align the first and last cells with surrounding content.
+- .table--rounded: Round the outside cells.
+
+Markup:
+```html
+<div class="table-responsive">
+  <table class="table {{ modifier_class }}">
+    <caption>Framework releases</caption>
+    <thead><tr><th scope="col">Version</th><th scope="col">Status</th></tr></thead>
+    <tbody><tr><td>2.3.0</td><td>Current</td></tr><tr><td>2.2.0</td><td>Previous</td></tr></tbody>
+  </table>
+</div>
+```
+
+## Emoji effects
+
+Reference: 5.1
+Category: Effects
+Source: scss/element/_emoji.scss:13
+
+Emoji can be normalized with flat, grayscale, gray, or black rendering.
+
+Modifiers:
+- .flat: Increase contrast and flatten the colors.
+- .grayscale: Remove all color.
+- .gray: Render a gray silhouette.
+- .black: Render a black silhouette.
+
+Markup:
+```html
+<em class="oji {{ modifier_class }}" aria-hidden="true">📥</em>
+```
+
+## Image filters
+
+Reference: 5.2
+Category: Effects
+Source: scss/filters/_index.scss:13
+
+Wrap an image in `.filter` and add one effect class. The wrapper clips generated
+overlays correctly when it has the same dimensions as its image.
+
+Modifiers:
+- .seventyseven: Bright, faded 1970s tones.
+- .aden: Soft pastel light with a warm cast.
+- .amaro: A bright center and darker edges.
+- .brannan: High contrast with a metallic tint.
+- .brooklyn: Bright yellow-green highlights.
+- .clarendon: Brighter highlights and stronger shadows.
+- .earlybird: Faded Polaroid color with warm yellow.
+- .gingham: A subtle warm haze.
+- .hudson: Bright, cool blue tones.
+- .inkwell: High-contrast monochrome.
+- .chessboard: A neutral transparency grid.
+- .chessboard.is-light: A light transparency grid.
+- .chessboard.is-dark: A dark transparency grid.
+
+Markup:
+```html
+<figure class="filter {{ modifier_class }}">
+  <img src="https://picsum.photos/seed/coco-filter/800/450" alt="Landscape demonstrating the selected filter">
+</figure>
+```
+
+## Screen-reader-only content
+
+Reference: 6.1
+Category: Utilities
+Source: scss/element/_accessibility.scss:3
+
+`.sr-only` visually hides content while retaining it for assistive technology.
+Use it for context that is apparent visually but otherwise needs a text label.
+Elements focused with `tabindex="-1"` have their redundant outline removed.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<button class="btn btn--primary" type="button">
+  <span aria-hidden="true">×</span><span class="sr-only">Close dialog</span>
+</button>
+```
+
+## Hidden content
+
+Reference: 6.2
+Category: Utilities
+Source: scss/element/_utilities.scss:11
+
+`.hidden` and the native `[hidden]` attribute remove an element from layout and
+the accessibility tree. Use `.sr-only` instead when assistive tools still need
+the content.
+
+Modifiers:
+- .hidden: Hide the element completely.
+
+Markup:
+```html
+<span class="{{ modifier_class }}">This explanatory text may be hidden.</span>
+```
+
+## Heading utilities
+
+Reference: 6.3
+Category: Utilities
+Source: scss/element/_utilities.scss:26
+
+Use `.h1` through `.h6` when semantic heading level and visual size need to
+differ. These classes change font size only; choose the HTML element by document
+structure first.
+
+Modifiers:
+- .h1: First-level display size.
+- .h2: Second-level display size.
+- .h3: Third-level display size.
+- .h4: Fourth-level display size.
+- .h5: Fifth-level display size.
+- .h6: Sixth-level display size.
+
+Markup:
+```html
+<p class="{{ modifier_class }}">Heading-sized text</p>
+```
+
+## Copyable text
+
+Reference: 6.4
+Category: Utilities
+Source: scss/element/_typography.scss:46
+
+`.copy` selects all of an element's text when users interact with it. It is
+useful for identifiers and short values that are commonly copied.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<code class="copy">@blockchainhub/coco</code>
+```
+
+## Version indicator
+
+Reference: 7.2
+Category: Reference
+Source: scss/config/_info.scss:3
+
+Add `.coco.version` to an element to insert the framework version with CSS.
+Include a readable prefix in the element because the generated content alone
+should not carry essential information.
+
+Modifiers:
+- None
+
+Markup:
+```html
+<span class="coco version">COCO version </span>
+```
+
+# Sass API
+
+## escaping-characters
+
+Type: variable
+Source: scss/config/_escaping-characters.scss:2
+
+Characters to escape using SVG as data:image.
+
+Parameters:
+- None
+
+
+
+
+## em.oji
+
+Type: css
+Source: scss/element/_emoji.scss:24
+
+Emoji are ideograms and smileys used in electronic messages and web pages. Emoji exist in various genres.
+
+Parameters:
+- None
+
+
+
+
+## .filter.seventyseven
+
+Type: css
+Source: scss/filters/_1977.scss:5
+
+1977 effect. As the name suggests, this filter gives you a nostalgic 70’s feel by making photos brighter as well as faded.
+
+Parameters:
+- None
+
+
+
+
+## .filter.aden
+
+Type: css
+Source: scss/filters/_aden.scss:5
+
+Aden is famous for its retro, pastel-y look, which works great if you need to soften harsh lights.
+
+Parameters:
+- None
+
+
+
+
+## .filter.amaro
+
+Type: css
+Source: scss/filters/_amaro.scss:5
+
+This filter adds more light to the center of the photo and darkens around the edges.
+
+Parameters:
+- None
+
+
+
+
+## .filter.brannan
+
+Type: css
+Source: scss/filters/_brannan.scss:5
+
+Brannan adds high contrast and exposure to your photo, giving it some stylish metallic tint. This photo effect is soft and washed out, like a photo from old granny’s album.
+
+Parameters:
+- None
+
+
+
+
+## .filter.brooklyn
+
+Type: css
+Source: scss/filters/_brooklyn.scss:5
+
+Brooklyn brightens up your image and boosts its yellow tones. Depending on the image, it can give it an ethereal look.
+
+Parameters:
+- None
+
+
+
+
+## .filter.chessboard
+
+Type: css
+Source: scss/filters/_chessboard.scss:5
+
+Chessboard effect - black and white geometric checkered pattern. Mostly best for backgrounds.
+
+Parameters:
+- None
+
+
+
+
+## .filter.clarendon
+
+Type: css
+Source: scss/filters/_clarendon.scss:5
+
+Clarendon filter will brighten the highlights found in your photos, while also making the shadows a bit bolder.
+
+Parameters:
+- None
+
+
+
+
+## .filter.earlybird
+
+Type: css
+Source: scss/filters/_earlybird.scss:5
+
+Earlybird to get a retro “Polaroid” feel with soft faded colors and a hint of yellow.
+
+Parameters:
+- None
+
+
+
+
+## .filter.gingham
+
+Type: css
+Source: scss/filters/_gingham.scss:5
+
+Gingham muddy highlights, brightness, a slight haze and a subtle warm up of the tones by carefully applying red and magenta to selected parts of the image.
+
+Parameters:
+- None
+
+
+
+
+## .filter.hudson
+
+Type: css
+Source: scss/filters/_hudson.scss:5
+
+Hudson emphasizes light in your image and gives your photos a bluish, colder feel.
+
+Parameters:
+- None
+
+
+
+
+## .filter.inkwell
+
+Type: css
+Source: scss/filters/_inkwell.scss:5
+
+Inkwell adds high contrast and also makes your photos black and white.
+
+Parameters:
+- None
+
+
+
+
+## color
+
+Type: function
+Source: scss/function/_color.scss:13
+
+Get any color value from $colors (or any) Sass map.
+
+Parameters:
+- key (string): The key name of the color.
+- type (string): The type of the color group (base, dark, etc.).
+- only-color (boolean): If true, return only the color value.
+- map (map): The map to get the color from.
+
+Returns: color — The color value or the variable.
+
+
+## color-value
+
+Type: function
+Source: scss/function/_color.scss:43
+
+Get a raw color value from $colors (or any) Sass map.
+
+Parameters:
+- key (string): The key name of the color.
+- type (string): The type of the color group (base, dark, etc.).
+- map (map): The map to get the color from.
+
+Returns: color — The color value.
+
+
+## color-contrast
+
+Type: function
+Source: scss/function/_color.scss:63
+
+Get a white or black contrast color based on perceived brightness.
+Thanks for David Halford for this function: https://codepen.io/davidhalford/pen/ALrbEP
+
+Parameters:
+- color (color): The color to get the contrast color.
+
+Returns: color — The contrast color.
+
+
+## config
+
+Type: function
+Source: scss/function/_config.scss:12
+
+Get the value of a key from a map.
+
+Parameters:
+- key (string): The key name.
+- map (map): The map to get the value from.
+- custom-property (boolean): Whether to return the value as a CSS custom property.
+
+Returns: string — The value of the key.
+
+
+## get-css-variable
+
+Type: function
+Source: scss/function/_css-variable.scss:9
+
+Add the prefix value to a CSS custom properties.
+
+Parameters:
+- var (string): The name of the CSS custom property.
+
+Returns: string — The CSS custom property with the prefix.
+
+
+## font-size
+
+Type: function
+Source: scss/function/_font-size.scss:12
+
+Get the font size of a key from the $font-sizes map.
+
+Parameters:
+- key (string): The key name.
+- fluid (boolean): Whether to return the fluid font size.
+- scaler (number): The scaler value (15 = 15% smaller).
+- optimal-size (number): The optimal font size.
+
+Returns: string — The font size of the key.
+
+
+## responsive-font-size
+
+Type: function
+Source: scss/function/_font-size.scss:44
+
+Generate responsive font-size value using clamp().
+
+Parameters:
+- size (number): The font size.
+- scaler (number): The scaler value (15 = 15% smaller).
+- optimal-size (number): The optimal font size.
+
+Returns: string — The responsive font-size value.
+
+
+## setting
+
+Type: function
+Source: scss/function/_setting.scss:8
+
+Get a value from the $settings map.
+
+Parameters:
+- key (string): The key name.
+
+Returns: string — The value of the key.
+
+
+## split-values
+
+Type: function
+Source: scss/function/_spacer.scss:10
+
+Split a string into a list of values.
+
+Parameters:
+- value (string): The string to split.
+- separator (string): The separator to split by.
+
+Returns: list — The list of values.
+
+
+## spacer
+
+Type: function
+Source: scss/function/_spacer.scss:27
+
+Get spacer value from $spacers map.
+
+Parameters:
+- key (string): The key name.
+
+Returns: string — The value of the key.
+
+
+## spacer-clamp
+
+Type: function
+Source: scss/function/_spacer.scss:54
+
+Get value returned in a clamp from $spacers maps.
+
+Parameters:
+- min (string): The minimum value.
+- max (string): The maximum value.
+- optimal (string): The optimal value.
+
+Returns: string — The value returned in a clamp.
+
+
+## svg-escape
+
+Type: function
+Source: scss/function/_utilities.scss:24
+
+Escape a string to be used as a data URI.
+
+Parameters:
+- string (String): The string to escape.
+
+Returns: String — The escaped string.
+
+
+## breakpoint
+
+Type: mixin
+Source: scss/mixin/_breakpoint.scss:9
+
+Return a media query for a breakpoint based on min-width.
+
+Parameters:
+- breakpoint (string): The breakpoint name.
+- logic (string): The logic operator.
+
+
+Output: The media query.
+
+## btn-focus-helper
+
+Type: mixin
+Source: scss/mixin/_button.scss:11
+
+Generate a button focus ring.
+
+Parameters:
+- type (string): The type of the button for the color value.
+- focus (boolean): If the focus ring should be generated.
+
+
+Output: The generated focus ring.
+
+## btn-variant
+
+Type: mixin
+Source: scss/mixin/_button.scss:41
+
+Generate a button variant.
+
+Parameters:
+- type (string): The type of the button for the color value.
+- focus (boolean): If the focus ring should be generated.
+
+
+Output: The generated button variant.
+
+## btn-variant-outline
+
+Type: mixin
+Source: scss/mixin/_button.scss:83
+
+Generate a button variant with outline.
+
+Parameters:
+- type (string): The type of the button for the color value.
+- focus (boolean): If the focus ring should be generated.
+
+
+Output: The generated button variant with outline.
+
+## generate-color-variables
+
+Type: mixin
+Source: scss/mixin/_color.scss:9
+
+Generate color variables.
+
+Parameters:
+- colors (map): The colors map.
+- selector (string): The selector.
+
+
+Output: The generated color variables.
+
+## set-css-variable
+
+Type: mixin
+Source: scss/mixin/_css-variable.scss:9
+
+Declare CSS custom properties to add the prefix.
+
+Parameters:
+- vars (map): The CSS custom properties.
+
+
+Output: Prefixed CSS custom-property declarations.
+
+## font-face
+
+Type: mixin
+Source: scss/mixin/_font-face.scss:12
+
+Generate font-face declaration.
+
+Parameters:
+- font-family (string): The font family name.
+- src (string): The font source.
+- font-weight (number): The font weight.
+- font-style (string): The font style.
+- font-display (string): The font display.
+
+
+Output: The generated font-face declaration.
+
+## focus-ring
+
+Type: mixin
+Source: scss/mixin/_form.scss:15
+
+Generate a form focus ring.
+
+Parameters:
+- type (string): The type of focus ring (box-shadow, outline).
+- border-color (string): The border color.
+- ring-color (string): The ring color.
+- box-shadow-type (string): The box shadow type (outset, inset).
+- ring-size (string): The ring width.
+- ring-offset (string): The ring offset.
+
+
+Output: The generated focus ring.
+
+## field-disabled
+
+Type: mixin
+Source: scss/mixin/_form.scss:47
+
+Style field disabled input states.
+
+Parameters:
+- background (string): The background color.
+- border (string): The border color.
+
+
+Output: The generated disabled input states.
+
+## field-icon
+
+Type: mixin
+Source: scss/mixin/_form.scss:60
+
+Get custom icon background for input and select fields.
+
+Parameters:
+- icon (string): The icon as an SVG string.
+- color (string): The color.
+
+
+Output: The generated icon background.
+
+## form-group-stacked
+
+Type: mixin
+Source: scss/mixin/_form.scss:70
+
+Create a form group stacked layout with custom breakpoint.
+
+Parameters:
+- breakpoint (string): The breakpoint.
+
+
+Output: The generated form group stacked layout.
+
+## generate-styles
+
+Type: mixin
+Source: scss/mixin/_generator.scss:10
+
+Generate all the styles.
+
+Parameters:
+- None
+
+
+
+
+## layout-center
+
+Type: mixin
+Source: scss/mixin/_layout.scss:12
+
+Create center layout.
+
+Parameters:
+- gap (string): The gap between the container and the content.
+- max-inline-size (string): The maximum width (inline-size) of the container.
+
+
+Output: The centered layout.
+
+## layout-stack
+
+Type: mixin
+Source: scss/mixin/_layout.scss:32
+
+Create stack layout.
+
+Parameters:
+- gap (string): The gap between the elements.
+- inline-size (boolean): Whether it has explicit width (inline-size).
+- align (string): The horizontal alignment of the elements.
+- important (boolean): Whether it should use the !important keyword.
+
+
+Output: The stacked layout.
+
+## layout-grid
+
+Type: mixin
+Source: scss/mixin/_layout.scss:77
+
+Create grid layout.
+
+Parameters:
+- gap (string): The gap between the elements.
+- minimum (string): The minimum width (inline-size) of the elements.
+
+
+Output: The grid layout.
+
+## layout-sidebar
+
+Type: mixin
+Source: scss/mixin/_layout.scss:101
+
+Create sidebar layout.
+
+Parameters:
+- gap (string): The gap between the elements.
+- inline-size (string): The width (flex-basis) of the sidebar.
+
+
+Output: The sidebar layout.
+
+## layout-flex
+
+Type: mixin
+Source: scss/mixin/_layout.scss:131
+
+Create instinctive flex layout.
+
+Parameters:
+- gap (string): The gap between the elements.
+- inline-size (string): The width (inline size) of the elements.
+
+
+Output: The instinctive flex layout.
+
+## selection
+
+Type: mixin
+Source: scss/mixin/_selection.scss:10
+
+Set the ::selection of an element with automatic foreground color.
+
+Parameters:
+- background (color): The background color.
+- foreground (color): The foreground color. If null, the color will be automatically calculated.
+- is-direct (boolean): If true, the selection will be applied to the current element if false it will be applied to its children.
+
+
+Output: The selection mixin.
+
+## transition
+
+Type: mixin
+Source: scss/mixin/_transition.scss:10
+
+Generates transition related declarations.
+
+Parameters:
+- duration (string): The duration of the transition.
+- property (string): The property to which the transition is applied.
+- timing-function (string): The speed curve of the transition.
+
+
+Output: The generated transition declarations.
+
+## visually-hidden
+
+Type: mixin
+Source: scss/mixin/_utilities.scss:9
+
+Hide something from the screen but keep it visible for assistive technology.
+
+Parameters:
+- None
+
+
+Output: The visually hidden mixin.
+
+## text-ellipsis
+
+Type: mixin
+Source: scss/mixin/_utilities.scss:25
+
+Crop text and display an ellipsis with multiline.
+
+Parameters:
+- number-of-lines (number): The number of lines.
+
+
+Output: The text ellipsis mixin.
+
+## scrollbar
+
+Type: mixin
+Source: scss/mixin/_utilities.scss:51
+
+Custom scrollbar.
+
+Parameters:
+- thumb-background-color (string): The background color of the thumb.
+- thumb-background-color-hover (string): The background color of the thumb when hovered.
+- track-background-color (string): The background color of the track.
+- size (string): The size of the scrollbar.
+- border-radius (string): The border radius of the scrollbar.
+
+
+Output: The scrollbar mixin.
+
+## clear-btn
+
+Type: mixin
+Source: scss/mixin/_utilities.scss:80
+
+Clear default button styles.
+
+Parameters:
+- None
+
+
+Output: The clear button mixin.
+
+## a11y-card-link
+
+Type: mixin
+Source: scss/mixin/_utilities.scss:101
+
+More accessible card linking.
+
+Parameters:
+- link (string): The link element's selector.
+- at-root (boolean): Whether to use @at-root.
+
+
+Output: The a11y card link mixin.
+
+## word-wrap
+
+Type: mixin
+Source: scss/mixin/_utilities.scss:127
+
+Break long string.
+
+Parameters:
+- None
+
+
+Output: The word-wrap mixin.
+
+## short-ring
+
+Type: mixin
+Source: scss/mixin/_utilities.scss:139
+
+Generate a focus ring.
+
+Parameters:
+- type (string): The type of the focus ring.
+- btn-type (string): The type - hence color - of the button.
+
+
+Output: The focus ring mixin.
+
+## generate-variables
+
+Type: mixin
+Source: scss/mixin/_variables.scss:11
+
+Generate CSS custom properties based on a map.
+
+Parameters:
+- map (map): The map to generate the CSS custom properties from.
+- exclude (list): The list of keys (or a segment of it) to exclude.
+- include (list): The list of keys (or a segment of it) to include.
+
+
+Output: The generated CSS custom properties.
