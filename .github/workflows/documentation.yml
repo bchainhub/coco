@@ -75,7 +75,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin doc
           git worktree add --detach "$DEPLOY_DIRECTORY" origin/doc
-          git -C "$DEPLOY_DIRECTORY" rm --recursive --force --ignore-unmatch .
+          git -C "$DEPLOY_DIRECTORY" rm -r -f --ignore-unmatch .
           cp -R .site/. "$DEPLOY_DIRECTORY/"
           touch "$DEPLOY_DIRECTORY/.nojekyll"
           git -C "$DEPLOY_DIRECTORY" add --all
