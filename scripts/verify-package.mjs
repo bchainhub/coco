@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { normalizePackManifest } from './package-manifest.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const packageData = JSON.parse(await readFile(resolve(root, 'package.json'), 'utf8'));
@@ -26,9 +27,15 @@ const pack = spawnSync('npm', ['pack', '--dry-run', '--json'], {
 if (pack.status !== 0) {
   errors.push(`npm pack failed: ${pack.stderr.trim()}`);
 } else {
-  const [manifest] = JSON.parse(pack.stdout);
+  const packResult = JSON.parse(pack.stdout);
+  const manifest = normalizePackManifest(packResult);
+
+  if (!manifest?.files || !Array.isArray(manifest.files)) {
+    errors.push('npm pack returned an invalid package manifest.');
+  }
+
   const allowedFiles = /^(?:dist\/[^/]+\.css|LICENSE|README\.md|package\.json)$/;
-  const unexpectedFiles = manifest.files
+  const unexpectedFiles = (manifest?.files ?? [])
     .map((file) => file.path)
     .filter((file) => !allowedFiles.test(file));
 
