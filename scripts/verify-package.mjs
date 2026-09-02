@@ -6,6 +6,11 @@ import { normalizePackManifest } from './package-manifest.mjs';
 const root = resolve(import.meta.dirname, '..');
 const packageData = JSON.parse(await readFile(resolve(root, 'package.json'), 'utf8'));
 const errors = [];
+const expectedRepository = 'git+https://github.com/bchainhub/coco.git';
+
+if (packageData.repository?.url !== expectedRepository) {
+  errors.push(`repository.url must be ${expectedRepository} for npm provenance.`);
+}
 
 for (const field of ['dependencies', 'peerDependencies', 'optionalDependencies']) {
   if (packageData[field] && Object.keys(packageData[field]).length) {

@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: README
-    url: https://github.com/cryptohub-digital/coco#readme
+    url: https://github.com/bchainhub/coco#readme
     about: Read the installation and usage guide
   - name: Documentation
-    url: https://cryptohub-digital.github.io/coco/
+    url: https://bchainhub.github.io/coco/
     about: Browse the component documentation and examples

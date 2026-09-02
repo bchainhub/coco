@@ -74,6 +74,7 @@ if (styleguide.errors?.overwrittenSectionsIds?.length) {
 }
 
 await makeStyleguidePathsRelative(resolve(output, 'styleguide'));
+await materializeStyleguideModifiers(resolve(output, 'styleguide'));
 
 await writeFile(resolve(output, 'index.html'), `<!DOCTYPE html>
 <html lang="en">
@@ -122,6 +123,60 @@ async function makeStyleguidePathsRelative(directory) {
       .replaceAll('href="/', 'href="./')
       .replaceAll('src="/', 'src="./'), 'utf8');
   }));
+}
+
+async function materializeStyleguideModifiers(directory) {
+	const previewFiles = (await readdir(directory))
+		.filter((file) => /^preview-.+\.html$/.test(file));
+	let generatedCount = 0;
+
+	await Promise.all(previewFiles.map(async (file) => {
+		const path = resolve(directory, file);
+		const html = await readFile(path, 'utf8');
+		let modifierIndex = 0;
+		const generatedPages = [];
+		let rendered = html.replace(/<iframe\b[\s\S]*?<\/iframe>/g, (iframe) => {
+			const modifier = iframe.match(/\bdata-modifier="([^"]+)"/)?.[1];
+			const source = iframe.match(/\bsrc="\.\/(fullpage-[^"]+\.html)"/)?.[1];
+			if (!modifier || !source) return iframe;
+
+			const classNames = modifier.match(/\.[a-zA-Z_][\w-]*/g)
+				?.map((className) => className.slice(1))
+				.join(' ');
+			if (!classNames) {
+				throw new Error(`Unsupported KSS modifier selector: ${modifier}`);
+			}
+
+			modifierIndex += 1;
+			generatedCount += 1;
+			const variant = source.replace(/\.html$/, `-modifier-${modifierIndex}.html`);
+			generatedPages.push({ classNames, modifier, source, variant });
+			return iframe.replace(`src="./${source}"`, `src="./${variant}"`);
+		});
+		for (const { modifier, source, variant } of generatedPages) {
+			rendered = rendered.replaceAll(
+				`href="./${source}?modifier=${modifier}"`,
+				`href="./${variant}"`,
+			);
+		}
+
+		await Promise.all(generatedPages.map(async ({ classNames, source, variant }) => {
+			const fullpage = await readFile(resolve(directory, source), 'utf8');
+			if (!fullpage.includes('{{ modifier_class }}')) {
+				throw new Error(`KSS modifier placeholder missing from ${source}`);
+			}
+			await writeFile(
+				resolve(directory, variant),
+				fullpage.replaceAll('{{ modifier_class }}', classNames),
+				'utf8',
+			);
+		}));
+		await writeFile(path, rendered, 'utf8');
+	}));
+
+	if (!generatedCount) {
+		throw new Error('KSS generated no modifier previews');
+	}
 }
 
 async function renderLlmDocumentation(groups, sassEntries, version, destination) {

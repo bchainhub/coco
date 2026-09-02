@@ -15,11 +15,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cryptohub-digital/coco.git"
+    "url": "git+https://github.com/bchainhub/coco.git"
   },
   "bugs": {
-    "url": "https://github.com/blockchainhub/coco/issues"
+    "url": "https://github.com/bchainhub/coco/issues"
   },
+  "homepage": "https://bchainhub.github.io/coco/",
   "scripts": {
     "autoprefixer": "postcss dist/*.css -u autoprefixer --replace --no-map",
     "audit": "npm audit --audit-level=low",
